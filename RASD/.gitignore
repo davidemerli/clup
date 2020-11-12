@@ -1,0 +1,11 @@
+*
+!.gitignore
+!main.tex
+!main.bib
+!commandsFile.tex
+!Files
+!Files/*
+!Images
+!Images/*
+!utils
+!utils/*

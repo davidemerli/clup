@@ -1,0 +1,104 @@
+\input{commandsFile}
+
+\begin{document}
+
+%TITLE PAGE
+
+\begin{titlepage}
+
+  %LOGO
+  \begin{center}
+    \textbf{\small{CLup project - Davide Merli Dario Passarello}} \\ [2cm]
+  \end{center}
+
+
+  %TITLE 
+  \begin{center}
+    \textbf{\Huge{CLup: Customer Line Up}}
+
+    \includegraphics[scale=2]{Images/logo.png} \\ [1cm]
+
+    %Replace the text string with your title
+    \textbf{\Huge{Requirement Analysis and Specification Document}} \\ [7cm]
+  \end{center}
+
+  \centering
+  \includegraphics[scale=0.6]{Images/PolimiLogo.png}
+
+\end{titlepage}
+
+%Define deliverable specific info
+%Replace cell contents where needed
+\begin{table}[h!]
+  \begin{tabu} to \textwidth { X[0.3,r,p] X[0.7,l,p] }
+    \hline
+
+    \textbf{Deliverable:}   & RASD                                                                   \\
+    \textbf{Title:}         & Requirement Analysis and Verification Document                         \\
+    \textbf{Authors:}       & Davide Merli, Dario Passarello                                         \\
+    \textbf{Version:}       & 1.0                                                                    \\
+    \textbf{Date:}          & 13-November-2020                                                       \\
+    \textbf{Download page:} & https://github.com/davidemerli/MerliPassarello/                        \\
+    \textbf{Copyright:}     & Copyright © 2020, Davide Merli, Dario Passarello – All rights reserved \\
+    \hline
+  \end{tabu}
+\end{table}
+
+
+
+
+\setcounter{page}{2}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Table of Contents}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{{\section{Introduction}}}
+\label{sect:introduction}
+\input{Files/introduction}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{{\section{Overall Description}}}
+\label{sect:overview}
+\input{Files/overview}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{{\section{Specific Requirements}}}
+\label{sect:requirements}
+\input{Files/requirements}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{{\section{Formal Analysis Using Alloy}}}
+\label{sect:alloy}
+\input{Files/alloy}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{{\section{Effort Spent}}}
+\label{sect:effort}
+\input{Files/effort}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plain}
+\bibliography{main}
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+\end{document}
