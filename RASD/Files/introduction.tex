@@ -1,22 +1,64 @@
-This document has been prepared to help you approaching Latex as a formatting tool for your Travlendar+ deliverables. This document suggests you a possible style and format for your deliverables and contains information about basic formatting commands in Latex. A good guide to Latex is available here \href{https://tobi.oetiker.ch/lshort/lshort.pdf}{https://tobi.oetiker.ch/lshort/lshort.pdf}, but you can find many other good references on the web.
+\subsection{Purpose}
 
-Writing in Latex means writing textual files having a \texttt{.tex} extension and exploiting the Latex markup commands for formatting purposes. Your files then need to be compiled using the Latex compiler. Similarly to programming languages, you can find many editors that help you writing and compiling your latex code. Here \href{https://beebom.com/best-latex-editors/}{https://beebom.com/best-latex-editors/} you have a short oviewview of some of them. Feel free to choose the one you like.
+Due to the recent coronavirus global pandemic, many of the human activities have been drastically affected and restricted by the need to contain the virus diffusion.
+Norms and regulations may vary from contry to country, but almost everywhere the main focus is to mantain social distancing to avoid diffusion from one person to another.
+One of the most difficult, yet absolutely essential, activity to fullfil is grocery shopping.
 
-Include a subsection for each of the following items\footnote{By the way, what follows is the structure of an itemized list in Latex.}:
+
+Stores are forced to restrain access to avoid too many people inside the building,
+and this produce endless lines out of the stores. This can both increase the danger for people waiting for their turn and force the shops to regulate customers even outside the structure.
+
+
+CLup aims to reduce heavily the issues involving customer queues outside of stores by permitting clients to keep track of their position in the store queue or book in a visit in advance with an easy to use application.
+
+
+On the other hand, CLup also will provide a simple (but very customizable and scalable) system for the stores to integrate the queue monitoring tools into their everyday workflow, without the absolute need to buy expensive hardware.
+
+
+Moreover, CLup will take in consideration the fact that not every customer has the same familiarity with todays technology.
+In addiction to a straightforward interface and UX, the system will permit the stores to hand out tickets on the spot. It should be also possible to improve the overall experience in line even to the customers that do not use the CLup application, thanks to the monitoring tools that will be made available.
+
+
+CLup has the goal to ease the struggles for customers and store workers and save a lot of time that would have been lost waiting for hours in queues. This is an important improvement, even in times not as trying as the current coronavirus emergency.
+A well integrated system taking advantage of the CLup service can even boost sales as clients are more willing to go shopping if they know they won't be loosing time; store owners will also have the possibility to check and profit from statistics about user entrances and average shopping time.
+
+\bigskip
+
+\pagebreak
+
+\subsubsection{Goals}
 \begin{itemize}
-    \item
-          Purpose: here we include the goals of the project
-    \item
-          Scope: here we include an analysis of the world and of the shared phenomena
-    \item
-          Revision history
-    \item
-          Reference Documents
-    \item
-          Document Structure
+
+      \item \textbf{G1}: Avoid exceeding the maximum number of customer inside the store in each supermarket
+
+      \item \textbf{G2}: Reducing the number of customer waiting physically in line in front of the supermarket entrance
+
+      \item \textbf{G3}: Allow authenticated CLup customers to book for a visit to the supermarket at a desired time or as soon as possible taking in account the time to reach the shop and its crowdedness
+
+      \item \textbf{G4}: Let every customer have the possibility to retrieve a ticket regardless of the technology available to him
+
+      \item \textbf{G5}: Give access to the store to anonymous statistic regarding the people coming to the store
+
+      \item \textbf{G6}: Provide a simple interface to book tickets as customers
+
+      \item \textbf{G7}: Provide a simple interface for the store operators to allow and monitor entrances
+
+      \item \textbf{G8}: Show a customer using the CLup app an estimation of the current waiting time to enter with the supermarket, taking into account the time needed to get to the shop from the place where the customer is located
+
+      \item \textbf{G9}: Alert a customer with a CLup ticket to go to the entrance of the shop when the time to enter is near
 \end{itemize}
-Below you see how to define the header for a subsection.
+
 \subsection{Scope}
-... Here you see a subsubsection
-\subsubsection{World Phenomena}
-%what you write here is a comment that is not shown in the final text
+CLup positions itself as an intermediary between stores and customers. Clients can book entrances and retrieve tickets through the application, and the stores communicate with the CLup backend to update entrances, leavings and the capacity of the building.
+
+
+The mobile application can be used by customers to monitor their time in queue, get notifications when they should approach the entrance and get a time estimation before it's their turn to enter; it can also be used by store employees to manually update the store live information.
+
+
+Furthermore, CLup will provide a simple but powerful REST API that can be easily exploited to automate completely the process of updating live store information.
+
+\pagebreak
+
+\subsection{Definitions, Acronyms, Abbreviations}
+\subsection{Reference Documents}
+\subsection{Document structure}
