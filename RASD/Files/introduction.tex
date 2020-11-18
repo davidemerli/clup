@@ -1,28 +1,39 @@
 \subsection{Purpose}
 
+\subsubsection{Problem Analysis}
+
 Due to the recent coronavirus global pandemic, many of the human activities have been drastically affected and restricted by the need to contain the virus diffusion.
 Norms and regulations may vary from contry to country, but almost everywhere the main focus is to mantain social distancing to avoid diffusion from one person to another.
-One of the most difficult, yet absolutely essential, activity to fullfil is grocery shopping.
+One of the most difficult, yet absolutely essential activity to fullfil is grocery shopping.
 
+\medskip
 
 Stores are forced to restrain access to avoid too many people inside the building,
 and this produce endless lines out of the stores. This can both increase the danger for people waiting for their turn and force the shops to regulate customers even outside the structure.
 
+\medskip
 
 CLup aims to reduce heavily the issues involving customer queues outside of stores by permitting clients to keep track of their position in the store queue or book in a visit in advance with an easy to use application.
 
+\medskip
 
 On the other hand, CLup also will provide a simple (but very customizable and scalable) system for the stores to integrate the queue monitoring tools into their everyday workflow, without the absolute need to buy expensive hardware.
 
+\medskip
 
-Moreover, CLup will take in consideration the fact that not every customer has the same familiarity with todays technology.
+Moreover, CLup will take in consideration the fact that not every customer has the same familiarity with today's technology.
 In addiction to a straightforward interface and UX, the system will permit the stores to hand out tickets on the spot. It should be also possible to improve the overall experience in line even to the customers that do not use the CLup application, thanks to the monitoring tools that will be made available.
-
-
+\medskip
 CLup has the goal to ease the struggles for customers and store workers and save a lot of time that would have been lost waiting for hours in queues. This is an important improvement, even in times not as trying as the current coronavirus emergency.
-A well integrated system taking advantage of the CLup service can even boost sales as clients are more willing to go shopping if they know they won't be loosing time; store owners will also have the possibility to check and profit from statistics about user entrances and average shopping time.
+A well integrated system taking advantage of the CLup service can even boost sales: clients are more willing to go shopping if they know they won't be loosing time; store owners will also have the possibility to check and profit from statistics about user entrances and average shopping time.
 
-\bigskip
+\subsubsection{Document Purpose}
+
+The purpose of this document is to analyze the problem taking in consideration the real needs of the customers and shop workers.
+This RASD describes in detail the functional and non-functional requirements of the S2B and includes exhaustive descriptions about typical use cases from the actors that will take part of the system.
+Hence, this document is addressed to the developers of the S2B as well as the companies that want to integrate CLup services into their workflow.
+
+\vfill
 
 \pagebreak
 
@@ -37,7 +48,7 @@ A well integrated system taking advantage of the CLup service can even boost sal
 
       \item \textbf{G4}: Let every customer have the possibility to retrieve a ticket regardless of the technology available to him
 
-      \item \textbf{G5}: Give access to the store to anonymous statistic regarding the people coming to the store
+      \item \textbf{G5}: Give access to the store to anonymous statistics regarding the people coming to the store
 
       \item \textbf{G6}: Provide a simple interface to book tickets as customers
 
@@ -51,14 +62,30 @@ A well integrated system taking advantage of the CLup service can even boost sal
 \subsection{Scope}
 CLup positions itself as an intermediary between stores and customers. Clients can book entrances and retrieve tickets through the application, and the stores communicate with the CLup backend to update entrances, leavings and the capacity of the building.
 
+\medskip
 
 The mobile application can be used by customers to monitor their time in queue, get notifications when they should approach the entrance and get a time estimation before it's their turn to enter; it can also be used by store employees to manually update the store live information.
 
+\medskip
 
 Furthermore, CLup will provide a simple but powerful REST API that can be easily exploited to automate completely the process of updating live store information.
+
+\vfill
 
 \pagebreak
 
 \subsection{Definitions, Acronyms, Abbreviations}
+
+\subsubsection{Acronyms}
+
+\begin{itemize}
+      \item \textbf{S2B}: Software To Be
+      \item \textbf{RASD}: Requirement Analysis and Specifications Documents
+      \item \textbf{REST}: REpresentational State Transfer
+      \item \textbf{API}: Application Programming Interface
+      \item \textbf{UX}: User Experience
+      \item \textbf{UI}: User Interface
+\end{itemize}
+
 \subsection{Reference Documents}
 \subsection{Document structure}
