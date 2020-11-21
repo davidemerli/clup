@@ -1,36 +1,41 @@
 \input{commandsFile}
 
 \begin{document}
-
 %TITLE PAGE
 
 \begin{titlepage}
-
-  %LOGO
   \begin{center}
-    \textbf{\small{CLup project - Davide Merli Dario Passarello}} \\ [2cm]
+
+    \HUGE \textbf{CLup} \\[0.5cm]
+    \LARGE Customers Line-Up
+
+    \vfill
+
+    \Huge \textbf{RASD} \\
+    \LARGE Requirement Analysis and Specification Document \\[2cm]
+
+    \begin{multicols}{2}
+      \large
+      \begin{flushleft}
+        Software Engineering II Project \\
+        Computer Science and Engineering\\
+        Politecnico di Milano\\
+        Version 1.0 - Date \\
+      \end{flushleft}
+      \begin{flushright}
+        \includegraphics[scale=0.6]{Images/PolimiLogo.png} \\
+        Davide Merli - 10578363\\
+        Dario Passarello - 10566467 \\
+      \end{flushright}
+    \end{multicols}
   \end{center}
-
-
-  %TITLE 
-  \begin{center}
-    \textbf{\Huge{CLup: Customer Line Up}}
-
-    \includegraphics[scale=2]{Images/logo.png} \\ [1cm]
-
-    %Replace the text string with your title
-    \textbf{\Huge{Requirement Analysis and Specification Document}} \\ [7cm]
-  \end{center}
-
-  \centering
-  \includegraphics[scale=0.6]{Images/PolimiLogo.png}
 
 \end{titlepage}
 
 %Define deliverable specific info
 %Replace cell contents where needed
 \begin{table}[h!]
-  \begin{tabu} to \textwidth { X[0.3,r,p] X[0.7,l,p] }
+  \begin{tabu} to \textwidth { X[0.4,r,p] X[0.7,l,p] }
     \hline
 
     \textbf{Deliverable:}   & RASD                                                                   \\
@@ -62,31 +67,31 @@
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
-{{\section{Introduction}}}
+\section{Introduction}
 \label{sect:introduction}
 \input{Files/introduction}
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
-{{\section{Overall Description}}}
+\section{Overall Description}
 \label{sect:overview}
 \input{Files/overview}
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
-{{\section{Specific Requirements}}}
+\section{Specific Requirements}
 \label{sect:requirements}
 \input{Files/requirements}
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
-{{\section{Formal Analysis Using Alloy}}}
+\section{Formal Analysis Using Alloy}
 \label{sect:alloy}
 \input{Files/alloy}
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
-{{\section{Effort Spent}}}
+\section{Effort Spent}
 \label{sect:effort}
 \input{Files/effort}
 
