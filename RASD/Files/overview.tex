@@ -1,24 +1,59 @@
+%TODO In this document some things has to be relocated
 \subsection{Product Perspective}
-\setlength{\parskip}{1em}
 \subsubsection{User scenarios}
 In this section some user scenario are shown in order to explain in real life settings how the CLup application works
 
+\medskip
+
 \textbf{Scenario 1: The Jet Market}
 With the ``Stay home'' ordeal due to COVID-19 the ``Jet Market'', a mid sized grocery store in the city of Springfield saw a sudden increase of customers, but at the same time his not too big capacity was halved due to social distancing measures. These events lead to the formation of long queues of people out of the store premises in peak hours. The store manager in order to improve the service quality decided to adopt the CLup queueing system. Upon signing the contract he received a business account, and set up the shop systems with the help of CLup advisors and technicians. In the first day of CLup the queue was long as the day before, but some people seeing CLup adverts, downloaded the application. In the following days more and more people seeing that CLup allows to skip the queue by booking the visit beforehand downloaded the application. After some weeks the ``Jet Market'' can reserve up to the 60 \% of the store capacity to CLup booked customers, and the remaining is used from non CLup customer. The ``Jet Market'' manager is very happy because the queue are a lot shorter and his customer started to distribute their visit more uniformly during the day.
+
+\medskip
 
 \textbf{Scenario 2: Bartolomeo}
 Bartolomeo is an old grandfather. Due to his age he's not familiar to the modern technology, he doesn't have a smartphone. His favorite supermarket decided recently to adopt CLup, due to a long queue forming outside the store. 
 Before CLup adoption Bartolomeo waited up to one hour to enter the supermarket on peak times. After the installation, for customer not confident with the modern technologies, like Bartolomeo, things did not become more complex. Bartolomeo has only to retrieve a ticket and wait until his number is called. If there are a lot of people in queue before him, he could take a sit on the bench the park near the supermarket and return in time for when his number is called, because an estimation of the entrance hour is written in the ticket.
 
+\medskip
+
 \textbf{Scenario 3: Slightly late}
 Marcello booked the 5:45 PM slot at the supermarket near his workplace. This slot allows him to enter by the 6:00 PM time slot to do some grocery shopping after work. He normally ends his workday at 5:30 PM, but his colleague asked him some help just before him leaving. He scanned the ticket at 6:05 PM, just two minutes after the 3 minute tolerance configured from the store using the CLup configuration panel. Marcello talked to the general customer assistance desk located near the gate, seeing his virtual ticket on CLup the clerk consulted the CLup operator application on his tablet and checked that the store is not totally full, the clerk scanned Marcello's ticket QR with the tablet authorizing his entrance besides his slight delay and pressed the button to open manually the gate.
+
+\medskip
 
 \textbf{Scenario 4: Paperless}
 For various reasons Adriana could not plan in advance when she can go to do grocery shopping at her favorite store. Even if she does not book her entrance in advance she use CLup to see statistics about the occupancy of the supermarket at every hour try, within her busy schedule, to avoid peak hours. When she is near the supermarket, she creates a ticket to enter as soon as possible, this ticket is equivalent to the one printed to the emitter but it's paperless. To avoid to stay in front of the entrance Adriana waits in her car until CLup notifies her that she should go to the entrance because in a short time she will enter the supermarket.
 
+\medskip
+
 \textbf{Scenario 5: No show}
 Luigi booked an entrance for the 4:00 - 4:15 PM slot. He couldn't get to the supermarket but forgot to cancel his booking even if he received some notifications before his time. At 4:20 PM the late tolerance time ended. The store at the time is unusually full and some people are waiting outside. CLup system allowed one person more to enter the store replacing Luigi that didn't come.
 
+\medskip
+
+
+\subsubsection{The world and the machine}
+In this paragraph the system will be described using ``The World and The Machine'' model proposed by M. Jackson.
+At a coarse grain CLup is composed from a central system (the machine) and the central system relates with some components that allow shared phenomena between the world and the machine happen
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Images/system.png}
+    \caption{\label{fig:Coarse_Grain_System}``The Machine'' and the components interfacing with ``The world''}
+\end{figure}
+
+\subsection{Shared phenomena}
+%TODO: Probably to be relocated
+Here is a list of shared phenomena happening in CLup
+\begin{itemize}[label={}]
+    \item SP1 The gate opens and lets the customer in the store (Machine Controlled)
+    \item SP2 The customer scans his ticket at the gate (World Controlled)
+    \item SP3 The customer leaves the store and their exit is counted by a people counting system (World Controlled)
+    \item SP4 The customer books a ticket to enter the shop with the Customer Applicative (World Controlled)
+    \item SP5 The customer receive a notification when the time to enter is near (Machine Controlled)
+    \item SP6 The customer presses the button to request a paper tickets (World Controlled)
+    \item SP7 The customer receives a ticket from the ticket printer and an estimated waiting time (Machine Controlled)
+    \item SP8 The display at the entrance shows the next ticket called to enter (Machine Controlled)
+\end{itemize}
 
 \subsubsection{Interfacing with external systems}
 The S2B have some interfaces with some other external system used to provide data to CLup 
