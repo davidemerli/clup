@@ -1,1 +1,437 @@
-Organize this section according to the rules defined in the project description. 
+\section{Specific Requirements}
+
+\subsection{External Interface Requirements}
+\subsubsection{User Interfaces}
+\subsubsection{Hardware Interfaces}
+\subsubsection{Software Interfaces}
+\subsubsection{Communication Interfaces}
+\subsection{Functional Requirements}
+\subsubsection{Use cases}
+    Here is a list of relevant use cases for the S2B
+    \smallskip
+    
+    \rowcolors{2}{gray!25}{white}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{C{2cm}L{10.5cm}C{2.6cm}}
+        \rowcolor{gray!50}
+        Label & Use Case       \\
+        UC1 & Customer Registration \\
+        UC2 & Customer Authentication \\
+        UC3 & Customer search for the store page\\
+        UC4 & Customer adds/removes a store to their favorites list\\
+        UC5 & Customer books a visit in a store \\
+        UC6 & Customer creates/edits a shopping list \\
+        UC7 & Customer create a numbered virtual ticket to enter a store as soon as there is a place available \\
+        UC8 & Customer creates a physical numbered ticket \\
+        UC9 & Customer cancels a previously created ticket \\
+        UC10 & Customer scans the ticket in an access control system to enter \\
+        UC11 & An user exits the store through an exit with a people counter installed \\
+        UC12 & A store operator checks statistics about the store\\
+
+    \end{tabular}
+    
+
+    \medskip
+    \clearpage
+    % COuld be useful to report this on the dictionary section on chapter 1%
+    In the following use case description tables, if not explicitly stated otherwise, the term ``user'' is used interchangeably with the term customer ``customer''.  
+    \medskip
+
+\textbf{Use case 1: User Registration}
+    \smallskip
+
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{User Registration} \\
+    \midrule
+    \textbf{Actors} &  Unregistered customer \\
+    \midrule
+    \textbf{Entry conditions} & The user requests the system to register  \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The system shows the form with the required fields to register
+        \item The user inserts his e-mail address and his password
+        \item The user inserts his name, surname, birth date and his preferred home address
+        \item The user is shown the recap of the information used to fill the form
+        \item The user confirms the information, and the form is sent to the system
+        \item The system sends a e-mail to the address provided by the user in the form. The e-mail contains a verification link
+        \item The users open the e-mail and clicks on the verification link
+        \item The system sends an e-mail to the user stating that their registration process ended successfully
+    \end{enumerate}\\
+    \midrule
+    \textbf{Exit conditions} & The unregistered customer now is a registered customer and after authenticating could access to all CLup customer functionalities\\
+    \midrule
+    \textbf{Exceptions} & 
+    \begin{itemize}
+        \item If the email inserted is already registered in the system an error message is prompted asking the user to insert another e-mail address
+        \item If the password doesn't meet the safety requirements an error message is prompted showing the requirements for the password and asking the user to insert a new safe password
+    \end{itemize} \\
+    \bottomrule
+    \caption{\emph{Customer registration} use case description}
+    \end{longtable}
+
+
+    \clearpage
+    \textbf{Use case 2: User Authentication}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{User Authentication} \\
+    \midrule
+    \textbf{Actors} & Registered Customer \\
+    \midrule
+    \textbf{Entry conditions} & The user requests the system to log-in \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The system shows the authentication form
+        \item The user fills the form with his e-mail address used to register and his password
+        \item The system checks if there exists one account registered with the provided e-mail
+        \item The system that the account's password matches with the one that is provided in the form
+        \item The initial CLup page is shown to the user
+    \end{enumerate}\\
+    \midrule
+    \textbf{Exit conditions} & The unregistered customer now is a registered customer and could access to all CLup customer functionalities\\
+    \midrule
+    \textbf{Exceptions} & 
+    \begin{itemize}
+        \item If the email or the password is incorrect then then an error message is shown to the user 
+    \end{itemize} \\
+    \bottomrule
+    \caption{\emph{Customer authentication} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 3: Customer searches for store details}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer searches for store details} \\
+    \midrule
+    \textbf{Actors} & Customer \\
+    \midrule
+    \textbf{Entry conditions} & The user started the CLup customer application  \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The system checks the position of the user with the GPS
+        \item The system interfaces with an external map API downloading from it a map of the surroundings of the user position
+        \item The system decorates the map with the positions of all supermarkets adopting CLup
+        \item The system sends the map to the user 
+        \item The user apply filters on the store list
+        \item The system updates the map displaying only the stores complying with the filter
+        \item The user selects one store 
+        \item The system retrieves all the details about the store from his databases
+        \item The system loads and displays the store view
+    \end{enumerate}\\
+    \midrule
+    \textbf{Exit conditions} & The customer now views the store pages and could: 
+    \begin{itemize}
+        \item \textbf{book a visit in that store}
+        \item \textbf{create a numbered ticket for entering the store as soon as possible}
+        \item \textbf{add the store to their favorites list}
+    \end{itemize}\\
+    \midrule
+    \textbf{Exceptions} & 
+    \begin{itemize}
+        \item If the GPS position is not available or the user doesn't want to provide it to the system, the system will center the map view at the user's home address specified in the registration, making a call to a Geocoding API to retrieve home coordinates
+        \item If the Geocoding API call fails or returns no result the map will be centered to the last known user position
+        \item If the Map API call fails or there isn't a last known position a default list view containing all CLup stores will be shown to the user
+        \item If no store matches the user filters an error message will be prompted to the user
+    \end{itemize} \\
+    \midrule
+    \textbf{Additional \newline Requirements} & 
+    \begin{itemize}
+        \item The store details shown in the store view are Store name, store chain, address, opening hour, occupancy statistics at every hour 
+        \item The filters criteria available to the user are: Store name, city, currently open stores, maximum distance from the store
+    \end{itemize}\\
+    \bottomrule
+    \caption{\emph{Customer searches for store details} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 4: Customer adds/removes a store to their favorites list}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer adds/removes a store to their favorites list} \\
+    \midrule
+    \textbf{Actors} & Registered customer \\
+    \midrule
+    \textbf{Entry conditions} & The user is authenticated and has loaded a store view  \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The user selects the proper command add/remove the store from the favorites
+        \item If the store is on the user's favorites list the store is removed from that list else the store is added to that list
+    \end{enumerate}\\
+    \midrule
+    \textbf{Exit conditions} & The user see the change on their favourite list \\
+    \midrule
+    \textbf{Exceptions} & \\
+    \bottomrule
+    \caption{\emph{Customer adds/removes a store to their favorites list} use case description}
+    \end{longtable}
+
+
+    \clearpage
+    \textbf{Use case 5: Customer books a visit in a store}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer books a visit in a store} \\
+    \midrule
+    \textbf{Actors} & Registered customer \\
+    \midrule
+    \textbf{Entry conditions} & The user is authenticated and has loaded a store view. The user has no other visits or ticket active \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The user starts the procedure selecting the option to book a visit from the store page
+        \item The user selects a date
+        \item The system retrieves the time slots with at least one free bookable slot and shows them to the user
+        \item The user selects his preferred slots sending the information to the System
+        \item The systems asks the user to select the expected duration of his visit, showing to them a default value
+        \item The user (optionally) edits the value and then confirm the booking
+        \item The system confirms the booking of the visit
+        \item The system asks the customer if they want to \textbf{create a shopping list}
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The user could enter the store during the booked time-slot \\
+    \midrule
+    \textbf{Exceptions} & \\
+    \bottomrule
+    \caption{\emph{Customer books a visit in a store} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 6: Customer creates/edits a shopping list}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer creates/edits a shopping list} \\
+    \midrule
+    \textbf{Actors} & Registered customer \\
+    \midrule
+    \textbf{Entry conditions} & The user is authenticated  \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The user reaches the shopping list view 
+        \item If the user a shopping list before, the system asks the user if they want to edit the old list or if they want to start from a blank one
+        \item The user inputs a search key in a search bar
+        \item The system searches products matching the key and shows them ordered by closeness to the search key
+        \item The user chose zero or more than one product from the search results and adds to the shopping list
+        \item The user views the complete shopping list and could continue adding products or removing them until it accepts the list.
+        \item When the user confirms the list the system will save that list in order to make it available to the user the next time they want to compile a shopping list
+        \item If the user has booked a visit the system updates the estimates on store departments occupancy on the time of the visit exploiting the data on the shopping list 
+        \item The system acknowledges the user that the list has been saved
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} &  \\
+    \midrule
+    \textbf{Exceptions} & \\
+    \bottomrule
+    \caption{\emph{Customer creates/edits a shopping list} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 7: Customer create a numbered virtual ticket to enter a store as soon as there is place available}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer create a numbered virtual ticket to enter a store as soon as there is place available} \\
+    \midrule
+    \textbf{Actors} & Registered customer \\
+    \midrule
+    \textbf{Entry conditions} & The user is authenticated and has loaded a store view. The user has no other visits or ticket active \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The user starts the procedure selecting the option to retrieve a numbered ticket from the store page
+        \item The system estimates the waiting time based on the number of people queued and the people actually inside the store
+        \item The system confirms the emission of the ticket to the user and shows them the number and other ticket details
+        \item If the waiting time changes in a significant way the system notifies the user with the new waiting time
+        \item The system alerts the user when it's time to approach the entrance
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The user could go to the entrance and scan the ticket\\
+    \midrule
+    \textbf{Exceptions} &
+    \begin{itemize}
+        \item If the waiting time is long the system shows an alert to the user asking if they are sure of creating the ticket despite the long queue
+        \item If the user takes too long to enter the supermarket after being called to enter an alert is shown stating that the entry is no more guaranteed with that ticket
+        
+    \end{itemize} \\
+    \bottomrule 
+    \caption{\emph{Customer create a numbered ticket to enter a store as soon as there is place available} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 8: Customer create a numbered physical ticket to enter the store}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer create a numbered physical ticket to enter the store} \\
+    \midrule
+    \textbf{Actors} & Customer, Physical Ticket Emitter \\
+    \midrule
+    \textbf{Entry conditions} & The customer is in front the ticket emitter\\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The user selects a button to create a new ticket
+        \item The emitter request a system to create a new numbered ticket
+        \item The system estimates the waiting time based on the number of people queued and the people actually inside the store
+        \item The system returns the details of the tickets to the emitter
+        \item The emitter prints the ticket
+        \item The user retrieves the ticket and waits until the number of his ticket is called at the entrance of the store
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The user could enter the store scanning the ticket\\
+    \midrule
+    \textbf{Exceptions} & If the user takes too long to enter the supermarket after being called to enter the ticket no more guarantees the entrance to the store\\
+    \bottomrule
+    \caption{\emph{Customer create a numbered physical ticket to enter the store} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 9: Customer cancels a previously created ticket}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer cancels a previously created ticket} \\
+    \midrule
+    \textbf{Actors} & Registered Customer\\
+    \midrule
+    \textbf{Entry conditions} & The customer has a visit to a store booked or a \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The system from the virtual ticket/booking view selects the option to cancel the ticket/booking
+        \item The system deletes the item from the database and triggers a reevaluation of the estimations about the occupancy of the store and the departments
+        \item The system acknowledges the user that the operation was successful 
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The user could now create another ticket or book another visit\\
+    \midrule
+    \textbf{Exceptions} & \\
+    \bottomrule
+    \caption{\emph{Customer cancels a previously created ticket} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 10: Customer scans the ticket in an access control system to enter the store}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Customer scans the ticket in an access control system to enter the store} \\
+    \midrule
+    \textbf{Actors} & Customer, Access Control System\\
+    \midrule
+    \textbf{Entry conditions} & The customer has a ticket or a visit reservation \\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The user scans the machine readable identifier of the ticket on the access control system 
+        \item The access control system sends the scanned ticket identifier to the system 
+        \item The system determines if the customer could enter, retrieving information about the ticket and the current occupancy of the supermarket
+        \item The system sends a confirm to the Access Control System 
+        \item The Access Control System lets the customer enter
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The user is inside the store\\
+    \midrule
+    \textbf{Exceptions} &
+    \begin{itemize}
+        \item If the access control system fails to recognize the ticket identifer, the user will be asked to scan again the ticket
+        \item If the ticket is not valid, the Access Control System won't let the customer enter. This decision could be overridden from an human operator if the system is manned
+        \item If the supermarket occupancy is over the legal capacity, the access control won't let the customer enter even with a valid ticket. The system will ask the customer to wait and will consider the booking of the current time slot valid also after the expiration
+        \item If the access control system fails to communicate to the system, the customer is asked to scan again the ticket and if fails again asks the customer to notify the store personnel (only if the system is not manned).
+    \end{itemize}  \\
+    \bottomrule
+    \textbf{Additional \linebreak Requirements} &
+    \begin{itemize}
+        \item A booked ticket is valid only in the booked date within the time slot indicated in the ticket.
+        \item A numbered ticket is valid only for a limited time after the ticket number has been called to the entrance. 
+        \item All the tickets are bound to a specific store and could be used only on that store.
+        \item The store could let enter customer with an expired ticket if the store is far to being full. 
+    \end{itemize} \\
+    \bottomrule
+    \caption{\emph{Customer scans the ticket in an access control system to enter the store} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 11: An user exits the store through an exit with a people counter installed}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{An user exits the store through an exit with a people counter installed} \\
+    \midrule
+    \textbf{Actors} & Customer, People Counter\\
+    \midrule
+    \textbf{Entry conditions} & The customer is inside the store\\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The customer walks out of the store through a gate with a people counter installed
+        \item The people counter registers that a person passed through the gate
+        \item The people counter contacts the system, updating the occupancy real time information
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The customer is out of the store and the count of the people of the store is updated\\
+    \midrule
+    \textbf{Exceptions} & \\
+    \bottomrule
+    \caption{\emph{An user exits the store through an exit with a people counter installed} use case description}
+    \end{longtable}
+
+    \clearpage
+    \textbf{Use case 12: A store operator checks statistics about the store}
+    \smallskip
+    \rowcolors{1}{white}{white}
+    \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{A store operator checks statistics about the store} \\
+    \midrule
+    \textbf{Actors} & Store Operator/ Store Manager\\
+    \midrule
+    \textbf{Entry conditions} & The Store Operator/Store Manager is authenticated\\
+    \midrule
+    \textbf{Flow of events} & 
+    \begin{enumerate}
+        \item The store operator requires to see a statistic or real time information about the store collected with CLup
+        \item The system retrieves or compute that information
+        \item The system present the data to the Operator/Manager 
+    \end{enumerate} \\
+    \midrule
+    \textbf{Exit conditions} & The Operator/System now could see the data presented by the System\\
+    \midrule
+    \textbf{Exceptions} & The system throws an error to the operator if has no privilege to see the required information \\
+    \bottomrule
+    \caption{\emph{A store operator checks statistics about the store} use case description}
+    \end{longtable}
+
+
+\subsubsection{Requirements Mapping}
+\subsection{Performance Requirements}
+\subsection{Design Constraints}
+\subsection{Software System Attributes}
+\subsubsection{Reliability}
+\subsubsection{Availability}
+\subsubsection{Security}
+\subsubsection{Maintainability}
+\subsubsection{Portability}
+\subsection{Other Requirements}
