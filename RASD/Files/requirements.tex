@@ -28,8 +28,12 @@ Automation systems communicating in a LAN do not have specific requirements: man
 \subsubsection{Communication Interfaces}
 \subsection{Functional Requirements}
 \subsubsection{Use cases}
+<<<<<<< HEAD
 Here is a list of relevant use cases for the S2B
 
+=======
+Here is a list of relevant use cases for the S2B. These use cases are also shown in the figure \ref{fig:Use_Case_Diag} 
+>>>>>>> 6629e1349067f55b0f39fa3d5cc81e5d9d721b8c
 \smallskip
 
 \rowcolors{2}{gray!25}{white}
@@ -38,7 +42,7 @@ Here is a list of relevant use cases for the S2B
     \rowcolor{gray!50}
     Label & Use Case                                                                                         \\
     UC1   & Customer Registration                                                                            \\
-    UC2   & Customer Authentication                                                                          \\
+    UC2   & Customer/Operator Authentication                                                                          \\
     UC3   & Customer search for the store page                                                               \\
     UC4   & Customer adds/removes a store to their favorites list                                            \\
     UC5   & Customer books a visit in a store                                                                \\
@@ -48,8 +52,14 @@ Here is a list of relevant use cases for the S2B
     UC9   & Customer cancels a previously created ticket                                                     \\
     UC10  & Customer scans the ticket in an access control system to enter                                   \\
     UC11  & An user leaves the store through an exit with a people counter installed                         \\
-    UC12  & A store operator checks statistics about the store                                               \\
+    UC12  & A store operator checks statistics about the store  \\
+    UC13  & User resets his passwords \\
 \end{tabular}
+\medskip
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_use_case_diagram.png}
+    \caption{\label{fig:Use_Case_Diag}Use Case Diagram for the S2B}
+\end{figure}
 
 
 \medskip
@@ -86,8 +96,8 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Exceptions}       &
     \begin{itemize}
-        \item If the email inserted is already registered in the system an error message is prompted asking the user to insert another e-mail address
-        \item If the password doesn't meet the safety requirements an error message is prompted showing the requirements for the password and asking the user to insert a new safe password
+        \item If the email inserted is already registered in the system an error message tell the user that the e-mail that they have filled is already used in another account. The systems asks the user if they want to reset the password (See UC13 - User resets password) %TODO Add a link%
+        \item While typing the password the system checks that the password is compliant with the password requirements listed in the section \ref{password_req}. If the password requirements are not met the system shows an error listing the non respected password requirements.
     \end{itemize}                                                                                                                                     \\
     \bottomrule
     \caption{\emph{Customer registration} use case description}
@@ -102,7 +112,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \toprule
     \textbf{Name}             & \textbf{User Authentication}                                                                                 \\
     \midrule
-    \textbf{Actors}           & Registered Customer                                                                                          \\
+    \textbf{Actors}           & Registered Customer or Store Operator                                                                                         \\
     \midrule
     \textbf{Entry conditions} & The user requests the system to log-in                                                                       \\
     \midrule
@@ -115,7 +125,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The initial CLup page is shown to the user
     \end{enumerate}                                                                                                                \\
     \midrule
-    \textbf{Exit conditions}  & The unregistered customer now is a registered customer and could access to all CLup customer functionalities \\
+    \textbf{Exit conditions}  & The user could use the CLup customer/operator application with all the functionalities available to authenticated users\\
     \midrule
     \textbf{Exceptions}       &
     \begin{itemize}
@@ -161,7 +171,8 @@ In the following use case description tables, if not explicitly stated otherwise
     \begin{itemize}
         \item If the GPS position is not available or the user doesn't want to provide it to the system, the system will center the map view at the user's home address specified in the registration, making a call to a Geocoding API to retrieve home coordinates
         \item If the Geocoding API call fails or returns no result the map will be centered to the last known user position
-        \item If the Map API call fails or there isn't a last known position a default list view containing all CLup stores will be shown to the user
+        \item If the other fallback option fails and the Map API is available the map will be shown centered in a default position 
+        \item If the Map API call fails default list view containing all CLup stores will be shown to the user
         \item If no store matches the user filters an error message will be prompted to the user
     \end{itemize}                                                                     \\
     \midrule
@@ -218,7 +229,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The user selects a date
         \item The system retrieves the time slots with at least one free bookable slot and shows them to the user
         \item The user selects his preferred slots sending the information to the System
-        \item The systems asks the user to select the expected duration of his visit, showing to them a default value
+        \item The systems checks if the slot is currently available, asks the user to select the expected duration of his visit, showing to them a default value
         \item The user (optionally) edits the value and then confirm the booking
         \item The system confirms the booking of the visit
         \item The system asks the customer if they want to \textbf{create a shopping list}
@@ -226,7 +237,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Exit conditions}  & The user could enter the store during the booked time-slot                                           \\
     \midrule
-    \textbf{Exceptions}       &                                                                                                      \\
+    \textbf{Exceptions} & If the slot is not available the system will prompt an error message inviting the customer to select another available slot                                     \\
     \bottomrule
     \caption{\emph{Customer books a visit in a store} use case description}
 \end{longtable}
@@ -250,7 +261,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The user inputs a search key in a search bar
         \item The system searches products matching the key and shows them ordered by closeness to the search key
         \item The user choses zero or more than one product from the search results and adds to the shopping list
-        \item The user views the complete shopping list and could continue adding products or removing them until it accepts the list.
+        \item The user views the complete shopping list and could continue to add or remove product until they accept the list.
         \item When the user confirms the list, the system will save it in order to make it available to the user the next time they want to compile a shopping list
         \item If the user has booked a visit the system can update the estimates on store departments occupancy on the time of the visit thanks the data on the shopping list
         \item The system acknowledges the user that the list has been saved
@@ -335,7 +346,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Actors}           & Registered Customer                                            \\
     \midrule
-    \textbf{Entry conditions} & The customer has a visit to a store booked or a                \\
+    \textbf{Entry conditions} & The customer has a visit to a store booked or a numbered virtual ticket previously created                \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -445,6 +456,39 @@ In the following use case description tables, if not explicitly stated otherwise
     \caption{\emph{A store operator checks statistics about the store} use case description}
 \end{longtable}
 
+\clearpage
+\textbf{Use case 13: User resets the password}
+\smallskip
+\rowcolors{1}{white}{white}
+\begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
+    \toprule
+    \textbf{Name}             & \textbf{A store operator checks statistics about the store}                                        \\
+    \midrule
+    \textbf{Actors}           & Registered Customer/ Store Manager                                                                      \\
+    \midrule
+    \textbf{Entry conditions} & The user  requests a password reset                                 \\
+    \midrule
+    \textbf{Flow of events}   &
+    \begin{enumerate}
+        \item The user inputs his e-mail
+        \item The system checks that the e-mail corresponds to a registered account
+        \item The system sends an e-mail to the user with a temporary link to the reset password page
+        \item The user opens the link and inputs his new password 
+        \item The user confirms his new password
+        \item The system applies the changes and redirects the user to the proper login page
+    \end{enumerate}                                                                                                     \\
+    \midrule
+    \textbf{Exit conditions}  & The password of the user account is changed                                 \\
+    \midrule
+    \textbf{Exceptions}       & 
+    \begin{itemize}
+        \item If the e-mail inserted from the user is not associated with any of the accounts an error message is shown to the user.
+        \item While typing the password the system checks that the password is compliant with the password requirements listed in the section \ref{password_req}. If the password requirements are not met the system shows an error listing the non respected password requirements.
+    \end{itemize}\\
+    \bottomrule
+    \caption{\emph{User resets the password} use case description}
+\end{longtable}
+\clearpage
 
 \subsubsection{Requirements Mapping}
 \subsection{Performance Requirements}
@@ -515,14 +559,14 @@ When a CLup customer creates a CLup customer account, they have to fill a form. 
     \item Gender (optional)
     \item Date of birth
     \item Valid email address
-    \item Password, must respect this criteria:
+    \item Password, must respect this criteria:\label{password_req}
           \begin{itemize}
               \item Must have at least a digit
               \item Must have at least a lowercase character
               \item Must have at least a special symbol in this list
                     \begin{verbatim}
-            *.!@#$%^&(){}[]:;<>,.?/~_+-=|\
-        \end{verbatim}
+                *.!@#$%^&(){}[]:;<>,.?/~_+-=|\
+                    \end{verbatim}
               \item Must have a number of character between 8 and 32
           \end{itemize}
 \end{itemize}
