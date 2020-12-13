@@ -1,11 +1,35 @@
 \subsection{External Interface Requirements}
 \subsubsection{User Interfaces}
+The user application has to be developed, as stated numerous times, for every kind of demographics.
+This includes visually impaired users and people not familiar with modern technologies.
+
+Hence, the interface must:
+\begin{enumerate}
+    \item remain simple on every page and menu
+    \item follow standards in design to accomodate users into finding which are the interactible parts of the application; for example Material Design by Google and/or Apple IOs design standards could be applied
+    \item communicate via short and concise messages
+    \item show important informations without having to navigate multiple times into sub-menus
+    \item integrate correctly with OS screen reader technologies to be usable by blind people
+    \item use an adaptive layout to support devices different resolutions and aspect ratios
+\end{enumerate}
+
 \subsubsection{Hardware Interfaces}
+CLup software runs on different platforms and has different kind of hardware depending on the part of the system services it is required to run.
+
+To run the CLup mobile application it is required a device with mobile internet access (e.g. a smartphone or a tablet) and at least 1GB of ram (to be able to not experience lags due to memory used by other applications). Most of today's smartphones start with 2GB anyways.
+GPS is used to retrieve the current location but can be replaced with manual insertion of the needed data by the user.
+
+Automation systems communicating in a LAN do not have specific requirements: many different solutions can be employed and can vary from different kind of store. The store main system must be able to communicate with the CLup APIs, and it is required to have a working internet connection.
+
+\vfill
+
+
 \subsubsection{Software Interfaces}
 \subsubsection{Communication Interfaces}
 \subsection{Functional Requirements}
 \subsubsection{Use cases}
 Here is a list of relevant use cases for the S2B
+
 \smallskip
 
 \rowcolors{2}{gray!25}{white}
@@ -145,7 +169,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \begin{itemize}
         \item The store details shown in the store view are Store name, store chain, address, opening hour, occupancy statistics at every hour
         \item The filters criteria available to the user are: Store name, city, currently open stores, maximum distance from the store
-    \end{itemize}                                                                     \\
+    \end{itemize}                                                                    \\
     \bottomrule
     \caption{\emph{Customer searches for store details} use case description}
 \end{longtable}
@@ -424,54 +448,54 @@ In the following use case description tables, if not explicitly stated otherwise
 
 \subsubsection{Requirements Mapping}
 \subsection{Performance Requirements}
-Regarding the \textbf{CLup customer application} and the \textbf{CLup customer operator}  an user input that triggers an action that requires the communication with a remote server should take no longer than 5 seconds, from the start of the interaction to the moment when the user receives some feedback. When the user input doesn't trigger actions that need the communication with a remote server this time should be lower than 1 second. This requirements holds in a context where the underlying operative system is not overloaded and the user internet connection is working properly.
+Considering \textbf{CLup customer application} and \textbf{CLup customer operator} an user action that implies a communication with a remote server should take no longer than 5 seconds, from the start of the interaction to the moment when the user receives some feedback. When there is no need to connect to a server, this time should be lower than 1 second. This requirements holds in a context where the underlying operative system is not overloaded and the user internet connection is working properly.
 \smallskip
-When a store admin account request elaborate statistics regarding the store the response time must be lower than 10 seconds.
+When a store admin account requests elaborate statistics of the store, the response time must be lower than 10 seconds.
 \subsection{Design Constraints}
 \subsection{Software System Attributes}
 \subsubsection{Reliability}
-All the data stored in the CLup databases must be periodically backed up. Data redundancy policies, like RAID, must be enacted for handling failures promptly and lowering the risk of losing data.
+All the data stored in the CLup databases must be periodically backed up. Data redundancy policies, like RAID, must be enacted to hande failures promptly and lowering the risk of losing data.
 
 \subsubsection{Availability}
 The system must have multiple nodes handling requests from the customers and the operators. These nodes, working in parallel reduce the risk of a total failure of the system. Data redundancy policies also help to reduce downtimes in case of a data storage unit fault.
 
 \smallskip
 
-The system uptime should be closer to the 100\% as possible. Since that is impossible an uptime of 99.9\% is more than acceptable and corresponds to less than 9 hours of down time every 365 days.
-Ordinary maintenance that needs shutting down part of the system should be planned, if possible, during nights in this way is more likely that the majority of the users don't experience disruptions in the CLup services.
+The system uptime should be as close as possible to 100\%. Since that is impossible, an uptime of 99.9\% is more than acceptable and corresponds to less than 9 hours of down time every 365 days.
+Ordinary maintenance that needs shutting down part of the system should be planned, if possible, during nights; in this way it is more likely that the majority of the users won't experience disruptions in the use of CLup services.
 
 \smallskip
 
-The access control system must continue working even if an external system installed in the supermarket fails. In the following table are listed the measures that must be taken after a failure of an external system
+The access control system must continue working even if an automated, external system installed in the supermarket fails. In the following table are listed the measures that must be taken after a failure of an external system:
 \smallskip
 
 \rowcolors{2}{gray!25}{white}
 \begin{tabular}{C{5cm}L{10.0cm}C{2.0cm}}
     \rowcolor{gray!50}
-    External System that fails & Measures                                                                                                                                   \\
-    People counter             & The CLup system will estimate the number of people inside the store using the mean visit times. This value could also be adjusted manually \\
-    Smart Gates                & An operator with the CLup operator application could check tickets and admit people manually                                               \\
-    Paper Ticket Emitter       & An operator forms a queue and admits people manually if there is space in the store                                                        \\
-    Ticket number screens      & An operator announces manually the ticket number called to enter the store seeing them on the operator application                         \\
+    External System that fails & Measures                                                                                                                                         \\
+    People counter             & The CLup system will estimate the number of people inside the store using the average visit times. This value will also be manually adjustable   \\
+    Smart Gates                & An operator with the CLup operator application will check tickets and admit people manually                                                      \\
+    Paper Ticket Emitter       & An operator will form a queue and admits people manually if there is space in the store (information that can still be stracked by the CLup app) \\
+    Ticket number screens      & An operator announces manually the ticket numbers of the people that should enter the store, looking them up on the CLup operator app            \\
 \end{tabular}
 \subsubsection{Security}
 All the data sent via a insecure communication channels (i.e. Internet, Local Networks) must be secured with modern encryption standards. This requirement applies to all data exchanged from CLup customer and operator applications and for all traffic generated from the external hardware systems installed on the supermarket.
 
 \smallskip
 
-The external hardware systems installed in the supermarket should be connected in a secure and dedicated LAN with a single access point to the internet with the proper firewall settings. This network must be separated from other networks especially the ones accessible freely from the customers (i.e. a shop free wi-fi service).
+The external hardware systems installed in the supermarket should be connected in a secure and dedicated LAN with a single access point to the internet with proper firewall settings. This network must be separated from other networks especially the ones accessible freely from the customers (i.e. a shop free wi-fi service).
 
 \smallskip
 
-The customer accounts are separated from the business accounts. Each store manager has the permission to manage the operator accounts and has access to all the store data, and could decide which account could view which statistics.
+The customer accounts are separated from the business accounts. Each store manager has permissions to manage the operator accounts and has access to all the store data; the manager can decide which account can view which statistics.
 \subsubsection{Maintainability}
-The system is clearly divided in a lot of independent subsystems that communicate between them using some interfaces. As long as the interface is not changed is possible to maintain and update the single subsystems without having to change the other subsystems
+The system is clearly divided in a lot of independent subsystems that communicate with each other using some interfaces. As long as the interface between differen subsystems is preserved, it is possible to maintain and update single subsystems transparently.
 \subsubsection{Portability}
-\textbf{The CLup customer mobile application} compatibility should cover the 95\% of the iOS and Android devices. To make CLup even more accessible a mobile friendly web interface must be provided to the user.
+\textbf{The CLup customer mobile application} compatibility should cover at least 95\% of the iOS and Android devices. To make CLup even more accessible, a mobile friendly web interface can be provided to the users.
 
 \smallskip
 
-\textbf{The CLup operator application} must be available via a web application, and functionality needed from the Access Control Staff must be available in a mobile application to install in the devices given to the staff.
+\textbf{The CLup operator application} must be available via a web application. The functionalities needed for the Access Control Staff must also be available on a mobile application that will be installed on devices given to the staff.
 \subsection{Other Requirements}
 \subsubsection{Required fields for registration}
 When a CLup customer creates a CLup customer account, they have to fill a form. Here are specified requirements regarding the information needed to register to CLup. If not otherwise specified every field is compulsory.
