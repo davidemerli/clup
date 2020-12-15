@@ -6,7 +6,7 @@ This includes visually impaired users and people not familiar with modern techno
 Hence, the interface must:
 \begin{enumerate}
     \item remain simple on every page and menu
-    \item follow standards in design to accomodate users into finding which are the interactible parts of the application; for example Material Design by Google and/or Apple IOs design standards could be applied
+    \item follow standards in design to accomodate users into finding which are the interactible parts of the application; for example Material Design by Google and/or Apple iOS design standards could be applied
     \item communicate via short and concise messages
     \item show important informations without having to navigate multiple times into sub-menus
     \item integrate correctly with OS screen reader technologies to be usable by blind people
@@ -21,14 +21,27 @@ GPS is used to retrieve the current location but can be replaced with manual ins
 
 Automation systems communicating in a LAN do not have specific requirements: many different solutions can be employed and can vary from different kind of store. The store main system must be able to communicate with the CLup APIs, and it is required to have a working internet connection.
 
+CLup main servers on the other hand can exploit newest standards on Serverless computing, modularizing functions in microservices and be able to keep up with an increase of requests and stores adopting the S2B.
 \vfill
 
 
 \subsubsection{Software Interfaces}
+CLup will expose REST APIs in order to exchange data from a local store server to CLup main servers.
+
+Automation systems will communicate with the local store server without any constraints, even though also standard REST APIs for internal information exchange will be provided by the S2B.
+
 \subsubsection{Communication Interfaces}
+
+Connections from remote to local servers will be done over TCP/IP and HTTPS.
+CLup REST API's will require valid tokens to verify authentication.
+
+Local subsystems interfacing with the local main server should be connected to a private Intranet to lower the risk of possible cracking attempts.
+
+Local subsystems can also be developed and connected with IoT standards, for example employing communication through protocols like MQTT.
+
 \subsection{Functional Requirements}
 \subsubsection{Use cases}
-Here is a list of relevant use cases for the S2B. These use cases are also shown in the figure \ref{fig:Use_Case_Diag} 
+Here is a list of relevant use cases for the S2B. These use cases are also shown in the figure \ref{fig:Use_Case_Diag}
 \smallskip
 
 \rowcolors{2}{gray!25}{white}
@@ -37,7 +50,7 @@ Here is a list of relevant use cases for the S2B. These use cases are also shown
     \rowcolor{gray!50}
     Label & Use Case                                                                                         \\
     UC1   & Customer Registration                                                                            \\
-    UC2   & Customer/Operator Authentication                                                                          \\
+    UC2   & Customer/Operator Authentication                                                                 \\
     UC3   & Customer search for the store page                                                               \\
     UC4   & Customer adds/removes a store to their favorites list                                            \\
     UC5   & Customer books a visit in a store                                                                \\
@@ -47,8 +60,8 @@ Here is a list of relevant use cases for the S2B. These use cases are also shown
     UC9   & Customer cancels a previously created ticket                                                     \\
     UC10  & Customer scans the ticket in an access control system to enter                                   \\
     UC11  & An user leaves the store through an exit with a people counter installed                         \\
-    UC12  & A store operator checks statistics about the store  \\
-    UC13  & User resets his passwords \\
+    UC12  & A store operator checks statistics about the store                                               \\
+    UC13  & User resets his passwords                                                                        \\
 \end{tabular}
 \medskip
 \begin{figure}[H]
@@ -109,11 +122,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{User Authentication}                                                                                 \\
+    \textbf{Name}             & \textbf{User Authentication}                                                                                            \\
     \midrule
-    \textbf{Actors}           & Registered Customer or Store Operator                                                                                         \\
+    \textbf{Actors}           & Registered Customer or Store Operator                                                                                   \\
     \midrule
-    \textbf{Entry conditions} & The user requests the system to log-in                                                                       \\
+    \textbf{Entry conditions} & The user requests the system to log-in                                                                                  \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -122,14 +135,14 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system checks if there exists one account registered with the provided e-mail
         \item The system checks that the account's password matches with the one that is provided in the form
         \item The initial CLup page is shown to the user
-    \end{enumerate}                                                                                                                \\
+    \end{enumerate}                                                                                                                           \\
     \midrule
-    \textbf{Exit conditions}  & The user could use the CLup customer/operator application with all the functionalities available to authenticated users\\
+    \textbf{Exit conditions}  & The user could use the CLup customer/operator application with all the functionalities available to authenticated users \\
     \midrule
     \textbf{Exceptions}       &
     \begin{itemize}
         \item If the email or the password are incorrect then then an error message is shown to the user
-    \end{itemize}                                                                                                                \\
+    \end{itemize}                                                                                                                           \\
     \bottomrule
     \caption{\emph{Customer authentication} use case description}
 \end{longtable}
@@ -170,10 +183,10 @@ In the following use case description tables, if not explicitly stated otherwise
     \begin{itemize}
         \item If the GPS position is not available or the user doesn't want to provide it to the system, the system will center the map view at the user's home address specified in the registration, making a call to a Geocoding API to retrieve home coordinates
         \item If the Geocoding API call fails or returns no result the map will be centered to the last known user position
-        \item If the other fallback option fails and the Map API is available the map will be shown centered in a default position 
+        \item If the other fallback option fails and the Map API is available the map will be shown centered in a default position
         \item If the Map API call fails default list view containing all CLup stores will be shown to the user
         \item If no store matches the user filters an error message will be prompted to the user
-    \end{itemize}                                                                     \\
+    \end{itemize}                                                                    \\
     \midrule
     \textbf{Additional \newline Requirements} &
     \begin{itemize}
@@ -221,11 +234,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{Customer books a visit in a store}                                                           \\
+    \textbf{Name}             & \textbf{Customer books a visit in a store}                                                                                  \\
     \midrule
-    \textbf{Actors}           & Registered customer                                                                                  \\
+    \textbf{Actors}           & Registered customer                                                                                                         \\
     \midrule
-    \textbf{Entry conditions} & The user is authenticated and has loaded a store view. The user has no other visits or ticket active \\
+    \textbf{Entry conditions} & The user is authenticated and has loaded a store view. The user has no other visits or ticket active                        \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -237,11 +250,11 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The user (optionally) edits the value and then confirm the booking
         \item The system confirms the booking of the visit
         \item The system asks the customer if they want to \textbf{create a shopping list}
-    \end{enumerate}                                                                                                       \\
+    \end{enumerate}                                                                                                                              \\
     \midrule
-    \textbf{Exit conditions}  & The user could enter the store during the booked time-slot                                           \\
+    \textbf{Exit conditions}  & The user could enter the store during the booked time-slot                                                                  \\
     \midrule
-    \textbf{Exceptions} & If the slot is not available the system will prompt an error message inviting the customer to select another available slot                                     \\
+    \textbf{Exceptions}       & If the slot is not available the system will prompt an error message inviting the customer to select another available slot \\
     \bottomrule
     \caption{\emph{Customer books a visit in a store} use case description}
 \end{longtable}
@@ -365,22 +378,22 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{Customer cancels a previously created ticket}          \\
+    \textbf{Name}             & \textbf{Customer cancels a previously created ticket}                                      \\
     \midrule
-    \textbf{Actors}           & Registered Customer                                            \\
+    \textbf{Actors}           & Registered Customer                                                                        \\
     \midrule
-    \textbf{Entry conditions} & The customer has a visit to a store booked or a numbered virtual ticket previously created                \\
+    \textbf{Entry conditions} & The customer has a visit to a store booked or a numbered virtual ticket previously created \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
         \item The customer from the virtual ticket/booking view selects the option to cancel the ticket/booking
         \item The system deletes the item from the database and triggers a reevaluation of the estimations about the occupancy of the store and the departments
         \item The system acknowledges the user that the operation was successful
-    \end{enumerate}                                                                 \\
+    \end{enumerate}                                                                                             \\
     \midrule
-    \textbf{Exit conditions}  & The user could now create another ticket or book another visit \\
+    \textbf{Exit conditions}  & The user could now create another ticket or book another visit                             \\
     \midrule
-    \textbf{Exceptions}       &                                                                \\
+    \textbf{Exceptions}       &                                                                                            \\
     \bottomrule
     \caption{\emph{Customer cancels a previously created ticket} use case description}
 \end{longtable}
@@ -494,29 +507,29 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{A store operator checks statistics about the store}                                        \\
+    \textbf{Name}             & \textbf{A store operator checks statistics about the store} \\
     \midrule
-    \textbf{Actors}           & Registered Customer/ Store Manager                                                                      \\
+    \textbf{Actors}           & Registered Customer/ Store Manager                          \\
     \midrule
-    \textbf{Entry conditions} & The user  requests a password reset                                 \\
+    \textbf{Entry conditions} & The user  requests a password reset                         \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
         \item The user inputs his e-mail
         \item The system checks that the e-mail corresponds to a registered account
         \item The system sends an e-mail to the user with a temporary link to the reset password page
-        \item The user opens the link and inputs his new password 
+        \item The user opens the link and inputs his new password
         \item The user confirms his new password
         \item The system applies the changes and redirects the user to the proper login page
-    \end{enumerate}                                                                                                     \\
+    \end{enumerate}                                                              \\
     \midrule
-    \textbf{Exit conditions}  & The password of the user account is changed                                 \\
+    \textbf{Exit conditions}  & The password of the user account is changed                 \\
     \midrule
-    \textbf{Exceptions}       & 
+    \textbf{Exceptions}       &
     \begin{itemize}
         \item If the e-mail inserted from the user is not associated with any of the accounts an error message is shown to the user.
         \item While typing the password the system checks that the password is compliant with the password requirements listed in the section \ref{password_req}. If the password requirements are not met the system shows an error listing the non respected password requirements.
-    \end{itemize}\\
+    \end{itemize}                                                              \\
     \bottomrule
     \caption{\emph{User resets the password} use case description}
 \end{longtable}
@@ -528,6 +541,13 @@ Considering \textbf{CLup customer application} and \textbf{CLup customer operato
 \smallskip
 When a store admin account requests elaborate statistics of the store, the response time must be lower than 10 seconds.
 \subsection{Design Constraints}
+
+\begin{itemize}
+    \item General Data Protection Regulation (GDPR, EU 2016/679) must be followed in order to collect data from users.
+    \item ISO/IEC/IEEE 29148:2018
+          Systems and software engineering — Life cycle processes — Requirements engineering
+\end{itemize}
+
 \subsection{Software System Attributes}
 \subsubsection{Reliability}
 All the data stored in the CLup databases must be periodically backed up. Data redundancy policies, like RAID, must be enacted to hande failures promptly and lowering the risk of losing data.

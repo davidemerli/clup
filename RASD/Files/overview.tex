@@ -34,7 +34,7 @@ Bartolomeo is an old grandfather. Due to his age he's not very familiar with the
 Before CLup adoption Bartolomeo waited up to one hour to enter the supermarket on peak times. After the installation, for customers not confident with the technologies used by CLup, like Bartolomeo, things did not become more complex. Bartolomeo has only to retrieve a paper ticket at the entrance and wait until his number is called. If there are a lot of people in queue before him, he could take a sit on the bench at the park near the supermarket and return in time for when his number is called. An estimation of the entrance hour is printed on every ticket.
 
 \vfill
-\pagebreak
+
 
 \textbf{Scenario 3: Slightly late}
 
@@ -74,7 +74,7 @@ Luigi booked an entrance for the 4:00 - 4:15 PM slot last Saturday. He was busy 
 Since he forgot to cancel his booking, at 4:20 PM the late tolerance time ended. The store at the time is unusually full and some people are waiting outside. CLup system allowed one more person to enter the store replacing Luigi's reservation.
 
 \vfill
-\pagebreak
+
 
 
 \subsubsection{The world and the machine}
@@ -126,7 +126,7 @@ CLup system should works fine without them, but these counter allow to have a pr
 \textbf{Ticket number screens} are located at shop entrances. They display the latest batch of ticket numbers allowed to enter the store, and the ordered list of the other numbers in line.
 
 \vfill
-\pagebreak
+
 
 \subsubsection{Interfacing with users}
 
@@ -157,6 +157,7 @@ The \textbf{CLup Customer Application} allows some operations even to unauthenti
 \end{itemize}
 
 \vfill
+\pagebreak
 
 \subsection{User Characteristics}
 There are two macro-groups of people that will use CLup, the businesses adopting the system and the customers of these
@@ -179,9 +180,8 @@ The S2B solves this problem by allowing those customers to retrieve paper ticket
 The physical line of customer is unavoidable if the supermarket cannot satisfy the increased demand of groceries in its area, even if CLup can alleviate this problem allowing a better distribution of the client visits.The possibility of booking visits in advance will push more and more users to download CLup in ordert to avoid queues; avoiding cramming at the entrance and maintaining social distancing can decrease the spread of the virus.
 
 \vfill
-\pagebreak
 
-\subsection{Assumptions, dependencies and constraints}
+\subsection{Assumptions and dependencies}
 \subsubsection{Domain Assumptions}
 
 \rowcolors{2}{gray!25}{white}
@@ -206,10 +206,12 @@ The physical line of customer is unavoidable if the supermarket cannot satisfy t
 
     DA8   & The store manager will insert correct data about the shop and the departments maximum capacities                                                                                                   \\
 \end{tabular}
-\vfill
 
-\subsubsection{Dependencies}
-\subsubsection{Constraints}
+% \subsubsection{Dependencies}
+% \subsubsection{Constraints}
+
+\vfill
+\pagebreak
 
 \subsection{Product Functions}
 
@@ -234,10 +236,9 @@ Keeping in mind this two state machines it is provided a list of requirements fo
 Every interaction should be taken into account and implemented in the most simple and user friendly way.
 The effort put into realizing the best user experience should be priorized towards the customers that will use the application. Stores adopting the CLup system should instruct their workers on how to use the application; customers should receive the most immediate and intuitive UX as possible.
 
-Requirements list both functional and non-functional requirements, and span every aspect the system will have to implement and respect to achieve all the previously described goals. Further in the document, goals will be mapped with the requirements needed to fullfil them, to provide a convenient reference useful to understand how much work will be needed to accomplish goals and how to divide teams for developement.
+Requirements list both functional and non-functional requirements, and span every aspect the system will have to implement and respect to achieve all the previously described goals. Further in the document, goals will be mapped with the requirements needed to fullfil them, to provide a convenient reference useful to understand how much work will be needed to accomplish goals and how to divide teams for development.
 
 \vfill
-\pagebreak
 
 \subsubsection{System Requirements}
 
@@ -266,14 +267,14 @@ Requirements list both functional and non-functional requirements, and span ever
     R36   & The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation \\
     R37   & The system must notify the customers with a virtual queue ticket when it's time to approach the store entrance                                                                              \\
     R38   & The store operator application must allow an authenticated operator to manually admit customers                                                                                             \\
-    R42   & The system  must ask the customer to provide the estimated visit time when booking a time slot                                                                                              \\
 \end{tabular}
 
-\pagebreak
+\vfill
 
 \begin{tabular}{C{1cm}L{14.1cm}}
     \rowcolor{gray!50}
     Label & Requirement description                                                                                                                                                         \\
+    R42   & The system  must ask the customer to provide the estimated visit time when booking a time slot                                                                                  \\
     R51   & The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application                                                       \\
     R52   & The system must allow the access to the store to customer with numbered tickets using a First Come First Served logic, treating virtual and physical ticket owner equally       \\
     R53   & The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line                       \\
@@ -291,7 +292,6 @@ Requirements list both functional and non-functional requirements, and span ever
     R101  & The system must associates tickets with line numbers                                                                                                                            \\
 \end{tabular}
 \vfill
-\pagebreak
 
 \subsubsection{System Representation}
 
@@ -305,4 +305,3 @@ Below it is presented the CLup class diagram, with interaction between entities 
 \end{figure}
 
 \vfill
-\pagebreak
