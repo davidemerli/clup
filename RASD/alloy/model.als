@@ -1,53 +1,60 @@
+enum Bool {False, True}
 
 sig Store {
-	queue : lone NumberedTicket,
-	slots : lone TimeSlot
+	queue : lone NumberedTicket, //List of all numbered tickets in order of issue time
+	slots : lone TimeSlot, //List of all bookable timeslots
+	inside: set Customer
 }
 
 
 sig Customer {
 } {
-	lone t: BookedTicket | t.holder = this
-	lone t: VirtualTicket | t.holder = this
-	
+	//A customer retrieves only one ticket (Simplification)
+	lone t: Ticket | t.holder = this
 }
 
 abstract sig Ticket {
-	emitted : one TimeStamp
+	issued : one TimeStamp, 
+	used : lone TimeStamp,  
+	noShow : one Bool,
+	holder : one Customer
+} {
+	//A ticket must be used after his issue
+	isUsed[this] implies precedesStamp[issued, used]
+	//If the customer doesn't show the ticket is not used
+	noShow = True implies not isUsed[this] 
 }
 
 sig BookedTicket extends Ticket {
 	timeSlot : one TimeSlot,
-	holder : one Customer
 } {
-	precedesStamp[emitted, timeSlot.start]
+	//A ticket must be booked before the slot starts
+	precedesStamp[issued, timeSlot.start]
+	//A ticket must be used within his slot
+	precedesStamp[timeSlot.end, used] or used = timeSlot.start or noShow = True
+	precedesStamp[used, timeSlot.end] or used = timeSlot.end or noShow = True
 }
 
 abstract sig NumberedTicket extends Ticket {
 	next : lone NumberedTicket
 }
 
-sig PhysicalTicket extends NumberedTicket {
-	
-}
+sig PhysicalTicket extends NumberedTicket {}
 
-sig VirtualTicket extends NumberedTicket {
-	holder: one Customer
-}
+sig VirtualTicket extends NumberedTicket {}
 
 sig TimeSlot {
 	nextSlot : lone TimeSlot,
 	start : one TimeStamp,
 	end : one TimeStamp
 } {
+    //The time slot end has a greater timestamp that the slot's start timestamp
 	precedesStamp[start,end]
 }
 
 sig TimeStamp {
 	nextStamp : lone TimeStamp
 }
-
-
 
 fact timeFlow {
 	//Exists a first TimeStamp
@@ -87,9 +94,24 @@ fact QueueFlow {
 }
 
 fact FirstComeFirstServed {
+	//A ticket with a smaller timestamp is ahead in the queue
 	all t1: NumberedTicket | all t2: NumberedTicket |
 		sameStoreQueue[t1,t2] implies
-		(precedesStamp[t1.emitted,t2.emitted] implies precedesQueue[t1,t2])
+		(precedesStamp[t1.issued,t2.issued] implies precedesQueue[t1,t2])
+	//A customer enters the store only if all people before him have entered the store or no-showed
+	all s: Store | all t1: NumberedTicket | all t2: NumberedTicket |
+		(inStoreQueue[s,t1] and inStoreQueue[s,t2] and precedesQueue[t1,t2]) implies
+		((t2.holder in s.inside) implies (t1.holder in s.inside or t1.noShow = True))
+}
+
+fact TicketNeededToEnter {
+	//No one could enter without a ticket
+	all s : Store | all c : Customer | c in s.inside iff (one t: Ticket | t.holder = c  and isUsed[t]) 
+}
+
+
+pred isUsed(t: Ticket) {
+	#t.used = 1
 }
 
 
@@ -114,15 +136,17 @@ pred precedesQueue(t1, t2: NumberedTicket) {
 	t2 in t1.next.*next
 }
 
+pred inStoreQueue(s : Store, t : NumberedTicket) {
+	t = s.queue or precedesQueue[s.queue,t]
+}
+
 pred inSlot(t: TimeStamp, s: TimeSlot) {
 	t = s.start or t = s.end or 
 	(precedesStamp[s.start,t] and precedesStamp[t, s.end])
 }
 
 pred show {
-	#Store = 1
-	#TimeSlot > 2
-	#NumberedTicket > 4
 }
 
-run show for 10
+//RUN
+run show for 7 but 10 TimeStamp
