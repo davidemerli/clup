@@ -84,7 +84,7 @@ fact timeSlotNotOverlapping {
 			 precedesStamp[s1.end, s2.start]))
 }
 
-fact QueueFlow {
+fact queueFlow {
 	//Exists a first TimeStamp
 	all s: Store | no t: NumberedTicket | t != s.queue and s.queue in t.*next 
 	//All timestamps follow the first TimeStamp
@@ -93,7 +93,7 @@ fact QueueFlow {
 	no t : NumberedTicket | t in t.next.*next
 }
 
-fact FirstComeFirstServed {
+fact firstComeFirstServed {
 	//A ticket with a smaller timestamp is ahead in the queue
 	all t1: NumberedTicket | all t2: NumberedTicket |
 		sameStoreQueue[t1,t2] implies
@@ -104,7 +104,7 @@ fact FirstComeFirstServed {
 		((t2.holder in s.inside) implies (t1.holder in s.inside or t1.noShow = True))
 }
 
-fact TicketNeededToEnter {
+fact ticketNeededToEnter {
 	//No one could enter without a ticket
 	all s : Store | all c : Customer | c in s.inside iff (one t: Ticket | t.holder = c  and isUsed[t]) 
 }
