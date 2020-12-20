@@ -101,11 +101,11 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system sends an e-mail to the user stating that their registration process ended successfully
     \end{enumerate}                                                                                                                                     \\
     \midrule
-    \textbf{Exit conditions}  & The unregistered customer now is a registered customer and after authenticating could access to all CLup customer functionalities \\
+    \textbf{Exit conditions}  & The unregistered customer now is a registered customer and after authentication he can access all CLup customer functionalities \\
     \midrule
     \textbf{Exceptions}       &
     \begin{itemize}
-        \item If the email inserted is already registered in the system an error message tell the user that the e-mail that they have filled is already used in another account. The systems asks the user if they want to reset the password (See UC13 - User resets password) %TODO Add a link%
+        \item If the e-mail inserted is already registered in the system an error message tells the user that the provided e-mail is already in use by another account. The systems asks the user if they want to reset the password (See UC13 - User resets password) %TODO Add a link%
         \item While typing the password the system checks that the password is compliant with the password requirements listed in the section \ref{password_req}. If the password requirements are not met the system shows an error listing the non respected password requirements.
     \end{itemize}                                                                                                                                     \\
     \bottomrule
@@ -133,16 +133,16 @@ In the following use case description tables, if not explicitly stated otherwise
     \begin{enumerate}
         \item The system shows the authentication form
         \item The user fills the form with his e-mail address used to register and his password
-        \item The system checks if there exists one account registered with the provided e-mail
-        \item The system checks that the account's password matches with the one that is provided in the form
+        \item The system checks if there is an account registered with the provided e-mail
+        \item The system checks that the account's hashed password matches with the hashed password provided in the form
         \item The initial CLup page is shown to the user
     \end{enumerate}                                                                                                                           \\
     \midrule
-    \textbf{Exit conditions}  & The user could use the CLup customer/operator application with all the functionalities available to authenticated users \\
+    \textbf{Exit conditions}  & The user can use the CLup customer/operator application with all the functionalities available to authenticated users \\
     \midrule
     \textbf{Exceptions}       &
     \begin{itemize}
-        \item If the email or the password are incorrect then then an error message is shown to the user
+        \item If the e-mail or the password are incorrect then an error message is shown to the user
     \end{itemize}                                                                                                                           \\
     \bottomrule
     \caption{\emph{Customer authentication} use case description}
@@ -173,7 +173,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system loads and displays the store view
     \end{enumerate}                                                                     \\
     \midrule
-    \textbf{Exit conditions}                  & The customer now views the store pages and could:
+    \textbf{Exit conditions}                  & The customer now views the store pages and can:
     \begin{itemize}
         \item \textbf{book a visit in that store}
         \item \textbf{create a numbered ticket for entering the store as soon as possible}
@@ -191,7 +191,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Additional \newline Requirements} &
     \begin{itemize}
-        \item The store details shown in the store view are Store name, store chain, address, opening hour, occupancy statistics at every hour
+        \item The store details shown in the store view are: store name, store chain, address, opening hour, occupancy statistics at every hour
         \item The filters criteria available to the user are: Store name, city, currently open stores, maximum distance from the store
     \end{itemize}                                                                    \\
     \bottomrule
@@ -204,7 +204,7 @@ In the following use case description tables, if not explicitly stated otherwise
 \end{figure}
 
 \clearpage
-\textbf{Use case 4: Customer adds/removes a store to their favorites list}
+\textbf{Use case 4: Customer adds/removes a store from their favorites list}
 \smallskip
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
@@ -218,7 +218,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \textbf{Flow of events}   &
     \begin{enumerate}
         \item The user clicks on the button to add/remove the store from the favorites
-        \item If the store is on the user's favorites list the store is removed from that list else the store is added to that list
+        \item If the store is on the user's favorites list the store is removed from that list; else the store is added to that list
     \end{enumerate}                                                                 \\
     \midrule
     \textbf{Exit conditions}  & The user sees the change on their favourite list               \\
@@ -253,9 +253,9 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system asks the customer if they want to \textbf{create a shopping list}
     \end{enumerate}                                                                                                                              \\
     \midrule
-    \textbf{Exit conditions}  & The user could enter the store during the booked time-slot                                                                  \\
+    \textbf{Exit conditions}  & The user can enter the store during the booked time-slot                                                                  \\
     \midrule
-    \textbf{Exceptions}       & If the slot is not available the system will prompt an error message inviting the customer to select another available slot \\
+    \textbf{Exceptions}       & If the selected slot is not available anymore, the system will show an error message inviting the customer to select another available slot \\
     \bottomrule
     \caption{\emph{Customer books a visit in a store} use case description}
 \end{longtable}
@@ -285,7 +285,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The user inputs a search key in a search bar
         \item The system searches products matching the key and shows them ordered by closeness to the search key
         \item The user choses zero or more than one product from the search results and adds to the shopping list
-        \item The user views the complete shopping list and could continue to add or remove product until they accept the list.
+        \item The user views the complete shopping list and can continue to add or remove product until they confirm the list.
         \item When the user confirms the list, the system will save it in order to make it available to the user the next time they want to compile a shopping list
         \item If the user has booked a visit the system can update the estimates on store departments occupancy on the time of the visit thanks the data on the shopping list
         \item The system acknowledges the user that the list has been saved
@@ -307,7 +307,7 @@ In the following use case description tables, if not explicitly stated otherwise
 \end{figure}
 
 \clearpage
-\textbf{Use case 7: Customer create a numbered virtual ticket to enter a store as soon as there is place available}
+\textbf{Use case 7: Customer creates a numbered virtual ticket to enter a store as soon as there is place available}
 \smallskip
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
@@ -392,7 +392,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system acknowledges the user that the operation was successful
     \end{enumerate}                                                                                             \\
     \midrule
-    \textbf{Exit conditions}  & The user could now create another ticket or book another visit                             \\
+    \textbf{Exit conditions}  & The user can now create another ticket or book another visit                             \\
     \midrule
     \textbf{Exceptions}       &                                                                                            \\
     \bottomrule
@@ -417,10 +417,10 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Flow of events}                     &
     \begin{enumerate}
-        \item The user scans the machine readable identifier of the ticket on the access control system
+        \item The user scans the machine readable identifier on the ticket at the Access Control System
         \item The access control system sends the scanned ticket identifier to the system
         \item The system determines if the customer can enter, retrieving information about the ticket and the current occupancy of the supermarket
-        \item The system sends a confirm to the Access Control System
+        \item The system sends a confirmation to the Access Control System
         \item The Access Control System lets the customer enter
     \end{enumerate}                                                                                                      \\
     \midrule
@@ -428,10 +428,10 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Exceptions}                         &
     \begin{itemize}
-        \item If the access control system fails to recognize the ticket identifer, the user will be asked to scan again the ticket
-        \item If the ticket is not valid, the Access Control System won't let the customer enter. This decision could be overridden by an human operator if the system is manned
+        \item If the Access Control System fails to recognize the ticket identifer, the user will be asked to scan again the ticket
+        \item If the ticket is not valid, the Access Control System won't let the customer enter. This decision can be overridden by an human operator if the system is manned
         \item If the supermarket occupancy is over the legal capacity, the access control won't let the customer enter even with a valid ticket. The system will ask the customer to wait and will consider the booking of the current time slot valid also after the expiration
-        \item If the access control system fails to communicate to the system, the customer is asked to scan again the ticket and if fails again asks the customer to notify the store personnel (only if the system is not manned).
+        \item If the Access Control System fails to communicate with the system, the customer is asked to scan again the ticket and if fails again asks the customer to notify the store personnel (only if the system is not manned).
     \end{itemize}                                                                                                      \\
     \bottomrule
     \textbf{Additional \linebreak Requirements} &
@@ -439,7 +439,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item A booked ticket is valid only in the booked date within the time slot indicated in the ticket.
         \item A numbered ticket is valid only for a limited time after the ticket number has been called to the entrance.
         \item All the tickets are bound to a specific store and could be used only on that store.
-        \item The store could let enter customer with an expired ticket if the store is far to being full.
+        \item The store can allow customer to enter with an expired ticket if the store is far from being full.
     \end{itemize}                                                                                                      \\
     \bottomrule
     \caption{\emph{Customer scans the ticket in an access control system to enter the store} use case description}
@@ -490,12 +490,12 @@ In the following use case description tables, if not explicitly stated otherwise
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
-        \item The store operator requires to see a statistic or real time information about the store collected with CLup
+        \item The store operator requires to see statistics or real time information about the store collected by CLup
         \item The system retrieves or compute that information
         \item The system present the data to the Operator/Manager
     \end{enumerate}                                                                                                     \\
     \midrule
-    \textbf{Exit conditions}  & The Operator/System now can see the data presented by the System                                   \\
+    \textbf{Exit conditions}  & The Operator/System can now see the data presented by the System                                   \\
     \midrule
     \textbf{Exceptions}       & The system throws an error to the operator if he has no privilege to see the requested information \\
     \bottomrule
@@ -545,8 +545,6 @@ When a store admin account requests elaborate statistics of the store, the respo
 
 \begin{itemize}
     \item General Data Protection Regulation (GDPR, EU 2016/679) must be followed in order to collect data from users.
-    \item ISO/IEC/IEEE 29148:2018
-          Systems and software engineering — Life cycle processes — Requirements engineering
 \end{itemize}
 
 \subsection{Software System Attributes}
