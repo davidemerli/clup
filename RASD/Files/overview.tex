@@ -92,6 +92,7 @@ Here is a list of shared phenomena happening in CLup
 
 \rowcolors{2}{gray!25}{white}
 \renewcommand{\arraystretch}{1.4}
+\captionof{table}{Shared Phenomena table}
 \begin{tabular}{C{1cm}L{10.5cm}C{2.6cm}}
     \rowcolor{gray!50}
     Label & Phenomena                                                                                                  & Controlled by \\
@@ -99,7 +100,7 @@ Here is a list of shared phenomena happening in CLup
     SP2   & The customer scans his ticket at the gate                                                                  & World         \\
     SP3   & The customer leaves the store and their exit is counted by a People-Counting System                        & World         \\
     SP4   & The customer books a ticket to enter the shop with the Customer Application                                & World         \\
-    SP5   & The customer receives a notification when it's almost his turn to enter the store                            & Machine       \\
+    SP5   & The customer receives a notification when it's almost his turn to enter the store                          & Machine       \\
     SP6   & The customer presses the button to request a paper ticket                                                  & World         \\
     SP7   & The customer receives a ticket from the ticket printer and an estimated waiting time                       & Machine       \\
     SP8   & The display at the entrance shows which ticket numbers are allowed to enter and the other numbers in queue & Machine       \\
@@ -186,6 +187,7 @@ The physical line of customer is unavoidable if the supermarket cannot satisfy t
 
 \rowcolors{2}{gray!25}{white}
 \renewcommand{\arraystretch}{1.4}
+\captionof{table}{Domain Assumptions table}
 \begin{tabular}{C{1cm}L{14.1cm}}
     \rowcolor{gray!50}
     Label & Domain Assumption                                                                                                                                                                                  \\
@@ -244,6 +246,7 @@ Requirements list both functional and non-functional requirements, and span ever
 
 \rowcolors{2}{gray!25}{white}
 \renewcommand{\arraystretch}{1.4}
+\captionof{table}{Requirements table}
 \begin{tabular}{C{1cm}L{14.1cm}}
     \rowcolor{gray!50}
     Label & Requirement description                                                                                                                                                                     \\
@@ -256,7 +259,7 @@ Requirements list both functional and non-functional requirements, and span ever
     R16   & The system won't let anyone enter the store if the maximum capacity has been reached                                                                                                        \\
     R17   & The system will let a customer enter the store if and only if he has a a valid ticket                                                                                                       \\
     R18   & The system will use the occupancy data retrieved from the supermarket to control the store access                                                                                           \\
-    R19   & The system must provide an interface to communicate with the store access control                                                                                                        \\
+    R19   & The system must provide an interface to communicate with the store access control                                                                                                           \\
     R21   & The system must provide an interface for user to compile a shopping list                                                                                                                    \\
     R22   & The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department                                             \\
     R31   & The system must allow the store-admin account to create and edit entrance time intervals                                                                                                    \\
@@ -276,9 +279,9 @@ Requirements list both functional and non-functional requirements, and span ever
     Label & Requirement description                                                                                                                                                         \\
     R42   & The system  must ask the customer to provide the estimated visit time when booking a time slot                                                                                  \\
     R51   & The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application                                                       \\
-    R52   & The system must allow the access to the store to customer with numbered tickets using a 'First Come First Served' logic, treating virtual and physical ticket owner equally       \\
+    R52   & The system must allow the access to the store to customer with numbered tickets using a 'First Come First Served' logic, treating virtual and physical ticket owner equally     \\
     R53   & The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line                       \\
-    R54   & The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch                                              \\
+    R54   & The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch                      \\
     R61   & The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store                                                                      \\
     R62   & The system must record periodically and store statistics about the occupancy of each store                                                                                      \\
     R63   & The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week                                               \\

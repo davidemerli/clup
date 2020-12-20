@@ -46,22 +46,23 @@ Here is a list of relevant use cases for the S2B. These use cases are also shown
 
 \rowcolors{2}{gray!25}{white}
 \renewcommand{\arraystretch}{1.4}
+\captionof{table}{Use Cases table}
 \begin{tabular}{C{2cm}L{10.5cm}C{2.6cm}}
     \rowcolor{gray!50}
-    Label & Use Case                                                                                         \\
-    UC1   & Customer Registration                                                                            \\
-    UC2   & Customer/Operator Authentication                                                                 \\
-    UC3   & Customer search for the store page                                                               \\
-    UC4   & Customer adds/removes a store from their favorites list                                            \\
-    UC5   & Customer books a visit in a store                                                                \\
-    UC6   & Customer creates/edits a shopping list                                                           \\
+    Label & Use Case                                                                                          \\
+    UC1   & Customer Registration                                                                             \\
+    UC2   & Customer/Operator Authentication                                                                  \\
+    UC3   & Customer search for the store page                                                                \\
+    UC4   & Customer adds/removes a store from their favorites list                                           \\
+    UC5   & Customer books a visit in a store                                                                 \\
+    UC6   & Customer creates/edits a shopping list                                                            \\
     UC7   & Customer creates a numbered virtual ticket to enter a store as soon as there is a place available \\
-    UC8   & Customer creates a physical numbered ticket                                                      \\
-    UC9   & Customer cancels a previously created ticket                                                     \\
-    UC10  & Customer scans the ticket through an access control system to enter                                   \\
-    UC11  & An user leaves the store through an exit with a people counter installed                         \\
-    UC12  & A store operator checks statistics about the store                                               \\
-    UC13  & User resets his password                                                                        \\
+    UC8   & Customer creates a physical numbered ticket                                                       \\
+    UC9   & Customer cancels a previously created ticket                                                      \\
+    UC10  & Customer scans the ticket through an access control system to enter                               \\
+    UC11  & An user leaves the store through an exit with a people counter installed                          \\
+    UC12  & A store operator checks statistics about the store                                                \\
+    UC13  & User resets his password                                                                          \\
 \end{tabular}
 \medskip
 \begin{figure}[H]
@@ -566,13 +567,14 @@ The access control system must continue working even if an automated, external s
 \smallskip
 
 \rowcolors{2}{gray!25}{white}
+\captionof{table}{External Systems fails table}
 \begin{tabular}{C{5cm}L{10.0cm}C{2.0cm}}
     \rowcolor{gray!50}
-    External System that fails & Measures                                                                                                                                         \\
-    People counter             & The CLup system will estimate the number of people inside the store using the average visit times. This value will also be manually adjustable   \\
-    Smart Gates                & An operator with the CLup operator application will check tickets and admit people manually                                                      \\
+    External System that fails & Measures                                                                                                                                        \\
+    People counter             & The CLup system will estimate the number of people inside the store using the average visit times. This value will also be manually adjustable  \\
+    Smart Gates                & An operator with the CLup operator application will check tickets and admit people manually                                                     \\
     Paper Ticket Emitter       & An operator will form a queue and admits people manually if there is space in the store (information that can still be tracked by the CLup app) \\
-    Ticket number screens      & An operator announces manually the ticket numbers of the people that should enter the store, looking them up on the CLup operator app            \\
+    Ticket number screens      & An operator announces manually the ticket numbers of the people that should enter the store, looking them up on the CLup operator app           \\
 \end{tabular}
 \subsubsection{Security}
 All the data sent via insecure communication channels (i.e. Internet, Local Networks) must be secured with modern encryption standards. This requirement applies to all data exchanged by CLup customer and operator applications and for all traffic generated by the external hardware systems installed on the supermarket.
