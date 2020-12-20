@@ -1,8 +1,10 @@
 enum Bool {False, True}
 
 sig Store {
-	queue : lone NumberedTicket, //List of all numbered tickets in order of issue time
-	slots : lone TimeSlot, //List of all bookable timeslots
+	//List of all numbered tickets in order of issue time
+	queue : lone NumberedTicket, 
+	//List of all bookable timeslots
+	slots : lone TimeSlot, 
 	inside: set Customer
 }
 
