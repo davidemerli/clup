@@ -61,13 +61,13 @@ On Thursday morning she was going to work by car, and received a call from her b
 \smallskip
 
 Even if she didn't book her entrance in advance, she used CLup to check how crowded the supermarket was. As she arrived near the supermarket, she created a ticket from the CLup application to enter as soon as possible. This kind of ticket is equivalent to the one printed by the emitter out of the store but it's paperless; moreover, the application notifies about live changes in the estimated entrance time. To avoid staying in front of the entrance Adriana waits in her car until CLup notifies her.
-After some minute she recieves a notification on her phone that she should approach the entrance because in a short time she will enter the supermarket.
+Some minutes later, she receives a notification on her phone that she should approach the entrance because in a short time she will enter the supermarket.
 
 \medskip
 
 \textbf{Scenario 5: No-show}
 
-Luigi booked an entrance for the 4:00 - 4:15 PM slot last Saturday. He was busy cleaning the house and didn't pay attention to the time neither to his smartphone. At 4:30 PM he picks up the phone and notices CLup notifications about approaching the entrance, and even about that his picked timeslot to enter had expired.
+Luigi booked an entrance for the 4:00 - 4:15 PM slot last Saturday. He was busy cleaning the house and didn't pay attention to the time neither to his smartphone. At 4:30 PM he picks up the phone and notices CLup notifications about approaching the entrance, and even about that his picked time slot to enter had expired.
 
 \smallskip
 
@@ -79,7 +79,7 @@ Since he forgot to cancel his booking, at 4:20 PM the late tolerance time ended.
 
 \subsubsection{The world and the machine}
 In this section the system will be described using ``The World and The Machine'' model proposed by M. Jackson.
-At a coarse grain CLup is composed from a central system (the machine) which relates with some components that allow shared phenomena to happen between the world and the machine happen
+At a coarse grain CLup is composed of a central system (the machine) which relates to components that allow shared phenomena to happen between the world and the machine.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/system2.png}
@@ -99,7 +99,7 @@ Here is a list of shared phenomena happening in CLup
     SP2   & The customer scans his ticket at the gate                                                                  & World         \\
     SP3   & The customer leaves the store and their exit is counted by a People-Counting System                        & World         \\
     SP4   & The customer books a ticket to enter the shop with the Customer Application                                & World         \\
-    SP5   & The customer receive a notification when his almost his turn to enter the store                            & Machine       \\
+    SP5   & The customer receives a notification when it's almost his turn to enter the store                            & Machine       \\
     SP6   & The customer presses the button to request a paper ticket                                                  & World         \\
     SP7   & The customer receives a ticket from the ticket printer and an estimated waiting time                       & Machine       \\
     SP8   & The display at the entrance shows which ticket numbers are allowed to enter and the other numbers in queue & Machine       \\
@@ -109,18 +109,18 @@ Here is a list of shared phenomena happening in CLup
 The S2B will expose some interfaces to communicate with external systems used to provide data to CLup.
 
 
-\textbf{Physical ticket emitters} should be placed outside the store near the entrance, to allow users that do not have CLup installed on their smartphones to wait for their entrance. The ticket emitter prints tickets on a paper support when a button is pressed. The emitter has an internet connection and via a dedicated API request retrieves information for a new valid ticket. The response will contain the needed information to print the ticket (e.g. the ticket number/QR code and the estimated time before entering). The queue statistics in the system are then updated accordingly.
+\textbf{Physical ticket emitters} should be placed outside the store near the entrance, to allow users that do not have CLup installed on their smartphones to wait for their entrance. The ticket emitter prints tickets on a paper support when a button is pressed. The emitter is connected to the store main system and via a dedicated API request retrieves information for a new valid ticket. The response will contain the information needed to print the ticket (e.g. the ticket number/QR code and the estimated time before entering). The queue statistics in the system are then updated accordingly.
 
-Optionally the emitter could have a small screen to show the current waiting time estimation, so customers can know in advance if they have the possibility to wait for the displayed time.
-
-
-A \textbf{Smart gate} is a composed of a mechanical actuator that opens and closes the gate, a QR code scanner and it is provided with internet connectivity. When a QR code is scanned and decoded, a request is sent to the CLup API with the ticket information stored in the code.
-The system checks the validity of the ticket and sends a response to the gate. If the response is affirmative the gate will open, if the scanned QR doesn't represent a valid ticket an error will be shown to the customer via visual and/or auditive feedbacks. Even if the gate replaces a big part of access-control staff's work (see next paragraph), some human intervention could be required for security reasons, or to open the gate in exceptional cases.
+Optionally, the emitter can show on a small screen the current waiting time estimation, so customers can know in advance if they have the possibility to wait for the displayed time.
 
 
-\textbf{People counters} located at shop exits count people passing through that exit. They are connected to the network and will communicate the count of people that left the shop. This counter could be a turnstile or a sensor; it could even be another smart gate that scans the same tickets used to enter (or a barcode printed on the receipt) before letting people out of the store.
+A \textbf{Smart gate} is a composed of a mechanical actuator that opens and closes the gate and a QR code scanner. It is connected to the store main system. When a QR code is scanned and decoded, a request is sent to the CLup API with the ticket information stored in the code.
+The system checks the validity of the ticket and sends a response to the gate. If the response is affirmative the gate will open. In case the scanned QR doesn't represent a valid ticket, an error will be shown to the customer via visual and/or auditive feedback. Even if the gate replaces a big part of access-control staff's work (see next paragraph), some human intervention could be required for security reasons, or to open the gate in exceptional cases.
 
-CLup system should works fine without them, but these counter allow to have a precise count of the people inside the shop, and this datum could be useful to estimate more precisely the waiting times. In particular, CLup can calculate and store the shopping time of customers if it's given the possibility to associate the time of entrance with the time of leaving of the said customer. This could, for example, be done through the scan of the same QR code for both entering and leaving.
+
+\textbf{People counters} located at shop exits, monitor people passing through them. They are connected to the store network and will communicate the count of people that left the shop. This counter can be a turnstile or a sensor; it could even be another smart gate that scans the same tickets used to enter (or a barcode printed on the receipt) before letting people out of the store.
+
+CLup system should works fine without them, but these counters allow to have precise data about people inside the shop, and this can be useful to estimate more precisely the waiting times. In particular, CLup can calculate and store the shopping time of customers if it's given the possibility to associate the time of entrance with the time of leaving of the said customer. This could, for example, be done through the scan of the same QR code for both entering and leaving.
 
 
 \textbf{Ticket number screens} are located at shop entrances. They display the latest batch of ticket numbers allowed to enter the store, and the ordered list of the other numbers in line.
@@ -132,14 +132,14 @@ CLup system should works fine without them, but these counter allow to have a pr
 
 \textbf{Access-control operators} have a portable device equipped with a camera and internet connectivity. This device has installed the staff access-control app. The user interface for operators provides these functionalities:
 \begin{itemize}
-    \item Authenticate with a CLup operator account or corporation SSO service
-    \item Check (and adjust) estimated occupancy of the whole shop and its departments
-    \item Check length of the queues, and bookings in the time slots
+    \item Authentication through a CLup operator account or corporation SSO service
+    \item Checking (and adjusting) estimated occupancy of the whole shop and its departments
+    \item Checking length of the queues, and bookings in the time slots
     \item Scan a ticket QR code to manually allow a person to enter
     \item Notify the next customers in the virtual ticket queue alerting them to reach the entrance
 \end{itemize}
 
-The \textbf{CLup Customer Application} allows some operations even to unauthenticated users, though only logged in ones can book tickets for In-Site queues or for a desired time slot.
+The \textbf{CLup Customer Application} allows some operations even to unauthenticated users, though only logged-in ones can book tickets for In-Site queues or for a desired time slot.
 \begin{itemize}
     \item Every user can:
           \begin{itemize}
@@ -160,14 +160,14 @@ The \textbf{CLup Customer Application} allows some operations even to unauthenti
 \pagebreak
 
 \subsection{User Characteristics}
-There are two macro-groups of people that will use CLup, the businesses adopting the system and the customers of these
-business using CLup to plan their visits to the shop.
+There are two macro-groups of people that will use :, the businesses adopting the system and the customers of these business using CLup to plan their visits to the shop.
+
 \subsubsection{Business-side Characteristics}
 CLup is addressed mainly to big grocery shops, but could be used from every medium to big sized shop.
 CLup is very flexible, and will work adapting to a lot of different scenarios, thanks to these features:
 \begin{itemize}
     \item Parameters of the system are tunable: The business is able to customize booking time-slots duration and capacity
-    \item Different access controls methods can be employed: The shop could install smart gates with a QR scanner or could delegate an employee to manually check the tickets with a the CLup business mobile application.
+    \item Different access controls methods can be employed: the shop can install smart gates with a QR scanner, or delegate an employee to manually check the tickets with the CLup operator application.
     \item Different precision levels of estimated data are accessible based on the data sources available. For example, if the shop counts the number of people exiting the premises (using a turnstile or a QR scanner), CLup can provide the exact live occupancy of the store. If this is not possible, the live occupancy will be estimated based on the average permanence time in the shop.
 
 \end{itemize}
@@ -177,7 +177,7 @@ Nobody should be excluded from accessing the shops, and also people without CLup
 
 
 The S2B solves this problem by allowing those customers to retrieve paper tickets and wait in a physical line before entering the shop if the shop is full.
-The physical line of customer is unavoidable if the supermarket cannot satisfy the increased demand of groceries in its area, even if CLup can alleviate this problem allowing a better distribution of the client visits.The possibility of booking visits in advance will push more and more users to download CLup in ordert to avoid queues; avoiding cramming at the entrance and maintaining social distancing can decrease the spread of the virus.
+The physical line of customer is unavoidable if the supermarket cannot satisfy the increased demand of groceries in its area, even if CLup can alleviate this problem allowing a better distribution of the client visits. The possibility of booking visits in advance will push more and more users to download CLup in order to avoid queues; avoiding cramming at the entrance and maintaining social distancing can decrease the spread of the virus.
 
 \vfill
 
@@ -256,7 +256,7 @@ Requirements list both functional and non-functional requirements, and span ever
     R16   & The system won't let anyone enter the store if the maximum capacity has been reached                                                                                                        \\
     R17   & The system will let a customer enter the store if and only if he has a a valid ticket                                                                                                       \\
     R18   & The system will use the occupancy data retrieved from the supermarket to control the store access                                                                                           \\
-    R19   & The system must provide an interface for communicating with the store access control                                                                                                        \\
+    R19   & The system must provide an interface to communicate with the store access control                                                                                                        \\
     R21   & The system must provide an interface for user to compile a shopping list                                                                                                                    \\
     R22   & The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department                                             \\
     R31   & The system must allow the store-admin account to create and edit entrance time intervals                                                                                                    \\
@@ -276,9 +276,9 @@ Requirements list both functional and non-functional requirements, and span ever
     Label & Requirement description                                                                                                                                                         \\
     R42   & The system  must ask the customer to provide the estimated visit time when booking a time slot                                                                                  \\
     R51   & The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application                                                       \\
-    R52   & The system must allow the access to the store to customer with numbered tickets using a First Come First Served logic, treating virtual and physical ticket owner equally       \\
+    R52   & The system must allow the access to the store to customer with numbered tickets using a 'First Come First Served' logic, treating virtual and physical ticket owner equally       \\
     R53   & The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line                       \\
-    R54   & The system should interface with an screen placed at the entrance of the store to notify customer which ticket number enters next                                               \\
+    R54   & The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch                                              \\
     R61   & The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store                                                                      \\
     R62   & The system must record periodically and store statistics about the occupancy of each store                                                                                      \\
     R63   & The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week                                               \\

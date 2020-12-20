@@ -2,10 +2,13 @@
 
 \subsubsection{Problem Analysis}
 
-Due to the recent coronavirus global pandemic, many of the human activities have been drastically affected and restricted by the need to contain the virus diffusion.
-Norms and regulations may vary from contry to country, but almost everywhere the main focus is to mantain social distancing to avoid diffusion from one person to another.
-One of the most difficult, yet absolutely essential activity to fullfil is grocery shopping.
-
+Due to the recent coronavirus global pandemic, many of the human activities have been drastically affected and restricted by the need to contain the virus diffusion. Norms and regulations may vary from contry to country, but almost everywhere the main focus is to mantain social distancing to avoid diffusion from one person to another.
+One of the most difficult activity to fullfil (yet absolutely essential) is grocery shopping.
+Stores are forced to restrain access to avoid too many people inside the building, and this produces endless lines out of the stores. This can both increase the danger for people waiting for their turn and force the shops to regulate customers even outside the structure.
+CLup aims to reduce heavily the issues involving customer queues outside of stores by permitting clients to keep track of their position in the store queue or book in a visit in advance with an easy to use application.
+On the other hand, CLup also will provide a simple (but very customizable and scalable)system for the stores to integrate the queue monitoring tools into their everyday workflow, without the absolute need to buy expensive hardware.
+Moreover, CLup will take in consideration the fact that not every customer has the same familiarity with today’s technology. In addiction to a straightforward interface and UX, the system will permit the stores to hand out tickets on the spot. It should also be possible to improve the overall experience in line even to the customers that do not use the CLup application, thanks to the monitoring tools that will be made available.
+CLup has the goal to ease the struggles for customers and store workers and save a lot of time that would have been lost waiting for hours in queues. This is an important improvement, even in times not as trying as the current coronavirus emergency. A well integrated system taking advantage of the CLup service can even boost sales: clients are more willing to go shopping if they know they won’t be loosing time; store owners will also have the possibility to check and profit from statistics about user entrances and average shopping time
 \medskip
 
 Stores are forced to restrain access to avoid too many people inside the building,
@@ -48,12 +51,12 @@ Hence, this document is addressed to the developers of the S2B as well as the co
       G3    & Try to distribute people uniformly inside the store to ease maintaining social distancing                                                                                      \\
       G4    & Allow customers to book for a visit to the supermarket at a desired time and day if they are authenticated and using the CLup application                                      \\
       G5    & Let every customer have the possibility to access the store regardless of the technology available to him                                                                      \\
-      G6    & Give to the store access to anonymous statistics regarding the people coming to the shop                                                                                       \\
-      G7    & Provide a simple and user-friendly interface to book tickets as customers                                                                                                      \\
+      G6    & Give stores adopting CLup access to anonymous statistics regarding the people coming to the shop                                                                               \\
+      G7    & Provide a simple and user-friendly interface to book tickets                                                                                                                   \\
       G8    & Provide an interface for the access controller to check tickets and monitor the occupancy                                                                                      \\
       G9    & Notify a customer with the CLup app a reasonably precise estimation of the waiting time and alert them of the time needed to get to the shop from the place they currently are \\
       G10   & Notify a customer when it's time to approach the store entrance                                                                                                                \\
-      G11   & Provide an estimation of the waiting time to every customer that wants to wait in line                                                                                         \\
+      G11   & Provide an estimation of the waiting time to every customer that wants to wait in line (physical or virtual)                                                                   \\
 \end{tabular}
 \subsection{Scope}
 CLup positions itself as an intermediary between stores and customers. Clients can book entrances and retrieve tickets through the application, and the stores communicate with the CLup backend to update entrances, leavings and the capacity of the building.
@@ -83,7 +86,59 @@ Furthermore, CLup will provide a simple but powerful REST API that can be easily
       \item \textbf{UI}: User Interface
       \item \textbf{SSO}: Single sign-on
       \item \textbf{QR code}: Quick Response code
+      \item \textbf{OS}: Operating System
+      \item \textbf{RAM}: Random Access Memory
+      \item \textbf{LAN}: Local Area Network
+      \item \textbf{GPS}: Global Positioning System
+      \item \textbf{GB}: GigaByte
+      \item \textbf{TCP/IP}: Transmission Control Protocol/Internet Protocol
+      \item \textbf{HTTPS}: Hypertext Transfer Protocol Secure
+      \item \textbf{IoT}: Internet of Things
+      \item \textbf{MQTT}: Message Queuing Telemetry Transport
+      \item \textbf{RAID}: Redundant Array of Independent Disks
+
+
+\end{itemize}
+
+\subsubsection{Definitions}
+\begin{itemize}
+      \item \textbf{Access controller}:
+      \item \textbf{Business account}:
+      \item \textbf{In-Site ticket}:
+      \item \textbf{Physical/Paper ticket}:
+      \item \textbf{Valid Ticket}:
+      \item \textbf{Time slot}:
+      \item \textbf{People-Counting System}:
+      \item \textbf{Customer Application}:
+      \item \textbf{Operator Application}:
+      \item \textbf{Store Main System}:
 \end{itemize}
 
 \subsection{Reference Documents}
 \subsection{Document structure}
+
+\textbf{Chapter 1} introduces the problems that the S2B will resolve framing them into the current world situation. It describes purpose of the project and the goals that the software will need to accomplish. Moreover, it reports reference documents and describes the lexicon used in the whole document (i.e. Definitions, Acronyms and Abbreviations).
+
+\textbf{Chapter 2} lays out an in-depth analysis of the functionalities that will be provided by the S2B starting from the exhamination of real world phenomena, user characteristics and details about demographics differences on the customers side.
+
+In detail are shown:
+\begin{itemize}
+      \item specific description of likely scenarios of customers everyday life and their relation with CLup
+      \item functional and non-functional requirements of the S2B
+      \item domain assumptions about the environment in which the system behaves
+      \item a formal representation of the whole system
+\end{itemize}
+
+\textbf{Chapter 3} examines specific requirements considered together with current technologies, hardware, systems and existing interfaces. It provides insights about CLup relationship with the external world from a technology point of view. It lists the constraints that needs to be respected, and delineates system attributes like Reliability, Availability, Security, Maintainability and Portability
+
+Common use cases are meticulously described, divided into smaller actions and highlighing the actors taking place in them. Sequence Diagrams are provided for every use case in order to further explain and visualize them.
+
+Requirements are mapped with the goals they accomplish, together with the domain assumptions they are related to. This improves the understanding of how the work can later be divided and parallelized, and will define the developement process.
+
+
+\textbf{Chapter 4}
+
+% TODO
+\textbf{Chapter 5}
+
+% TODO

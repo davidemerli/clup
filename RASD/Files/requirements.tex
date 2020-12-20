@@ -8,15 +8,15 @@ Hence, the interface must:
     \item remain simple on every page and menu
     \item follow standards in design to accomodate users into finding which are the interactible parts of the application; for example Material Design by Google and/or Apple iOS design standards could be applied
     \item communicate via short and concise messages
-    \item show important informations without having to navigate multiple times into sub-menus
+    \item show important information without having to navigate multiple times into sub-menus
     \item integrate correctly with OS screen reader technologies to be usable by blind people
-    \item use an adaptive layout to support devices different resolutions and aspect ratios
+    \item use an adaptive layout to support devices with different resolutions and aspect ratios
 \end{enumerate}
 
 \subsubsection{Hardware Interfaces}
-CLup software runs on different platforms and has different kind of hardware depending on the part of the system services it is required to run.
+CLup software runs on different platforms and different kinds of hardware depending on the part of the system services it is required to run.
 
-To run the CLup mobile application it is required a device with mobile internet access (e.g. a smartphone or a tablet) and at least 1GB of ram (to be able to not experience lags due to memory used by other applications). Most of today's smartphones start with 2GB anyways.
+To run the CLup mobile application it is required a device with mobile internet access (e.g. a smartphone or a tablet) and at least 1GB of ram (to be able to not experience lags due to memory used by other applications). Most of today's smartphones start with 2GB of RAM anyway.
 GPS is used to retrieve the current location but can be replaced with manual insertion of the needed data by the user.
 
 Automation systems communicating in a LAN do not have specific requirements: many different solutions can be employed and can vary from different kind of store. The store main system must be able to communicate with the CLup APIs, and it is required to have a working internet connection.
@@ -28,7 +28,7 @@ CLup main servers on the other hand can exploit newest standards on Serverless c
 \subsubsection{Software Interfaces}
 CLup will expose REST APIs in order to exchange data from a local store server to CLup main servers.
 
-Automation systems will communicate with the local store server without any constraints, even though also standard REST APIs for internal information exchange will be provided by the S2B.
+Automation systems will communicate with the local store server without any constraints, even though standard REST APIs for internal information exchange will also be provided by the S2B.
 
 \subsubsection{Communication Interfaces}
 
@@ -52,16 +52,16 @@ Here is a list of relevant use cases for the S2B. These use cases are also shown
     UC1   & Customer Registration                                                                            \\
     UC2   & Customer/Operator Authentication                                                                 \\
     UC3   & Customer search for the store page                                                               \\
-    UC4   & Customer adds/removes a store to their favorites list                                            \\
+    UC4   & Customer adds/removes a store from their favorites list                                            \\
     UC5   & Customer books a visit in a store                                                                \\
     UC6   & Customer creates/edits a shopping list                                                           \\
-    UC7   & Customer create a numbered virtual ticket to enter a store as soon as there is a place available \\
+    UC7   & Customer creates a numbered virtual ticket to enter a store as soon as there is a place available \\
     UC8   & Customer creates a physical numbered ticket                                                      \\
     UC9   & Customer cancels a previously created ticket                                                     \\
-    UC10  & Customer scans the ticket in an access control system to enter                                   \\
+    UC10  & Customer scans the ticket through an access control system to enter                                   \\
     UC11  & An user leaves the store through an exit with a people counter installed                         \\
     UC12  & A store operator checks statistics about the store                                               \\
-    UC13  & User resets his passwords                                                                        \\
+    UC13  & User resets his password                                                                        \\
 \end{tabular}
 \medskip
 \begin{figure}[H]
@@ -73,7 +73,7 @@ Here is a list of relevant use cases for the S2B. These use cases are also shown
 \medskip
 \clearpage
 % COuld be useful to report this on the dictionary section on chapter 1%
-In the following use case description tables, if not explicitly stated otherwise, the term ``user'' is used interchangeably with the term customer ``customer''.
+In the following use case description tables, if not explicitly stated otherwise, the term ``user'' is used interchangeably with the term ``customer''.
 \medskip
 
 \textbf{Use case 1: User Registration}
@@ -177,7 +177,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item \textbf{book a visit in that store}
         \item \textbf{create a numbered ticket for entering the store as soon as possible}
         \item \textbf{add the store to their favorites list}
-    \end{itemize}                                                                     \\
+    \end{itemize}                                                                    \\
     \midrule
     \textbf{Exceptions}                       &
     \begin{itemize}
@@ -537,7 +537,7 @@ In the following use case description tables, if not explicitly stated otherwise
 
 \subsubsection{Requirements Mapping}
 \subsection{Performance Requirements}
-Considering \textbf{CLup customer application} and \textbf{CLup customer operator} an user action that implies a communication with a remote server should take no longer than 5 seconds, from the start of the interaction to the moment when the user receives some feedback. When there is no need to connect to a server, this time should be lower than 1 second. This requirements holds in a context where the underlying operative system is not overloaded and the user internet connection is working properly.
+Considering \textbf{CLup customer application} and \textbf{CLup operator application}, an user action that implies a communication with a remote server should take no longer than 5 seconds, from the start of the interaction to the moment when the user receives some feedback. When there is no need to connect to a server, this time should be lower than 1 second. This requirements holds in a context where the underlying operative system is not overloaded and the user internet connection is working properly.
 \smallskip
 When a store admin account requests elaborate statistics of the store, the response time must be lower than 10 seconds.
 \subsection{Design Constraints}
@@ -553,7 +553,7 @@ When a store admin account requests elaborate statistics of the store, the respo
 All the data stored in the CLup databases must be periodically backed up. Data redundancy policies, like RAID, must be enacted to hande failures promptly and lowering the risk of losing data.
 
 \subsubsection{Availability}
-The system must have multiple nodes handling requests from the customers and the operators. These nodes, working in parallel reduce the risk of a total failure of the system. Data redundancy policies also help to reduce downtimes in case of a data storage unit fault.
+The system must have multiple nodes handling requests from the customers and the operators. These nodes, working in parallel, reduce the risk of a total failure of the system. Data redundancy policies also help to reduce downtimes in case of a data storage unit fault.
 
 \smallskip
 
@@ -571,21 +571,21 @@ The access control system must continue working even if an automated, external s
     External System that fails & Measures                                                                                                                                         \\
     People counter             & The CLup system will estimate the number of people inside the store using the average visit times. This value will also be manually adjustable   \\
     Smart Gates                & An operator with the CLup operator application will check tickets and admit people manually                                                      \\
-    Paper Ticket Emitter       & An operator will form a queue and admits people manually if there is space in the store (information that can still be stracked by the CLup app) \\
+    Paper Ticket Emitter       & An operator will form a queue and admits people manually if there is space in the store (information that can still be tracked by the CLup app) \\
     Ticket number screens      & An operator announces manually the ticket numbers of the people that should enter the store, looking them up on the CLup operator app            \\
 \end{tabular}
 \subsubsection{Security}
-All the data sent via a insecure communication channels (i.e. Internet, Local Networks) must be secured with modern encryption standards. This requirement applies to all data exchanged from CLup customer and operator applications and for all traffic generated from the external hardware systems installed on the supermarket.
+All the data sent via insecure communication channels (i.e. Internet, Local Networks) must be secured with modern encryption standards. This requirement applies to all data exchanged by CLup customer and operator applications and for all traffic generated by the external hardware systems installed on the supermarket.
 
 \smallskip
 
-The external hardware systems installed in the supermarket should be connected in a secure and dedicated LAN with a single access point to the internet with proper firewall settings. This network must be separated from other networks especially the ones accessible freely from the customers (i.e. a shop free wi-fi service).
+The external hardware systems installed in the supermarket should be connected in a secure and dedicated LAN with a single access point to the internet with proper firewall settings. This network must be separated from other networks especially the ones accessible freely from the customers (i.e. a shop free Wi-Fi service).
 
 \smallskip
 
 The customer accounts are separated from the business accounts. Each store manager has permissions to manage the operator accounts and has access to all the store data; the manager can decide which account can view which statistics.
 \subsubsection{Maintainability}
-The system is clearly divided in a lot of independent subsystems that communicate with each other using some interfaces. As long as the interface between differen subsystems is preserved, it is possible to maintain and update single subsystems transparently.
+The system is clearly divided in a lot of independent subsystems that communicate with each other using some interfaces. As long as the interface between different subsystems is preserved, it is possible to maintain and update single subsystems transparently.
 \subsubsection{Portability}
 \textbf{The CLup customer mobile application} compatibility should cover at least 95\% of the iOS and Android devices. To make CLup even more accessible, a mobile friendly web interface can be provided to the users.
 
