@@ -43,6 +43,7 @@ Hence, this document is addressed to the developers of the S2B as well as the co
 \subsubsection{Goals}
 \rowcolors{2}{gray!25}{white}
 \renewcommand{\arraystretch}{1.4}
+\captionof{table}{Goals table}
 \begin{tabular}{C{1cm}L{14.1cm}}
       \rowcolor{gray!50}
       Label & Goal Description                                                                                                                                                               \\
@@ -58,6 +59,7 @@ Hence, this document is addressed to the developers of the S2B as well as the co
       G10   & Notify a customer when it's time to approach the store entrance                                                                                                                \\
       G11   & Provide an estimation of the waiting time to every customer that wants to wait in line (physical or virtual)                                                                   \\
 \end{tabular}
+
 \subsection{Scope}
 CLup positions itself as an intermediary between stores and customers. Clients can book entrances and retrieve tickets through the application, and the stores communicate with the CLup backend to update entrances, leavings and the capacity of the building.
 
@@ -102,19 +104,28 @@ Furthermore, CLup will provide a simple but powerful REST API that can be easily
 
 \subsubsection{Definitions}
 \begin{itemize}
-      \item \textbf{Access controller}:
-      \item \textbf{Business account}:
-      \item \textbf{In-Site ticket}:
-      \item \textbf{Physical/Paper ticket}:
-      \item \textbf{Valid Ticket}:
-      \item \textbf{Time slot}:
-      \item \textbf{People-Counting System}:
-      \item \textbf{Customer Application}:
-      \item \textbf{Operator Application}:
-      \item \textbf{Store Main System}:
+      \item \textbf{Access controller}: a subsystem that permits the entrance of customers into the store. It can be a device like a smart turnstile that reads customers tickets or just a person of the store staff manually scanning tickets.
+      \item \textbf{Business account}: a CLup account that is destined to store managers or operators and therefore the 'business' side of CLup
+      \item \textbf{In-Site ticket}: a ticket that is taken by a customer near the store. It can be both a virtual paperless ticket or a ticket printer by an emitter near the store premises
+      \item \textbf{Virtual ticket}: a ticket issued through the CLup application
+      \item \textbf{Physical/Paper ticket}: a printed physical ticket, emitted by a printer near the store premises
+      \item \textbf{Valid Ticket} (at time X): a ticket that has a code recognized by the CLup system and valid for the specified time
+      \item \textbf{Time slot}: a time delta that is associated with a number of bookable tickets (which varies and is customizable from store to store)
+      \item \textbf{People-Counting System}: a subsystem that permits the counting of the number of people inside the store. It can be a device like a proximity sensor or a smart turnstile, or it can be a person of the store staff manually counting people.
+      \item \textbf{Customer Application}: the CLup mobile application destined to customers that want to shop inside stores adopting CLup
+      \item \textbf{Operator Application}: the CLup mobile application destined to store staff to monitor entrances and statistics
+      \item \textbf{Store Main System}: the store main server that communicates directly with CLup servers. All store subsystems and smart devices should communicate with it through an Intranet
 \end{itemize}
 
 \subsection{Reference Documents}
+
+\begin{itemize}
+      \item The World and the Machine - Michael Jackson - ICSE95: 17th International Conference on Software Engineering Seattle Washington USA April, 1995
+      \item R\&DD Assignment A.Y. 2020-2021 - Elisabetta di Nitto, Matteo Giovanni Rossi
+      \item Software Engineering II slides and material - Elisabetta di Nitto, Matteo Giovanni Rossi
+      \item ISO/IEC/IEEE 29148:2018 Systems and software engineering - Life cycle processes - Requirements engineering
+\end{itemize}
+
 \subsection{Document structure}
 
 \textbf{Chapter 1} introduces the problems that the S2B will resolve framing them into the current world situation. It describes purpose of the project and the goals that the software will need to accomplish. Moreover, it reports reference documents and describes the lexicon used in the whole document (i.e. Definitions, Acronyms and Abbreviations).
@@ -138,4 +149,4 @@ Requirements are mapped with the goals they accomplish, together with the domain
 
 \textbf{Chapter 4} provides an abstract static Alloy model for the S2B. In this section the goals of the modelling activity are explained. The commented Alloy code is provided to the reader, this code is further explained with some instances generated from the alloy engine.
 
-\textbf{Chapter 5} shows the time spent from each member of the team for writing this document. 
+\textbf{Chapter 5} shows the time spent from each member of the team for writing this document.
