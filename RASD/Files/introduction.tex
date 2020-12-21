@@ -46,17 +46,17 @@ Hence, this document is addressed to the developers of the S2B as well as the co
 \captionof{table}{Goals table}
 \begin{tabular}{C{1cm}L{14.1cm}}
       \rowcolor{gray!50}
-      Label & Goal Description                                                                                                                                                               \\
-      G1    & Avoid exceeding the maximum number of customer inside the store in each store                                                                                            \\
-      G2    & Reduce the number of customer waiting physically in line in front of the store entrance                                                                                \\
-      G3    & Try to distribute people uniformly inside the store to ease maintaining social distancing                                                                                      \\
-      G4    & Allow customers to book for a visit to the store at a desired time and day                                   \\
-      G5    & Let every customer have the possibility to access the store regardless of the technology available to them                                                                      \\
-      G6    & Give stores adopting CLup access to anonymous statistics regarding the people coming to the store                                                                               \\
-      G7    & Provide a simple and user-friendly interface to book tickets                                                                                                                   \\
-      G8    & Provide an interface for the access controller to check tickets and monitor the occupancy                                                                                      \\
-      G9    & Provide an estimation of the waiting time to every customer that waits in line (physical or virtual)  \\
-      G10   & Notify a customer when it's time to approach the store entrance      \\
+      Label & Goal Description                                                                                           \\
+      G1    & Avoid exceeding the maximum number of customer inside the store in each store                              \\
+      G2    & Reduce the number of customer waiting physically in line in front of the store entrance                    \\
+      G3    & Try to distribute people uniformly inside the store to ease maintaining social distancing                  \\
+      G4    & Allow customers to book for a visit to the store at a desired time and day                                 \\
+      G5    & Let every customer have the possibility to access the store regardless of the technology available to them \\
+      G6    & Give stores adopting CLup access to anonymous statistics regarding the people coming to the store          \\
+      G7    & Provide a simple and user-friendly interface to book tickets                                               \\
+      G8    & Provide an interface for the access controller to check tickets and monitor the occupancy                  \\
+      G9    & Provide an estimation of the waiting time to every customer that waits in line (physical or virtual)       \\
+      G10   & Notify a customer when it's time to approach the store entrance                                            \\
 \end{tabular}
 
 \subsection{Scope}
@@ -101,6 +101,9 @@ Furthermore, CLup will provide a simple but powerful REST API that can be easily
 
 \end{itemize}
 
+\vfill
+\pagebreak
+
 \subsubsection{Definitions}
 \begin{itemize}
       \item \textbf{Access controller}: a subsystem that permits the entrance of customers into the store. It can be a device like a smart turnstile that reads customers tickets or just a person of the store staff manually scanning tickets.
@@ -114,6 +117,9 @@ Furthermore, CLup will provide a simple but powerful REST API that can be easily
       \item \textbf{Customer Application}: the CLup mobile application destined to customers that want to shop inside stores adopting CLup
       \item \textbf{Operator Application}: the CLup mobile application destined to store staff to monitor entrances and statistics
       \item \textbf{Store Main System}: the store main server that communicates directly with CLup servers. All store subsystems and smart devices should communicate with it through an Intranet
+      \item \textbf{Geocoding API}: Geocoding converts addresses into geographic coordinates to be placed on a map. A Geocoding API allows the use of their services to permit translation between textual addresses and Latitude/Longitude coordinates
+      \item \textbf{Map API}: An external services that provides operations of geographics maps and the download of map information, usually of the places in proximity of given geographics coordinates
+      \item \textbf{Hashed Password}: When a password has been “hashed” it means it has been turned into a scrambled representation of itself. A user's password is taken and – using a key known to the site – the hash value is derived from the combination of both the password and the key, using a set algorithm.
 \end{itemize}
 
 \subsection{Reference Documents}
@@ -123,6 +129,7 @@ Furthermore, CLup will provide a simple but powerful REST API that can be easily
       \item R\&DD Assignment A.Y. 2020-2021 - Elisabetta di Nitto, Matteo Giovanni Rossi
       \item Software Engineering II slides and material - Elisabetta di Nitto, Matteo Giovanni Rossi
       \item ISO/IEC/IEEE 29148:2018 Systems and software engineering - Life cycle processes - Requirements engineering
+      \item \href{https://www0.gsb.columbia.edu/mygsb/faculty/research/pubfiles/5474/queueing%20theory%20and%20modeling.pdf}{Queueing Theory And Modeling - Linda Green - Graduate School of Business, Columbia University, New York}
 \end{itemize}
 
 \subsection{Document structure}
@@ -146,6 +153,6 @@ Common use cases are meticulously described, divided into smaller actions and hi
 Requirements are mapped with the goals they accomplish, together with the domain assumptions they are related to. This improves the understanding of how the work can later be divided and parallelized, and will define the development process.
 
 
-\textbf{Chapter 4} provides an abstract static Alloy model for the S2B. In this section the goals of the modelling activity are explained. The commented Alloy code is provided to the reader, this code is further explained with some instances generated from the alloy engine.
+\textbf{Chapter 4} provides an abstract static Alloy model for the S2B. In this section the goals of the modeling activity are explained. The commented Alloy code is provided to the reader, this code is further explained with some instances generated from the alloy engine.
 
 \textbf{Chapter 5} shows the time spent from each member of the team for writing this document.
