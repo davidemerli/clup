@@ -172,12 +172,12 @@ CLup is very flexible, and will work adapting to a lot of different scenarios, t
 
 \end{itemize}
 \subsubsection{Customer side characteristics}
-Everyone needs to do grocery shopping, but in the situation of a pandemic, it is encouraged to stay safe at home. This can lead people to go for longer shopping sessions to last more days without going out; it can also drastically increase the number of customers per day at supermarkets, inevitably creating long queues.
+Everyone needs to do grocery shopping, but in the situation of a pandemic, it is encouraged to stay safe at home. This can lead people to go for longer shopping sessions to last more days without going out; it can also drastically increase the number of customers per day at store, inevitably creating long queues.
 Nobody should be excluded from accessing the shops, and also people without CLup application need to be taken into account.
 
 
 The S2B solves this problem by allowing those customers to retrieve paper tickets and wait in a physical line before entering the shop if the shop is full.
-The physical line of customer is unavoidable if the supermarket cannot satisfy the increased demand of groceries in its area, even if CLup can alleviate this problem allowing a better distribution of the client visits. The possibility of booking visits in advance will push more and more users to download CLup in order to avoid queues; avoiding cramming at the entrance and maintaining social distancing can decrease the spread of the virus.
+The physical line of customer is unavoidable if the store cannot satisfy the increased demand of groceries in its area, even if CLup can alleviate this problem allowing a better distribution of the client visits. The possibility of booking visits in advance will push more and more users to download CLup in order to avoid queues; avoiding cramming at the entrance and maintaining social distancing can decrease the spread of the virus.
 
 \vfill
 
@@ -196,11 +196,11 @@ The physical line of customer is unavoidable if the supermarket cannot satisfy t
 
     DA3   & The access-control system works properly and won't allow unauthorized customer entrances                                                                                                           \\
 
-    DA4   & Customers with an in-place digital ticket try to avoid staying near the entrance until they receive the ``go to entrance'' notification                                                            \\
+    DA4   & Customers with a numbered digital ticket try to avoid staying near the entrance until they receive the ``go to entrance'' notification                                                            \\
 
     DA5   & Customers with a booked ticket in a given time slot will not show up until few minutes before the start of their time slots                                                                        \\
 
-    DA6   & If people-counters are installed they will provide the exact count of the customers that enter or leave the shop                                                                                   \\
+    DA6   & If people counters are installed they will provide the exact count of the customers that enter or leave the shop                                                                                   \\
 
     DA7   & No customer are present at the shop opening hour, and no customer will be present at the shop closing hour                                                                                         \\
 
@@ -219,7 +219,7 @@ In this section are presented the main functions of the S2B, introduced by the s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Images/UML_booked_ticket.png}
+    \includegraphics[width=\textwidth]{Images/UML_booked_ticket.pdf}
     \caption{\label{fig:Booked_Ticket_State}Booked ticket state machine}
 \end{figure}
 
@@ -228,7 +228,7 @@ In this section are presented the main functions of the S2B, introduced by the s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Images/UML_in_place_virtual_ticket.png}
+    \includegraphics[width=\textwidth]{Images/UML_in_place_virtual_ticket.pdf}
     \caption{ \label{fig:Booked_Ticket_State}In-place virtual ticket state machine}
 \end{figure}
 
@@ -248,25 +248,25 @@ Requirements list both functional and non-functional requirements, and span ever
     \rowcolor{gray!50}
     Label & Requirement description                                                                                                                                                                     \\
 
-    R11   & The system must keep general information and contacts about the store chains adopting CLup                                                                                                  \\
-    R12   & The system must provide each store a store-admin account                                                                                                                                    \\
-    R13   & The store-admin account must allow the creation of store-operator accounts                                                                                                                  \\
-    R14   & For each store the system must allow the users to retrieve information about location and business hours                                                                                    \\
-    R15   & The system stores information about capacity of each market                                                                                                                                 \\
-    R16   & The system won't let anyone enter the store if the maximum capacity has been reached                                                                                                        \\
-    R17   & The system will let a customer enter the store if and only if he has a a valid ticket                                                                                                       \\
-    R18   & The system will use the occupancy data retrieved from the supermarket to control the store access                                                                                           \\
-    R19   & The system must provide an interface to communicate with the store access control                                                                                                        \\
-    R21   & The system must provide an interface for user to compile a shopping list                                                                                                                    \\
-    R22   & The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department                                             \\
-    R31   & The system must allow the store-admin account to create and edit entrance time intervals                                                                                                    \\
-    R32   & Each time interval must have a number of bookable slots fewer than the store capacity                                                                                                       \\
-    R33   & The system must allow authenticated users to book a visit in a desired time interval                                                                                                        \\
-    R34   & The system must not allow a user to book a slot in an already full time interval                                                                                                            \\
-    R35   & The system must not allow a user to book a visit if he has already reserved another visit                                                                                                   \\
-    R36   & The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation \\
-    R37   & The system must notify the customers with a virtual queue ticket when it's time to approach the store entrance                                                                              \\
-    R38   & The store operator application must allow an authenticated operator to manually admit customers                                                                                             \\
+    R1   & The system must keep general information and contacts about the store chains adopting CLup                                                                                                  \\
+    R2   & The system must provide each store a store-admin account                                                                                                                                    \\
+    R3   & The store-admin account must allow the creation of store-operator accounts                                                                                                                  \\
+    R4   & For each store the system must allow the users to retrieve information about location and business hours                                                                                    \\
+    R5   & The system stores information about capacity of each market                                                                                                                                 \\
+    R6   & The system won't let anyone enter the store if the maximum capacity has been reached                                                                                                        \\
+    R7   & The system will let a customer enter the store if and only if they have a a valid ticket                                                                                                       \\
+    R8   & The system will use the occupancy data retrieved from the store to control the store access                                                                                           \\
+    R9   & The system must provide an interface to communicate with the store access control                                                                                                        \\
+    R10   & The system must provide an interface for user to compile a shopping list                                                                                                                    \\
+    R11   & The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department                                             \\
+    R12   & The system must allow the store-admin account to create and edit entrance time intervals                                                                                                    \\
+    R13   & Each time interval must have a number of bookable slots fewer than the store capacity                                                                                                       \\
+    R14   & The system must allow authenticated users to book a visit in a desired time interval                                                                                                        \\
+    R15   & The system must not allow a user to book a slot in an already full time interval                                                                                                            \\
+    R16   & The system must not allow a user to book a visit if he has already reserved another visit                                                                                                   \\
+    R17   & The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation \\
+    R18   & The system must notify the customers with a virtual queue ticket when it's time to approach the store entrance                                                                              \\
+    R19   & The store operator application must allow an authenticated operator to manually admit customers                                                                                             \\
 \end{tabular}
 
 \vfill
@@ -274,34 +274,39 @@ Requirements list both functional and non-functional requirements, and span ever
 \begin{tabular}{C{1cm}L{14.1cm}}
     \rowcolor{gray!50}
     Label & Requirement description                                                                                                                                                         \\
-    R42   & The system  must ask the customer to provide the estimated visit time when booking a time slot                                                                                  \\
-    R51   & The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application                                                       \\
-    R52   & The system must allow the access to the store to customer with numbered tickets using a 'First Come First Served' logic, treating virtual and physical ticket owner equally       \\
-    R53   & The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line                       \\
-    R54   & The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch                                              \\
-    R61   & The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store                                                                      \\
-    R62   & The system must record periodically and store statistics about the occupancy of each store                                                                                      \\
-    R63   & The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week                                               \\
-    R64   & The operator CLup application must show to an authenticated operator the real time occupancy of the store                                                                       \\
-    R71   & The customer CLup application must be cross-platform and must work on the majority of the devices                                                                               \\
-    R72   & The stores adopting CLup must be displayed on a map                                                                                                                             \\
-    R73   & The CLup customer application allows user to mark stores as favorite in order to access them quickly                                                                            \\
-    R74   & The CLup customer app after the login allows immediately to book tickets right from the homepage                                                                                \\
-    R81   & The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments \\
-    R91   & The system must push notifications to user devices with update information on the store he has a ticket for                                                                     \\
-    R101  & The system must associates tickets with line numbers                                                                                                                            \\
+    R20   & The system  must ask the customer to provide the estimated visit time when booking a visit to the store                                                                                \\
+    R21   & The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application                                                       \\
+    R22   & The system must allow the access to the store to customer with numbered tickets using a 'First Come First Served' logic, treating virtual and physical ticket owner equally       \\
+    R23   & The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line                       \\
+    R24   & The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch                                              \\
+    R25   & The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store                                                                      \\
+    R26   & The system must record periodically and store statistics about the occupancy of each store                                                                                      \\
+    R27   & The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week                                               \\
+    R28   & The operator CLup application must show to an authenticated operator the real time occupancy of the store                                                                       \\
+    R29   & The customer CLup application must be cross-platform and must work on the majority of the devices                                                                               \\
+    R30   & The stores adopting CLup must be displayed on a map                                                                                                                             \\
+    R31   & The CLup customer application allows user to mark stores as favorite in order to access them quickly                                                                            \\
+    R32   & The CLup customer app allows to book visit and retrieve tickets directly from the store page                                                                \\
+    R33   & The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments \\
+    R34   & The system must push notifications to user devices with update information on the store he has a ticket for                                                                     \\
+    R35  & The system must associates tickets with line numbers                                                                                                                            \\
+    R36 & The system allows customer to register an user account \\
+    R37 & The system allows registered customers to authenticated \\
+
 \end{tabular}
 \vfill
 
 \subsubsection{System Representation}
 
-Use cases and scenarios, elaborated and expanded into functional and non-functional requirements for the software, require a structure defining all the entities involved in the system.
-Below it is presented the CLup class diagram, with interaction between entities and the cardinality of such associations.
 
-\begin{figure}[H]
+
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{Images/UML_class_synthetic.png}
+    \includegraphics[width=\textwidth]{Images/UML_class.pdf}
     \caption{\label{fig:Booked_Ticket_State}Class Diagram}
 \end{figure}
+
+Use cases and scenarios, elaborated and expanded into functional and non-functional requirements for the software, require a structure defining all the entities involved in the system.
+Below it is presented the CLup class diagram, with interaction between entities and the cardinality of such associations.
 
 \vfill

@@ -155,14 +155,14 @@ Access Control calls to Entrance
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>407</x>
+      <x>396</x>
       <y>187</y>
-      <w>231</w>
+      <w>253</w>
       <h>99</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Scan to Enter Outside Time Slot</panel_attributes>
-    <additional_attributes>120.0;70.0;120.0;20.0;80.0;20.0;80.0;70.0</additional_attributes>
+    <additional_attributes>130.0;70.0;130.0;20.0;90.0;20.0;90.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

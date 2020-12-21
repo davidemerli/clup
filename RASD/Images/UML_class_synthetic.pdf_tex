@@ -1,0 +1,171 @@
+%% Creator: Inkscape 1.0.1 (3bc2e813f5, 2020-09-07), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'UML_class_synthetic.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{839.625bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.03573024)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{UML_class_synthetic.pdf}}%
+    \put(0.21974096,1.00964439){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AccessControlSystem\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{UML_class_synthetic.pdf}}%
+    \put(0.16525234,0.98981134){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}List<Ticket> admittedTickets\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{UML_class_synthetic.pdf}}%
+    \put(0.16525234,0.9699782){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}admit(Ticket) : bool\end{tabular}}}}%
+    \put(0.16525234,0.95461143){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}callNext(PersonalTicket) : bool\end{tabular}}}}%
+    \put(0.16525234,0.93924466){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}checkOut(Ticket) : Integer\end{tabular}}}}%
+    \put(0.16525234,0.9238778){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}getPeopleInsideEstimate() : Integer\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{UML_class_synthetic.pdf}}%
+    \put(0.23760607,0.69700482){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PaperTicketEmitter\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{UML_class_synthetic.pdf}}%
+    \put(0.20098258,0.67717177){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}identifier : Name\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{UML_class_synthetic.pdf}}%
+    \put(0.20098258,0.65733863){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}emitPaperTicket()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{UML_class_synthetic.pdf}}%
+    \put(0.51808843,0.68807226){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}InSitePaperTicket\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{UML_class_synthetic.pdf}}%
+    \put(0.47789192,0.66823921){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}status  : PaperTicketStatus\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{UML_class_synthetic.pdf}}%
+    \put(0.74944172,0.68807226){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}InSiteVirtualTicket\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{UML_class_synthetic.pdf}}%
+    \put(0.71013845,0.66823921){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}status : VirtualTicketStatus\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{UML_class_synthetic.pdf}}%
+    \put(0.87092452,0.85779089){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PersonalTicket\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{UML_class_synthetic.pdf}}%
+    \put(0.84412684,0.83795784){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}callToEntrance()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{UML_class_synthetic.pdf}}%
+    \put(0.85037963,0.12532104){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}PreBookedTicket\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{UML_class_synthetic.pdf}}%
+    \put(0.80839661,0.10548799){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}status : VirtualTicketStatus\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{UML_class_synthetic.pdf}}%
+    \put(0.59848146,0.85779089){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}InSiteTicket\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{UML_class_synthetic.pdf}}%
+    \put(0.74944172,1.01857695){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Ticket}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{UML_class_synthetic.pdf}}%
+    \put(0.67440822,0.9987439){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}validOnDate : Date\end{tabular}}}}%
+    \put(0.67440822,0.98337704){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}issued : DateTime\end{tabular}}}}%
+    \put(0.67440822,0.96801027){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}usedOn : DateTime\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{UML_class_synthetic.pdf}}%
+    \put(0.67440822,0.94817722){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}cancelTicket()\end{tabular}}}}%
+    \put(0.67440822,0.93281036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}useTicket()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{UML_class_synthetic.pdf}}%
+    \put(0.44305494,0.55408388){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}VirtualQueue\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{UML_class_synthetic.pdf}}%
+    \put(0.37070121,0.53425083){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Queue<InSiteTicket> queue\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{UML_class_synthetic.pdf}}%
+    \put(0.37070121,0.49905092){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}getEstimatedWaitingTime() : Time\end{tabular}}}}%
+    \put(0.37070121,0.48368414){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}getLenght() : Integer\end{tabular}}}}%
+    \put(0.37070121,0.46831728){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}addTicket(InSiteTicket)\end{tabular}}}}%
+    \put(0.37070121,0.45295051){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}removeTicket(InSiteTicket)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{UML_class_synthetic.pdf}}%
+    \put(0.19919607,0.25930942){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BookingTimeSlot\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{UML_class_synthetic.pdf}}%
+    \put(0.15631979,0.23947637){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Day : Date\end{tabular}}}}%
+    \put(0.15631979,0.22410951){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Start : Time\end{tabular}}}}%
+    \put(0.15631979,0.20874274){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}End: Time\end{tabular}}}}%
+    \put(0.15631979,0.19337597){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}TotalTickets : Integer\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{UML_class_synthetic.pdf}}%
+    \put(0.07771326,0.06279312){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ShopChain\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{UML_class_synthetic.pdf}}%
+    \put(0.00446628,0.04296007){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Name: String\end{tabular}}}}%
+    \put(0.00446628,0.02759321){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}LegalAddress: String\end{tabular}}}}%
+    \put(0.00446628,0.01222644){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ContactEmail: String\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{UML_class_synthetic.pdf}}%
+    \put(0.14470746,0.55408388){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Shop\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{UML_class_synthetic.pdf}}%
+    \put(0.05806163,0.53425083){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ShopName: String\end{tabular}}}}%
+    \put(0.05806163,0.51888396){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Address: Address\end{tabular}}}}%
+    \put(0.05806163,0.5035172){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}OpeningHours : [(Time,Time)]\end{tabular}}}}%
+    \put(0.05806163,0.48815042){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Capacity : Integer\end{tabular}}}}%
+    \put(0.05806163,0.47278356){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}MeanPermanence: Time\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{UML_class_synthetic.pdf}}%
+    \put(0.05806163,0.45295051){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}getTimeDistance(Address) : Time\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{UML_class_synthetic.pdf}}%
+    \put(0.76016079,0.3307699){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}RegisteredCustomer\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{UML_class_synthetic.pdf}}%
+    \put(0.68334078,0.31093685){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Name : String\end{tabular}}}}%
+    \put(0.68334078,0.29556999){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Surname : String\end{tabular}}}}%
+    \put(0.68334078,0.28020322){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Address: Address\end{tabular}}}}%
+    \put(0.68334078,0.26483644){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Email : String\end{tabular}}}}%
+    \put(0.68334078,0.24946958){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Birthday : Date\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{UML_class_synthetic.pdf}}%
+    \put(0.68334078,0.22963653){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}bookTimeSlot(Supermarket,BookingTimeSlot)\end{tabular}}}}%
+    \put(0.68334078,0.21426976){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}createInSiteTicket(Supermarket)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{UML_class_synthetic.pdf}}%
+    \put(0.08396606,0.21518393){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}chain\end{tabular}}}}%
+    \put(0.08396606,0.3388092){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{UML_class_synthetic.pdf}}%
+    \put(0.29834748,0.80919911){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}emitter\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=34]{UML_class_synthetic.pdf}}%
+    \put(0.91469406,0.16158857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}«creates»\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=35]{UML_class_synthetic.pdf}}%
+    \put(0.81643591,0.49209326){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}«creates»\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=36]{UML_class_synthetic.pdf}}%
+    \put(0.40977427,0.66413577){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}«emits»\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=37]{UML_class_synthetic.pdf}}%
+    \put(0.15630174,0.66484761){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=38]{UML_class_synthetic.pdf}}%
+    \put(0.34301027,0.34917231){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}◄ favourites \end{tabular}}}}%
+    \put(0.28494864,0.38793828){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0..n\end{tabular}}}}%
+    \put(0.63865994,0.29861268){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=39]{UML_class_synthetic.pdf}}%
+    \put(0.51360411,0.84349879){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=40]{UML_class_synthetic.pdf}}%
+    \put(0.92362662,0.56480295){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}owner\end{tabular}}}}%
+    \put(0.92362662,0.78543716){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=41]{UML_class_synthetic.pdf}}%
+    \put(0.30728004,0.08119553){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}◄ slot\end{tabular}}}}%
+    \put(0.76371587,0.05743358){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=42]{UML_class_synthetic.pdf}}%
+    \put(0.29408647,0.51478062){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}◄ shop\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=43]{UML_class_synthetic.pdf}}%
+    \put(0.20902188,0.2907548){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1..n\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
