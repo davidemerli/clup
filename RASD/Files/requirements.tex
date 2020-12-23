@@ -13,6 +13,12 @@ Hence, the interface must:
     \item use an adaptive layout to support devices with different resolutions and aspect ratios
 \end{enumerate}
 
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/customer_app_mockups.png}
+    \caption{CLup's Customer Application Mockups}
+\end{figure}
+
 \subsubsection{Hardware Interfaces}
 CLup software runs on different platforms and different kinds of hardware depending on the part of the system services it is required to run.
 
@@ -22,8 +28,6 @@ GPS is used to retrieve the current location but can be replaced with manual ins
 Automation systems communicating in a LAN do not have specific requirements: many different solutions can be employed and can vary from different kind of store. The store main system must be able to communicate with the CLup APIs, and it is required to have a working internet connection.
 
 CLup main servers on the other hand can exploit newest standards on Serverless computing, modularizing functions in microservices and be able to keep up with an increase of requests and stores adopting the S2B.
-\vfill
-
 
 \subsubsection{Software Interfaces}
 CLup will expose REST APIs in order to exchange data from a local store server to CLup main servers.
@@ -39,15 +43,18 @@ Local subsystems interfacing with the local main server should be connected to a
 
 Local subsystems can also be developed and connected with IoT standards, for example employing communication through protocols like MQTT.
 
+\vfill
+\pagebreak
+
 \subsection{Functional Requirements}
 \subsubsection{Use cases}
-Here is a list of relevant use cases for the S2B. These use cases are also shown in the figure \ref{fig:Use_Case_Diag}
+Here is a list of relevant use cases for the S2B. These use cases are also shown in Figure \ref{fig:Use_Case_Full_Diag}
 \smallskip
 
 \rowcolors{2}{gray!25}{white}
-\renewcommand{\arraystretch}{1.4}
-\captionof{table}{Use Cases table}
-\begin{tabular}{C{2cm}L{10.5cm}C{2.6cm}}
+\renewcommand{\arraystretch}{1.2}
+% \captionof{table}{Use Cases table}
+\begin{tabular}{C{2cm}L{13.1cm}}
     \rowcolor{gray!50}
     Label & Use Case                                                                                          \\
     UC1   & Customer Registration                                                                             \\
@@ -67,7 +74,7 @@ Here is a list of relevant use cases for the S2B. These use cases are also shown
 \medskip
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_use_case.pdf}
-    \caption{\label{fig:Use_Case_Diag}Use Case Diagram for the S2B}
+    \caption{\label{fig:Use_Case_Full_Diag}Use Case Diagram for the S2B}
 \end{figure}
 
 
@@ -83,11 +90,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{User Registration}                                                                                                        \\
+    \textbf{Name}             & \textbf{User Registration}                                                                                                      \\
     \midrule
-    \textbf{Actors}           & Unregistered customer                                                                                                             \\
+    \textbf{Actors}           & Unregistered customer                                                                                                           \\
     \midrule
-    \textbf{Entry conditions} & The user requests the system to register                                                                                          \\
+    \textbf{Entry conditions} & The user requests the system to register                                                                                        \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -99,7 +106,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system sends a e-mail to the address provided by the user in the form. The e-mail contains a verification link
         \item The users open the e-mail and clicks on the verification link
         \item The system sends an e-mail to the user stating that their registration process ended successfully
-    \end{enumerate}                                                                                                                                     \\
+    \end{enumerate}                                                                                                                                   \\
     \midrule
     \textbf{Exit conditions}  & The unregistered customer now is a registered customer and after authentication he can access all CLup customer functionalities \\
     \midrule
@@ -107,7 +114,7 @@ In the following use case description tables, if not explicitly stated otherwise
     \begin{itemize}
         \item If the e-mail inserted is already registered in the system an error message tells the user that the provided e-mail is already in use by another account. The systems asks the user if they want to reset the password (See UC13 - User resets password) %TODO Add a link%
         \item While typing the password the system checks that the password is compliant with the password requirements listed in the section \ref{password_req}. If the password requirements are not met the system shows an error listing the non respected password requirements.
-    \end{itemize}                                                                                                                                     \\
+    \end{itemize}                                                                                                                                   \\
     \bottomrule
     \caption{\emph{Customer registration} use case description}
 \end{longtable}
@@ -123,11 +130,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{User Authentication}                                                                                            \\
+    \textbf{Name}             & \textbf{User Authentication}                                                                                          \\
     \midrule
-    \textbf{Actors}           & Registered Customer or Store Operator                                                                                   \\
+    \textbf{Actors}           & Registered Customer or Store Operator                                                                                 \\
     \midrule
-    \textbf{Entry conditions} & The user requests the system to log-in                                                                                  \\
+    \textbf{Entry conditions} & The user requests the system to log-in                                                                                \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -136,14 +143,14 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system checks if there is an account registered with the provided e-mail
         \item The system checks that the account's hashed password matches with the hashed password provided in the form
         \item The initial CLup page is shown to the user
-    \end{enumerate}                                                                                                                           \\
+    \end{enumerate}                                                                                                                         \\
     \midrule
     \textbf{Exit conditions}  & The user can use the CLup customer/operator application with all the functionalities available to authenticated users \\
     \midrule
     \textbf{Exceptions}       &
     \begin{itemize}
         \item If the e-mail or the password are incorrect then an error message is shown to the user
-    \end{itemize}                                                                                                                           \\
+    \end{itemize}                                                                                                                         \\
     \bottomrule
     \caption{\emph{Customer authentication} use case description}
 \end{longtable}
@@ -154,11 +161,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}                             & \textbf{Customer searches for store details}      \\
+    \textbf{Name}                             & \textbf{Customer searches for store details}    \\
     \midrule
-    \textbf{Actors}                           & Customer                                          \\
+    \textbf{Actors}                           & Customer                                        \\
     \midrule
-    \textbf{Entry conditions}                 & The user started the CLup customer application    \\
+    \textbf{Entry conditions}                 & The user started the CLup customer application  \\
     \midrule
     \textbf{Flow of events}                   &
     \begin{enumerate}
@@ -171,14 +178,14 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The user selects one store
         \item The system retrieves all the details about the store from his databases
         \item The system loads and displays the store view
-    \end{enumerate}                                                                     \\
+    \end{enumerate}                                                                  \\
     \midrule
     \textbf{Exit conditions}                  & The customer now views the store pages and can:
     \begin{itemize}
         \item \textbf{book a visit in that store}
         \item \textbf{create a numbered ticket for entering the store as soon as possible}
         \item \textbf{add the store to their favorites list}
-    \end{itemize}                                                                    \\
+    \end{itemize}                                                                  \\
     \midrule
     \textbf{Exceptions}                       &
     \begin{itemize}
@@ -187,13 +194,13 @@ In the following use case description tables, if not explicitly stated otherwise
         \item If the other fallback option fails and the Map API is available the map will be shown centered in a default position
         \item If the Map API call fails default list view containing all CLup stores will be shown to the user
         \item If no store matches the user filters an error message will be prompted to the user
-    \end{itemize}                                                                    \\
+    \end{itemize}                                                                  \\
     \midrule
     \textbf{Additional \newline Requirements} &
     \begin{itemize}
         \item The store details shown in the store view are: store name, store chain, address, opening hour, occupancy statistics at every hour
         \item The filters criteria available to the user are: Store name, city, currently open stores, maximum distance from the store
-    \end{itemize}                                                                    \\
+    \end{itemize}                                                                  \\
     \bottomrule
     \caption{\emph{Customer searches for store details} use case description}
 \end{longtable}
@@ -235,11 +242,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{Customer books a visit in a store}                                                                                  \\
+    \textbf{Name}             & \textbf{Customer books a visit in a store}                                                                                                  \\
     \midrule
-    \textbf{Actors}           & Registered customer                                                                                                         \\
+    \textbf{Actors}           & Registered customer                                                                                                                         \\
     \midrule
-    \textbf{Entry conditions} & The user is authenticated and has loaded a store view. The user has no other visits or ticket active                        \\
+    \textbf{Entry conditions} & The user is authenticated and has loaded a store view. The user has no other visits or ticket active                                        \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -251,9 +258,9 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The user (optionally) edits the value and then confirm the booking
         \item The system confirms the booking of the visit
         \item The system asks the customer if they want to \textbf{create a shopping list}
-    \end{enumerate}                                                                                                                              \\
+    \end{enumerate}                                                                                                                                              \\
     \midrule
-    \textbf{Exit conditions}  & The user can enter the store during the booked time-slot                                                                  \\
+    \textbf{Exit conditions}  & The user can enter the store during the booked time-slot                                                                                    \\
     \midrule
     \textbf{Exceptions}       & If the selected slot is not available anymore, the system will show an error message inviting the customer to select another available slot \\
     \bottomrule
@@ -350,11 +357,11 @@ In the following use case description tables, if not explicitly stated otherwise
 \rowcolors{1}{white}{white}
 \begin{longtable}{p{0.25\linewidth}p{0.75\linewidth}}
     \toprule
-    \textbf{Name}             & \textbf{Customer create a numbered physical ticket to enter the store}                                                                   \\
+    \textbf{Name}             & \textbf{Customer create a numbered physical ticket to enter the store}                                                             \\
     \midrule
-    \textbf{Actors}           & Customer, Physical Ticket Emitter                                                                                                        \\
+    \textbf{Actors}           & Customer, Physical Ticket Emitter                                                                                                  \\
     \midrule
-    \textbf{Entry conditions} & The customer is in front of the ticket emitter                                                                                           \\
+    \textbf{Entry conditions} & The customer is in front of the ticket emitter                                                                                     \\
     \midrule
     \textbf{Flow of events}   &
     \begin{enumerate}
@@ -364,9 +371,9 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system returns the details of the ticket to the emitter
         \item The emitter prints the ticket
         \item The user retrieves the ticket and waits until the number on his ticket is called at the entrance of the store
-    \end{enumerate}                                                                                                                                           \\
+    \end{enumerate}                                                                                                                                     \\
     \midrule
-    \textbf{Exit conditions}  & The user enters the store scanning the ticket                                                                                            \\
+    \textbf{Exit conditions}  & The user enters the store scanning the ticket                                                                                      \\
     \midrule
     \textbf{Exceptions}       & If the user takes too long to enter the store after being called to enter, the ticket no more guarantees the entrance to the store \\
     \bottomrule
@@ -392,7 +399,7 @@ In the following use case description tables, if not explicitly stated otherwise
         \item The system acknowledges the user that the operation was successful
     \end{enumerate}                                                                                             \\
     \midrule
-    \textbf{Exit conditions}  & The user can now create another ticket or book another visit                             \\
+    \textbf{Exit conditions}  & The user can now create another ticket or book another visit                               \\
     \midrule
     \textbf{Exceptions}       &                                                                                            \\
     \bottomrule
@@ -537,175 +544,221 @@ In the following use case description tables, if not explicitly stated otherwise
 \clearpage
 
 \subsubsection{Requirements Mapping}
-In this sections each goal is mapped to the functional requirements and the domain assumptions that combined satisfy that goal. Each goals also includes the use cases involved from that goal.
+In this sections each goal is mapped to the functional requirements and the domain assumptions that combined satisfy that goal. Each goal also includes the use cases that practically demonstrate part of the goal and/or its related requirements.
+
 \bigskip
-\begin{itemize}
-    \item \textbf{G1 Avoid exceeding the maximum number of customer inside the store in each store}
-    \begin{itemize}
-        \item R1 The system must keep general information and contacts about the store chains adopting CLup
-        \item R2 The system must provide each store a store-admin account
-        \item R3 The store-admin account must allow the creation of store-operator accounts
-        \item R4 For each store the system must allow the users to retrieve information about location and business hours
-        \item R5 The system stores information about capacity of each market
-        \item R6 The system won’t let anyone enter the store if the maximum capacity has been reached
-        \item R7 The system will let a customer enter the store if and only if he has a a valid ticket
-        \item R8 The system will use the occupancy data retrieved from the store to control the store access
-        \item R9 The system must provide an interface to communicate with the store access control
-        \medskip
-        \item DA2 Customer will stay approximately the time they have declared when booking the ticket
-        \item DA3 The access controller works properly and won't allow unauthorized customers entrances
-        \item DA6 If people counters are installed they will provide the exact count of the customers that enter or leave the shop
-        \item DA7 No customer are present at the shop opening hour, and no customer will be present at the shop closing hour
-        \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
-        \medskip
-        \item UC10 Customer scans the ticket through an access control system to enter
-        \item UC11 An user leaves the store through an exit with a people counter installed
-    \end{itemize}
-    \item \textbf{G2 Reduce the number of customer waiting physically in line in front of the store entrance}
-    \begin{itemize}
-        \item R12 The system must allow the store-admin account to create and edit entrance time intervals
-        \item R13 Each time interval must have a number of bookable slots fewer than the store capacity
-        \item R14 The system must allow authenticated users to book a visit in a desired time interval
-        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
-        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
-        \item R19 The store operator application must allow an authenticated Notify a customer with the CLup app a reasonably precise estimation of the waiting time
-        \item DA4 Customers with a numbered digital ticket try to avoid staying near the entrance until they receive the “go to entrance” notification
-        \item DA5 Customers with a booked ticket in a given time slot will not show up until few minutes before the start of their time slots
-        \medskip
-        \item UC5 Customer books a visit in a store
-        \item UC7 Customer creates a numbered virtual ticket to enter a store as soon as there is a place available
-    \end{itemize}
-    \item \textbf{G3 Try to distribute people uniformly inside the store to ease maintaining social distancing}
-    \begin{itemize}
-        \item R10 The system must provide an interface for user to compile a shopping list    
-        \item R11 The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department
-        \item R36 The system allows customer to register an user account
-        \item R37 The system allows registered customers to authenticated
-        \medskip
-        \item DA1 Customers that created a shop list will buy approximately all the products in that list, so they will visit for the greater part of their permanence the departments where the products are located
-        \item DA2 Customer will stay approximately the time they have declared when booking the ticket
-        \medskip
-        \item UC6 Customer creates/edits a shopping list
-    \end{itemize}
-    \item \textbf{G4 Allow customers to book for a visit to the store at a desired time and day}
-    \begin{itemize}
-        \item R12 The system must allow the store-admin account to create and edit entrance time intervals
-        \item R13 Each time interval must have a number of bookable slots fewer than the store capacity
-        \item R14 The system must allow authenticated users to book a visit in a desired time interval
-        \item R15 The system must not allow a user to book a slot in an already full time interval
-        \item R16 The system must not allow a user to book a visit if he has already reserved another visit
-        \item R20 The system  must ask the customer to provide the estimated visit time when booking a visit to the store
-        \item R30 The stores adopting CLup must be displayed on a map
-        \item R32 The CLup customer app allows to book visit and retrieve tickets directly from the store page
-        \item R36 The system allows customer to register an user account
-        \item R37 The system allows registered customers to authenticated
-        \medskip
-        \item DA7 No customer are present at the shop opening hour, and no customer will be present at the shop closing hour
-        \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
-        \medskip
-        \item UC1 Customer Registration
-        \item UC2 Customer/Operator Authentication
-        \item UC3 Customer search for the store page
-        \item UC5 Customer books a visit in a store
-        \item UC9 Customer cancels a previously created 
-        ticket
-        \item UC10 Customer scans the ticket through an access control system to enter
-        \item UC13 User resets his password
-    \end{itemize}
-    \item \textbf{G5 Let every customer have the possibility to access the store regardless of the technology available to them}
-    \begin{itemize}
-        \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
-        \item R22 The system must allow the access to the store to customer with numbered tickets using a ’First Come First Served’ logic, treating virtual and physical tickets owner equally
-        \item R23 The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line
-        \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
-        \item R29 The customer CLup application must be cross-platform and must work on the majority of the devices
-        \medskip
-        \medskip
-        \item UC8 Customer creates a physical numbered ticket
-        \item UC10 Customer scans the ticket through an access control system to enter
-    \end{itemize}
-    \item \textbf{G6 Give stores adopting CLup access to anonymous statistics regarding the people coming to the store}
-    \begin{itemize}
-        \item R2 The system must provide each store a store-admin account
-        \item R3 The store-admin account must allow the creation of store-operator accounts
-        \item R25 The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store 
-        \item R26 The system must record periodically and store statistics about the occupancy of each store
-        \item R27 The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week
-        \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the stor
-        \medskip
-        \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
-        \medskip
-        \item UC2 Customer/Operator Authentication 
-        \item UC12 A store operator checks statistics about the store  
-    \end{itemize}
-    \item \textbf{G7 Provide a simple and user-friendly interface to book tickets}    
-    \begin{itemize}
-        \item R4 For each store the system must allow the users to retrieve information about location and business hours
-        \item R29 The customer CLup application must be cross-platform and must work on the majority of the device
-        \item R30 The stores adopting CLup must be displayed on a map
-        \item R31 The CLup customer application allows user to mark stores as favorite in order to access them quickly
-        \item R32 The CLup customer app allows to book visit and retrieve tickets directly from the store page
-        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
-        \item R36 The system allows customer to register an user account
-        \item R37 The system allows registered customers to authenticated
-        \medskip
-        \medskip
-        \item UC1 Customer Registration
-        \item UC2 Customer/Operator Authentication
-        \item UC3 Customer search for the store page
-        \item UC4 Customer adds/removes a store from their favorites list 
-    \end{itemize}                                                
-    \item \textbf{G8 Provide an interface for the access controller to check tickets and monitor the occupancy }
-    \begin{itemize}
-        \item R2 The system must provide each store a store-admin account
-        \item R3 The store-admin account must allow the creation of store-operator accounts
-        \item R8 The system must provide an interface to communicate with the store access control
-        \item R9 The system must provide an interface to communicate with the store access control
-        \item R19 The store operator application must allow an authenticated operator to manually admit customers
-        \item R23 The system must try to estimate waiting time based on store capacity,reservations and the current number of people with numbered tickets waiting in line
-        \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the store
-        \item R33 The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments
-        \medskip
-        \item DA3 The access-control system works properly and won’t allow unauthorized customer entrances
-        \item DA6 If people counters are installed they will provide the exact count of the customers that enter or leave the shop
-        \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
-        \medskip
-        \item UC10 Customer scans the ticket through an access control system to enter
-        \item UC12 A store operator checks statistics about the store
-    \end{itemize}     
-    \item \textbf{G9 Provide an estimation of the waiting time to every customer that waits in line (physical or virtual)}
-    \begin{itemize}
-        \item R8 The system will use the occupancy data retrieved from the store to control the store access
-        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
-        \item R20 The system must ask the customer to provide the estimated visit time when booking a visit to the store
-        \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
-        \item R22 The system must allow the access to the store to customer with numbered tickets using a ’First Come First Served’ logic, treating virtual and physical ticket owner equally
-        \item R23 The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line
-        \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
-        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
-        \medskip
-        \item DA2 Customer will stay approximately the time they have declared when booking the ticket
-        \medskip
-        \item UC7 Customer creates a numbered virtual ticket to enter a store as soon as there is a place available
-        \item UC8 Customer creates a physical numbered ticket
-    \end{itemize}
-    \item \textbf{G10 Notify a customer when it's time to approach the store entrance}
-    \begin{itemize}
-        \item R8 The system will use the occupancy data retrieved from the store to control the store access
-        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
-        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
-        \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
-        \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
-        \item R35 The system must associates tickets with line numbers
-        \medskip
-        \item DA2 Customer will stay approximately the time they have declared when booking the ticket
-        \item DA6 If people counters are installed they will provide the exact count of the customers that enter or leave the shop
-        \medskip
-        \item UC7 Customer creates a numbered virtual ticket to enter a store as soon as there is a place available
-        \item UC8 Customer creates a physical numbered ticket
-    \end{itemize}
+
+\textbf{G1: Avoid exceeding the maximum number of customer inside the store in each store}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R1 The system must keep general information and contacts about the store chains adopting CLup
+    \item R2 The system must provide each store a store-admin account
+    \item R3 The store-admin account must allow the creation of store-operator accounts
+    \item R4 For each store the system must allow the users to retrieve information about location and business hours
+    \item R5 The system stores information about capacity of each market
+    \item R6 The system won’t let anyone enter the store if the maximum capacity has been reached
+    \item R7 The system will let a customer enter the store if and only if he has a a valid ticket
+    \item R8 The system will use the occupancy data retrieved from the store to control the store access
+    \item R9 The system must provide an interface to communicate with the store access control
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA2 Customer will stay approximately the time they have declared when booking the ticket
+    \item DA3 The access controller works properly and won't allow unauthorized customers entrances
+    \item DA6 If people counters are installed they will provide the exact count of the customers that enter or leave the shop
+    \item DA7 No customer are present at the shop opening hour, and no customer will be present at the shop closing hour
+    \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC10 Customer scans the ticket through an access control system to enter
+    \item UC11 An user leaves the store through an exit with a people counter installed
 \end{itemize}
 
+\vfill
+\pagebreak
+
+\textbf{G2: Reduce the number of customer waiting physically in line in front of the store entrance}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R12 The system must allow the store-admin account to create and edit entrance time intervals
+    \item R13 Each time interval must have a number of bookable slots fewer than the store capacity
+    \item R14 The system must allow authenticated users to book a visit in a desired time interval
+    \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+    \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+    \item R19 The store operator application must allow an authenticated Notify a customer with the CLup app a reasonably precise estimation of the waiting time
+    \item DA4 Customers with a numbered digital ticket try to avoid staying near the entrance until they receive the “go to entrance” notification
+    \item DA5 Customers with a booked ticket in a given time slot will not show up until few minutes before the start of their time slots
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC5 Customer books a visit in a store
+    \item UC7 Customer creates a numbered virtual ticket to enter a store as soon as there is a place available
+\end{itemize}
+
+
+\textbf{G3: Try to distribute people uniformly inside the store to ease maintaining social distancing}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R10 The system must provide an interface for user to compile a shopping list
+    \item R11 The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department
+    \item R36 The system allows customer to register an user account
+    \item R37 The system allows registered customers to authenticated
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA1 Customers that created a shop list will buy approximately all the products in that list, so they will visit for the greater part of their permanence the departments where the products are located
+    \item DA2 Customer will stay approximately the time they have declared when booking the ticket
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC6 Customer creates/edits a shopping list
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\textbf{G4: Allow customers to book for a visit to the store at a desired time and day}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R12 The system must allow the store-admin account to create and edit entrance time intervals
+    \item R13 Each time interval must have a number of bookable slots fewer than the store capacity
+    \item R14 The system must allow authenticated users to book a visit in a desired time interval
+    \item R15 The system must not allow a user to book a slot in an already full time interval
+    \item R16 The system must not allow a user to book a visit if he has already reserved another visit
+    \item R20 The system  must ask the customer to provide the estimated visit time when booking a visit to the store
+    \item R30 The stores adopting CLup must be displayed on a map
+    \item R32 The CLup customer app allows to book visit and retrieve tickets directly from the store page
+    \item R36 The system allows customer to register an user account
+    \item R37 The system allows registered customers to authenticated
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA7 No customer are present at the shop opening hour, and no customer will be present at the shop closing hour
+    \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC1 Customer Registration
+    \item UC2 Customer/Operator Authentication
+    \item UC3 Customer search for the store page
+    \item UC5 Customer books a visit in a store
+    \item UC9 Customer cancels a previously created ticket
+    \item UC10 Customer scans the ticket through an access control system to enter
+    \item UC13 User resets his password
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\textbf{G5: Let every customer have the possibility to access the store regardless of the technology available to them}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
+    \item R22 The system must allow the access to the store to customer with numbered tickets using a ’First Come First Served’ logic, treating virtual and physical tickets owner equally
+    \item R23 The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line
+    \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
+    \item R29 The customer CLup application must be cross-platform and must work on the majority of the devices
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item UC8 Customer creates a physical numbered ticket
+    \item UC10 Customer scans the ticket through an access control system to enter
+\end{itemize}
+\textbf{G6: Give stores adopting CLup access to anonymous statistics regarding the people coming to the store}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R2 The system must provide each store a store-admin account
+    \item R3 The store-admin account must allow the creation of store-operator accounts
+    \item R25 The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store
+    \item R26 The system must record periodically and store statistics about the occupancy of each store
+    \item R27 The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week
+    \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the stor
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC2 Customer/Operator Authentication
+    \item UC12 A store operator checks statistics about the store
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\textbf{G7: Provide a simple and user-friendly interface to book tickets}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R4 For each store the system must allow the users to retrieve information about location and business hours
+    \item R29 The customer CLup application must be cross-platform and must work on the majority of the device
+    \item R30 The stores adopting CLup must be displayed on a map
+    \item R31 The CLup customer application allows user to mark stores as favorite in order to access them quickly
+    \item R32 The CLup customer app allows to book visit and retrieve tickets directly from the store page
+    \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
+    \item R36 The system allows customer to register an user account
+    \item R37 The system allows registered customers to authenticated
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC1 Customer Registration
+    \item UC2 Customer/Operator Authentication
+    \item UC3 Customer search for the store page
+    \item UC4 Customer adds/removes a store from their favorites list
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\textbf{G8: Provide an interface for the access controller to check tickets and monitor the occupancy }
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R2 The system must provide each store a store-admin account
+    \item R3 The store-admin account must allow the creation of store-operator accounts
+    \item R8 The system must provide an interface to communicate with the store access control
+    \item R9 The system must provide an interface to communicate with the store access control
+    \item R19 The store operator application must allow an authenticated operator to manually admit customers
+    \item R23 The system must try to estimate waiting time based on store capacity,reservations and the current number of people with numbered tickets waiting in line
+    \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the store
+    \item R33 The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA3 The access-control system works properly and won’t allow unauthorized customer entrances
+    \item DA6 If people counters are installed they will provide the exact count of the customers that enter or leave the shop
+    \item DA8 The store manager will insert correct data about the shop and the departments maximum capacities
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC10 Customer scans the ticket through an access control system to enter
+    \item UC12 A store operator checks statistics about the store
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\textbf{G9: Provide an estimation of the waiting time to every customer that waits in line (physical or virtual)}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R8 The system will use the occupancy data retrieved from the store to control the store access
+    \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+    \item R20 The system must ask the customer to provide the estimated visit time when booking a visit to the store
+    \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
+    \item R22 The system must allow the access to the store to customer with numbered tickets using a ’First Come First Served’ logic, treating virtual and physical ticket owner equally
+    \item R23 The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line
+    \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
+    \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA2 Customer will stay approximately the time they have declared when booking the ticket
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC7 Customer creates a numbered virtual ticket to enter a store as soon as there is a place available
+    \item UC8 Customer creates a physical numbered ticket
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\textbf{G10: Notify a customer when it's time to approach the store entrance}
+\begin{itemize}[label=\textcolor{clup_blue2}{\textbullet}]
+    \item R8 The system will use the occupancy data retrieved from the store to control the store access
+    \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+    \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+    \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
+    \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
+    \item R35 The system must associates tickets with line numbers
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_red}{\textbullet}]
+    \item DA2 Customer will stay approximately the time they have declared when booking the ticket
+    \item DA6 If people counters are installed they will provide the exact count of the customers that enter or leave the shop
+\end{itemize}
+\begin{itemize}[label=\textcolor{clup_yellow}{\textbullet}]
+    \item UC7 Customer creates a numbered virtual ticket to enter a store as soon as there is a place available
+    \item UC8 Customer creates a physical numbered ticket
+\end{itemize}
+
+\vfill
+\pagebreak
 
 \subsection{Performance Requirements}
 Considering \textbf{CLup customer application} and \textbf{CLup operator application}, an user action that implies a communication with a remote server should take no longer than 5 seconds, from the start of the interaction to the moment when the user receives some feedback. When there is no need to connect to a server, this time should be lower than 1 second. This requirements holds in a context where the underlying operative system is not overloaded and the user internet connection is working properly.
@@ -733,6 +786,9 @@ Ordinary maintenance that needs shutting down part of the system should be plann
 
 The access control system must continue working even if an automated, external system installed in the store fails. In the following table are listed the measures that must be taken after a failure of an external system:
 \smallskip
+
+\vfill
+\pagebreak
 
 \rowcolors{2}{gray!25}{white}
 \captionof{table}{External Systems fails table}
