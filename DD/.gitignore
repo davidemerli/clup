@@ -1,0 +1,15 @@
+*
+!.gitignore
+!main.tex
+!main.bib
+!commandsFile.tex
+!Files
+!Files/*
+!Images
+!Images/*
+!util
+!util/*
+!diagrams/*
+!diagrams
+!alloy/*
+!*.sty

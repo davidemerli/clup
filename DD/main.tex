@@ -1,0 +1,115 @@
+\input{commandsFile}
+
+\begin{document}
+%TITLE PAGE
+
+\begin{titlepage}
+  \begin{center}
+
+    \HUGE \textbf{CLup} \\[0.5cm]
+    \LARGE Customers Line-Up \\[0.5cm]
+    \hspace*{-1.2cm}\includegraphics[scale=0.5]{../logo/clup_logo_nobg.png}
+
+    \vfill
+
+    \Huge \textbf{DD} \\
+    \LARGE Design Document \\[2cm]
+
+    \begin{multicols}{2}
+      \large
+      \begin{flushleft}
+        Software Engineering II Project \\
+        Computer Science and Engineering\\
+        Politecnico di Milano\\
+        Version 1.0 - 23 December 2020 \\
+      \end{flushleft}
+      \begin{flushright}
+        \includegraphics[scale=0.6]{Images/PolimiLogo.png} \\
+        Davide Merli - 10578363\\
+        Dario Passarello - 10566467 \\
+      \end{flushright}
+    \end{multicols}
+  \end{center}
+
+\end{titlepage}
+
+%Define deliverable specific info
+%Replace cell contents where needed
+\begin{table}[h!]
+  \begin{tabu} to \textwidth { X[0.4,r,p] X[0.7,l,p] }
+    \hline
+
+    \textbf{Deliverable:}   & DD                                                                     \\
+    \textbf{Title:}         & Design Document                                                        \\
+    \textbf{Authors:}       & Davide Merli, Dario Passarello                                         \\
+    \textbf{Version:}       & 1.0                                                                    \\
+    \textbf{Date:}          &                                                                        \\
+    \textbf{Download page:} & https://github.com/davidemerli/MerliPassarello/                        \\
+    \textbf{Copyright:}     & Copyright © 2020, Davide Merli, Dario Passarello – All rights reserved \\
+    \hline
+  \end{tabu}
+\end{table}
+
+
+
+
+\setcounter{page}{2}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Table of Contents}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\section{Introduction}
+\label{sect:introduction}
+\input{Files/1 - introduction}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\section{Architectural Design}
+\label{sect:architectural_design}
+\input{Files/2 - architectural_design}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\section{User Interface}
+\label{sect:user_interface}
+\input{Files/3 - user_interface}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\section{Requirement Traceability}
+\label{sect:requirement_traceability}
+\input{Files/4 - requirement Traceability}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\section{Implementation, Integration and Test Plan}
+\label{sect:iit}
+\input{Files/5 - implementation_integration_testplan}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\section{Effort Spent}
+\label{sect:effort}
+\input{Files/6 - effort}
+
+
+% %------------------------------------------------------------------------------------------------------------------------------------------------
+% \clearpage
+% \addcontentsline{toc}{section}{References}
+% \bibliographystyle{plain}
+% \bibliography{main}
+% %------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+\end{document}
