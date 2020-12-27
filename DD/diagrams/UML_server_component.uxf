@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>450</x>
-      <y>171</y>
+      <x>342</x>
+      <y>126</y>
       <w>117</w>
       <h>63</h>
     </coordinates>
@@ -16,8 +16,8 @@ Notifier</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>423</x>
-      <y>90</y>
+      <x>315</x>
+      <y>45</y>
       <w>702</w>
       <h>684</h>
     </coordinates>
@@ -30,8 +30,8 @@ CLUP Server
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1251</x>
-      <y>432</y>
+      <x>1197</x>
+      <y>387</y>
       <w>171</w>
       <h>81</h>
     </coordinates>
@@ -44,19 +44,19 @@ Database</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
-      <y>459</y>
-      <w>99</w>
+      <x>1062</x>
+      <y>414</y>
+      <w>153</w>
       <h>27</h>
     </coordinates>
     <panel_attributes>lt=()-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>558</x>
-      <y>639</y>
+      <x>450</x>
+      <y>594</y>
       <w>180</w>
       <h>72</h>
     </coordinates>
@@ -71,8 +71,8 @@ Manager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
-      <y>180</y>
+      <x>216</x>
+      <y>135</y>
       <w>117</w>
       <h>45</h>
     </coordinates>
@@ -82,8 +82,8 @@ Manager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>189</y>
+      <x>36</x>
+      <y>144</y>
       <w>198</w>
       <h>342</h>
     </coordinates>
@@ -94,22 +94,22 @@ Manager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1251</x>
-      <y>261</y>
+      <x>1197</x>
+      <y>216</y>
       <w>171</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>symbol=component
 
-:Supermarket
+:Store
 System</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>351</x>
-      <y>270</y>
+      <x>243</x>
+      <y>225</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -119,8 +119,8 @@ System</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>567</x>
-      <y>486</y>
+      <x>459</x>
+      <y>441</y>
       <w>171</w>
       <h>72</h>
     </coordinates>
@@ -133,8 +133,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>657</y>
+      <x>306</x>
+      <y>612</y>
       <w>162</w>
       <h>27</h>
     </coordinates>
@@ -144,8 +144,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>189</x>
-      <y>261</y>
+      <x>81</x>
+      <y>216</y>
       <w>180</w>
       <h>270</h>
     </coordinates>
@@ -155,8 +155,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>189</y>
+      <x>450</x>
+      <y>144</y>
       <w>81</w>
       <h>27</h>
     </coordinates>
@@ -166,8 +166,8 @@ Provider</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>666</x>
-      <y>342</y>
+      <x>558</x>
+      <y>297</y>
       <w>171</w>
       <h>81</h>
     </coordinates>
@@ -179,8 +179,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>981</x>
-      <y>459</y>
+      <x>873</x>
+      <y>414</y>
       <w>162</w>
       <h>27</h>
     </coordinates>
@@ -190,8 +190,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1116</x>
-      <y>450</y>
+      <x>1008</x>
+      <y>405</y>
       <w>72</w>
       <h>45</h>
     </coordinates>
@@ -201,8 +201,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>198</y>
+      <x>621</x>
+      <y>153</y>
       <w>279</w>
       <h>495</h>
     </coordinates>
@@ -213,8 +213,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>189</y>
+      <x>306</x>
+      <y>144</y>
       <w>54</w>
       <h>27</h>
     </coordinates>
@@ -224,8 +224,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1116</x>
-      <y>216</y>
+      <x>1008</x>
+      <y>171</y>
       <w>63</w>
       <h>27</h>
     </coordinates>
@@ -235,8 +235,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>351</y>
+      <x>720</x>
+      <y>306</y>
       <w>315</w>
       <h>27</h>
     </coordinates>
@@ -246,19 +246,19 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1161</x>
-      <y>207</y>
-      <w>108</w>
+      <x>1053</x>
+      <y>162</y>
+      <w>162</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=-(</panel_attributes>
-    <additional_attributes>100.0;80.0;50.0;80.0;50.0;20.0;20.0;20.0</additional_attributes>
+    <additional_attributes>160.0;80.0;110.0;80.0;110.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>729</x>
-      <y>153</y>
+      <x>621</x>
+      <y>108</y>
       <w>162</w>
       <h>72</h>
     </coordinates>
@@ -270,8 +270,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>603</x>
-      <y>198</y>
+      <x>495</x>
+      <y>153</y>
       <w>81</w>
       <h>189</h>
     </coordinates>
@@ -281,8 +281,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>216</y>
+      <x>306</x>
+      <y>171</y>
       <w>360</w>
       <h>81</h>
     </coordinates>
@@ -292,8 +292,8 @@ Provider</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>513</y>
+      <x>621</x>
+      <y>486</y>
       <w>279</w>
       <h>27</h>
     </coordinates>
@@ -303,8 +303,8 @@ Provider</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>279</x>
-      <y>216</y>
+      <x>171</x>
+      <y>171</y>
       <w>117</w>
       <h>63</h>
     </coordinates>
@@ -315,8 +315,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>396</y>
+      <x>720</x>
+      <y>351</y>
       <w>315</w>
       <h>90</h>
     </coordinates>
@@ -326,8 +326,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>297</x>
-      <y>684</y>
+      <x>189</x>
+      <y>639</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -339,8 +339,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1152</x>
-      <y>486</y>
+      <x>1044</x>
+      <y>441</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -353,8 +353,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>324</x>
-      <y>414</y>
+      <x>216</x>
+      <y>369</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -367,8 +367,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>288</x>
-      <y>297</y>
+      <x>180</x>
+      <y>252</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -380,8 +380,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>639</x>
-      <y>180</y>
+      <x>531</x>
+      <y>135</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -392,21 +392,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1134</x>
-      <y>378</y>
+      <x>1026</x>
+      <y>324</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>Ticket Manager
-Supermarket Interface
+Store Interface
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>225</x>
-      <y>378</y>
+      <x>117</x>
+      <y>333</y>
       <w>135</w>
       <h>153</h>
     </coordinates>
@@ -416,8 +416,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>504</y>
+      <x>162</x>
+      <y>459</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -427,8 +427,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>225</x>
-      <y>576</y>
+      <x>117</x>
+      <y>531</y>
       <w>135</w>
       <h>117</h>
     </coordinates>
@@ -438,8 +438,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>387</y>
+      <x>234</x>
+      <y>342</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -449,8 +449,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>513</y>
+      <x>234</x>
+      <y>468</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -460,8 +460,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>657</y>
+      <x>234</x>
+      <y>612</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -471,8 +471,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>513</y>
+      <x>306</x>
+      <y>468</y>
       <w>171</w>
       <h>27</h>
     </coordinates>
@@ -482,8 +482,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>162</y>
+      <x>774</x>
+      <y>117</y>
       <w>261</w>
       <h>81</h>
     </coordinates>
@@ -493,8 +493,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1116</x>
-      <y>351</y>
+      <x>1008</x>
+      <y>306</y>
       <w>63</w>
       <h>27</h>
     </coordinates>
@@ -504,19 +504,19 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1161</x>
-      <y>306</y>
-      <w>108</w>
+      <x>1053</x>
+      <y>261</y>
+      <w>162</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>lt=-(</panel_attributes>
-    <additional_attributes>100.0;10.0;50.0;10.0;50.0;60.0;20.0;60.0</additional_attributes>
+    <additional_attributes>160.0;10.0;120.0;10.0;120.0;60.0;20.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>315</x>
-      <y>540</y>
+      <x>207</x>
+      <y>495</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -529,8 +529,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>135</x>
-      <y>513</y>
+      <x>27</x>
+      <y>468</y>
       <w>144</w>
       <h>72</h>
     </coordinates>
@@ -543,25 +543,82 @@ Application</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1134</x>
-      <y>153</y>
+      <x>1017</x>
+      <y>198</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>Booking Manager
-Supermarket Interface
+    <panel_attributes>Information Store
+Interface
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>387</y>
+      <x>315</x>
+      <y>342</y>
       <w>261</w>
       <h>27</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>270.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>621</x>
+      <y>243</y>
+      <w>405</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;240.0;370.0;240.0;370.0;10.0;430.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>243</y>
+      <w>54</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=[]-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>243</y>
+      <w>63</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=[]-()</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1053</x>
+      <y>234</y>
+      <w>162</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-(</panel_attributes>
+    <additional_attributes>160.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1017</x>
+      <y>126</y>
+      <w>135</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Booking Manager
+Store Interface
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
