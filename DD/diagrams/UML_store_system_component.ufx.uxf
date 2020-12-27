@@ -600,7 +600,8 @@ fg=blue</panel_attributes>
       <w>120</w>
       <h>56</h>
     </coordinates>
-    <panel_attributes>Information Manager Interface
+    <panel_attributes>Store Information
+Provider Interface
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
