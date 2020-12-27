@@ -37,7 +37,7 @@ CLUP Server
     </coordinates>
     <panel_attributes>symbol=component
 
-:CLUP
+CLUP
 Database</panel_attributes>
     <additional_attributes/>
   </element>
@@ -62,7 +62,7 @@ Database</panel_attributes>
     </coordinates>
     <panel_attributes>symbol=component
 
-:Authentication
+Authentication
 Manager
 
 </panel_attributes>
@@ -101,7 +101,7 @@ Manager
     </coordinates>
     <panel_attributes>symbol=component
 
-:Store
+Store
 System</panel_attributes>
     <additional_attributes/>
   </element>
@@ -126,7 +126,7 @@ System</panel_attributes>
     </coordinates>
     <panel_attributes>symbol=component
 
-:Information
+Information
 Provider</panel_attributes>
     <additional_attributes/>
   </element>
@@ -173,7 +173,7 @@ Provider</panel_attributes>
     </coordinates>
     <panel_attributes>symbol=component
 
-:TicketManager</panel_attributes>
+TicketManager</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -264,7 +264,7 @@ Provider</panel_attributes>
     </coordinates>
     <panel_attributes>symbol=component
 
-:Booking Manager</panel_attributes>
+Booking Manager</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -536,7 +536,7 @@ style=wordwrap</panel_attributes>
     </coordinates>
     <panel_attributes>symbol=component
 
-:CLUP User
+CLUP User
 Application</panel_attributes>
     <additional_attributes/>
   </element>
