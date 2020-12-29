@@ -1,4 +1,22 @@
 \subsection{Overview}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{Images/overview.pdf}
+    \caption{\label{fig:Overview} CLup System Overview}
+\end{figure}
+
+This diagram shows the CLup system as a whole, its actors and main components, from an high level perspective. 
+
+Store customers interact with the system by using a smartphone, which depends on external third party APIs to visualize and interact with maps.
+Store operators can interact with the system using different kinds of devices, to better suit their needs when working at the shop: smartphones can be handy when they need to check information about the store queue while moving through departments; tablets make looking at graphs and statistics more easily without loosing the 'mobile' factor, and having a CLup application also on desktops can also be convenient for operators working at a desk (without having to switch from one device or another in their workflow).
+
+CLup Customer Appliction communicates directly with CLup servers thorugh REST APIs, while CLup Operator Application connects to the Store Local Server which retrieves data both from the Store Local Database and from CLup Servers. 
+
+Store Devices also connect to the Store Local Server, to enhance the functionalities and automate tasks such as admitting customer entrances, monitoring the people inside the store departments, handing out tickets.
+
+CLup Servers on the other hand only store data that is needed to permit queue regulations, for example information about occupancy limits, live occupancy of the stores, markets locations.
+
+Following sections will analyze every major component more deeply, describing in detail its underlying subcomponents and interfaces.  
 
 \subsection{Component View}
 \begin{figure}[H]
@@ -10,7 +28,7 @@ The three main components of the system are: the CLup User Application, the CLup
 
 Customers use the \textbf{CLup User application} to check supermarkets near them and eventually book a visit or retrieve a ticket. The User application interfaces with the \textbf{CLup server}. 
 
-The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times\ldots).
+The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times, etc).
 
 The Store system provides an interface for all the physical devices in the store, collecting and processing data from them and then routing the data to the CLup server or keeping it in the local database. The system communicates with a local database to store temporary data about tickets, the statistics collected and the authentication details of the store operators.
 
