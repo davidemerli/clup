@@ -10,13 +10,13 @@ This diagram shows the CLup system as a whole, its actors and main components, f
 Store customers interact with the system by using a smartphone, which depends on external third party APIs to visualize and interact with maps.
 Store operators can interact with the system using different kinds of devices, to better suit their needs when working at the shop: smartphones can be handy when they need to check information about the store queue while moving through departments; tablets make looking at graphs and statistics more easily without loosing the 'mobile' factor, and having a CLup application also on desktops can also be convenient for operators working at a desk (without having to switch from one device or another in their workflow).
 
-CLup Customer Appliction communicates directly with CLup servers thorugh REST APIs, while CLup Operator Application connects to the Store Local Server which retrieves data both from the Store Local Database and from CLup Servers. 
+CLup Customer Application communicates directly with CLup servers through REST APIs, while CLup Operator Application connects to the Store Local Server which retrieves data both from the Store Local Database and from CLup Servers. 
 
 Store Devices also connect to the Store Local Server, to enhance the functionalities and automate tasks such as admitting customer entrances, monitoring the people inside the store departments, handing out tickets.
 
 CLup Servers on the other hand only store data that is needed to permit queue regulations, for example information about occupancy limits, live occupancy of the stores, markets locations.
 
-Following sections will analyze every major component more deeply, describing in detail its underlying subcomponents and interfaces.  
+Following sections will analyze every major component more deeply, describing in detail its underlying sub-components and interfaces.  
 
 \subsection{Component View}
 \begin{figure}[H]
@@ -28,9 +28,11 @@ The three main components of the system are: the CLup User Application, the CLup
 
 Customers use the \textbf{CLup User application} to check supermarkets near them and eventually book a visit or retrieve a ticket. The User application interfaces with the \textbf{CLup server}. 
 
-The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times, etc).
+Sometimes the customer need to receive notifications about their ticket, to allow this the CLup Server and the application need to use the Push Notification service, each OS manifacturer provide his different push notification service. This service provides its dedicated API for sending and receiving push notifications.
 
-The Store system provides an interface for all the physical devices in the store, collecting and processing data from them and then routing the data to the CLup server or keeping it in the local database. The system communicates with a local database to store temporary data about tickets, the statistics collected and the authentication details of the store operators.
+The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times, etc). 
+
+The \textbf{Store system} provides an interface for all the physical devices in the store, collecting and processing data from them and then routing the data to the CLup server or keeping it in the local database. The system communicates with a local database to store temporary data about tickets, the statistics collected and the authentication details of the store operators.
 
 \subsubsection{CLup Server component view}
 \begin{figure}[H]
@@ -46,7 +48,7 @@ The CLup Server has these internal components:
     \item \textbf{Information Provider}: hands out information to the customers requesting them. These information can be of various nature, like opening hours or the store crowdedness in various times of the day. This data is retrieved from the CLup database or from the Store System which uses another interface to push them periodically.
     \item \textbf{Ticket Manager}: issues virtual tickets when customers requests them. This component interfaces directly with the Store System, adding the created tickets to the queue. The component has the responsibility to notify the customers when it's time to approach the store entrance; it uses the notification interface, provided by the Notifier component.
     \item \textbf{Booking Manager}: handles the visit booking. Queries the database about free slots in the day when a customer wants to make a reservation. Requests are eventually finalized by attaching the shop list to the booking if and when the customer adds it from the application. This components also pushes updates to the Store System about changes regarding the bookings (e.g. cancellation, shopping list changes, etc).
-    \item \textbf{Notifier}: handles all the aspects about sending push notifications to the users, taking into account that the CLup application can be running on different operating systems and that they provide different interfaces to receive these notifications.
+    \item \textbf{Notifier}: handles all the aspects about sending push notifications to the users, taking into account that the CLup application can be running on different operating systems and that they provide different services to receive these notifications. The notifier needs to communicate with the external Push Notification Service, using the interface provided by that service.
 \end{itemize}
 
 \subsubsection{CLup customer application component view}
@@ -63,7 +65,7 @@ The user application contains these sub-components:
     \item \textbf{Map Controller}: Handles the communication with the external Map Service and the GPS. Exploits the Map API provided from the Map Service to get the map data near the user position then will request data to the CLup server in order to populate the map with the nearby stores.  access data about the location of the user. For this task the component will use the Information Provider Interface offered by the CLup server component.
     \item \textbf{Presenter}: Handles the GUI of the applications and the events from the user like the push of a button or the text boxes. Needs to relate with all the controllers components that handle different the different aspects and functionality of the application. To do this these component will provide their interface exposing all the functionalities that each controller offers.
     \item \textbf{Shop-list Controller}: manages the creation of shop lists that will be attached to visit bookings in order to estimate the occupancy of the various department of the store.
-    \item \textbf{OS Notifications Handler}: handles and displays to the user the push notification received from the CLup Server about the bookings or the tickets created from the user. This component is provided by the underlying Operating System, and the interface is accessible through standard libraries of the application programming language.
+    \item \textbf{Push Notifications Handler}: handles and displays to the user the push notification received from the CLup Server about the bookings or the tickets created from the user. This component is provided by the underlying Operating System, and the interface is accessible through standard libraries of the application programming language.
 \end{itemize}
 
 \subsubsection{Store System component view}
@@ -84,7 +86,26 @@ The Store System receives data from the store physical devices and combines it w
 \subsection{Deployment View}
 
 \subsection{Runtime View}
-
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_user_map_sequence.pdf}
+    \caption{\label{fig:UML_user_map_sequence}Sequence diagram for store map loading}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_ticket_scan_sequence.pdf}
+    \caption{\label{fig:UML_ticket_scan_sequence}Sequence diagram for store map loading}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_user_book_visit.pdf}
+    \caption{\label{fig:UML_user_book_visit}Sequence diagram for store map loading}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_paper_ticket_sequence.pdf}
+    \caption{\label{fig:UML_paper_ticket_sequence}Sequence diagram for store map loading}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_virtual_ticket_sequence.pdf}
+    \caption{\label{fig:UML_virtual_ticket_sequence}Sequence diagram for store map loading}
+\end{figure}
 \subsection{Component Interfaces}
 
 \subsection{Style Architecture}
