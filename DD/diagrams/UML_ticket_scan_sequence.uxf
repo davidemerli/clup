@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>216</x>
-      <y>0</y>
+      <x>171</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -16,8 +16,8 @@ Gate</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>261</x>
-      <y>36</y>
+      <x>216</x>
+      <y>54</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -27,8 +27,8 @@ Gate</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>261</x>
-      <y>81</y>
+      <x>216</x>
+      <y>99</y>
       <w>18</w>
       <h>1089</h>
     </coordinates>
@@ -38,8 +38,8 @@ Gate</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>351</x>
-      <y>0</y>
+      <x>306</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -50,8 +50,8 @@ Authorizer</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>387</x>
-      <y>108</y>
+      <x>342</x>
+      <y>126</y>
       <w>18</w>
       <h>1035</h>
     </coordinates>
@@ -61,8 +61,8 @@ Authorizer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>36</y>
+      <x>342</x>
+      <y>54</y>
       <w>27</w>
       <h>90</h>
     </coordinates>
@@ -72,8 +72,8 @@ Authorizer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>90</y>
+      <x>225</x>
+      <y>108</y>
       <w>135</w>
       <h>36</h>
     </coordinates>
@@ -84,8 +84,8 @@ Check(Ticket ID)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>162</x>
-      <y>216</y>
+      <x>117</x>
+      <y>234</y>
       <w>1053</w>
       <h>864</h>
     </coordinates>
@@ -100,8 +100,8 @@ halign=left
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>108</y>
+      <x>351</x>
+      <y>126</y>
       <w>126</w>
       <h>36</h>
     </coordinates>
@@ -112,8 +112,8 @@ Check Full</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>468</x>
-      <y>0</y>
+      <x>423</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -124,8 +124,8 @@ Supervisor</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>36</y>
+      <x>459</x>
+      <y>54</y>
       <w>27</w>
       <h>108</h>
     </coordinates>
@@ -135,8 +135,8 @@ Supervisor</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>126</y>
+      <x>459</x>
+      <y>144</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -146,8 +146,8 @@ Supervisor</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>162</y>
+      <x>351</x>
+      <y>180</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -157,8 +157,8 @@ Supervisor</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>207</x>
-      <y>261</y>
+      <x>162</x>
+      <y>279</y>
       <w>963</w>
       <h>576</h>
     </coordinates>
@@ -198,8 +198,8 @@ Ticket]</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>576</x>
-      <y>0</y>
+      <x>531</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -210,8 +210,8 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>36</y>
+      <x>567</x>
+      <y>54</y>
       <w>27</w>
       <h>261</h>
     </coordinates>
@@ -221,8 +221,8 @@ Controller</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>612</x>
-      <y>279</y>
+      <x>567</x>
+      <y>297</y>
       <w>18</w>
       <h>162</h>
     </coordinates>
@@ -232,8 +232,8 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>261</y>
+      <x>351</x>
+      <y>279</y>
       <w>234</w>
       <h>36</h>
     </coordinates>
@@ -244,8 +244,8 @@ Dequeue if Valid (Ticket ID)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>423</y>
+      <x>351</x>
+      <y>441</y>
       <w>234</w>
       <h>36</h>
     </coordinates>
@@ -256,8 +256,8 @@ Validity</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>684</x>
-      <y>0</y>
+      <x>639</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -268,8 +268,8 @@ Manager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>36</y>
+      <x>675</x>
+      <y>54</y>
       <w>27</w>
       <h>279</h>
     </coordinates>
@@ -279,8 +279,8 @@ Manager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>279</y>
+      <x>576</x>
+      <y>297</y>
       <w>117</w>
       <h>54</h>
     </coordinates>
@@ -293,8 +293,8 @@ Used if Valid
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
-      <y>297</y>
+      <x>675</x>
+      <y>315</y>
       <w>18</w>
       <h>135</h>
     </coordinates>
@@ -304,8 +304,8 @@ Used if Valid
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>792</x>
-      <y>0</y>
+      <x>747</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -316,8 +316,8 @@ Manager</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>891</x>
-      <y>0</y>
+      <x>846</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -328,8 +328,8 @@ Database</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>315</y>
+      <x>684</x>
+      <y>333</y>
       <w>225</w>
       <h>36</h>
     </coordinates>
@@ -340,8 +340,8 @@ Transaction</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>333</y>
+      <x>891</x>
+      <y>351</y>
       <w>18</w>
       <h>90</h>
     </coordinates>
@@ -351,8 +351,8 @@ Transaction</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>36</y>
+      <x>891</x>
+      <y>54</y>
       <w>27</w>
       <h>315</h>
     </coordinates>
@@ -362,8 +362,8 @@ Transaction</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>405</y>
+      <x>684</x>
+      <y>423</y>
       <w>225</w>
       <h>36</h>
     </coordinates>
@@ -374,8 +374,8 @@ Result</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>414</y>
+      <x>576</x>
+      <y>432</y>
       <w>117</w>
       <h>36</h>
     </coordinates>
@@ -386,8 +386,8 @@ Validity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>549</y>
+      <x>351</x>
+      <y>567</y>
       <w>450</w>
       <h>36</h>
     </coordinates>
@@ -398,8 +398,8 @@ Set Used if Valid (Ticket ID)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>36</y>
+      <x>783</x>
+      <y>54</y>
       <w>27</w>
       <h>549</h>
     </coordinates>
@@ -409,8 +409,8 @@ Set Used if Valid (Ticket ID)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>828</x>
-      <y>567</y>
+      <x>783</x>
+      <y>585</y>
       <w>18</w>
       <h>63</h>
     </coordinates>
@@ -420,8 +420,8 @@ Set Used if Valid (Ticket ID)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>612</y>
+      <x>351</x>
+      <y>630</y>
       <w>450</w>
       <h>36</h>
     </coordinates>
@@ -432,8 +432,8 @@ Validity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>837</x>
-      <y>567</y>
+      <x>792</x>
+      <y>585</y>
       <w>117</w>
       <h>36</h>
     </coordinates>
@@ -444,8 +444,8 @@ Transaction</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>414</y>
+      <x>891</x>
+      <y>432</y>
       <w>27</w>
       <h>189</h>
     </coordinates>
@@ -455,8 +455,8 @@ Transaction</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>585</y>
+      <x>891</x>
+      <y>603</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -466,8 +466,8 @@ Transaction</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>837</x>
-      <y>603</y>
+      <x>792</x>
+      <y>621</y>
       <w>117</w>
       <h>36</h>
     </coordinates>
@@ -478,8 +478,8 @@ Result</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>432</y>
+      <x>567</x>
+      <y>450</y>
       <w>27</w>
       <h>288</h>
     </coordinates>
@@ -489,8 +489,8 @@ Result</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>612</x>
-      <y>702</y>
+      <x>567</x>
+      <y>720</y>
       <w>18</w>
       <h>72</h>
     </coordinates>
@@ -500,8 +500,8 @@ Result</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>684</y>
+      <x>351</x>
+      <y>702</y>
       <w>234</w>
       <h>36</h>
     </coordinates>
@@ -512,8 +512,8 @@ Dequeue if Valid (Ticket ID)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>756</y>
+      <x>351</x>
+      <y>774</y>
       <w>234</w>
       <h>36</h>
     </coordinates>
@@ -524,8 +524,8 @@ Validity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>702</y>
+      <x>576</x>
+      <y>720</y>
       <w>432</w>
       <h>36</h>
     </coordinates>
@@ -536,8 +536,8 @@ Updat</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>621</y>
+      <x>783</x>
+      <y>639</y>
       <w>27</w>
       <h>45</h>
     </coordinates>
@@ -547,8 +547,8 @@ Updat</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>828</x>
-      <y>648</y>
+      <x>783</x>
+      <y>666</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -558,8 +558,8 @@ Updat</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>612</y>
+      <x>891</x>
+      <y>630</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -569,8 +569,8 @@ Updat</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>936</x>
-      <y>648</y>
+      <x>891</x>
+      <y>666</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -580,8 +580,8 @@ Updat</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>162</y>
+      <x>459</x>
+      <y>180</y>
       <w>27</w>
       <h>729</h>
     </coordinates>
@@ -591,8 +591,8 @@ Updat</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>423</y>
+      <x>675</x>
+      <y>441</y>
       <w>27</w>
       <h>54</h>
     </coordinates>
@@ -602,8 +602,8 @@ Updat</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>720</x>
-      <y>459</y>
+      <x>675</x>
+      <y>477</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -613,8 +613,8 @@ Updat</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>999</x>
-      <y>0</y>
+      <x>954</x>
+      <y>18</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -625,8 +625,8 @@ Database</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1035</x>
-      <y>36</y>
+      <x>990</x>
+      <y>54</y>
       <w>27</w>
       <h>702</h>
     </coordinates>
@@ -636,8 +636,8 @@ Database</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1035</x>
-      <y>720</y>
+      <x>990</x>
+      <y>738</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -647,8 +647,8 @@ Database</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>747</y>
+      <x>576</x>
+      <y>765</y>
       <w>432</w>
       <h>36</h>
     </coordinates>
@@ -659,8 +659,8 @@ Result</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>873</y>
+      <x>459</x>
+      <y>891</y>
       <w>18</w>
       <h>189</h>
     </coordinates>
@@ -670,8 +670,8 @@ Result</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>855</y>
+      <x>351</x>
+      <y>873</y>
       <w>126</w>
       <h>45</h>
     </coordinates>
@@ -683,8 +683,8 @@ Occupancy</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>1044</y>
+      <x>351</x>
+      <y>1062</y>
       <w>126</w>
       <h>36</h>
     </coordinates>
@@ -695,8 +695,8 @@ Occupancy</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1035</x>
-      <y>756</y>
+      <x>990</x>
+      <y>774</y>
       <w>27</w>
       <h>72</h>
     </coordinates>
@@ -706,8 +706,8 @@ Occupancy</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1035</x>
-      <y>801</y>
+      <x>990</x>
+      <y>819</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -717,8 +717,8 @@ Occupancy</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>513</x>
-      <y>900</y>
+      <x>468</x>
+      <y>918</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -730,8 +730,8 @@ Statistics</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>639</x>
-      <y>846</y>
+      <x>594</x>
+      <y>864</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -742,8 +742,8 @@ Collector</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>675</x>
-      <y>882</y>
+      <x>630</x>
+      <y>900</y>
       <w>27</w>
       <h>54</h>
     </coordinates>
@@ -753,8 +753,8 @@ Collector</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>675</x>
-      <y>918</y>
+      <x>630</x>
+      <y>936</y>
       <w>18</w>
       <h>99</h>
     </coordinates>
@@ -764,8 +764,8 @@ Collector</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>513</x>
-      <y>999</y>
+      <x>468</x>
+      <y>1017</y>
       <w>180</w>
       <h>36</h>
     </coordinates>
@@ -776,8 +776,8 @@ Collector</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>1125</y>
+      <x>225</x>
+      <y>1143</y>
       <w>135</w>
       <h>36</h>
     </coordinates>
@@ -788,8 +788,8 @@ Validity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>1053</y>
+      <x>459</x>
+      <y>1071</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -799,8 +799,8 @@ Validity</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>504</x>
-      <y>1089</y>
+      <x>459</x>
+      <y>1107</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -810,8 +810,8 @@ Validity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>675</x>
-      <y>1008</y>
+      <x>630</x>
+      <y>1026</y>
       <w>27</w>
       <h>108</h>
     </coordinates>
@@ -821,8 +821,8 @@ Validity</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>675</x>
-      <y>1089</y>
+      <x>630</x>
+      <y>1107</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -832,8 +832,8 @@ Validity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>1134</y>
+      <x>342</x>
+      <y>1152</y>
       <w>27</w>
       <h>45</h>
     </coordinates>
@@ -843,8 +843,8 @@ Validity</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>387</x>
-      <y>1152</y>
+      <x>342</x>
+      <y>1170</y>
       <w>18</w>
       <h>18</h>
     </coordinates>

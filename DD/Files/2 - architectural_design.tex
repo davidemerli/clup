@@ -84,22 +84,41 @@ The Store System receives data from the store physical devices and combines it w
     \item \textbf{Statistics Collector}: collects and periodically elaborates statistics with data from the Occupancy Supervisor and Queue Controller. Statistics are saved in the store local database. Brief elaborated data that can be shown to the customer (i.e.~indications of the crowdedness of the store, estimated waiting times,\ldots) are sent periodically to the CLup Server using the Store Information Provider interface.
 \end{itemize}
 \subsection{Deployment View}
-
+\clearpage
 \subsection{Runtime View}
+This section shows some sequence diagrams. The aim of these sequence diagram is to show how the components (the actors in these sequence diagrams) interact between them at runtime. 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_user_map_sequence.pdf}
     \caption{\label{fig:UML_user_map_sequence}Sequence diagram for store map loading}
 \end{figure}
+The diagram in Figure~\ref{fig:UML_user_map_sequence} shows how the system loads the map of all stores and shows it to the user\footnote{UC3 - Customer searches for the store page, refer to RASD}.
+
+To determine the part of the map to load the system needs to acquire the user position consulting the GPS sensor external component (external with regard to the CLup system, but built in most smartphones). Then the MAP API is called to get the map, concurrently a call to the information provider has to be done in order to get the positions and the basic information of all the stores to show in the map. When the map controller has all these data at his disposal the map could be rendered from the presenter. 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Images/UML_ticket_scan_sequence.pdf}
+    \includegraphics[width=1.1\textwidth]{Images/UML_ticket_scan_sequence.pdf}
     \caption{\label{fig:UML_ticket_scan_sequence}Sequence diagram for store map loading}
 \end{figure}
+The diagram shown in Figure~\ref{fig:UML_ticket_scan_sequence} shows how the system behaves when a ticket is scanned\footnote{UC10 - Customer scans the ticket through an access control system to enter, refer to RASD}. The Access Authorizer receives the Ticket ID scanned from a Smart Gate (or an Operator). Before checking if the ticket ID exists and is valid, the store occupancy is checked. If the supermarket is full the entrance could be denied (based on the supermarket policies). 
+
+Then the Access Authorizer figures from the ID which type of ticket has been scanned, this could be achieved in example, fixing a digit of the ticket ID to the same value for all tickets of the same type.
+Depending on the ticket type different actions are carried out:
+\begin{itemize}
+    \item Virtual Numbered Ticket: If the ticket is valid it is removed from the store queue and the ticket status is set to `Inside Shop' on the CLup main database
+    \item Booked Ticket: The Booking manager in the CLup is in charge of checking if the ticket is valid at the time of the scan
+    \item Paper Ticket:  If the ticket is valid it is removed from the store queue and the ticket is set used on the CLup main database
+\end{itemize}
+
+After this the Occupancy Supervisor is called again and updates the people count, then the Access Controller grants the customer the access to the store.
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_user_book_visit.pdf}
-    \caption{\label{fig:UML_user_book_visit}Sequence diagram for store map loading}
+    \caption{\label{fig:UML_user_book_visit}Sequence diagram for book a visit functionality}
 \end{figure}
+The diagram shown in Figure~\ref{fig:UML_user_book_visit} shows how the system behaves when the user requests to book a visit in a store timeslot\footnote{UC 5 - Customer books a visit in a Store, refer to RASD}
+
+The presenter asks the ticket controller to generate a booking, after asking the user the estimated duration of the visit, the Booking Manager component in the CLup Server is called.
+When the transaction in the CLup Database has succeeded the Ticket ID will be returned to the ticket controller that will return to the presenter the information needed to render the Ticket view and show it to the user. After the booking is done the user could attach a shop list to that booking to provide more info 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Images/UML_paper_ticket_sequence.pdf}
+    \includegraphics[width=0.7\textwidth]{Images/UML_paper_ticket_sequence.pdf}
     \caption{\label{fig:UML_paper_ticket_sequence}Sequence diagram for store map loading}
 \end{figure}
 \begin{figure}[H]
