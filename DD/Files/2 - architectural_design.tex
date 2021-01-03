@@ -147,6 +147,178 @@ The customer device checks periodically the notifications, calling the API provi
 
 \subsection{Component Interfaces}
 
+\clearpage
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+    language=Java,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\fontsize{10}{11}\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breakatwhitespace=true,
+}
+
+
+
+
+% interface PushNotificationSenderAPI {
+%     ... // Provided by the device OS
+% }
+
+% interface PushNotificationReceiverAPI {
+%     ... // Provided by the device OS
+% }
+
+
+\begin{lstlisting}
+    
+    /**
+     * It is possible to login using another valid authToken 
+     * provided by services like login with a social network account 
+     */
+    **interfaces AuthenticationInterface, StoreOperatorApplication {
+        object LoginResponse(responseType, [authToken]);
+
+        LoginResponse loginWithCredentials(email, password);
+        LoginResponse loginWithAnotherAuthService(authenticator, authToken);
+    }
+
+    /**
+     * The Information Provider yields publicly available data, 
+     * so authentication is not required
+     */
+    interface InformationProviderInterface {
+        object StoreCharacteristicsResponse(responseType, 
+            [storeID, name, address, gpsPosition, clupStoreSettings]);
+        object StoreLiveDataResponse(responseType, [storeID, occupancyData, ...]);
+
+        StoreCharacteristicsResponse getStoreCharacteristics(storeID);
+        StoreLiveDataResponse getStoreLiveData(storeID);
+        List<storeID> getStoresNearLocation(gpsPosition, kmRadius);
+    }
+
+    interface TicketManagerInterface {
+        object TicketDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
+        object TicketRequestResponse(responseType, [ticketID, TicketDetails]);
+        object TicketRevokeResponse(responseType, [ticketID]);
+        object TicketDetailsResponse(responseType, [TicketDetails]);
+
+        TicketDetailsResponse getTicketInformation(authToken, ticketID, storeID);
+        TicketDetailsResponse getNextIssuableTicketInformation(authToken, storeID);
+        TicketRequestResponse requestTicket(authToken, storeID);
+        TicketRevokeResponse revokeTicket(authToken, storeID, ticketID);
+    }
+
+    interface BookingManagerInterface {
+        object BookingDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
+        object TimeSlot(timeSlotID, validFrom, validTo, availableReservations);
+        object BookingRequestResponse(responseType, [bookingID, BookingDetails]);
+        object BookingRevokeResponse(responseType, [bookingID]);
+        object TimeSlotsRequestResponse(responseType, [List<TimeSlot>]);
+
+        TimeSlotsRequestResponse getTimeSlots(authToken, storeID, fromDate, toDate);
+        BookingRequestResponse requestBooking(authToken, storeID, timeSlotID);
+        BookingRevokeResponse revokeBooking(authToken, storeID, timeSlotID);
+    }
+
+    /** Both interfaces are provided by the device OS CLup application is running on.
+     *  The Notification Adapter transparently handles multiple types 
+     */ of Push Notification APIs for the other components.
+    interfaces PushNotificationSenderAPI, PushNotificationReceiverAPI {...}
+
+    interface BookingManagerStoreInterface {
+        Response cancelBooking(authToken, timeSlotID);
+        Response shoplistUpdate(authToken, timeSlotID, shoppingList);
+    }
+
+    interface StoreInformationProviderInterface {
+
+    }
+
+    interface TicketManagerStoreInterface {
+
+    }
+
+    // Transactional Database interface, provided by the chosen Database technology
+    interface CLupDatabaseInterface {...}
+
+    interface MapAPI {
+
+    }
+
+    interface GPSDataInterface {
+        
+    }
+
+    interface MapPresenterInterface {
+        
+    }
+
+    interface ShoplistPresentInterface {
+
+    }
+
+    interface AuthenticationPresenterInterface {
+        
+    }
+
+    interface BookingCreatorInterface {
+        
+    }
+
+    *interface ShoplistAttachmentInterface{
+        
+    }
+
+    *interface TicketNotificationReceiverInterface {
+        
+    }
+    
+    interface OccupancyUpdateInterface {
+
+    }
+
+    *interface OccupancyStatisticsInterface {
+        
+    }
+
+    interface QueueInterface {
+        
+    }
+
+    interface PeopleCounterInterface {
+        
+    }
+
+    *interface TicketScreenObserverInterface {
+        
+    }
+
+    interface AccessControllerInterface{
+        
+    }
+
+    interface StoreOperatorDataInterface{
+        
+    }
+
+    interface TicketEmitterInterface{
+        
+    }
+
+
+\end{lstlisting}
+
 \subsection{Style Architecture}
 
 % TODO: add section about relevant interfaces and algorithms is pseudocode
