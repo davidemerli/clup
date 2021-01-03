@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>160</x>
-      <y>170</y>
+      <x>70</x>
+      <y>120</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -16,8 +16,8 @@ Emitter</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>210</y>
+      <x>110</x>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -27,8 +27,8 @@ Emitter</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>200</x>
-      <y>250</y>
+      <x>110</x>
+      <y>200</y>
       <w>20</w>
       <h>580</h>
     </coordinates>
@@ -38,32 +38,33 @@ Emitter</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>270</y>
+      <x>120</x>
+      <y>220</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-Enqueue ()</panel_attributes>
+Enqueue</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>370</x>
-      <y>170</y>
+      <x>280</x>
+      <y>120</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>:Queue 
-Controller</panel_attributes>
+Controller
+bg=#FCC873</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
-      <y>210</y>
+      <x>320</x>
+      <y>160</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -73,8 +74,8 @@ Controller</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>410</x>
-      <y>290</y>
+      <x>320</x>
+      <y>240</y>
       <w>20</w>
       <h>100</h>
     </coordinates>
@@ -84,8 +85,8 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>370</y>
+      <x>120</x>
+      <y>320</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -96,8 +97,8 @@ Ticket ID</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>520</x>
-      <y>170</y>
+      <x>430</x>
+      <y>120</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -108,8 +109,8 @@ Database</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>210</y>
+      <x>470</x>
+      <y>160</y>
       <w>30</w>
       <h>260</h>
     </coordinates>
@@ -119,8 +120,8 @@ Database</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>430</y>
+      <x>120</x>
+      <y>380</y>
       <w>370</w>
       <h>40</h>
     </coordinates>
@@ -131,8 +132,8 @@ Transaction</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>560</x>
-      <y>450</y>
+      <x>470</x>
+      <y>400</y>
       <w>20</w>
       <h>100</h>
     </coordinates>
@@ -142,8 +143,8 @@ Transaction</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>530</y>
+      <x>120</x>
+      <y>480</y>
       <w>370</w>
       <h>40</h>
     </coordinates>
@@ -154,8 +155,8 @@ Result</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>610</y>
+      <x>120</x>
+      <y>560</y>
       <w>200</w>
       <h>90</h>
     </coordinates>
@@ -167,8 +168,8 @@ Ticket</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>210</x>
-      <y>680</y>
+      <x>120</x>
+      <y>630</y>
       <w>20</w>
       <h>120</h>
     </coordinates>
@@ -178,8 +179,8 @@ Ticket</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>540</y>
+      <x>470</x>
+      <y>490</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -189,8 +190,8 @@ Ticket</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>560</x>
-      <y>580</y>
+      <x>470</x>
+      <y>530</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -200,8 +201,8 @@ Ticket</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
-      <y>380</y>
+      <x>320</x>
+      <y>330</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -211,8 +212,8 @@ Ticket</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>410</x>
-      <y>400</y>
+      <x>320</x>
+      <y>350</y>
       <w>20</w>
       <h>20</h>
     </coordinates>

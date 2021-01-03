@@ -28,7 +28,7 @@ The three main components of the system are: the CLup User Application, the CLup
 
 Customers use the \textbf{CLup User application} to check supermarkets near them and eventually book a visit or retrieve a ticket. The User application interfaces with the \textbf{CLup server}. 
 
-Sometimes the customer need to receive notifications about their ticket, to allow this the CLup Server and the application need to use the Push Notification service, each OS manifacturer provide his different push notification service. This service provides its dedicated API for sending and receiving push notifications.
+Sometimes the customer need to receive notifications about their ticket, to allow this the CLup Server and the application need to use the Push Notification service, each OS manufacturer provide his different push notification service. This service provides its dedicated API for sending and receiving push notifications.
 
 The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times, etc). 
 
@@ -47,8 +47,8 @@ The CLup Server has these internal components:
     \item \textbf{Authentication Manager}: handles customer registration and authentication. To do this task this component needs to communicate tightly with the CLup database which stores the user data and their hashed passwords;
     \item \textbf{Information Provider}: hands out information to the customers requesting them. These information can be of various nature, like opening hours or the store crowdedness in various times of the day. This data is retrieved from the CLup database or from the Store System which uses another interface to push them periodically.
     \item \textbf{Ticket Manager}: issues virtual tickets when customers requests them. This component interfaces directly with the Store System, adding the created tickets to the queue. The component has the responsibility to notify the customers when it's time to approach the store entrance; it uses the notification interface, provided by the Notifier component.
-    \item \textbf{Booking Manager}: handles the visit booking. Queries the database about free slots in the day when a customer wants to make a reservation. Requests are eventually finalized by attaching the shop list to the booking if and when the customer adds it from the application. This components also pushes updates to the Store System about changes regarding the bookings (e.g. cancellation, shopping list changes, etc).
-    \item \textbf{Notifier}: handles all the aspects about sending push notifications to the users, taking into account that the CLup application can be running on different operating systems and that they provide different services to receive these notifications. The notifier needs to communicate with the external Push Notification Service, using the interface provided by that service.
+    \item \textbf{Booking Manager}: handles the visit booking. Queries the database about free slots in the day when a customer wants to make a reservation. Requests are eventually finalized by attaching the shop list to the booking if and when the customer adds it from the application. This components also pushes updates to the Store System about changes regarding the bookings (e.g.~cancellation, shopping list changes, etc).
+    \item \textbf{Push Notification Adapter}: handles all the aspects about sending push notifications to the users, taking into account that the CLup application can be running on different operating systems and that they provide different services to receive these notifications. The notifier needs to communicate with the external Push Notification Service, using the interface provided by that service.
 \end{itemize}
 
 \subsubsection{CLup customer application component view}
@@ -88,8 +88,14 @@ The Store System receives data from the store physical devices and combines it w
 \subsection{Runtime View}
 The aim of the following sequence diagrams is to show how the components (the actors in the diagrams) interact between them at runtime. 
 \begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_login_sequence.pdf}
+    \caption{\label{fig:UML_login_sequence}User logs into CLup user application, runtime view}
+\end{figure}
+The diagram shown in Figure~\ref{fig:UML_login_sequence} describes the behavior of the system when the user request to login on CLup User Application\footnote{UC2 - Customer/Operator Authentication, refer to RASD}. The Authentication controller calls the Authentication manager that will check in the CLup database if the credential are correct, allowing the login.
+
+\begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_user_map_sequence.pdf}
-    \caption{\label{fig:UML_user_map_sequence}Sequence diagram for store map loading}
+    \caption{\label{fig:UML_user_map_sequence}User searches for a store in the map, runtime view}
 \end{figure}
 The diagram in Figure~\ref{fig:UML_user_map_sequence} shows how the system loads the map of all stores and shows it to the user\footnote{UC3 - Customer searches for the store page, refer to RASD}.
 
@@ -97,22 +103,22 @@ To determine which part of the map to load, the system needs to acquire the user
 
 \begin{figure}[H]
     \includegraphics[width=1.1\textwidth]{Images/UML_ticket_scan_sequence.pdf}
-    \caption{\label{fig:UML_ticket_scan_sequence}Sequence diagram for ticket scanning}
+    \caption{\label{fig:UML_ticket_scan_sequence}User scans a ticket to the access controller, runtime view}
 \end{figure}
 The diagram shown in Figure~\ref{fig:UML_ticket_scan_sequence} shows how the system behaves when a ticket is scanned\footnote{UC10 - Customer scans the ticket through an access control system to enter, refer to RASD}. The Access Authorizer receives the Ticket ID scanned by a Smart Gate (or an Operator). Before checking if the ticket ID exists and is valid, the store live occupancy is checked. If the supermarket is full the entrance can be denied (based on the supermarket policies). 
 
 Then the Access Authorizer figures from the ID which type of ticket has been scanned; this could be achieved, for example, by reserving a digit of the ticket ID to differentiate ticket types.
 Depending on the ticket type different actions are carried out:
 \begin{itemize}
-    \item Virtual Numbered Ticket: if the ticket is valid it is removed from the store queue and the ticket status is set to `Inside Shop' on the CLup main database
+    \item Virtual Numbered Ticket: if the ticket is valid it is removed from the store queue and the ticket status is set to Inside Shop\footnote{RASD, Section 2.4 - Product Functions} on the CLup main database
     \item Booked Ticket: the Booking Manager is in charge of checking if the ticket is valid at the time of the scan
-    \item Paper Ticket: if the ticket is valid it is removed from the store queue and the ticket is set to 'used' on the CLup main database
+    \item Paper Ticket: if the ticket is valid it is removed from the store queue and its status is set to Inside Shop on the CLup main database
 \end{itemize}
 
 After this, the Occupancy Supervisor is called again and updates the people count, then the Access Controller grants the customer the access to the store.
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_user_book_visit.pdf}
-    \caption{\label{fig:UML_user_book_visit}Sequence diagram for book a visit functionality}
+    \caption{\label{fig:UML_user_book_visit}User books a visit to the store, runtime view}
 \end{figure}
 The diagram shown in Figure~\ref{fig:UML_user_book_visit} shows how the system behaves when the user requests to book a visit in a store timeslot\footnote{UC 5 - Customer books a visit in a Store, refer to RASD}
 
@@ -120,12 +126,25 @@ The presenter asks the Ticket Controller to generate a reservation; after asking
 When the transaction in the CLup Database has succeeded, the Ticket ID will be returned to the Ticket Controller, which will send the information needed to render the Ticket View to the Presenter, and show it to the user. After the booking is done, the user can optionally attach a shopping list to the reservation he just made. 
 \begin{figure}[H]
     \includegraphics[width=0.7\textwidth]{Images/UML_paper_ticket_sequence.pdf}
-    \caption{\label{fig:UML_paper_ticket_sequence}Sequence diagram for store map loading}
+    \caption{\label{fig:UML_paper_ticket_sequence}User creates a physical numbered ticket, runtime view}
 \end{figure}
+The diagram shown in Figure~\ref{fig:UML_paper_ticket_sequence} explains how the system behaves when a customer goes to the store and retrieves a ticket directly from a ticket emitter\footnote{UC 8 -Customer creates a physical numbered ticket, refer to RASD}. Before printing the ticket the emitter adds the customer to the queue, then this ticket is temporarily stored in the store local database. After this the ticket emitter renders the ticket and prints it.
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_virtual_ticket_sequence.pdf}
-    \caption{\label{fig:UML_virtual_ticket_sequence}Sequence diagram for store map loading}
+    \caption{\label{fig:UML_virtual_ticket_sequence}User creates a virtual numbered ticket, runtime view}
 \end{figure}
+The diagram shown in Figure~\ref{fig:UML_virtual_ticket_sequence} illustrates the requests for creating a virtual numbered ticket to enter the store from the User Application\footnote{UC 7 -Customer creates a numbered virtual ticket to enter a store as soon as there is a place available, refer to RASD}. The transaction is initiated when the presenter calls that Ticket Controller, this component at first asks the information provider how much time has the user to wait in queue, if this time is higher than a certain threshold, the user is informed and has to confirm the request. The ticket manager then calls the Ticket Manager that sends an enqueue request to the store Queue Controller. Finally the ticket is saved to the CLup main database.
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/UML_notification_sequence.pdf}
+    \caption{\label{fig:UML_notification_sequence}The store notifies the first customers in queue when they can enter, runtime view}
+\end{figure}
+The diagram shown in Figure~\ref{fig:fig:UML_notification_sequence} shows the notification process when there is enough capacity for allowing queue customer.
+
+This notification is usually started from a People counter when it detects that someone leaved the store. When this event happens the People Counter calls the occupancy supervisor that calculates how many queued people can enter the store, taking in account the actual occupancy and how many people have booked visits in the oncoming slots. If more than zero people are allowed onto the shop then a number of tickets is popped from the Queue Controller, starting the first. For each popped ticket if that ticket is virtual then the Ticket Manager is called to check the user notification token bound to the ticket and notify that user using the Push Notification Service passing through the adapter component.
+
+The customer device checks periodically the notifications, calling the API provided by the Push Notification service, if a Notification related to CLup is detected the Ticket Controller is called and will call the Presenter that will show the push notification.
+
+
 \subsection{Component Interfaces}
 
 \subsection{Style Architecture}
