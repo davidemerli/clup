@@ -18,7 +18,7 @@ CLup Servers on the other hand only store data that is needed to permit queue re
 
 Following sections will analyze every major component more deeply, describing in detail its underlying sub-components and interfaces.  
 
-\subsection{Component View}
+\subsection{Component View}\label{sect:component_view}
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_general_component.pdf}
     \caption{\label{fig:UML_comp_general}General component diagram}
@@ -63,7 +63,7 @@ The user application contains these sub-components:
 \begin{itemize}
     \item \textbf{Authentication}: allows the user to create a CLup account and to log-in with an existing account.
     \item \textbf{Map Controller}: Handles the communication with the external Map Service and the GPS. Exploits the Map API provided from the Map Service to get the map data near the user position then will request data to the CLup server in order to populate the map with the nearby stores.  access data about the location of the user. For this task the component will use the Information Provider Interface offered by the CLup server component.
-    \item \textbf{Presenter}: Handles the GUI of the applications and the events from the user like the push of a button or the text boxes. Needs to relate with all the controllers components that handle different the different aspects and functionality of the application. To do this these component will provide their interface exposing all the functionalities that each controller offers.
+    \item \textbf{Presenter}: Handles the GUI of the applications and the events from the user like the push of a button or the text boxes. Needs to relate with all the controllers components that handle the different aspects and functionalities of the application. To do this this component will provide their interface exposing all the functionalities that each controller offers.
     \item \textbf{Shop-list Controller}: manages the creation of shop lists that will be attached to visit bookings in order to estimate the occupancy of the various department of the store.
     \item \textbf{Push Notifications Handler}: handles and displays to the user the push notification received from the CLup Server about the bookings or the tickets created from the user. This component is provided by the underlying Operating System, and the interface is accessible through standard libraries of the application programming language.
 \end{itemize}
@@ -130,12 +130,23 @@ When the transaction in the CLup Database has succeeded, the Ticket ID will be r
 \end{figure}
 
 \clearpage
-
 \subsection{Component Interfaces}
+Here are presented all the interfaces already mentioned in section \ref{sect:component_view}. Every interface is described in detail with the data that is passed from one component to the other, showing the type of expected response from an interface, and the data required to provide when performing a request.
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+The interfaces are written in pseudocode using a Java-like syntax. In addiction, some details of the specification are:
+\begin{itemize}
+    \item square brackets indicate optional parameters (e.g. used when responses return an error, the returned value only has the responseType since no valid data could be retrieved)
+    \item \textbf{interfaces} keyword is used when more than one interface have the same structure
+    \item \textbf{class} keyword is used to represent aggregations of data, they do not necessarly reflect as objects or classes, but are implementation specific. This notation can be compared to definitions of NamedTuples in Python
+    \item variable types are specified only when defining ''classes'' or when type specification is needed to explain the behaviour of the interface
+    \item functions returning \textbf{Response} usually do not need to return any kind of data, but only a response about the result of the operation. This can be extended if needed during implementation
+    \item '\textbf{...}' are used when the interface is provided by an external component, or when a 'class' or method can have more parameters to further specify/give other details about the passed information which are not strictly necessary
+\end{itemize}
+
+
+\definecolor{dkgreen}{rgb}{0, 0.6, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}
 
 \lstset{
     frame=tb,
@@ -151,174 +162,155 @@ When the transaction in the CLup Database has succeeded, the Ticket ID will be r
     breakatwhitespace=true,
 }
 
-
-
-
-% interface PushNotificationSenderAPI {
-%     ... // Provided by the device OS
-% }
-
-% interface PushNotificationReceiverAPI {
-%     ... // Provided by the device OS
-% }
-
-
-\begin{lstlisting}
-    
-    /**
-     * It is possible to login using another valid authToken 
-     * provided by services like login with a social network account 
-     */
-    **interfaces AuthenticationInterface, StoreOperatorApplication {
-        object LoginResponse(responseType, [authToken]);
-
-        LoginResponse loginWithCredentials(email, password);
-        LoginResponse loginWithAnotherAuthService(authenticator, authToken);
-    }
-
-    /**
-     * The Information Provider yields publicly available data, 
-     * so authentication is not required
-     */
-    interfaces InformationProviderInterface, StoreInformationProviderInterface {
-        object StoreCharacteristicsResponse(responseType, 
-            [storeID, name, address, gpsPosition, clupStoreSettings]);
-        object StoreLiveDataResponse(responseType, [storeID, occupancyData, ...]);
-
-        StoreCharacteristicsResponse getStoreCharacteristics(storeID);
-        StoreLiveDataResponse getStoreLiveData(storeID);
-        List<storeID> getStoresNearLocation(gpsPosition, kmRadius);
-    }
-
-    interface TicketManagerInterface {
-        object TicketDetails(ticketNumber, queuePosition, storeID, issueDate, validFrom, validTo);
-        object TicketRequestResponse(responseType, [ticketID, TicketDetails]);
-        object TicketRevokeResponse(responseType, [ticketID]);
-        object TicketDetailsResponse(responseType, [TicketDetails]);
-
-        TicketDetailsResponse getTicketInformation(authToken, ticketID, storeID);
-        TicketDetailsResponse getNextIssuableTicketInformation(authToken, storeID);
-        TicketRequestResponse requestTicket(authToken, storeID);
-        TicketRevokeResponse revokeTicket(authToken, storeID, ticketID);
-    }
-
-    interface BookingManagerInterface {
-        object BookingDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
-        object TimeSlot(timeSlotID, validFrom, validTo, availableReservations);
-        object BookingRequestResponse(responseType, [bookingID, BookingDetails]);
-        object BookingRevokeResponse(responseType, [bookingID]);
-        object TimeSlotsRequestResponse(responseType, [List<TimeSlot>]);
-
-        TimeSlotsRequestResponse getTimeSlots(authToken, storeID, fromDate, toDate);
-        BookingRequestResponse requestBooking(authToken, storeID, timeSlotID);
-        BookingRevokeResponse revokeBooking(authToken, storeID, timeSlotID);
-    }
-
-    /** Both interfaces are provided by the device OS CLup application is running on.
-     *  The Notification Adapter transparently handles multiple types 
-     *  of Push Notification APIs for the other components.
-     */
-    interfaces PushNotificationSenderAPI, PushNotificationReceiverAPI {...}
-\end{lstlisting}
-
-\clearpage
-
 \begin{lstlisting}
 
-    interface BookingManagerStoreInterface {
-        Response cancelBooking(authToken, timeSlotID);
-        Response shoplistUpdate(authToken, timeSlotID, shoppingList);
-    }
+/**
+ * It is possible to login using another valid authToken 
+ * provided by services like login with a social network account 
+ */
+interfaces AuthenticationInterface, StoreOperatorApplication, 
+    AuthenticationPresenterInterface {
+                
+    class LoginResponse(responseType, [authToken]);
 
-    interface TicketManagerStoreInterface {
-        object TicketDetails(ticketNumber, queuePosition, storeID, issueDate, validFrom, validTo);
+    LoginResponse loginWithCredentials(email, password);
+    LoginResponse loginWithAnotherAuthService(authenticator, authToken);
+}
 
-        Response cancelTicket(authToken, ticketID);
-        Response updateTicket(authToken, ticketID, TicketDetails);
-    }
+/**
+ * The Information Provider yields publicly available data, 
+ * so authentication is not required
+ */
+interfaces InformationProviderInterface, StoreInformationProviderInterface {
+    class StoreCharacteristicsResponse(responseType, 
+        [storeID, name, address, gpsPosition, clupStoreSettings]);
+    class StoreLiveDataResponse(responseType, [storeID, occupancyData, ...]);
 
-    // Transactional Database interfaces, provided by the chosen Database technology
-    interfaces CLupDatabaseInterface, LocalDatabaseInterfaces {...}
+    StoreCharacteristicsResponse getStoreCharacteristics(storeID);
+    StoreLiveDataResponse getStoreLiveData(storeID);
+    List<storeID> getStoresNearLocation(gpsPosition, kmRadius);
+}
 
-    // Map API interface, provided by the chosen Map Provider Service
-    interface MapAPI {...}
+interface TicketManagerInterface {
+    class TicketDetails(ticketNumber, queuePosition, storeID, issueDate, validFrom, validTo);
+    class TicketRequestResponse(responseType, [ticketID, TicketDetails]);
+    class TicketRevokeResponse(responseType, [ticketID]);
+    class TicketDetailsResponse(responseType, [TicketDetails]);
 
-    // GPS Interface, provided by the GPS sensor built on the device using CLup Application
-    interface GPSDataInterface {
-        ... getCurrentPositions();
-    }
-    
-    interface MapPresenterInterface {
-        //TODO
-    }
+    TicketDetailsResponse getTicketInformation(authToken, ticketID, storeID);
+    TicketDetailsResponse getNextIssuableTicketInformation(authToken, storeID);
+    TicketRequestResponse requestTicket(authToken, storeID);
+    TicketRevokeResponse revokeTicket(authToken, storeID, ticketID);
+}
 
-    interface ShoplistPresentInterface {
-        //TODO
-    }
+interface BookingManagerInterface {
+    class BookingDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
+    class TimeSlot(timeSlotID, validFrom, validTo, availableReservations);
+    class BookingRequestResponse(responseType, [bookingID, BookingDetails]);
+    class BookingRevokeResponse(responseType, [bookingID]);
+    class TimeSlotsRequestResponse(responseType, [List<TimeSlot>]);
 
-    interface AuthenticationPresenterInterface {
-        //TODO
-    }
+    TimeSlotsRequestResponse getTimeSlots(authToken, storeID, fromDate, toDate);
+    BookingRequestResponse requestBooking(authToken, storeID, timeSlotID);
+    BookingRevokeResponse revokeBooking(authToken, storeID, timeSlotID);
+}
 
-    interface BookingCreatorInterface {
-        object BookingDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
-        object BookingRequestResponse(responseType, [bookingID, BookingDetails]);
-        object BookingRevokeResponse(responseType, [bookingID]);
+/** 
+ * Both interfaces are provided by the device OS CLup application is running on.
+ * The Notification Adapter transparently handles multiple types 
+ * of Push Notification APIs for the other components.
+*/
+interfaces PushNotificationSenderAPI, PushNotificationReceiverAPI {...}
 
-        BookingRequestResponse generateBooking(authToken, storeID, timeSlotID);
-        BookingRevokeResponse cancelBooking(authToken, storeID, bookingID);
-    }
+interface BookingManagerStoreInterface {
+    Response cancelBooking(authToken, timeSlotID);
+    Response shoplistUpdate(authToken, timeSlotID, shoppingList);
+}
 
-    !Missing TicketCreatorInterface
+interface TicketManagerStoreInterface {
+    class TicketDetails(ticketNumber, queuePosition, storeID, issueDate, validFrom, validTo);
 
-    *interface ShoplistAttachmentInterface{
-        Response updateShoplist(authToken, storeID, bookingID, shopList);
-    }
+    Response cancelTicket(authToken, ticketID);
+    Response updateTicket(authToken, ticketID, TicketDetails);
+}
 
-    *interface TicketNotificationReceiverInterface {
-        void showNotification(notificationContent);
-    }
-    
+// Transactional Database interfaces, provided by the chosen Database technology
+interfaces CLupDatabaseInterface, LocalDatabaseInterfaces {...}
+
+// Map API interface, provided by the chosen Map Provider Service
+interface MapAPI {...}
+
+// GPS Interface, provided by the GPS sensor built on 
+// the device using CLup Application
+interface GPSDataInterface {
+    ... getCurrentPositions();
+}
+
+interface MapPresenterInterface {
+    class MapResponse(responseType, [mapData]);
+
+    MapResponse getMap(gpsPosition, kmRange, [filters]);
+}
+
+interface ShoplistPresentInterface {
+    Response addShoppingList(shoppingList);
+    Response addItemToShoppingList(shoppingList, newItem);
+}
+
+interface BookingCreatorInterface {
+    class BookingDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
+    class BookingRequestResponse(responseType, [bookingID, BookingDetails]);
+    class BookingRevokeResponse(responseType, [bookingID]);
+
+    BookingRequestResponse generateBooking(authToken, storeID, timeSlotID);
+    BookingRevokeResponse cancelBooking(authToken, storeID, bookingID);
+}
+
+!Missing TicketCreatorInterface
+
+*interface ShoplistAttachmentInterface{
+    Response updateShoplist(authToken, storeID, bookingID, shopList);
+}
+
+*interface TicketNotificationReceiverInterface {
+    void showNotification(notificationContent);
+}
+
+interfaces OccupancyUpdateInterface, PeopleCounterInterface {
+    Response increaseCounter(authToken, amount, [customerIDs]);
+    Response decreaseCounter(authToken, amount, [customerIDs]);
+}
+
+*interface OccupancyStatisticsInterface {
+    Response pullOccupancyStatistics();
+}
+
+interface QueueInterface {
+    Response popUserFromQueue();
+    Response pushUserToQueue();
+}
+
+*interface TicketScreenObserverInterface {
+    Response updateNumbers(calledNumbers, nextToBeCalledNumbers);
+    Response updateQueueDetails(estimatedQueueTime, queueLength, ...);
+}
+
+interface AccessControllerInterface {
+    Response requestEntrance(ticketID/bookingID);
+    Response forceEntrance(ticketID/bookingID);
+}
+
+interface StoreOperatorDataInterface {
+    Response getStoreStatistics();
+    Response getStoreLiveStastics();
+}
+
+interface TicketEmitterInterface {
+    Response printTicket(ticketID, queueNumber, ticketNumber, estimatedWaitingTime);
+}
+
 \end{lstlisting}
 
-\clearpage
-
-\begin{lstlisting}
-
-    interfaces OccupancyUpdateInterface, PeopleCounterInterface {
-        Response increaseCounter(authToken, amount, [customerIDs]);
-        Response decreaseCounter(authToken, amount, [customerIDs]);
-    }
-
-    *interface OccupancyStatisticsInterface {
-        Response pullOccupancyStatistics();
-    }
-
-    interface QueueInterface {
-        Response popUserFromQueue();
-        Response pushUserToQueue();
-    }
-
-    *interface TicketScreenObserverInterface {
-        Response updateNumbers(calledNumbers, nextToBeCalledNumbers);
-        Response updateQueueDetails(estimatedQueueTime, queueLength, ...);
-    }
-
-    interface AccessControllerInterface {
-        Response requestEntrance(ticketID/bookingID);
-        Response forceEntrance(ticketID/bookingID);
-    }
-
-    interface StoreOperatorDataInterface {
-        Response getStoreStatistics();
-        Response getStoreLiveStastics();
-    }
-
-    interface TicketEmitterInterface {
-        Response printTicket(ticketID, queueNumber, ticketNumber, estimatedWaitingTime);
-    }
-
-\end{lstlisting}
 
 \subsection{Style Architecture}
 
