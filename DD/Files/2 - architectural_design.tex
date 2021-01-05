@@ -174,6 +174,8 @@ interfaces AuthenticationInterface, StoreOperatorApplication,
     class LoginResponse(responseType, [authToken]);
 
     LoginResponse loginWithCredentials(email, password);
+
+    //For using an Single Sign On service 
     LoginResponse loginWithAnotherAuthService(authenticator, authToken);
 }
 
@@ -250,6 +252,9 @@ interface MapPresenterInterface {
     class MapResponse(responseType, [mapData]);
 
     MapResponse getMap(gpsPosition, kmRange, [filters]);
+    Response selectShop(shopID);
+    Response addToFavorites(shopID);
+    Response removeFromFavorites(shopID);
 }
 
 interface ShoplistPresentInterface {

@@ -4,33 +4,33 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>280</x>
-      <y>441</y>
+      <x>189</x>
+      <y>434</y>
       <w>140</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>symbol=component
-CLUP Server
+CLup Server
 bg=#f68e5f</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>280</x>
-      <y>322</y>
+      <x>189</x>
+      <y>315</y>
       <w>147</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>symbol=component
-CLUP Database</panel_attributes>
+CLup Database</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>280</x>
-      <y>567</y>
+      <x>189</x>
+      <y>560</y>
       <w>154</w>
       <h>56</h>
     </coordinates>
@@ -43,8 +43,8 @@ bg=#666699</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>490</x>
-      <y>441</y>
+      <x>399</x>
+      <y>434</y>
       <w>140</w>
       <h>56</h>
     </coordinates>
@@ -56,8 +56,8 @@ bg=#fcc873</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>490</x>
-      <y>567</y>
+      <x>399</x>
+      <y>560</y>
       <w>147</w>
       <h>56</h>
     </coordinates>
@@ -69,8 +69,8 @@ Database</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>728</x>
-      <y>497</y>
+      <x>637</x>
+      <y>490</y>
       <w>154</w>
       <h>56</h>
     </coordinates>
@@ -82,8 +82,8 @@ Application</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>728</x>
-      <y>392</y>
+      <x>637</x>
+      <y>385</y>
       <w>154</w>
       <h>56</h>
     </coordinates>
@@ -94,8 +94,8 @@ Store Devices</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>280</x>
-      <y>679</y>
+      <x>189</x>
+      <y>672</y>
       <w>154</w>
       <h>56</h>
     </coordinates>
@@ -107,8 +107,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>343</x>
-      <y>490</y>
+      <x>252</x>
+      <y>483</y>
       <w>21</w>
       <h>56</h>
     </coordinates>
@@ -118,8 +118,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>532</y>
+      <x>245</x>
+      <y>525</y>
       <w>35</w>
       <h>49</h>
     </coordinates>
@@ -129,8 +129,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>343</x>
-      <y>644</y>
+      <x>252</x>
+      <y>637</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -140,8 +140,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>616</y>
+      <x>245</x>
+      <y>609</y>
       <w>35</w>
       <h>42</h>
     </coordinates>
@@ -151,8 +151,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>553</x>
-      <y>525</y>
+      <x>462</x>
+      <y>518</y>
       <w>21</w>
       <h>56</h>
     </coordinates>
@@ -162,8 +162,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>546</x>
-      <y>490</y>
+      <x>455</x>
+      <y>483</y>
       <w>35</w>
       <h>49</h>
     </coordinates>
@@ -173,8 +173,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>413</x>
-      <y>469</y>
+      <x>322</x>
+      <y>462</y>
       <w>56</w>
       <h>21</h>
     </coordinates>
@@ -184,8 +184,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>455</x>
-      <y>462</y>
+      <x>364</x>
+      <y>455</y>
       <w>49</w>
       <h>35</h>
     </coordinates>
@@ -195,8 +195,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>343</x>
-      <y>371</y>
+      <x>252</x>
+      <y>364</y>
       <w>21</w>
       <h>42</h>
     </coordinates>
@@ -206,8 +206,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>399</y>
+      <x>245</x>
+      <y>392</y>
       <w>35</w>
       <h>56</h>
     </coordinates>
@@ -217,8 +217,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>665</x>
-      <y>413</y>
+      <x>574</x>
+      <y>406</y>
       <w>77</w>
       <h>63</h>
     </coordinates>
@@ -228,8 +228,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>623</x>
-      <y>462</y>
+      <x>532</x>
+      <y>455</y>
       <w>70</w>
       <h>21</h>
     </coordinates>
@@ -239,8 +239,8 @@ Map API</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>665</x>
-      <y>469</y>
+      <x>574</x>
+      <y>462</y>
       <w>77</w>
       <h>70</h>
     </coordinates>
@@ -250,8 +250,8 @@ Map API</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>287</x>
-      <y>637</y>
+      <x>196</x>
+      <y>630</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -262,8 +262,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>364</x>
-      <y>385</y>
+      <x>273</x>
+      <y>378</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -274,8 +274,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>427</x>
-      <y>434</y>
+      <x>336</x>
+      <y>427</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -287,8 +287,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>287</x>
-      <y>518</y>
+      <x>196</x>
+      <y>511</y>
       <w>112</w>
       <h>49</h>
     </coordinates>
@@ -300,8 +300,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>700</x>
-      <y>455</y>
+      <x>609</x>
+      <y>448</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -312,8 +312,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>476</x>
-      <y>504</y>
+      <x>385</x>
+      <y>497</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -325,8 +325,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>105</x>
-      <y>497</y>
+      <x>14</x>
+      <y>490</y>
       <w>154</w>
       <h>70</h>
     </coordinates>
@@ -339,8 +339,8 @@ Service</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>462</y>
+      <x>119</x>
+      <y>455</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -351,8 +351,8 @@ Service</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>217</x>
-      <y>455</y>
+      <x>126</x>
+      <y>448</y>
       <w>77</w>
       <h>35</h>
     </coordinates>
@@ -362,8 +362,8 @@ Service</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>175</x>
-      <y>413</y>
+      <x>84</x>
+      <y>406</y>
       <w>91</w>
       <h>49</h>
     </coordinates>
@@ -375,8 +375,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>175</x>
-      <y>595</y>
+      <x>84</x>
+      <y>588</y>
       <w>91</w>
       <h>63</h>
     </coordinates>
@@ -389,8 +389,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>560</y>
+      <x>119</x>
+      <y>553</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -401,8 +401,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>217</x>
-      <y>581</y>
+      <x>126</x>
+      <y>574</y>
       <w>77</w>
       <h>35</h>
     </coordinates>

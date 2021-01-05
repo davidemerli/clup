@@ -1,0 +1,189 @@
+In this section each component is mapped with the requirement that it contributes to satisfy. Obviously this is not a one to one mapping but each requirement is satisfied from a combination of components and each component contributes to satisfy one or more requirement.
+
+It is guaranteed that each requirement is covered by at least one component and conversely each component contributes to the satisfaction of at least one requirement
+
+
+\subsection{CLup Server Component Traceability}
+\begin{itemize}
+    \item Push Notifier Adapter
+    \begin{itemize}
+        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
+    \end{itemize}
+    \item Push Notifier Adapter (External Component)
+    \begin{itemize}
+        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
+    \end{itemize}
+    \item Ticket Manager
+    \begin{itemize}
+        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+        \item R35 The system must associates tickets with line numbers
+    \end{itemize}
+    \item Booking Manager
+    \begin{itemize}
+        \item R10 The system must provide an interface for user to compile a shopping list
+        \item R12 The system must allow the store-admin account to create and edit entrance time intervals
+        \item R13 Each time interval must have a number of bookable slots fewer than the store capacity
+        \item R14 The system must allow authenticated users to book a visit in a desired time interval
+        \item R15 The system must not allow a user to book a slot in an already full time interval
+        \item R16 The system must not allow a user to book a visit if he has already reserved another visit
+        \item R20 The system must ask the customer to provide the estimated visit time when booking a time slot
+    \end{itemize}
+    \item Information Provider
+    \begin{itemize}
+        \item R4 For each store the system must allow the users to retrieve information about location and business hours
+        \item R27 The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week
+        \item R30 The stores adopting CLup must be displayed on a map
+    \end{itemize}
+    \item Authentication Manager
+    \begin{itemize}
+        \item R36 The system allows customer to register an user account
+        \item R37 The system allows registered customers to authenticate
+    \end{itemize}
+    \item CLup Database
+    \begin{itemize}
+        \item R1 The system must keep general information and contacts about the store chains adopting CLup
+        \item R4 For each store the system must allow the users to retrieve information about location and business hours
+        \item R14 The system must allow authenticated users to book a visit in a desired time interval
+        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+        \item R26 The system must record periodically and store statistics about the occupancy of each store
+        \item R27 The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week
+        \item R30 The stores adopting CLup must be displayed on a map        
+        \item R35 The system allows customer to register an user account
+        \item R36 The system allows registered customers to authenticate
+    \end{itemize}
+\end{itemize}
+
+\clearpage
+\subsection{CLup User Application Mappings}
+\begin{itemize}
+    \item Map Controller
+    \begin{itemize}
+        \item R4 For each store the system must allow the users to retrieve information about location and business hours
+        \item R27 The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week
+        \item R30 The stores adopting CLup must be displayed on a map    
+        \item R31 The CLup customer application allows user to mark stores as favorite in order to access them quickly
+    \end{itemize}
+    \item Presenter
+    \begin{itemize}
+        \item R29 The customer CLup application must be cross-platform and must work on the majority of the devices
+        \item R32 The CLup customer app allows to book visit and retrieve tickets directly from the store page
+    \end{itemize}
+    \item Shop List Controller
+    \begin{itemize}
+        \item R10 The system must provide an interface for user to compile a shopping list
+    \end{itemize}
+    \item Push Notification Handler
+    \begin{itemize}
+        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for 
+    \end{itemize}
+    \item Ticket Controller
+    \begin{itemize}
+        \item R14 The system must allow authenticated users to book a visit in a desired time interval
+        \item R15 The system must not allow a user to book a slot in an already full time interval
+        \item R16 The system must not allow a user to book a visit if he has already reserved another visit
+        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+        \item R20 The system must ask the customer to provide the estimated visit time when booking a time slot
+        \item R32 The CLup customer app allows to book visit and retrieve tickets directly from the store page
+        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for 
+    \end{itemize}
+    \item Authentication Controller
+    \begin{itemize}
+        \item R36 The system allows customer to register an user account
+        \item R37 The system allows registered customers to authenticate
+    \end{itemize}
+    \item Map Service (External Component)
+    \begin{itemize}
+        \item R30 The stores adopting CLup must be displayed on a map   
+    \end{itemize}
+    \item GPS Sensor (External Component)
+    \begin{itemize}
+        \item R30 The stores adopting CLup must be displayed on a map   
+    \end{itemize}
+\end{itemize}
+
+\clearpage
+\subsection{CLup Store System Mappings}
+\begin{itemize}
+    \item Access Authorizer
+    \begin{itemize}
+        \item R7 The system will let a customer enter the store if and only if they have a a valid ticket
+        \item R8 The system will use the occupancy data retrieved from the store to control the store access
+        \item R9 The system must provide an interface to communicate with the store access control
+        \item R19 The store operator application must allow an authenticated operator to manually admit customers
+    \end{itemize}
+    \item Statistics Collector
+    \begin{itemize}
+        \item R23 The system must try to estimate waiting time based on store capacity, reservations and the current number of people with numbered tickets waiting in line
+        \item R25 The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store
+        \item R26 The system must record periodically and store statistics about the occupancy of each store
+        \item R27 The customer CLup application must show brief statistics about average occupancy of each stores during different days of the week
+    \end{itemize}
+    \item Occupancy Supervisor
+    \begin{itemize}
+        \item R5 The system stores information about capacity of each market
+        \item R6 The system won’t let anyone enter the store if the maximum capacity has been reached
+        \item R11 The system must take in consideration shopping list data and historic data from previous user visits to reduce store crowdedness per department
+        \item R26 The system must record periodically and store statistics about the occupancy of each store
+        \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the store
+        \item R33 The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments
+    \end{itemize}
+    \item Queue Controller
+    \begin{itemize}
+        \item R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them a waiting time estimation
+        \item R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance
+        \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
+        \item R22 The system must allow the access to the store to customer with numbered tickets using a ’First Come First Served’ logic, treating virtual and physical ticket owner equally
+        \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
+        \item R34 The system must push notifications to user devices with update information on the store he has a ticket for
+        \item R35 The system must associates tickets with line numbers
+    \end{itemize}
+    \item Operator Authentication
+    \begin{itemize}
+        \item R2 The system must provide each store a store-admin account
+        \item R3 The store-admin account must allow the creation of store-operator accounts
+        \item R25 The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store
+    \end{itemize}
+    \item People Counter
+    \begin{itemize}
+        \item R8 The system will use the occupancy data retrieved from the store to control the store access
+        \item R33 The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments
+    \end{itemize}
+    \item Ticket Emitter
+    \begin{itemize}
+        \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
+        \item R35 The system must associates tickets with line numbers
+    \end{itemize}
+    \item Ticket Number screen
+    \begin{itemize}
+        \item R24 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch
+    \end{itemize}
+    \item Smart Gate
+    \begin{itemize}
+        \item R6 The system won’t let anyone enter the store if the maximum capacity has been reached
+        \item R7 The system will let a customer enter the store if and only if they have a a valid ticket
+        \item R8 The system will use the occupancy data retrieved from the store to control the store access
+    \end{itemize}
+    \item Store Operator Application
+    \begin{itemize}
+        \item R6 The system won’t let anyone enter the store if the maximum capacity has been reached
+        \item R7 The system will let a customer enter the store if and only if they have a a valid ticket
+        \item R8 The system will use the occupancy data retrieved from the store to control the store access
+        \item R19 The store operator application must allow an authenticated operator to manually admit customers
+        \item R25 The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store
+        \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the store
+    \end{itemize}
+    \item CLup Store Database
+    \begin{itemize}
+        \item R2 The system must provide each store a store-admin account
+        \item R3 The store-admin account must allow the creation of store-operator accounts
+        \item R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application
+        \item R25 The system must let the store-admin accounts retrieve statistics collected from CLup regarding their store
+        \item R28 The operator CLup application must show to an authenticated operator the real time occupancy of the store
+        \item R35 The system must associates tickets with line 
+    \end{itemize}
+\end{itemize}
