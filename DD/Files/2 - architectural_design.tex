@@ -136,7 +136,7 @@ Here are presented all the interfaces already mentioned in section \ref{sect:com
 
 The interfaces are written in pseudocode using a Java-like syntax. In addiction, some details of the specification are:
 \begin{itemize}
-    \item square brackets indicate optional parameters (e.g. used when responses return an error, the returned value only has the responseType since no valid data could be retrieved)
+    \item \textbf{square brackets} indicate optional parameters (used for example when responses return an error, the returned value only has the responseType since no valid data could be retrieved)
     \item \textbf{interfaces} keyword is used when more than one interface have the same structure
     \item \textbf{class} keyword is used to represent aggregations of data, they do not necessarly reflect as objects or classes, but are implementation specific. This notation can be compared to definitions of NamedTuples in Python
     \item variable types are specified only when defining ''classes'' or when type specification is needed to explain the behaviour of the interface
@@ -163,6 +163,8 @@ The interfaces are written in pseudocode using a Java-like syntax. In addiction,
     breakatwhitespace=true,
 }
 
+\vfill
+
 \begin{lstlisting}
 
 /**
@@ -179,6 +181,10 @@ interfaces AuthenticationInterface, StoreOperatorApplication,
     //For using an Single Sign On service 
     LoginResponse loginWithAnotherAuthService(authenticator, authToken);
 }
+
+\end{lstlisting}
+\clearpage
+\begin{lstlisting}
 
 /**
  * The Information Provider yields publicly available data, 
@@ -240,6 +246,10 @@ interface TicketManagerStoreInterface {
 // Transactional Database interfaces, provided by the chosen Database technology
 interfaces CLupDatabaseInterface, LocalDatabaseInterfaces {...}
 
+\end{lstlisting}
+\clearpage
+\begin{lstlisting}
+
 // Map API interface, provided by the chosen Map Provider Service
 interface MapAPIInterface {...}
 
@@ -297,6 +307,10 @@ interfaces OccupancyUpdateInterface, PeopleCounterInterface {
     Response increaseCounter(authToken, amount, [customerIDs]);
     Response decreaseCounter(authToken, amount, [customerIDs]);
 }
+
+\end{lstlisting}
+\clearpage
+\begin{lstlisting}
 
 interface OccupancyStatisticsInterface {
     Response pullOccupancyStatistics();
