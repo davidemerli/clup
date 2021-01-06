@@ -5,18 +5,18 @@
     \caption{\label{fig:Overview} CLup System Overview}
 \end{figure}
 
-This diagram shows the CLup system as a whole, its actors and main components, from an high level perspective. 
+This diagram shows the CLup system as a whole, its actors and main components, from an high level perspective.
 
 Store customers interact with the system by using a smartphone, which depends on external third party APIs to visualize and interact with maps.
 Store operators can interact with the system using different kinds of devices, to better suit their needs when working at the shop: smartphones can be handy when they need to check information about the store queue while moving through departments; tablets make looking at graphs and statistics more easily without loosing the 'mobile' factor, and having a CLup application also on desktops can also be convenient for operators working at a desk (without having to switch from one device or another in their workflow).
 
-CLup Customer Application communicates directly with CLup servers through REST APIs, while CLup Operator Application connects to the Store Local Server which retrieves data both from the Store Local Database and from CLup Servers. 
+CLup Customer Application communicates directly with CLup servers through REST APIs, while CLup Operator Application connects to the Store Local Server which retrieves data both from the Store Local Database and from CLup Servers.
 
 Store Devices also connect to the Store Local Server, to enhance the functionalities and automate tasks such as admitting customer entrances, monitoring the people inside the store departments, handing out tickets.
 
 CLup Servers on the other hand only store data that is needed to permit queue regulations, for example information about occupancy limits, live occupancy of the stores, markets locations.
 
-Following sections will analyze every major component more deeply, describing in detail its underlying sub-components and interfaces.  
+Following sections will analyze every major component more deeply, describing in detail its underlying sub-components and interfaces.
 
 \subsection{Component View}\label{sect:component_view}
 \begin{figure}[H]
@@ -26,18 +26,18 @@ Following sections will analyze every major component more deeply, describing in
 Figure~\ref{fig:UML_comp_general} shows a general, simplified, component view of the S2B.
 The three main components of the system are: the CLup User Application, the CLup Server and the Store System with their databases. CLup system also interacts with external components like Map API Services and other physical components (i.e.~store devices).
 
-Customers use the \textbf{CLup User application} to check supermarkets near them and eventually book a visit or retrieve a ticket. The User application interfaces with the \textbf{CLup server}. 
+Customers use the \textbf{CLup User application} to check supermarkets near them and eventually book a visit or retrieve a ticket. The User application interfaces with the \textbf{CLup server}.
 
 Sometimes the customer need to receive notifications about their ticket, to allow this the CLup Server and the application need to use the Push Notification service, each OS manifacturer provide his different push notification service. This service provides its dedicated API for sending and receiving push notifications.
 
-The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times, etc). 
+The CLup server is the central component of the system, mediating between the customers and the stores. It manages customer authentication, tickets issued remotely by the CLup application, and hands out to the public information about stores to the customers (i.e.~opening hours, waiting times, etc).
 
 The \textbf{Store system} provides an interface for all the physical devices in the store, collecting and processing data from them and then routing the data to the CLup server or keeping it in the local database. The system communicates with a local database to store temporary data about tickets, the statistics collected and the authentication details of the store operators.
 
 \subsubsection{CLup Server component view}
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_server_component.pdf}
-    \caption{\label{fig:UML_comp_Clup_server}Component diagram for CLup server}
+    \caption{\label{fig:UML_server_component}Component diagram for CLup server}
 \end{figure}
 
 The CLup server provides interfaces to the CLup User application and to each Store System. This component stores the persistent data in the CLup Database component communicating with it using a common Database interface.
@@ -88,20 +88,21 @@ The Store System receives data from the store physical devices and combines it w
 
 \clearpage
 \subsection{Runtime View}
-The aim of the following sequence diagrams is to show how the components (the actors in the diagrams) interact between them at runtime. 
+The aim of the following sequence diagrams is to show how the components (the actors in the diagrams) interact between them at runtime.
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_user_map_sequence.pdf}
     \caption{\label{fig:UML_user_map_sequence}Sequence diagram for store map loading}
 \end{figure}
 The diagram in Figure~\ref{fig:UML_user_map_sequence} shows how the system loads the map of all stores and shows it to the user\footnote{UC3 - Customer searches for the store page, refer to RASD}.
 
-To determine which part of the map to load, the system needs to acquire the user position consulting the GPS sensor external component (external from the CLup system view, but built in most smartphones). The MAP API is then called to get the map data; concurrently a call to the Information Provider has to be done in order to get the positions and the basic information of all the stores to show in the map. When the Map Controller has all the data at its disposal, the map can finally be rendered by the Presenter. 
+To determine which part of the map to load, the system needs to acquire the user position consulting the GPS sensor external component (external from the CLup system view, but built in most smartphones). The MAP API is then called to get the map data; concurrently a call to the Information Provider has to be done in order to get the positions and the basic information of all the stores to show in the map. When the Map Controller has all the data at its disposal, the map can finally be rendered by the Presenter.
 
 \begin{figure}[H]
-    \includegraphics[width=1.1\textwidth]{Images/UML_ticket_scan_sequence.pdf}
+    \hspace*{-1.8cm}
+    \includegraphics[width=1.2\textwidth]{Images/UML_ticket_scan_sequence.pdf}
     \caption{\label{fig:UML_ticket_scan_sequence}Sequence diagram for ticket scanning}
 \end{figure}
-The diagram shown in Figure~\ref{fig:UML_ticket_scan_sequence} shows how the system behaves when a ticket is scanned\footnote{UC10 - Customer scans the ticket through an access control system to enter, refer to RASD}. The Access Authorizer receives the Ticket ID scanned by a Smart Gate (or an Operator). Before checking if the ticket ID exists and is valid, the store live occupancy is checked. If the supermarket is full the entrance can be denied (based on the supermarket policies). 
+The diagram shown in Figure~\ref{fig:UML_ticket_scan_sequence} shows how the system behaves when a ticket is scanned\footnote{UC10 - Customer scans the ticket through an access control system to enter, refer to RASD}. The Access Authorizer receives the Ticket ID scanned by a Smart Gate (or an Operator). Before checking if the ticket ID exists and is valid, the store live occupancy is checked. If the supermarket is full the entrance can be denied (based on the supermarket policies).
 
 Then the Access Authorizer figures from the ID which type of ticket has been scanned; this could be achieved, for example, by reserving a digit of the ticket ID to differentiate ticket types.
 Depending on the ticket type different actions are carried out:
@@ -114,12 +115,12 @@ Depending on the ticket type different actions are carried out:
 After this, the Occupancy Supervisor is called again and updates the people count, then the Access Controller grants the customer the access to the store.
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/UML_user_book_visit.pdf}
-    \caption{\label{fig:UML_user_book_visit}Sequence diagram for book a visit functionality}
+    \caption{\label{fig:UML_user_book_visit}Sequence diagram of book a visit functionality}
 \end{figure}
 The diagram shown in Figure~\ref{fig:UML_user_book_visit} shows how the system behaves when the user requests to book a visit in a store timeslot\footnote{UC 5 - Customer books a visit in a Store, refer to RASD}
 
 The presenter asks the Ticket Controller to generate a reservation; after asking the user the estimated duration of the visit, the Booking Manager component in the CLup Server is called.
-When the transaction in the CLup Database has succeeded, the Ticket ID will be returned to the Ticket Controller, which will send the information needed to render the Ticket View to the Presenter, and show it to the user. After the booking is done, the user can optionally attach a shopping list to the reservation he just made. 
+When the transaction in the CLup Database has succeeded, the Ticket ID will be returned to the Ticket Controller, which will send the information needed to render the Ticket View to the Presenter, and show it to the user. After the booking is done, the user can optionally attach a shopping list to the reservation he just made.
 \begin{figure}[H]
     \includegraphics[width=0.7\textwidth]{Images/UML_paper_ticket_sequence.pdf}
     \caption{\label{fig:UML_paper_ticket_sequence}Sequence diagram for store map loading}
@@ -240,7 +241,7 @@ interface TicketManagerStoreInterface {
 interfaces CLupDatabaseInterface, LocalDatabaseInterfaces {...}
 
 // Map API interface, provided by the chosen Map Provider Service
-interface MapAPI {...}
+interface MapAPIInterface {...}
 
 // GPS Interface, provided by the GPS sensor built on 
 // the device using CLup Application
@@ -262,23 +263,34 @@ interface ShoplistPresentInterface {
     Response addItemToShoppingList(shoppingList, newItem);
 }
 
+interface TicketCreatorInterface {
+    class TicketDetails(ticketNumber, queuePosition, storeID, issueDate, validFrom, validTo);
+    class TicketRequestResponse(responseType, [ticketID, TicketDetails]);
+    class TicketRevokeResponse(responseType, [ticketID]);
+
+    TicketRequestResponse generateTicket(storeID);
+    TicketRevokeResponse cancelTicket(storeID, ticketID);
+}
+
 interface BookingCreatorInterface {
     class BookingDetails(ticketNumber, storeID, issueDate, validFrom, validTo);
     class BookingRequestResponse(responseType, [bookingID, BookingDetails]);
     class BookingRevokeResponse(responseType, [bookingID]);
 
-    BookingRequestResponse generateBooking(authToken, storeID, timeSlotID);
-    BookingRevokeResponse cancelBooking(authToken, storeID, bookingID);
+    BookingRequestResponse generateBooking(storeID, timeSlotID);
+    BookingRevokeResponse cancelBooking(storeID, bookingID);
 }
 
-!Missing TicketCreatorInterface
-
-*interface ShoplistAttachmentInterface{
-    Response updateShoplist(authToken, storeID, bookingID, shopList);
+interface ShoplistAttachmentInterface{
+    Response updateShoplist(storeID, bookingID, shopList);
 }
 
-*interface TicketNotificationReceiverInterface {
+interface TicketNotificationReceiverInterface {
     void showNotification(notificationContent);
+}
+
+interface NotifierInterface {
+    Response sendNotification(customerID, notificationContent);
 }
 
 interfaces OccupancyUpdateInterface, PeopleCounterInterface {
@@ -286,7 +298,7 @@ interfaces OccupancyUpdateInterface, PeopleCounterInterface {
     Response decreaseCounter(authToken, amount, [customerIDs]);
 }
 
-*interface OccupancyStatisticsInterface {
+interface OccupancyStatisticsInterface {
     Response pullOccupancyStatistics();
 }
 
@@ -295,7 +307,7 @@ interface QueueInterface {
     Response pushUserToQueue();
 }
 
-*interface TicketScreenObserverInterface {
+interface TicketScreenObserverInterface {
     Response updateNumbers(calledNumbers, nextToBeCalledNumbers);
     Response updateQueueDetails(estimatedQueueTime, queueLength, ...);
 }
