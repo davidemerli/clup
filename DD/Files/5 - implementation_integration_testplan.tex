@@ -1,0 +1,17 @@
+In this section are discussed the details about the implementation of the system, showing a possible (but not unique) implementation plan, an unit and integration testing strategy and some useful DevOps practices that could ease and speedup all the system development process
+
+
+\subsection{Implementation Plan}
+As shown in the Figure~\ref{fig:UML_comp_general} there are three macro component to implement from scratch. The other components either are up and running (i.e.~a Map Service) or are already developed and the only step to do is set up an instance of them (i.e. Databases, Physical Components\ldots). 
+The only thing the system needs to do is to interface with the in a correct way.
+
+The three macro-components to implement are the CLup User Application, the CLup Server and the Store System. Because all the common interfaces were previously specified (See section]\ref{sect:requirement_traceability}) each of these three components could be implemented independently. This allows three different teams to work in parallel in the implementation of each macro component speeding up the development process.
+
+For each macro-component a possible implementation will be defined keeping in consideration the testing aspect. For testing a component, or a set of components a \textit{driver} simulating another component using the interface for the tested component has to be coded. Also when the tested component uses another component's interface that's not yet implemented a \textit{stub} simulating that component has to be written. 
+
+Writing \textit{drivers} and \textit{stubs} could take some time and reducing their count allows to reduce the overhead of the testing.
+
+Another way to reduce 
+
+\subsubsection{CLup User Application}
+For this macro-component the development should start from the controller modules. 
