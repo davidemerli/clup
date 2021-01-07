@@ -84,7 +84,23 @@ The Store System receives data from the store physical devices and combines it w
     \item \textbf{Statistics Collector}: collects and periodically elaborates statistics with data from the Occupancy Supervisor and Queue Controller. Statistics are saved in the store local database. Brief elaborated data that can be shown to the customer (i.e.~indications of the crowdedness of the store, estimated waiting times,\ldots) are sent periodically to the CLup Server using the Store Information Provider interface.
 \end{itemize}
 
+\clearpage
+
 \subsection{Deployment View}
+\begin{figure}[H]
+    \hspace*{-0.6cm}
+    \includegraphics[width=1.1\textwidth]{Images/UML_deployment_diagram.pdf}
+    \caption{\label{fig:UML_deployment_diagram}{Deployment Diagram}}
+    \small\textit{* a single Device Component is shown for the semplicity of the representation. Also details on the operating system and/or environment are not provided since there is no particular need to prefer one solution to another. The preferred choice is made on the protocol side and it is MQTT.}
+\end{figure}
+
+The system is structured in a Three Tier Architecture, and the Deployment Diagram visually presents the system divided in the three different layers, \textbf{Data}, \textbf{Application} and \textbf{Presentation}.
+
+In the Application and Data layers, we chose to exploit the functionalities provided by Docker, and use containers running Alpine Linux to further improve the standardization of the deployment process, simplify the testing on real hardware, and adhere to best practices. Alpine Linux has been chosen since it is designed for security, simplicity, and resource efficiency and it is vastly used to deploy Docker containers with.
+
+A Load Balancer is essential to provide a reliable service, and splits the traffic over multiple instances of the Web Server. The Web Server is not presented as a component since it is not strictly required when describing the functionalities of the system, but it is needed since the system heavily relies on REST APIs. Furthermore, if the traffic is really intense and/or variable, it could be an economically viable choice to outsource the Web Server on a Serverless Architecture. Allocating machine resources on demand can be a desired behaviour for an application like CLup, which can possibily see an exponential increase in users over short periods of time, and very different loads depending on the time of the day. The developement has been organized in very stand-alones components, so migrating from one solution to another will be as simple as possible.
+
+
 
 \clearpage
 \subsection{Runtime View}
