@@ -319,7 +319,7 @@ interface OccupancyStatisticsInterface {
 interface QueueInterface {
     Response popUserFromQueue();
     Response pushUserToQueue();
-}
+}this
 
 interface TicketScreenObserverInterface {
     Response updateNumbers(calledNumbers, nextToBeCalledNumbers);
@@ -343,6 +343,43 @@ interface TicketEmitterInterface {
 \end{lstlisting}
 
 
-\subsection{Style Architecture}
+
+\clearpage
+\subsection{Selected Architecture Styles}
+\textbf{Distributed Model View Controller Behavioral Pattern}
+
+\medskip
+
+From the behavioral standpoint the system adopts a Distributed Model View Controller Design Pattern. In this pattern an event triggered in the view calls the corresponding action provided from the controller interface. The controller checks if that action is legit and then calls the model that will act depending on his initial state and on the action provided to the controller. 
+After the model has computed his new state it updates the view accordingly to that state.
+
+The system components map in the MVC pattern as stated below:
+\begin{itemize}
+    \item View: Presenter 
+    \item Controller: Map Controller, Shop list Controller, Ticket Controller, Authentication Controller, Push Notification Handler
+    \item Model: All the components inside the CLup Server and inside the Store System
+\end{itemize}
+
+The pattern is `distributed' because the components run in different machines (the view and the controller in the customers' smartphones, the model in the servers). Also the entire model is distributed because it runs in the CLup server and in the Store system and according to the deployment diagram, these two macro components run in different containers.
+
+\medskip
+
+\textbf{Three Tier Architecture Architectural Pattern}
+
+\medskip
+
+The system adopts on a three tier architectural pattern.
+
+A three tier architecture is a special client–server architecture in which presentation, application processing and data management functions are physically separated. In the case of a Three Tier application each of this three function runs in separated components.
+
+The CLup user mobile application handles the \textbf{Presentation Layer} and interfaces directly with the Application Layer, this case is referred as `Thick Client'.
+
+Otherwise, if the S2B could provide also a Web Application accessed using a browser, in this case the Presentation layer is handled partly from the browser (that renders the HTML page) and partly from the Web Server that generates that HTML, filling a template with the data elaborated from the Application Layer. This case is referred as `Thin Client'.
+
+The \textbf{Application Layer} processes the data persisted in the Data Layer and executed Business Logic related operation, like managing the booking of a ticket, or retrieve the information requested from a client.  
+
+The presentation layer communicates with the application layer through a \textbf{Web Server} using the HTTP protocol. The Web Server allows to provide Web Pages to Thin Clients (i.e.~a Browser) and to provide application Data to Thick Clients (i.e.~a Mobile Application) via a \textbf{RESTFul API}.
+
+The \textbf{Data Layer} manages the store, the consistency and the persistance of the Data. The Data Layer is implemented from the Database and the DBMS, it handles the transactions started and controlled from the Application Layer, it handles the consistency of the data and its physical reliable and secure storage system.
 
 % TODO: add section about relevant interfaces and algorithms is pseudocode
