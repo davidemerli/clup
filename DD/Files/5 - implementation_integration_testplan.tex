@@ -9,20 +9,17 @@ Even though a full parallel implementation reduces the overall development time 
 
 Therefore the proposed implementation is divided in different iterations. The first iteration aims to produce a working system, the output of the first iteration is, in fact, a full stack working prototype of the system with only the core features. The second iteration refines the features presented in the first iteration and add other important future, in this iteration new component will be integrated to the system and optionally some components already developed in the first iteration are expanded. The successive iterations add quality of life features and polish the system that at the end will be ready for the system test before the release.
 
-For each iteration a graph will show the precedence relations between the components developed or refined during that iteration
+For each iteration a graph will show the precedence relations between the components developed or refined during that iteration.
 
-\textbf{First Iteration}
-
-\medskip
-
+\subsubsection{First Iteration}
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/Impl_Plan_1.pdf}
     \caption{\label{fig:UML_virtual_ticket_sequence}First Iteration of Implementation Plan}
 \end{figure}
 
-\textbf{Second Iteration}
+The first iteration sets up the system for providing the functionality for booking a numbered in the store using the application or the ticket emitter. The first components to set up are the databases, then the development could continue with the essential backend components (CLup Server and Store System). After the development shifts on the frontend (CLup user application) essential features.
 
-\medskip
+\subsubsection{Second Iteration}
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{Images/Impl_Plan_2.pdf}
@@ -30,7 +27,32 @@ For each iteration a graph will show the precedence relations between the compon
 \end{figure}
 
 
+In the second iteration the `Book a visit' feature is implemented. At first the required data structures are created in the CLup Database and the subsequent components are created (if they not already exist) or expanded to host the new features.
+
+\subsubsection{Third Iteration}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Images/Impl_Plan_3.pdf}
+    \caption{\label{fig:UML_virtual_ticket_sequence}Third Iteration of Implementation Plan}
+\end{figure}
+
+The last iteration adds nice to have features in the system like the `push notifications' that requires to add some new components and the `add store to favorites' that requires the expansion the map controller and the presenter components.
+
 \subsection{Unit Testing}
 Each component will be developed using mainly the Test Driven Development (TDD) strategy. This strategy consist in writing the unit test cases code before writing the application code forcing the developer to use black box testing over white box testing. In this way the developer has to think at all combinations of the inputs before writing the code. When or after writing the code the developer can always add some white box test case if they feel that this addition could improve the coverage and the effectiveness of the test cases.
 
-The unit testing could be easily performed independently of the programming languages chosen to implement the system because nowadays almost all the mainstream languages provide a unit testing library.
+The unit testing could be easily performed independently of the programming languages chosen to implement the system because nowadays almost all the mainstream languages provide a unit testing library (i.e. JUnit for Java).
+
+\subsection{Integration and Testing}
+The integration of the components could follow the implementation plan with its precedence relations. When a component is implemented and unit tested, the component could be integrated and tested with all of his precedences.
+
+To start a new iteration the integration test has to be passed in the previous iteration. 
+
+The integration test could start in parallel to the implementation of the components, in fact a Quality Assessment team could start to integrate and test a component together with its predecessors its implementation is concluded. 
+
+
+\subsection{Other Development Tools}
+For developing the S2B a \textbf{versioning system}, like git, must be used. This allows to keep the history of the implementation in a repository, track issues in an easier way, revert changes that created an error and share code between the developers in a straightforward way.
+
+To add a change in the repository the developers perform `commits', these commits include a message that explains briefly what are the contents of the commit. It's preferable to use a convention in these message, this allows a program to automatically generate changelogs, and forces the developers to create small commits with small changes instead of using big and monolithic commits that are difficult to understands. A widely used standard for commit messages is the \textbf{Conventional Commits}\footnote{https://www.conventionalcommits.org/en/v1.0.0/} Standard.  
+
+Another useful set of tools are the \textbf{Continuous Integration (CI)} frameworks, these frameworks allow the developers to automate testing when pushing to a versioning system repository, this saves time to developers and motivates them to push code only when it passes all unit tests. CI works really well with a Test Driven Development Strategy.

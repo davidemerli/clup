@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>6</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>432</y>
-      <w>108</w>
-      <h>36</h>
+      <x>96</x>
+      <y>304</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Queue Controller
 bg=#FCC873</panel_attributes>
@@ -16,10 +16,10 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>480</y>
-      <w>108</w>
-      <h>36</h>
+      <x>96</x>
+      <y>368</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Access Authorizer
 bg=#FCC873</panel_attributes>
@@ -28,10 +28,10 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>540</y>
-      <w>108</w>
-      <h>36</h>
+      <x>96</x>
+      <y>448</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Occupancy
 Supervisor
@@ -42,10 +42,10 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>174</x>
-      <y>444</y>
-      <w>108</w>
-      <h>78</h>
+      <x>232</x>
+      <y>320</y>
+      <w>144</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>160.0;110.0;160.0;10.0;10.0;10.0</additional_attributes>
@@ -53,10 +53,10 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>222</x>
-      <y>510</y>
-      <w>108</w>
-      <h>36</h>
+      <x>296</x>
+      <y>408</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Booking Manager
 bg=#F68E5F</panel_attributes>
@@ -65,10 +65,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>174</x>
-      <y>492</y>
-      <w>72</w>
-      <h>30</h>
+      <x>232</x>
+      <y>384</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;30.0;100.0;10.0;10.0;10.0</additional_attributes>
@@ -76,10 +76,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>174</x>
-      <y>540</y>
-      <w>72</w>
-      <h>30</h>
+      <x>232</x>
+      <y>448</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;100.0;30.0;10.0;30.0</additional_attributes>
@@ -87,10 +87,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>570</y>
-      <w>108</w>
-      <h>36</h>
+      <x>504</x>
+      <y>488</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Ticket Controller
 bg=#666699</panel_attributes>
@@ -99,10 +99,10 @@ bg=#666699</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>636</y>
-      <w>108</w>
-      <h>36</h>
+      <x>504</x>
+      <y>576</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Shoplist
 Controller
@@ -112,10 +112,10 @@ bg=#666699</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
-      <y>522</y>
-      <w>114</w>
-      <h>60</h>
+      <x>432</x>
+      <y>424</y>
+      <w>152</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>170.0;80.0;170.0;10.0;10.0;10.0</additional_attributes>
@@ -123,10 +123,10 @@ bg=#666699</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>528</x>
-      <y>636</y>
-      <w>108</w>
-      <h>36</h>
+      <x>704</x>
+      <y>576</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Presenter
 bg=#666699</panel_attributes>
@@ -135,10 +135,10 @@ bg=#666699</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>648</y>
-      <w>60</w>
-      <h>18</h>
+      <x>640</x>
+      <y>592</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
@@ -146,10 +146,10 @@ bg=#666699</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>582</y>
-      <w>114</w>
-      <h>66</h>
+      <x>640</x>
+      <y>504</y>
+      <w>152</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>170.0;90.0;170.0;10.0;10.0;10.0</additional_attributes>
@@ -157,10 +157,10 @@ bg=#666699</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>708</y>
-      <w>108</w>
-      <h>36</h>
+      <x>504</x>
+      <y>672</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Information
 Provider
@@ -170,10 +170,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>666</y>
-      <w>114</w>
-      <h>72</h>
+      <x>640</x>
+      <y>616</y>
+      <w>152</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>170.0;10.0;170.0;100.0;10.0;100.0</additional_attributes>
@@ -181,10 +181,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>222</x>
-      <y>576</y>
-      <w>108</w>
-      <h>36</h>
+      <x>296</x>
+      <y>496</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>CLup Database</panel_attributes>
     <additional_attributes/>
@@ -192,10 +192,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
-      <y>540</y>
-      <w>18</w>
-      <h>48</h>
+      <x>352</x>
+      <y>448</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -203,10 +203,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>174</x>
-      <y>564</y>
-      <w>60</w>
-      <h>114</h>
+      <x>232</x>
+      <y>480</y>
+      <w>80</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>80.0;170.0;50.0;170.0;50.0;10.0;10.0;10.0</additional_attributes>
@@ -214,10 +214,10 @@ bg=#F68E5F</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>222</x>
-      <y>660</y>
-      <w>108</w>
-      <h>36</h>
+      <x>296</x>
+      <y>608</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Statistics
 Collector
@@ -227,10 +227,10 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
-      <y>678</y>
-      <w>66</w>
-      <h>60</h>
+      <x>432</x>
+      <y>632</y>
+      <w>88</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>90.0;80.0;50.0;80.0;50.0;10.0;10.0;10.0</additional_attributes>
@@ -239,9 +239,9 @@ bg=#FCC873</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>606</y>
-      <w>108</w>
-      <h>36</h>
+      <y>536</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Store Database</panel_attributes>
     <additional_attributes/>
@@ -249,21 +249,21 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>636</y>
-      <w>198</w>
-      <h>60</h>
+      <x>72</x>
+      <y>576</y>
+      <w>240</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>310.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+    <additional_attributes>280.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>504</y>
-      <w>48</w>
-      <h>114</h>
+      <x>48</x>
+      <y>400</y>
+      <w>64</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0;10.0;170.0</additional_attributes>
@@ -271,35 +271,25 @@ bg=#FCC873</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>360</y>
-      <w>108</w>
-      <h>36</h>
+      <x>296</x>
+      <y>688</y>
+      <w>144</w>
+      <h>48</h>
     </coordinates>
-    <panel_attributes>Ticket
-Emitter</panel_attributes>
+    <panel_attributes>Operator 
+Authentication
+bg=#FCC873</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>390</y>
-      <w>48</w>
-      <h>108</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>60.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>48</x>
-      <y>390</y>
-      <w>36</w>
-      <h>72</h>
+      <y>576</y>
+      <w>264</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>40.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>310.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
