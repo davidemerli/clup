@@ -28,8 +28,8 @@ fontsize=18
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>196</x>
-      <y>189</y>
+      <x>210</x>
+      <y>196</y>
       <w>182</w>
       <h>161</h>
     </coordinates>
@@ -42,8 +42,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>609</x>
-      <y>196</y>
+      <x>623</x>
+      <y>203</y>
       <w>231</w>
       <h>245</h>
     </coordinates>
@@ -55,10 +55,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>609</x>
-      <y>462</y>
+      <x>623</x>
+      <y>476</y>
       <w>231</w>
-      <h>413</h>
+      <h>238</h>
     </coordinates>
     <panel_attributes>Server
 bg=#f76c5e
@@ -68,8 +68,8 @@ layer=1</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>952</x>
-      <y>693</y>
+      <x>966</x>
+      <y>532</y>
       <w>210</w>
       <h>182</h>
     </coordinates>
@@ -80,8 +80,8 @@ bg=#FAC9B8</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>623</x>
-      <y>273</y>
+      <x>637</x>
+      <y>280</y>
       <w>189</w>
       <h>154</h>
     </coordinates>
@@ -94,8 +94,8 @@ layer=3</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>630</x>
-      <y>315</y>
+      <x>644</x>
+      <y>322</y>
       <w>168</w>
       <h>105</h>
     </coordinates>
@@ -108,8 +108,8 @@ layer=4</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>658</x>
-      <y>357</y>
+      <x>672</x>
+      <y>364</y>
       <w>105</w>
       <h>56</h>
     </coordinates>
@@ -123,8 +123,8 @@ layer=5</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>616</x>
-      <y>231</y>
+      <x>630</x>
+      <y>238</y>
       <w>210</w>
       <h>203</h>
     </coordinates>
@@ -137,10 +137,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>616</x>
-      <y>504</y>
+      <x>630</x>
+      <y>511</y>
       <w>210</w>
-      <h>364</h>
+      <h>196</h>
     </coordinates>
     <panel_attributes>&lt;&lt;execution environment&gt;&gt;
 OS running Docker
@@ -151,8 +151,8 @@ layer=2</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>623</x>
-      <y>714</y>
+      <x>637</x>
+      <y>553</y>
       <w>189</w>
       <h>147</h>
     </coordinates>
@@ -165,8 +165,8 @@ layer=3</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>630</x>
-      <y>756</y>
+      <x>644</x>
+      <y>595</y>
       <w>168</w>
       <h>98</h>
     </coordinates>
@@ -179,8 +179,8 @@ layer=4</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>658</x>
-      <y>798</y>
+      <x>672</x>
+      <y>637</y>
       <w>112</w>
       <h>49</h>
     </coordinates>
@@ -194,8 +194,8 @@ layer=5</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>238</x>
-      <y>21</y>
+      <x>252</x>
+      <y>28</y>
       <w>133</w>
       <h>119</h>
     </coordinates>
@@ -206,8 +206,8 @@ Store IOT device</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>364</x>
-      <y>77</y>
+      <x>378</x>
+      <y>84</y>
       <w>308</w>
       <h>322</h>
     </coordinates>
@@ -220,8 +220,8 @@ layer=5</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>245</x>
-      <y>63</y>
+      <x>259</x>
+      <y>70</y>
       <w>112</w>
       <h>63</h>
     </coordinates>
@@ -233,8 +233,8 @@ Component *</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>462</x>
-      <y>161</y>
+      <x>476</x>
+      <y>168</y>
       <w>406</w>
       <h>742</h>
     </coordinates>
@@ -247,8 +247,8 @@ layer=0</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>924</x>
-      <y>161</y>
+      <x>938</x>
+      <y>168</y>
       <w>266</w>
       <h>742</h>
     </coordinates>
@@ -261,8 +261,8 @@ layer=-10</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>175</x>
-      <y>154</y>
+      <x>189</x>
+      <y>161</y>
       <w>224</w>
       <h>749</h>
     </coordinates>
@@ -276,8 +276,8 @@ layer=-10</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>210</x>
-      <y>231</y>
+      <x>224</x>
+      <y>238</y>
       <w>154</w>
       <h>112</h>
     </coordinates>
@@ -290,8 +290,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>504</x>
-      <y>630</y>
+      <x>518</x>
+      <y>637</y>
       <w>70</w>
       <h>63</h>
     </coordinates>
@@ -302,53 +302,10 @@ layer=5</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLDeployment</id>
-    <coordinates>
-      <x>623</x>
-      <y>546</y>
-      <w>189</w>
-      <h>147</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;execution environment&gt;&gt;
-Docker container
-bg=#f76c5e
-layer=3</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLDeployment</id>
-    <coordinates>
-      <x>630</x>
-      <y>588</y>
-      <w>168</w>
-      <h>98</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;execution environment&gt;&gt;
-Alpine Linux
-bg=#f76c5e
-layer=4</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>658</x>
-      <y>630</y>
-      <w>112</w>
-      <h>49</h>
-    </coordinates>
-    <panel_attributes>valign=center
-Web
-Server
-bg=#fca9a2
-layer=5</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>567</x>
-      <y>651</y>
+      <x>581</x>
+      <y>658</y>
       <w>105</w>
       <h>28</h>
     </coordinates>
@@ -358,24 +315,10 @@ layer=5</panel_attributes>
     <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>763</x>
-      <y>644</y>
-      <w>161</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>lt=-
-layer=5
-&lt;&lt;protocol&gt;&gt;
-HTTPS</panel_attributes>
-    <additional_attributes>10.0;240.0;130.0;240.0;130.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>231</x>
-      <y>273</y>
+      <x>245</x>
+      <y>280</y>
       <w>105</w>
       <h>63</h>
     </coordinates>
@@ -390,8 +333,8 @@ bg=#abc0ff</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>196</x>
-      <y>364</y>
+      <x>210</x>
+      <y>371</y>
       <w>182</w>
       <h>161</h>
     </coordinates>
@@ -404,8 +347,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>203</x>
-      <y>406</y>
+      <x>217</x>
+      <y>413</y>
       <w>161</w>
       <h>112</h>
     </coordinates>
@@ -418,8 +361,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>224</x>
-      <y>448</y>
+      <x>238</x>
+      <y>455</y>
       <w>112</w>
       <h>63</h>
     </coordinates>
@@ -434,8 +377,8 @@ bg=#abc0ff</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>196</x>
-      <y>539</y>
+      <x>210</x>
+      <y>546</y>
       <w>182</w>
       <h>161</h>
     </coordinates>
@@ -448,8 +391,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>203</x>
-      <y>581</y>
+      <x>217</x>
+      <y>588</y>
       <w>161</w>
       <h>112</h>
     </coordinates>
@@ -462,8 +405,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>231</x>
-      <y>623</y>
+      <x>245</x>
+      <y>630</y>
       <w>98</w>
       <h>63</h>
     </coordinates>
@@ -478,8 +421,8 @@ bg=#abc0ff</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>196</x>
-      <y>721</y>
+      <x>210</x>
+      <y>728</y>
       <w>182</w>
       <h>168</h>
     </coordinates>
@@ -492,8 +435,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>203</x>
-      <y>763</y>
+      <x>217</x>
+      <y>770</y>
       <w>161</w>
       <h>119</h>
     </coordinates>
@@ -506,8 +449,8 @@ bg=#7590e0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>231</x>
-      <y>805</y>
+      <x>245</x>
+      <y>812</y>
       <w>98</w>
       <h>63</h>
     </coordinates>
@@ -522,8 +465,8 @@ bg=#abc0ff</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>371</x>
-      <y>651</y>
+      <x>385</x>
+      <y>658</y>
       <w>147</w>
       <h>182</h>
     </coordinates>
@@ -534,8 +477,8 @@ m2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>371</x>
-      <y>609</y>
+      <x>385</x>
+      <y>616</y>
       <w>105</w>
       <h>63</h>
     </coordinates>
@@ -546,8 +489,8 @@ m2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>371</x>
-      <y>441</y>
+      <x>385</x>
+      <y>448</y>
       <w>147</w>
       <h>231</h>
     </coordinates>
@@ -558,8 +501,8 @@ m2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>371</x>
-      <y>259</y>
+      <x>385</x>
+      <y>266</y>
       <w>147</w>
       <h>413</h>
     </coordinates>
@@ -570,8 +513,8 @@ m2=1..n</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>959</x>
-      <y>721</y>
+      <x>973</x>
+      <y>560</y>
       <w>189</w>
       <h>147</h>
     </coordinates>
@@ -584,8 +527,8 @@ bg=#FAC9B8</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>966</x>
-      <y>763</y>
+      <x>980</x>
+      <y>602</y>
       <w>168</w>
       <h>98</h>
     </coordinates>
@@ -598,8 +541,8 @@ bg=#FAC9B8</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>994</x>
-      <y>805</y>
+      <x>1008</x>
+      <y>644</y>
       <w>112</w>
       <h>49</h>
     </coordinates>
@@ -613,8 +556,8 @@ bg=#ffffff</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>952</x>
-      <y>245</y>
+      <x>966</x>
+      <y>252</y>
       <w>210</w>
       <h>196</h>
     </coordinates>
@@ -625,8 +568,8 @@ bg=#FAC9B8</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>959</x>
-      <y>273</y>
+      <x>973</x>
+      <y>280</y>
       <w>189</w>
       <h>161</h>
     </coordinates>
@@ -639,8 +582,8 @@ bg=#FAC9B8</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>966</x>
-      <y>315</y>
+      <x>980</x>
+      <y>322</y>
       <w>168</w>
       <h>112</h>
     </coordinates>
@@ -653,8 +596,8 @@ bg=#FAC9B8</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>994</x>
-      <y>357</y>
+      <x>1008</x>
+      <y>364</y>
       <w>112</w>
       <h>63</h>
     </coordinates>
@@ -669,8 +612,8 @@ bg=#ffffff</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>364</y>
+      <x>770</x>
+      <y>371</y>
       <w>252</w>
       <h>42</h>
     </coordinates>
@@ -683,8 +626,8 @@ TCP/IP</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>413</x>
-      <y>637</y>
+      <x>427</x>
+      <y>644</y>
       <w>105</w>
       <h>56</h>
     </coordinates>
@@ -698,8 +641,8 @@ layer=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>427</x>
-      <y>364</y>
+      <x>441</x>
+      <y>371</y>
       <w>203</w>
       <h>42</h>
     </coordinates>
@@ -712,8 +655,8 @@ MQTT</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>812</y>
+      <x>777</x>
+      <y>644</y>
       <w>245</w>
       <h>42</h>
     </coordinates>
