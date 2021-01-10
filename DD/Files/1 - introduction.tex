@@ -1,8 +1,6 @@
 \subsection{Purpose}
 The purpose of this document is to analyze and describe deeply the design choices of the software and the system to be, which is described in the CLup Requirements Analysis and Specifications Document (RASD).
 
-% TODO: cite RASD as reference document
-
 Design decisions will be further explained together with the architectural structure of the system as a whole as well as its subsystems.
 
 \medskip
@@ -46,7 +44,7 @@ CLup aims to reduce heavily the issues involving customer queues outside of stor
     \item \textbf{MQTT}: Message Queuing Telemetry Transport
     \item \textbf{RAID}: Redundant Array of Independent Disks
     \item \textbf{UML}: Unified Modeling Language
-
+    \item \textbf{TDD}: Test-driven development
 \end{itemize}
 
 \vfill
@@ -69,6 +67,11 @@ CLup aims to reduce heavily the issues involving customer queues outside of stor
     \item \textbf{Geocoding API}: Geocoding converts addresses into geographic coordinates to be placed on a map. A Geocoding API allows the use of their services to permit translation between textual addresses and Latitude/Longitude coordinates
     \item \textbf{Map API}: An external services that provides operations of geographics maps and the download of map information, usually of the places in proximity of given geographics coordinates
     \item \textbf{Hashed Password}: When a password has been “hashed” it means it has been turned into a scrambled representation of itself. A user's password is taken and – using a key known to the site – the hash value is derived from the combination of both the password and the key, using a set algorithm.
+    \item \textbf{Time to market}: is the length of time it takes from a product being conceived until its being available for sale.
+    \item \textbf{Alpha Test}: a trial of machinery, software, or other products carried out by a developer before a product is made available for beta testing.
+    \item \textbf{Beta Test}: a trial of machinery, software or other products in the final stages of development, carried out by a party unconnected with the development process.
+    \item \textbf{DevOps}: is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.
+    \item \textbf{Quality Assessment}: is the data collection and analysis through which the degree of conformity to predetermined standards and criteria are exemplified.
 \end{itemize}
 
 \subsection{Revision History}
@@ -79,6 +82,26 @@ CLup aims to reduce heavily the issues involving customer queues outside of stor
 
 \subsection{Reference Documents}
 
+\begin{itemize}
+    \item R\&DD Assignment A.Y. 2020-2021 - Elisabetta di Nitto, Matteo Giovanni Rossi
+    \item Software Engineering II slides and material - Elisabetta di Nitto, Matteo Giovanni Rossi
+    \item CLup RASD - Davide Luca Merli, Dario Passarello
+    \item \href{https://material.io/design}{Material Design Guidelines}
+    \item \href{https://www.conventionalcommits.org/en/v1.0.0/}{Convetional Commits Guidelines}
+    \item \href{https://git-scm.com/}{Git - versioning system}
+\end{itemize}
+
+\subsection{Used Tools}
+\begin{itemize}
+    \item Umlet - for UML diagrams
+    \item Draw.io - for other diagrams
+    \item Proto.io - for UI Mockups
+    \item Github - for code hosting and version control
+    \item \LaTeX \space  - to write this entire document
+    \item Visual Studio Code + Latex Workshop - as a \LaTeX \space environment
+\end{itemize}
+
+\clearpage
 
 \subsection{Document Structure}
 
