@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "clup-server"
+version = "0.1.0"
+description = ""
+authors = ["Dario Passarello <dario.passarello@gmail.com>", 
+           "Davide Luca Merli <davide.merli@outlook.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^1.1.2"
+SQLAlchemy = "^1.3.22"
+psycopg2-binary = "^2.8.6"
+Flask-SQLAlchemy = "^2.4.4"
+Flask-RESTful = "^0.3.8"
+marshmallow = "^3.10.0"
+flask-marshmallow = "^0.14.0"
+marshmallow-sqlalchemy = "^0.24.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
