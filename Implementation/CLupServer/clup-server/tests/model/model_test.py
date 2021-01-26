@@ -1,7 +1,6 @@
 from model import CLupUser
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from model import CLupUser
 
 def test():
     db = sqlalchemy.create_engine('postgresql://postgres:postgres@127.0.0.1:5432/CLup', echo=True)

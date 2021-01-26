@@ -1,4 +1,3 @@
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.schema import CreateColumn
 from sqlalchemy.ext.compiler import compiles
 

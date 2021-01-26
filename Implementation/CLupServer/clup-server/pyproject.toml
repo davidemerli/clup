@@ -15,9 +15,15 @@ Flask-RESTful = "^0.3.8"
 marshmallow = "^3.10.0"
 flask-marshmallow = "^0.14.0"
 marshmallow-sqlalchemy = "^0.24.1"
+Flask-JWT-Extended = "^3.25.0"
+email-validator = "^1.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+pylint-flask = "^0.6"
+pylint-sqlalchemy = "^0.2.0"
+pylint-flask-sqlalchemy = "^0.2.0"
+flake8 = "^3.8.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
