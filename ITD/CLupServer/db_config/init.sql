@@ -11,7 +11,12 @@ CREATE TABLE clupuser
     name varchar(255) NOT NULL,
     email varchar(255) NOT NULL UNIQUE,
     pwd text NOT NULL,  --TODO: Change this when my own crypto is rolled
-    store_op boolean NOT NULL DEFAULT false
+    clup_role varchar(255) NOT NULL DEFAULT "USER",
+    store_id INTEGER,
+    FOREIGN KEY (store_id) REFERENCES clupuser(store_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT valid_role CHECK clup_role IN ("USER", "OPERATOR", "MANAGER", "DEVICE")
+    CONSTRAINT store_ref CHECK clup_role != "USER" AND 
 );
 
 CREATE TABLE store
@@ -28,7 +33,8 @@ CREATE TABLE store
     reserved_capacity integer NOT NULL,
     realtime_capacity integer DEFAULT 0
     CONSTRAINT reservedcapacity 
-        CHECK (reserved_capacity < total_capacity) 
+        CHECK (reserved_capacity < total_capacity)
+
 );
 
 CREATE TABLE openinghours
@@ -74,13 +80,6 @@ COPY clupuser(name, email, pwd, store_op)
     CSV HEADER;
 COPY store(shop_name, chain_name, country, city, address,latitude, longitude, total_capacity, reserved_capacity)
     FROM '/populate/store.csv'
-    DELIMITER ';'
-    CSV HEADER;
-COMMIT;
-
-START TRANSACTION;
-COPY ticket(called_on, expires_on, used_on, is_virtual, cancelled_on, user_id)
-    FROM '/populate/ticket.csv'
     DELIMITER ';'
     CSV HEADER;
 COMMIT;

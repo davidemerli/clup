@@ -22,3 +22,5 @@ ma = Marshmallow(app)
 
 # Create JWT Manager
 jwt = JWTManager(app)
+
+

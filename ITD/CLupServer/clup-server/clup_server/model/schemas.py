@@ -1,5 +1,6 @@
-from model.models import CLupUser, Store 
+from model.models import CLupUser, Store, Ticket
 from marshmallow import validates, ValidationError
+from email_validator import EmailNotValidError, validate_email
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import ma
 
@@ -13,7 +14,7 @@ class CLupUserSchema(ma.SQLAlchemyAutoSchema):
         load_instance = True
 
     @validates('email')
-    def validate_email(self, value):
+    def validate_mail(self, value):
         try:
             valid = validate_email(value, check_deliverability=False)        
         except EmailNotValidError as e:
@@ -46,4 +47,10 @@ class StoreSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Store
         include_fk = True
+        load_instance = True
+
+class TicketSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Ticket
+        include_fk = True 
         load_instance = True

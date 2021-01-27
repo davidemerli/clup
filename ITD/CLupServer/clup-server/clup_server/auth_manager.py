@@ -18,8 +18,8 @@ class Register(Resource):
             return response
         else:
             clup_user = CLupUser(**content)
-            clup_user.set_password(clup_user.pwd)
-            # Add to databases
+            clup_user.set_password(clup_user.password)
+            # Add to database
             db.session.add(clup_user)
             db.session.commit()
             return jsonify({'success': True, 'errors': {}})
@@ -49,7 +49,7 @@ class LoginSchema(ma.Schema):
 
     @validates_schema
     def validate_login(self, data, **kwargs):
-        user = CLupUser.check_email(data['email'])
+        user = CLupUser.find_by_email(data['email'])
         if not user:
             raise ValidationError("Email and password don't match")
         if not user.check_password(data['password']):
