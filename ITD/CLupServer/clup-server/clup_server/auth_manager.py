@@ -1,13 +1,17 @@
+from . import db, jwt, ma
 from flask import request, jsonify
 from flask_restful import Resource
-from config import db, ma, jwt
-from marshmallow import fields, validates_schema, ValidationError
-from model import CLupUser, CLupUserSchema
-from flask_jwt_extended import create_access_token, create_refresh_token
+from marshmallow import (
+    fields,
+    validates_schema, 
+    ValidationError)
+from .models import CLupUser
+from .schemas import CLupUserSchema
+from flask_jwt_extended import create_access_token, create_refresh_token, jwt_refresh_token_required, jwt_required, get_jwt_identity
 
 
 class Register(Resource):
-    def get(self):
+    def post(self):
         content = request.json
         clup_user_schema = CLupUserSchema()
         # Validate E-mail and password fields
@@ -26,8 +30,22 @@ class Register(Resource):
 
 
 class Login(Resource):
-    def get(self):
-        login_schema = LoginSchema()
+
+    class LoginSchema(ma.Schema):
+        email = fields.Str(required=True)
+        password = fields.Str(required=True)
+
+        @validates_schema
+        def validate_login(self, data, **kwargs):
+            user = CLupUser.find_by_email(data['email'])
+            if not user:
+                raise ValidationError("Email and password don't match", "auth")
+            if not user.check_password(data['password']):
+                raise ValidationError("Email and password don't match", "auth")
+    
+
+    def post(self):
+        login_schema = Login.LoginSchema()
         try:
             content = login_schema.load(request.json)
         except ValidationError as err:
@@ -35,25 +53,50 @@ class Login(Resource):
                 'success': False,
                 'errors': err.messages
             })
+        user = CLupUser.find_by_email(content['email'])
         access_token = create_access_token(identity=content['email'])
         refresh_token = create_refresh_token(identity=content['email'])
         return jsonify({
             'access_token': access_token,
             'refresh_token': refresh_token,
+            'clup_role': user.clup_role,
             'success': True})
 
 
-class LoginSchema(ma.Schema):
-    email = fields.Str(required=True)
-    password = fields.Str(required=True)
 
-    @validates_schema
-    def validate_login(self, data, **kwargs):
-        user = CLupUser.find_by_email(data['email'])
-        if not user:
-            raise ValidationError("Email and password don't match")
-        if not user.check_password(data['password']):
-            raise ValidationError("Email and password don't match")
+
+
+class Refresh(Resource):
+    class RefreshSchema(ma.Schema):
+        pass
+
+
+    @jwt_refresh_token_required
+    def post(self):
+        current_user = get_jwt_identity()
+        try:
+            content = Refresh.RefreshSchema().load(request.json)
+        except ValidationError as err:
+            return jsonify({
+                'success': False,
+                'errors': err.messages
+            })
+        return jsonify({
+            'success': True,
+            'access_token' : create_access_token(identity=current_user)
+        })
+
+
+
+
+class AccountStatus(Resource):
+    @jwt_required
+    def post(self):
+        user_email = get_jwt_identity()
+        return jsonify({
+            'login': True,
+            'success': True
+        })
 
 
 '''

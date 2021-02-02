@@ -1,8 +1,8 @@
-from model.models import CLupUser, Store, Ticket
+from . import ma, db, jwt
+from .models import CLupUser, Store, Ticket
 from marshmallow import validates, ValidationError
 from email_validator import EmailNotValidError, validate_email
 from werkzeug.security import generate_password_hash, check_password_hash
-from config import ma
 
 special_symbols = set('*.!@#$%^&(){}[]:;<>,.?/~_+-=|\\')
 PASSWORD_MIN_LENGTH = 8
@@ -19,7 +19,7 @@ class CLupUserSchema(ma.SQLAlchemyAutoSchema):
             valid = validate_email(value, check_deliverability=False)        
         except EmailNotValidError as e:
             raise ValidationError(str(e))
-        if CLupUser.query.filter_by(email=valid.email).first() is not None:
+        if CLupUser.find_by_email(value) is not None:
             raise ValidationError('E-Mail is already used')
         return valid.email
 
