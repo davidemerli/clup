@@ -24,11 +24,18 @@ dependencies:
   flutter:
     sdk: flutter
 
-
+  font_awesome_flutter:
+  clip_shadow: any
+  qr_flutter: ^3.1.0
+  passwordfield: ^0.0.82 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.1
-
+  dio: any
+  flutter_secure_storage: any
+  google_maps_flutter: any
+  geolocator: any
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -45,8 +52,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/clup_logo_nobg.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -54,6 +61,18 @@ flutter:
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
+
+  fonts:
+    - family: Nunito
+      fonts: 
+        - asset: fonts/nunito/Nunito-Regular.ttf
+          weight: 300
+        - asset: fonts/nunito/Nunito-SemiBold.ttf
+          weight: 500
+        - asset: fonts/nunito/Nunito-Bold.ttf
+          weight: 700
+        - asset: fonts/nunito/Nunito-Black.ttf
+          weight: 900
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
