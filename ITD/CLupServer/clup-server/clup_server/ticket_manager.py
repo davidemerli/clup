@@ -47,14 +47,17 @@ class CreateTicket(Resource):
         # Add to database
         db.session.add(new_ticket)
         db.session.commit()
+        # Add position in queue
+        ticket_obj = TicketSchema().dump(new_ticket)
+        ticket_obj['line_position'] = Ticket.get_position_in_line(new_ticket.store.store_id, new_ticket.issued_on)
+
         return jsonify({
             'success': True,
-            'ticket': TicketSchema().dump(new_ticket)
+            'ticket': ticket_obj
         })
 
 
 class CancelTicket(Resource):
-
     class CancelTicketSchema(ma.Schema):
         ticket_id = fields.Integer(required=False)
     
@@ -117,8 +120,11 @@ class GetActiveTicket(Resource):
                 'errors': err.messages
             })
         ticket = user.get_active_ticket()
-        ticket_obj = TicketSchema().dump(ticket)
-        print(ticket_obj)
+        if ticket is not None:
+            ticket_obj = TicketSchema().dump(ticket)
+            ticket_obj['line_position'] = Ticket.get_position_in_line(ticket.store.store_id, ticket.issued_on)
+        else:
+            ticket_obj = None
         return jsonify({
             'success': True,
             'ticket': ticket_obj

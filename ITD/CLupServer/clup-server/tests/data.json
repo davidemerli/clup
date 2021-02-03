@@ -9,7 +9,7 @@
       "latitude": "45.37434585",
       "longitude": "7.59521831",
       "total_capacity": 139,
-      "reserved_capacity": 127
+      "reserved_capacity": 20
     },
     {
       "store_name": "Copp di Ivrea",
@@ -3316,694 +3316,694 @@
     },
     {
       "name": "Matteo Rossi",
-      "email": "customer1@clup.com",
-      "password": "customer1@clup.com",
+      "email": "customer1@CLup.com",
+      "password": "customer1@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer2@clup.com",
-      "password": "customer2@clup.com",
+      "email": "customer2@CLup.com",
+      "password": "customer2@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Bianchi",
-      "email": "customer3@clup.com",
-      "password": "customer3@clup.com",
+      "email": "customer3@CLup.com",
+      "password": "customer3@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer4@clup.com",
-      "password": "customer4@clup.com",
+      "email": "customer4@CLup.com",
+      "password": "customer4@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Bianchi",
-      "email": "customer5@clup.com",
-      "password": "customer5@clup.com",
+      "email": "customer5@CLup.com",
+      "password": "customer5@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Verdi",
-      "email": "customer6@clup.com",
-      "password": "customer6@clup.com",
+      "email": "customer6@CLup.com",
+      "password": "customer6@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Rossi",
-      "email": "customer7@clup.com",
-      "password": "customer7@clup.com",
+      "email": "customer7@CLup.com",
+      "password": "customer7@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Rossi",
-      "email": "customer8@clup.com",
-      "password": "customer8@clup.com",
+      "email": "customer8@CLup.com",
+      "password": "customer8@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Bianchi",
-      "email": "customer9@clup.com",
-      "password": "customer9@clup.com",
+      "email": "customer9@CLup.com",
+      "password": "customer9@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Bianchi",
-      "email": "customer10@clup.com",
-      "password": "customer10@clup.com",
+      "email": "customer10@CLup.com",
+      "password": "customer10@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer11@clup.com",
-      "password": "customer11@clup.com",
+      "email": "customer11@CLup.com",
+      "password": "customer11@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Bianchi",
-      "email": "customer12@clup.com",
-      "password": "customer12@clup.com",
+      "email": "customer12@CLup.com",
+      "password": "customer12@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Bianchi",
-      "email": "customer13@clup.com",
-      "password": "customer13@clup.com",
+      "email": "customer13@CLup.com",
+      "password": "customer13@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Verdi",
-      "email": "customer14@clup.com",
-      "password": "customer14@clup.com",
+      "email": "customer14@CLup.com",
+      "password": "customer14@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Verdi",
-      "email": "customer15@clup.com",
-      "password": "customer15@clup.com",
+      "email": "customer15@CLup.com",
+      "password": "customer15@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Rossi",
-      "email": "customer16@clup.com",
-      "password": "customer16@clup.com",
+      "email": "customer16@CLup.com",
+      "password": "customer16@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Verdi",
-      "email": "customer17@clup.com",
-      "password": "customer17@clup.com",
+      "email": "customer17@CLup.com",
+      "password": "customer17@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer18@clup.com",
-      "password": "customer18@clup.com",
+      "email": "customer18@CLup.com",
+      "password": "customer18@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Marco Rossi",
-      "email": "customer19@clup.com",
-      "password": "customer19@clup.com",
+      "email": "customer19@CLup.com",
+      "password": "customer19@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Rossi",
-      "email": "customer20@clup.com",
-      "password": "customer20@clup.com",
+      "email": "customer20@CLup.com",
+      "password": "customer20@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Marco Bianchi",
-      "email": "customer21@clup.com",
-      "password": "customer21@clup.com",
+      "email": "customer21@CLup.com",
+      "password": "customer21@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer22@clup.com",
-      "password": "customer22@clup.com",
+      "email": "customer22@CLup.com",
+      "password": "customer22@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Rossi",
-      "email": "customer23@clup.com",
-      "password": "customer23@clup.com",
+      "email": "customer23@CLup.com",
+      "password": "customer23@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Verdi",
-      "email": "customer24@clup.com",
-      "password": "customer24@clup.com",
+      "email": "customer24@CLup.com",
+      "password": "customer24@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Rossi",
-      "email": "customer25@clup.com",
-      "password": "customer25@clup.com",
+      "email": "customer25@CLup.com",
+      "password": "customer25@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Bianchi",
-      "email": "customer26@clup.com",
-      "password": "customer26@clup.com",
+      "email": "customer26@CLup.com",
+      "password": "customer26@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Bianchi",
-      "email": "customer27@clup.com",
-      "password": "customer27@clup.com",
+      "email": "customer27@CLup.com",
+      "password": "customer27@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Rossi",
-      "email": "customer28@clup.com",
-      "password": "customer28@clup.com",
+      "email": "customer28@CLup.com",
+      "password": "customer28@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Bianchi",
-      "email": "customer29@clup.com",
-      "password": "customer29@clup.com",
+      "email": "customer29@CLup.com",
+      "password": "customer29@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Rossi",
-      "email": "customer30@clup.com",
-      "password": "customer30@clup.com",
+      "email": "customer30@CLup.com",
+      "password": "customer30@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer31@clup.com",
-      "password": "customer31@clup.com",
+      "email": "customer31@CLup.com",
+      "password": "customer31@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Verdi",
-      "email": "customer32@clup.com",
-      "password": "customer32@clup.com",
+      "email": "customer32@CLup.com",
+      "password": "customer32@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Bianchi",
-      "email": "customer33@clup.com",
-      "password": "customer33@clup.com",
+      "email": "customer33@CLup.com",
+      "password": "customer33@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Rossi",
-      "email": "customer34@clup.com",
-      "password": "customer34@clup.com",
+      "email": "customer34@CLup.com",
+      "password": "customer34@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Bianchi",
-      "email": "customer35@clup.com",
-      "password": "customer35@clup.com",
+      "email": "customer35@CLup.com",
+      "password": "customer35@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Bianchi",
-      "email": "customer36@clup.com",
-      "password": "customer36@clup.com",
+      "email": "customer36@CLup.com",
+      "password": "customer36@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer37@clup.com",
-      "password": "customer37@clup.com",
+      "email": "customer37@CLup.com",
+      "password": "customer37@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Verdi",
-      "email": "customer38@clup.com",
-      "password": "customer38@clup.com",
+      "email": "customer38@CLup.com",
+      "password": "customer38@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Rossi",
-      "email": "customer39@clup.com",
-      "password": "customer39@clup.com",
+      "email": "customer39@CLup.com",
+      "password": "customer39@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Rossi",
-      "email": "customer40@clup.com",
-      "password": "customer40@clup.com",
+      "email": "customer40@CLup.com",
+      "password": "customer40@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Verdi",
-      "email": "customer41@clup.com",
-      "password": "customer41@clup.com",
+      "email": "customer41@CLup.com",
+      "password": "customer41@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Bianchi",
-      "email": "customer42@clup.com",
-      "password": "customer42@clup.com",
+      "email": "customer42@CLup.com",
+      "password": "customer42@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer43@clup.com",
-      "password": "customer43@clup.com",
+      "email": "customer43@CLup.com",
+      "password": "customer43@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Verdi",
-      "email": "customer44@clup.com",
-      "password": "customer44@clup.com",
+      "email": "customer44@CLup.com",
+      "password": "customer44@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer45@clup.com",
-      "password": "customer45@clup.com",
+      "email": "customer45@CLup.com",
+      "password": "customer45@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer46@clup.com",
-      "password": "customer46@clup.com",
+      "email": "customer46@CLup.com",
+      "password": "customer46@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Verdi",
-      "email": "customer47@clup.com",
-      "password": "customer47@clup.com",
+      "email": "customer47@CLup.com",
+      "password": "customer47@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Bianchi",
-      "email": "customer48@clup.com",
-      "password": "customer48@clup.com",
+      "email": "customer48@CLup.com",
+      "password": "customer48@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Bianchi",
-      "email": "customer49@clup.com",
-      "password": "customer49@clup.com",
+      "email": "customer49@CLup.com",
+      "password": "customer49@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Verdi",
-      "email": "customer50@clup.com",
-      "password": "customer50@clup.com",
+      "email": "customer50@CLup.com",
+      "password": "customer50@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Bianchi",
-      "email": "customer51@clup.com",
-      "password": "customer51@clup.com",
+      "email": "customer51@CLup.com",
+      "password": "customer51@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Bianchi",
-      "email": "customer52@clup.com",
-      "password": "customer52@clup.com",
+      "email": "customer52@CLup.com",
+      "password": "customer52@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Marco Rossi",
-      "email": "customer53@clup.com",
-      "password": "customer53@clup.com",
+      "email": "customer53@CLup.com",
+      "password": "customer53@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Rossi",
-      "email": "customer54@clup.com",
-      "password": "customer54@clup.com",
+      "email": "customer54@CLup.com",
+      "password": "customer54@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Verdi",
-      "email": "customer55@clup.com",
-      "password": "customer55@clup.com",
+      "email": "customer55@CLup.com",
+      "password": "customer55@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Rossi",
-      "email": "customer56@clup.com",
-      "password": "customer56@clup.com",
+      "email": "customer56@CLup.com",
+      "password": "customer56@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Verdi",
-      "email": "customer57@clup.com",
-      "password": "customer57@clup.com",
+      "email": "customer57@CLup.com",
+      "password": "customer57@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer58@clup.com",
-      "password": "customer58@clup.com",
+      "email": "customer58@CLup.com",
+      "password": "customer58@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Bianchi",
-      "email": "customer59@clup.com",
-      "password": "customer59@clup.com",
+      "email": "customer59@CLup.com",
+      "password": "customer59@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer60@clup.com",
-      "password": "customer60@clup.com",
+      "email": "customer60@CLup.com",
+      "password": "customer60@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Marco Verdi",
-      "email": "customer61@clup.com",
-      "password": "customer61@clup.com",
+      "email": "customer61@CLup.com",
+      "password": "customer61@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Rossi",
-      "email": "customer62@clup.com",
-      "password": "customer62@clup.com",
+      "email": "customer62@CLup.com",
+      "password": "customer62@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Bianchi",
-      "email": "customer63@clup.com",
-      "password": "customer63@clup.com",
+      "email": "customer63@CLup.com",
+      "password": "customer63@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Bianchi",
-      "email": "customer64@clup.com",
-      "password": "customer64@clup.com",
+      "email": "customer64@CLup.com",
+      "password": "customer64@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Rossi",
-      "email": "customer65@clup.com",
-      "password": "customer65@clup.com",
+      "email": "customer65@CLup.com",
+      "password": "customer65@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Bianchi",
-      "email": "customer66@clup.com",
-      "password": "customer66@clup.com",
+      "email": "customer66@CLup.com",
+      "password": "customer66@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Verdi",
-      "email": "customer67@clup.com",
-      "password": "customer67@clup.com",
+      "email": "customer67@CLup.com",
+      "password": "customer67@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Davide Rossi",
-      "email": "customer68@clup.com",
-      "password": "customer68@clup.com",
+      "email": "customer68@CLup.com",
+      "password": "customer68@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Marco Rossi",
-      "email": "customer69@clup.com",
-      "password": "customer69@clup.com",
+      "email": "customer69@CLup.com",
+      "password": "customer69@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Bianchi",
-      "email": "customer70@clup.com",
-      "password": "customer70@clup.com",
+      "email": "customer70@CLup.com",
+      "password": "customer70@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer71@clup.com",
-      "password": "customer71@clup.com",
+      "email": "customer71@CLup.com",
+      "password": "customer71@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Rossi",
-      "email": "customer72@clup.com",
-      "password": "customer72@clup.com",
+      "email": "customer72@CLup.com",
+      "password": "customer72@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Verdi",
-      "email": "customer73@clup.com",
-      "password": "customer73@clup.com",
+      "email": "customer73@CLup.com",
+      "password": "customer73@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Verdi",
-      "email": "customer74@clup.com",
-      "password": "customer74@clup.com",
+      "email": "customer74@CLup.com",
+      "password": "customer74@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer75@clup.com",
-      "password": "customer75@clup.com",
+      "email": "customer75@CLup.com",
+      "password": "customer75@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Rossi",
-      "email": "customer76@clup.com",
-      "password": "customer76@clup.com",
+      "email": "customer76@CLup.com",
+      "password": "customer76@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Rossi",
-      "email": "customer77@clup.com",
-      "password": "customer77@clup.com",
+      "email": "customer77@CLup.com",
+      "password": "customer77@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer78@clup.com",
-      "password": "customer78@clup.com",
+      "email": "customer78@CLup.com",
+      "password": "customer78@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Rossi",
-      "email": "customer79@clup.com",
-      "password": "customer79@clup.com",
+      "email": "customer79@CLup.com",
+      "password": "customer79@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Rossi",
-      "email": "customer80@clup.com",
-      "password": "customer80@clup.com",
+      "email": "customer80@CLup.com",
+      "password": "customer80@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Rossi",
-      "email": "customer81@clup.com",
-      "password": "customer81@clup.com",
+      "email": "customer81@CLup.com",
+      "password": "customer81@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Rossi",
-      "email": "customer82@clup.com",
-      "password": "customer82@clup.com",
+      "email": "customer82@CLup.com",
+      "password": "customer82@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Verdi",
-      "email": "customer83@clup.com",
-      "password": "customer83@clup.com",
+      "email": "customer83@CLup.com",
+      "password": "customer83@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Bianchi",
-      "email": "customer84@clup.com",
-      "password": "customer84@clup.com",
+      "email": "customer84@CLup.com",
+      "password": "customer84@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Bianchi",
-      "email": "customer85@clup.com",
-      "password": "customer85@clup.com",
+      "email": "customer85@CLup.com",
+      "password": "customer85@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Bianchi",
-      "email": "customer86@clup.com",
-      "password": "customer86@clup.com",
+      "email": "customer86@CLup.com",
+      "password": "customer86@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Verdi",
-      "email": "customer87@clup.com",
-      "password": "customer87@clup.com",
+      "email": "customer87@CLup.com",
+      "password": "customer87@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Rossi",
-      "email": "customer88@clup.com",
-      "password": "customer88@clup.com",
+      "email": "customer88@CLup.com",
+      "password": "customer88@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Verdi",
-      "email": "customer89@clup.com",
-      "password": "customer89@clup.com",
+      "email": "customer89@CLup.com",
+      "password": "customer89@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Rossi",
-      "email": "customer90@clup.com",
-      "password": "customer90@clup.com",
+      "email": "customer90@CLup.com",
+      "password": "customer90@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanna Verdi",
-      "email": "customer91@clup.com",
-      "password": "customer91@clup.com",
+      "email": "customer91@CLup.com",
+      "password": "customer91@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Giovanni Verdi",
-      "email": "customer92@clup.com",
-      "password": "customer92@clup.com",
+      "email": "customer92@CLup.com",
+      "password": "customer92@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Rossi",
-      "email": "customer93@clup.com",
-      "password": "customer93@clup.com",
+      "email": "customer93@CLup.com",
+      "password": "customer93@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Rossi",
-      "email": "customer94@clup.com",
-      "password": "customer94@clup.com",
+      "email": "customer94@CLup.com",
+      "password": "customer94@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Luca Bianchi",
-      "email": "customer95@clup.com",
-      "password": "customer95@clup.com",
+      "email": "customer95@CLup.com",
+      "password": "customer95@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Matteo Bianchi",
-      "email": "customer96@clup.com",
-      "password": "customer96@clup.com",
+      "email": "customer96@CLup.com",
+      "password": "customer96@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Adriano Verdi",
-      "email": "customer97@clup.com",
-      "password": "customer97@clup.com",
+      "email": "customer97@CLup.com",
+      "password": "customer97@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Sara Verdi",
-      "email": "customer98@clup.com",
-      "password": "customer98@clup.com",
+      "email": "customer98@CLup.com",
+      "password": "customer98@CLup.com",
       "clup_role": "USER",
       "store_id": null
     },
     {
       "name": "Dario Rossi",
-      "email": "customer99@clup.com",
-      "password": "customer99@clup.com",
+      "email": "customer99@CLup.com",
+      "password": "customer99@CLup.com",
       "clup_role": "USER",
       "store_id": null
     }

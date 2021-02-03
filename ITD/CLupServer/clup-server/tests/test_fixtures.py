@@ -44,7 +44,14 @@ def session(db_create):
     session.close()
 
 @pytest.fixture(scope='session')
-def populate(db_create, flask_app):
+def testing_data():
+    with open('tests/data.json') as f:
+        json_string = f.read()
+        data = json.loads(json_string)
+    return data
+
+@pytest.fixture(scope='session')
+def populate(db_create, testing_data, flask_app):
     
     db, session_mkr = db_create
     session = session_mkr()
@@ -52,16 +59,14 @@ def populate(db_create, flask_app):
     print(Base.metadata.tables.values())
     Base.metadata.drop_all(bind=db)
     print('\n--- WIPED DATABASE DATA')
-    with open('tests/data.json') as f:
-        json_string = f.read()
-        data = json.loads(json_string)
 
-    for store in data['stores']:
+
+    for store in testing_data['stores']:
         session.add(Store(**store))
     
     session.commit()
 
-    for user in data['users']:
+    for user in testing_data['users']:
         new_user = CLupUser(**user)
         new_user.set_password(new_user.password)
         session.add(new_user)
@@ -80,7 +85,7 @@ def post_json(client,route, payload, bearer=None):
 
 def login(client, email, password):
     payload = dict(email=email, password=password)
-    response = post_json(flask_client, '/login', payload)
+    response = post_json(client, '/login', payload)
     if response.status_code != 200:
         raise ConnectionError('Failed to login')
     return response.json['access_token'], response.json['refresh_token']

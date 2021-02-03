@@ -6,6 +6,7 @@ from .models import Store, Ticket, CLupUser
 from .schemas import TicketSchema
 from marshmallow import fields, validates, ValidationError
 from sqlalchemy import func
+import datetime
 
 
 class CallFirstTicket(Resource):
@@ -20,16 +21,16 @@ class CallFirstTicket(Resource):
         user_email = get_jwt_identity()
         user = CLupUser.find_by_email(user_email)
         try:
-            _ = CallFirstTicketSchema().load(request.json)
+            _ = CallFirstTicket.CallFirstTicketSchema().load(request.json)
             # User can't call a ticket
-            if user.clup_role in {'OPERATOR', 'MANAGER', 'DEVICE'}:
+            if user.clup_role not in {'OPERATOR', 'MANAGER', 'DEVICE'}:
                 raise ValidationError('Not enough privileges', 'auth')
         except ValidationError as err:
             return jsonify({
                 'success': False,
                 'errors': err.messages
             })
-        next_ticket = Ticket.get_next_ticket_in_line()
+        next_ticket = Ticket.get_next_ticket_in_line(user.store.store_id)
         if next_ticket is None:
             # No one is waiting in line
             return jsonify({
@@ -41,10 +42,11 @@ class CallFirstTicket(Resource):
         # Change the expiration interval
         next_ticket.expires_on = func.now() + CALL_EXPIRATION_INTERVAL
         db.session.commit()
+        next_ticket_data = TicketSchema().dump(next_ticket)
         return jsonify({
             'success': True,
             'queue_empty': False,
-            'ticket': next_ticket
+            'ticket': next_ticket_data
         })
 
 class AcceptTicket(Resource):
@@ -65,6 +67,7 @@ class AcceptTicket(Resource):
         user_email = get_jwt_identity()
         user = CLupUser.find_by_email(user_email)
         try:
+            content = AcceptTicket.AcceptTicketSchema().load(request.json)
             if user.clup_role not in {"DEVICE", "OPERATOR", "MANAGER"}:
                 raise ValidationError('Not enough privileges', 'auth')
         except ValidationError as err:
@@ -73,17 +76,24 @@ class AcceptTicket(Resource):
                 'errors': err.messages
             })
         store = user.store
-        ticket = Ticket.find_by_id()
+        ticket = Ticket.find_by_id(content['ticket_id'])
         # Ticket must be called to enter the store
-        if ticket.state != Ticket.STATE_CALLED:
+        if ticket.state() != Ticket.STATE_CALLED:
             return jsonify({
                 'success': False,
                 'errors': {
                     'ticket': 'Ticket is not called'
                 }
-            }) 
+            })
+        if ticket.store.store_id != store.store_id:
+            return jsonify({
+                'success': False,
+                'errors': {
+                    'ticket': 'Ticket is bound to another store'
+                }
+            })
         # The store must have enough capacity
-        if store.real_time_capacity + 1 > store.real_time_capacity - store.reserved_capacity:
+        if store.real_time_capacity + 1 > store.reserved_capacity:
             return jsonify({
                 'success': False,
                 'errors': {
@@ -92,6 +102,37 @@ class AcceptTicket(Resource):
             })
         store.real_time_capacity += 1
         ticket.used_on = func.now()
+        db.session.commit()
         return jsonify({
-            'success': True
+            'success': True,
+            'real_time_capacity': store.real_time_capacity
+        })
+
+class CountStoreLeave(Resource):
+    class CountStoreLeave(ma.Schema):
+        pass
+
+    @jwt_required
+    def post(self):
+        user_email = get_jwt_identity()
+        user = CLupUser.find_by_email(user_email)
+        try:
+            if user.clup_role not in {"DEVICE", "OPERATOR", "MANAGER"}:
+                raise ValidationError('Not enough privileges', 'auth')
+        except ValidationError as err:
+            return jsonify({
+                'success': False,
+                'errors': err.messages
+            })
+        store = user.store
+        if store.real_time_capacity <= 0:
+            return jsonify({
+                'success': False,
+                'errors': {'store': 'No customer inside store'}
+            })
+        store.real_time_capacity -= 1
+        db.session.commit()
+        return jsonify({
+            'success': True,
+            'current_capacity': store.real_time_capacity
         })

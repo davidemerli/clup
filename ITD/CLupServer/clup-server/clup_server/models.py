@@ -101,11 +101,14 @@ class Store(db.Model):
 
     def __repr__(self):
         return '<Store(id=%d, name=%s, latitude=%f, longitude=%f)>' % \
-            (self.store_id, self.shop_name, self.latitude, self.longitude)
+            (self.store_id, self.store_name, self.latitude, self.longitude)
     
     def get_queue(self):
         return sorted((ticket for ticket in self.tickets if ticket.state() == Ticket.STATE_ISSUED), key=lambda x: x.issued_on)
 
+    @classmethod
+    def find_by_id(cls, store_id):
+        return Store.query.get(store_id)
 
     @classmethod
     def get_all_stores_radius(cls, origin : tuple, radius : float) -> list:
@@ -215,6 +218,11 @@ class Ticket(db.Model):
         else:
             return (value[0] + 1) % cls.MAX_CALL_NUMBER 
     
+
+    @classmethod
+    def find_by_id(cls, ticket_id):
+        return Ticket.query.get(ticket_id)
+
     @classmethod
     def get_next_ticket_in_line(cls, a_store_id : int):
 
@@ -223,4 +231,12 @@ class Ticket(db.Model):
         if first_ticket_in_queue is None:
             return None
         else:
-            return Ticket.get(first_ticket_in_queue)
+            return Ticket.find_by_id(first_ticket_in_queue)
+    
+    @classmethod
+    def get_position_in_line(self, a_store_id, timestamp = func.now()) -> int:
+        count = db.session.query(Ticket.ticket_id).filter_by(store_id=a_store_id).filter(Ticket.called_on == None).filter(func.now() <= Ticket.expires_on).filter(Ticket.cancelled_on == None).filter(Ticket.used_on == None).filter(Ticket.issued_on < timestamp).count() + 1
+        return count
+
+    
+        

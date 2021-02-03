@@ -20,7 +20,6 @@ class TestAuthentication:
         print(response.json)
         assert response.status_code == 200
         assert response.json['success']
-
         # Repeated
         response = post_json(flask_client, '/register', reg_payload)
         print(response.json)
