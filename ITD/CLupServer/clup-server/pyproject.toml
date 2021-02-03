@@ -19,6 +19,8 @@ Flask-JWT-Extended = "^3.25.0"
 email-validator = "^1.1.2"
 python-dotenv = "^0.15.0"
 Flask-Testing = "^0.8.1"
+recordclass = "^0.14.3"
+pytest-cov = "^2.11.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

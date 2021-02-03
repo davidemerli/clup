@@ -109,7 +109,7 @@ class AcceptTicket(Resource):
         })
 
 class CountStoreLeave(Resource):
-    class CountStoreLeave(ma.Schema):
+    class CountStoreLeaveSchema(ma.Schema):
         pass
 
     @jwt_required
@@ -117,6 +117,7 @@ class CountStoreLeave(Resource):
         user_email = get_jwt_identity()
         user = CLupUser.find_by_email(user_email)
         try:
+            CountStoreLeave.CountStoreLeaveSchema().load(request.json)
             if user.clup_role not in {"DEVICE", "OPERATOR", "MANAGER"}:
                 raise ValidationError('Not enough privileges', 'auth')
         except ValidationError as err:
@@ -135,4 +136,31 @@ class CountStoreLeave(Resource):
         return jsonify({
             'success': True,
             'current_capacity': store.real_time_capacity
+        })
+
+class QueueStatus(Resource):
+    class QueueStatusSchema(ma.Schema):
+        pass
+    @jwt_required
+    def post(self):
+        user_email = get_jwt_identity()
+        user = CLupUser.find_by_email(user_email)
+        try:
+            QueueStatus.QueueStatusSchema().load(request.json)
+            if user.clup_role not in {"DEVICE", "OPERATOR", "MANAGER"}:
+                raise ValidationError('Not enough privileges', 'auth')
+        except ValidationError as err:
+            return jsonify({
+                'success': False,
+                'errors': err.messages
+            })
+        store = user.store
+        queued_tickets = Ticket.get_queue(store.store_id)
+        called_tickets = Ticket.get_called(store.store_id)
+        return jsonify({
+            'success': True,
+            'queue_length': len(queued_tickets),
+            'called_tickets': len(called_tickets),
+            'queue_ticket_ids': queued_tickets,
+            'called_ticket_ids': called_tickets
         })

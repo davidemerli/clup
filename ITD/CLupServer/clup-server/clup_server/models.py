@@ -224,14 +224,23 @@ class Ticket(db.Model):
         return Ticket.query.get(ticket_id)
 
     @classmethod
+    def get_queue(cls, a_store_id : int):
+        queue = db.session.query(Ticket.ticket_id).filter_by(store_id=a_store_id).filter(Ticket.called_on == None).filter(func.now() <= Ticket.expires_on).filter(Ticket.cancelled_on == None).filter(Ticket.used_on == None).order_by(Ticket.issued_on.asc()).all()
+        return [item[0] for item in queue]
+
+    @classmethod
+    def get_called(cls, a_store_id: int):
+        called = db.session.query(Ticket.ticket_id).filter_by(store_id=a_store_id).filter(Ticket.called_on != None).filter(func.now() <= Ticket.expires_on).filter(Ticket.cancelled_on == None).filter(Ticket.used_on == None).order_by(Ticket.issued_on.asc()).all()
+        return [item[0] for item in called]
+    
+    @classmethod
     def get_next_ticket_in_line(cls, a_store_id : int):
+        first_id = cls.get_queue(a_store_id)[0]
 
-        first_ticket_in_queue = db.session.query(Ticket.ticket_id).filter_by(store_id=a_store_id).filter(Ticket.called_on == None).filter(func.now() <= Ticket.expires_on).filter(Ticket.cancelled_on == None).filter(Ticket.used_on == None).order_by(Ticket.issued_on.asc()).first()
-
-        if first_ticket_in_queue is None:
+        if first_id is None:
             return None
         else:
-            return Ticket.find_by_id(first_ticket_in_queue)
+            return Ticket.find_by_id(first_id)
     
     @classmethod
     def get_position_in_line(self, a_store_id, timestamp = func.now()) -> int:
