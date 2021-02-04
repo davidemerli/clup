@@ -1,0 +1,132 @@
+\subsection{Purpose}
+The purpose of this document is to analyze and describe deeply the design choices of the software and the system to be, which is described in the CLup Requirements Analysis and Specifications Document (RASD).
+
+Design decisions will be further explained together with the architectural structure of the system as a whole as well as its subsystems.
+
+\medskip
+
+This document will also provide insights about Implementation and Testing, by outlining the characteristics of CLup subsystems and interfaces. Every component will be analyzed and put into perspective with the others, in order to deploy a plan for the developement, the organization and the parallelization of the work.
+
+\subsection{Scope}
+
+Due to the recent coronavirus global pandemic, many of the human activities have been drastically affected and restricted by the need to contain the virus diffusion. Norms and regulations may vary from contry to country, but almost everywhere the main focus is to mantain social distancing to avoid diffusion from one person to another.
+One of the most difficult activity to fullfil (yet absolutely essential) is grocery shopping.
+\medskip
+
+Stores are forced to restrain access to avoid too many people inside the building, and this produces endless lines out of the stores. This can both increase the danger for people waiting for their turn and force the shops to regulate customers even outside the structure.
+
+\medskip
+
+CLup aims to reduce heavily the issues involving customer queues outside of stores by permitting clients to keep track of their position in the store queue or book in a visit in advance with an easy to use application.
+
+\clearpage
+\subsection{Definitions, Acronyms, Abbreviations}
+
+\subsubsection{Acronyms}
+
+\begin{itemize}
+    \item \textbf{S2B}: Software To Be
+    \item \textbf{RASD}: Requirement Analysis and Specifications Documents
+    \item \textbf{REST}: REpresentational State Transfer
+    \item \textbf{API}: Application Programming Interface
+    \item \textbf{UX}: User Experience
+    \item \textbf{UI}: User Interface
+    \item \textbf{SSO}: Single sign-on
+    \item \textbf{QR code}: Quick Response code
+    \item \textbf{OS}: Operating System
+    \item \textbf{RAM}: Random Access Memory
+    \item \textbf{LAN}: Local Area Network
+    \item \textbf{GPS}: Global Positioning System
+    \item \textbf{GB}: GigaByte
+    \item \textbf{TCP/IP}: Transmission Control Protocol/Internet Protocol
+    \item \textbf{HTTPS}: Hypertext Transfer Protocol Secure
+    \item \textbf{IoT}: Internet of Things
+    \item \textbf{MQTT}: Message Queuing Telemetry Transport
+    \item \textbf{RAID}: Redundant Array of Independent Disks
+    \item \textbf{UML}: Unified Modeling Language
+    \item \textbf{TDD}: Test-driven development
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\subsubsection{Definitions}
+
+\begin{itemize}
+    \item \textbf{Access controller}: a subsystem that permits the entrance of customers into the store. It can be a device like a smart turnstile that reads customers tickets or just a person of the store staff manually scanning tickets.
+    \item \textbf{Business account}: a CLup account that is destined to store managers or operators and therefore the 'business' side of CLup
+    \item \textbf{In-Site ticket}: a ticket that is taken by a customer near the store. It can be both a virtual paperless ti an emitter near the store premises
+    \item \textbf{Virtual ticket}: a ticket issued through the CLup application
+    \item \textbf{Physical/Paper ticket}: a printed physical ticket, emitted by a printer near the store premises
+    \item \textbf{Valid Ticket} (at time X): a ticket that has a code recognized by the CLup system and valid for the specified time
+    \item \textbf{Time slot}: a time delta that is associated with a number of bookable tickets (which varies and is customizable from store to store)
+    \item \textbf{People-Counting System}: a subsystem that permits the counting of the number of people inside the store. It can comprehend a device like a proximity sensor or a smart turnstile, or it can be a person of the store staff manually counting people.
+    \item \textbf{Customer Application}: the CLup mobile application destined to customers that want to shop inside stores adopting CLup
+    \item \textbf{Operator Application}: the CLup mobile application destined to store staff to monitor entrances and statistics
+    \item \textbf{Store Main System}: the store main server that communicates directly with CLup servers. All store subsystems and smart devices should communicate with it through an Intranet
+    \item \textbf{Geocoding API}: Geocoding converts addresses into geographic coordinates to be placed on a map. A Geocoding API allows the use of their services to permit translation between textual addresses and Latitude/Longitude coordinates
+    \item \textbf{Map API}: An external services that provides operations of geographics maps and the download of map information, usually of the places in proximity of given geographics coordinates
+    \item \textbf{Hashed Password}: When a password has been “hashed” it means it has been turned into a scrambled representation of itself. A user's password is taken and – using a key known to the site – the hash value is derived from the combination of both the password and the key, using a set algorithm.
+    \item \textbf{Time to market}: is the length of time it takes from a product being conceived until its being available for sale.
+    \item \textbf{Alpha Test}: a trial of machinery, software, or other products carried out by a developer before a product is made available for beta testing.
+    \item \textbf{Beta Test}: a trial of machinery, software or other products in the final stages of development, carried out by a party unconnected with the development process.
+    \item \textbf{DevOps}: is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.
+    \item \textbf{Quality Assessment}: is the data collection and analysis through which the degree of conformity to predetermined standards and criteria are exemplified.
+\end{itemize}
+
+\subsection{Revision History}
+
+\begin{itemize}
+    \item 1.0: 10 January 2021 - First Release
+\end{itemize}
+
+\subsection{Reference Documents}
+
+\begin{itemize}
+    \item R\&DD Assignment A.Y. 2020-2021 - Elisabetta di Nitto, Matteo Giovanni Rossi
+    \item Software Engineering II slides and material - Elisabetta di Nitto, Matteo Giovanni Rossi
+    \item CLup RASD - Davide Luca Merli, Dario Passarello
+    \item \href{https://material.io/design}{Material Design Guidelines}
+    \item \href{https://www.conventionalcommits.org/en/v1.0.0/}{Convetional Commits Guidelines}
+    \item \href{https://git-scm.com/}{Git - versioning system}
+\end{itemize}
+
+\subsection{Used Tools}
+\begin{itemize}
+    \item Umlet - for UML diagrams
+    \item Draw.io - for other diagrams
+    \item Proto.io - for UI Mockups
+    \item Github - for code hosting and version control
+    \item \LaTeX \space  - to write this entire document
+    \item Visual Studio Code + Latex Workshop - as a \LaTeX \space environment
+\end{itemize}
+
+\clearpage
+
+\subsection{Document Structure}
+
+\textbf{Chapter 1} explains the purpose of this document, summarizes the scope of the CLup project and the relation between this Design Document and the Requirement Analysis and Specifications Document.
+Acronyms and Definitions used through the whole document are listed and explained.
+It provides the history of the document revisions and this very description of all the chapters, together with the documents used as a reference.
+
+\medskip
+
+\textbf{Chapter 2} presents the system on various levels of detail. An high level view is provided to further frame CLup as a system composed of different software running on different platforms and devices. Component Diagrams illustrate all the components of the various subsystems. Every component is defined and described, exhibiting its role in the system and how it communicates with other internal or external components.
+
+\medskip
+
+\textbf{Chapter 3} shows the most meaningful interfaces of the CLup Application, giving a nice idea of what the final product will look like from a customer's perspective.
+
+\medskip
+
+
+\textbf{Chapter 4} associates every component described in section \ref{sect:architectural_design} with the Requirements they contribute to satisfy, as a direct reference for developers.
+
+\medskip
+
+
+\textbf{Chapter 5} is another direct reference for developers as it expresses how the developement process will be organized, how and in which order the components of the whole system are to constructed. The same is done with the testing: how it relates to the developement process, how component are tested, and which technologies are to be employed.
+
+\medskip
+
+\textbf{Chapter 6} shows the time spent from each member of the team for writing this document.

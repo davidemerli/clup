@@ -8,7 +8,8 @@ services:
         - ./db_config:/docker-entrypoint-initdb.d
         - ./.db_data:/var/lib/postgresql/data
         - ./db_populate:/populate
-
+    ports:
+        - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -16,24 +17,15 @@ services:
     networks:
       internal:
 
-  nginx:
-    image: nginx:1.18
-    container_name: clup-nginx
-    restart: always
-    depends_on: 
-      - clup-server
-    ports:
-      - "80:80"
-    networks: 
-      internal:
-    volumes:
-      - ./nginx_conf:/etc/nginx/conf.d
-  
-  clup-server:
-    build: ./clup-server
-    restart: always
+  pgadmin:
+    image: dpage/pgadmin4:4.29
     depends_on: 
       - postgres
+    ports:
+      - "80:80"
+    environment: 
+      - PGADMIN_DEFAULT_EMAIL=admin@clup.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     networks:
       internal:
       
