@@ -131,3 +131,46 @@ class GetActiveTicket(Resource):
         })
         
         
+class TicketInfo(Resource):
+    class TicketInfoSchema(ma.Schema):
+        ticket_id = fields.Integer(required=False)
+    
+        @validates('ticket_id')
+        def validate_ticket_id(self, ticket_id):
+            ticket = Ticket.find_by_id(ticket_id)
+            if ticket is None:
+                raise ValidationError('ticket_id not valid', 'ticket_id')
+            else:
+                return ticket_id
+
+    @jwt_required
+    def post(self):
+        user_email = get_jwt_identity()
+        user = CLupUser.find_by_email(user_email)
+        try:
+            content = TicketInfo.TicketInfoSchema().load(request.json)
+            if user.clup_role not in {"DEVICE", "OPERATOR", "MANAGER"}:
+                raise ValidationError('Not enough privileges', 'auth')
+        except ValidationError as err:
+            return jsonify({
+                'success': False,
+                'errors': err.messages
+            })
+        store = user.store
+        ticket = Ticket.find_by_id(content['ticket_id'])
+        if ticket.store_id != store.store_id:
+            return jsonify({
+                'success': False,
+                'errors': {'auth': 'Not enough privileges for hth'}
+            })
+        ticket_obj = TicketSchema().dump(ticket)
+        if ticket.state() == Ticket.STATE_ISSUED:
+            ticket_obj['line_position'] = Ticket.get_position_in_line(ticket.store.store_id, ticket.issued_on)
+        else:
+            ticket_obj['line_position'] = 0
+
+        return jsonify({
+            'success': True,
+            'ticket': ticket_obj
+        })
+
