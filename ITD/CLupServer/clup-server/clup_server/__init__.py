@@ -1,6 +1,7 @@
 __version__ = '0.1.0'
 
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy 
 from flask_marshmallow import Marshmallow
@@ -20,6 +21,7 @@ from . import ticket_manager
 def create_app(dev=False, drop_db=False):
     config_path = "config.ProdConfig" if not dev else "config.DevConfig"
     app = Flask(__name__, instance_relative_config=False)
+    CORS(app)
     app.config.from_object(config_path)
 
     db.init_app(app)
