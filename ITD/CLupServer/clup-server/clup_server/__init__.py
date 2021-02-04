@@ -1,6 +1,7 @@
 __version__ = "0.1.0"
 
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
@@ -23,6 +24,7 @@ def create_app(dev=False, drop_db=False, populate=False):
     print(f'Drop Db on start = {drop_db}')
     print(f'Populate db on start = {populate}')
     app = Flask(__name__, instance_relative_config=False)
+    CORS(app)
     app.config.from_object(config_path)
     print('Loaded Config')
     db.init_app(app)
@@ -53,3 +55,7 @@ def create_app(dev=False, drop_db=False, populate=False):
 
 
 
+<<<<<<< HEAD
+=======
+    return app
+>>>>>>> 65f57c924da2ab3ab7cfa32a280d99d37c60fd06
