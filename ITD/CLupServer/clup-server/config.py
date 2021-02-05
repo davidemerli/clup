@@ -22,4 +22,5 @@ class ProdConfig(Config):
     FLASK_ENV = 'production'
     DEBUG = False
     TESTING = False
+    PROPAGATE_EXCEPTIONS = True
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@postgres:5432/clup'
