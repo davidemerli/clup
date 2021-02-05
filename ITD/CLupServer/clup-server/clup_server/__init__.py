@@ -55,7 +55,3 @@ def create_app(dev=False, drop_db=False, populate=False):
 
 
 
-<<<<<<< HEAD
-=======
-    return app
->>>>>>> 65f57c924da2ab3ab7cfa32a280d99d37c60fd06
