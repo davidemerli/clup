@@ -32,6 +32,8 @@ services:
   clup-server:
     build: ./clup-server
     restart: always
+    environment:
+      - JWT_SECRET_KEY
     depends_on: 
       - postgres
     networks:
