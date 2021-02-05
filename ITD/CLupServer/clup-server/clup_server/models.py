@@ -316,14 +316,14 @@ class Ticket(db.Model):
         ForeignKey("store.store_id", ondelete="CASCADE", onupdate="CASCADE"),
         nullable=False,
     )
-    issued_on = db.Column(DateTime, default=func.now())
-    called_on = db.Column(DateTime)
+    issued_on = db.Column(DateTime(timezone=True), default=func.now())
+    called_on = db.Column(DateTime(timezone=True))
     expires_on = db.Column(
-        DateTime, nullable=False, default=func.now() + EXPIRATION_INTERVAL
+        DateTime(timezone=True), nullable=False, default=func.now() + EXPIRATION_INTERVAL
     )
-    used_on = db.Column(DateTime)
+    used_on = db.Column(DateTime(timezone=True))
     is_virtual = db.Column(Boolean, nullable=False)
-    cancelled_on = db.Column(DateTime)
+    cancelled_on = db.Column(DateTime(timezone=True))
     user_id = db.Column(
         Integer,
         ForeignKey("clupuser.user_id", ondelete="CASCADE", onupdate="CASCADE"),
