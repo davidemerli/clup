@@ -24,10 +24,13 @@ services:
       - clup-server
     ports:
       - "80:80"
+      - "443:443"
     networks: 
       internal:
     volumes:
-      - ./nginx_conf:/etc/nginx/conf.d
+      - ./data/nginx_conf:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
   
   clup-server:
     build: ./clup-server
@@ -38,6 +41,13 @@ services:
       - postgres
     networks:
       internal:
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+
       
     
 networks:
