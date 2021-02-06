@@ -129,13 +129,17 @@ class QueueStatus(Resource):
             return jsonify({"success": False, "errors": err.messages})
         store = user.store
         queued_tickets = Ticket.get_queue(store.store_id)
+        queued_call_numbers = [Ticket.find_by_id(ticked_id).call_number for ticked_id in queued_tickets]
         called_tickets = Ticket.get_called(store.store_id)
+        called_call_numbers = [Ticket.find_by_id(ticked_id).call_number for ticked_id in called_tickets]
         return jsonify(
             {
                 "success": True,
                 "queue_length": len(queued_tickets),
                 "called_tickets": len(called_tickets),
                 "queue_ticket_ids": queued_tickets,
+                "queued_call_numbers": queued_call_numbers,
                 "called_ticket_ids": called_tickets,
+                "called_call_numbers": called_call_numbers
             }
         )
