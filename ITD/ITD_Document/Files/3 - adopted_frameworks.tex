@@ -1,0 +1,39 @@
+
+
+\subsection{Backend Frameworks and Languages}
+
+\subsubsection{CLup Server and API}
+The framework chosen for the backend is Flask. Flask is a lightweight WSGI web application framework written in python. Flask is very good for prototyping web application and APIs because it very easy to set up (it could be installed in one command from the python package installer PIP) and comes with a debug mode that speeds up the debugging process.
+Along with flask some other libraries are used to build the CLup Server Api.
+\begin{itemize}
+    \item \textbf{SQLAlchemy} is a Object Relational Mapper library (ORM). An ORM allows to map the database entities and the relationship between them to objects and references in the application code. The ORM will translate operations on the objects to SQL queries that will be executed to the database. The ORM decouples the application from the database. In this way the application code is independent from which underlying DBMS, and the latter could be changed without changing the application code.
+    \item \textbf{Marshmallow} is a marshalling library for python, well integrated with flask. Marshalling consists in converting objects from the memory in a format ready for storage or transmission. Marshmallow makes the validation the request inputs a lot simpler so the programmer doesn't need to write a lot of error-prone boilerplate code for the input validation
+    \item \textbf{Flask-RESTful} The CLupServer API uses the RESTful architectural style. Flask-RESTful simplifies the code writing of this API providing to the programmer a software interface to declare each endpoint as a class, containing the different HTTP methods accepted from the endpoints. For example to implement an endpoint that allows to create ticket with a POST request is sufficient to declare a class `CreateTicket' that extends the class Resource (provided from FlaskRestful), and implement the post() method.
+    \item \textbf{Flask-Jwt-Extended} is a library for handling the authentication in flask using JWT tokens. A JWT token is an encoded string generated from the server and given to the user after checking its credentials. The JWT contains the user e-mail, an expiration timestamp and an hash for checking integrity. The JWT token is generated when the user does login request. Every request done by the user must contain this token so, flask-jwt-extended will check the validity of the token at each request. With flask-jwt-extended, allowing the access to an API endpoint to only the authenticated user is very straightforward, it's enough to put a python annotation before the endpoint methods for which authentication is needed.
+\end{itemize}
+\subsubsection{Data layer}
+Regarding the data model a SQL relational database is preferred to a noSQL one, because the data to persist has a well defined Entity-Relation structure (i.e. Tickets, Users, Store\ldots).
+
+For the Data layer a postgreSQL DBMS is adopted. PostgreSQL is a production ready open-source relational SQL database. It's stable and used in a lot of commercial applications so it's a good fit for the CLup prototype.
+
+\subsubsection{Development Tools}
+Different development tools are used when writing and debugging the backend code.
+\begin{itemize}
+    \item \textbf{Poetry} is a tool that helps managing the dependencies of a project, setting them up in an isolated python environment. Isolating the execution environment is essential to enhance the portability and the maintainability of the software. When poetry is set up it will create automatically a virtual python environment for the project and resolve the dependencies.
+    \item \textbf{Black} is an automatic python code formatter. Black formats the code according to the PEP-8 standard, enhancing the readability.
+    \item \textbf{pytest} is the official python testing framework. (More about the testing on section 5)
+\end{itemize} 
+
+\subsubsection{Deployment Tools}
+\textbf{Docker} is an useful tool to automatically build and ship applications. A Docker application is made of different containers each one running a different application, these application could communicate using an internal network.
+
+For this prototype docker is employed to build and deploy the backend using a single command. 
+Without docker each component (i.e. CLup Server Application, Database, Load Balancer) should be set up manually.
+
+\medskip
+
+For deploying the application in production it is not recommended the use of the flask development WSGI server. So the CLup Server Application container runs a \textbf{gunicorn} server.
+
+\medskip
+
+\textbf{Nginx} is a broadly used load balancer. Due to the low usage of a prototype application, a load balancer is not strictly needed, but it is included for enhancing the stability of the gunicorn server and could be useful for having better performance when stress testing the system.

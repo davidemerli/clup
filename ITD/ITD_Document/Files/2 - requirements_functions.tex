@@ -79,9 +79,9 @@ Due to the merger of the two components the backend now could run in a single ma
     \item \textbf{R4 For each store the system must allow the users to retrieve information about location and business hour}: The store location feature is implemented (in order to display stores in the map). The business hours are not provided to the user, this feature could be implemented using an external API with opening times or storing these opening times in the database
     \item \textbf{R17 The system must allow a customer to create a numbered virtual queue ticket and notify them if he can enter immediately (if the store is not full) or provide them awaiting time estimation}: The waiting time estimation is not provided. To estimate the waiting time an accurate model based on historical data could be used.
     \item \textbf{R18 The system must notify the customers with a virtual queue ticket when it’s time to approach the store entrance}:
-    The push notification component is not implemented in the prototype so the server can't push message to the user application. However to the client will check if the ticket has been called pulling data from the server API periodically
+    The push notification component is not implemented in the prototype so the server can't push message to the user application. However the client will check if the ticket has been called by pulling data from the server API periodically.
     \item \textbf{R21 The system must allow stores to hand out numbered physical queueing tickets to those that do not use the CLup application}:
-    The CLup server provides an API for this feature but in order satisfy this requirement a ticket printer is required. 
+    The CLup server provides an API for this feature but for satisfying this requirement a ticket printer is required. 
     \item \textbf{R25 The system should interface with an screen placed at the entrance of the store to notify customer which ticket numbers will enter in the next called batch}:
     Similar to R21
     \item \textbf{R33 The system must provide an interface for automated control devices to communicate to CLup data about store entrances, store leavings and crowdedness in the various departments}: Similar to R21. The departments' crowdedness control feature is not implemented in the prototype
