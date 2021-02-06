@@ -1,14 +1,9 @@
-import 'package:clup_application/api/authentication.dart';
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:clup_application/api/authentication.dart';
+import 'package:clup_application/api/ticket_handler.dart';
+import 'package:flutter/material.dart';
 
-final clupRed = Color(0xFFF76C5E);
-final clupBlue1 = Color(0xFF586BA4);
-final clupBlue2 = Color(0xFF1E2848);
-
-final twitterColor = Color(0xFF1DA1F2);
-final facebookColor = Color(0xFF4267B2);
-final googleColor = Color(0xFFDB4437);
+import '../configs.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,62 +16,46 @@ class _LoginPageState extends State<LoginPage> {
   String _errorMessage;
 
   TextEditingController emailController =
-      TextEditingController(text: 'succoso.meme@kek.it');
+      TextEditingController(text: 'customer1@CLup.com');
   TextEditingController passwordController =
-      TextEditingController(text: '___1eAe1___');
+      TextEditingController(text: 'customer1@CLup.com');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      bottomNavigationBar: _buildBottombar(),
-      body: Center(
-        child: SafeArea(
-          child: Scrollbar(
+      bottomNavigationBar: _isLoading ? null : _buildBottombar(),
+      body: SafeArea(
+        child: LayoutBuilder(builder: (context, builder) {
+          double width = builder.constrainWidth(600);
+
+          return Scrollbar(
             child: Center(
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          _buildLogo(),
-                          _buildHeaderText(),
-                          _buildTextFields(),
-                          _buildForgotPwdButton(),
-                          _buildLoginButton(),
-                          _buildAlternativeLogin()
-                        ],
+              child: _isLoading
+                  ? CircularProgressIndicator()
+                  : SizedBox(
+                      width: width,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              _buildLogo(),
+                              _buildHeaderText(),
+                              _buildTextFields(),
+                              _buildForgotPwdButton(),
+                              _buildLoginButton(),
+                              _buildAlternativeLogin()
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  if (_isLoading) _buildLoginIndicator(),
-                ],
-              ),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Container _buildLoginIndicator() {
-    return Container(
-      color: Colors.white70,
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.71,
-      child: Center(
-        child: Container(
-          height: 50.0,
-          width: 50.0,
-          child: CircularProgressIndicator(
-            strokeWidth: 5,
-            valueColor: AlwaysStoppedAnimation(clupBlue1),
-          ),
-        ),
+          );
+        }),
       ),
     );
   }
@@ -150,10 +129,18 @@ class _LoginPageState extends State<LoginPage> {
 
     bool success = result[0];
 
-    await Future.delayed(Duration(seconds: 1));
-
     if (success) {
-      Navigator.popAndPushNamed(context, '/map');
+      if (await isUser()) {
+        List result = await updateTicketInfo();
+
+        if (result[0] && result[1] != null) {
+          Navigator.popAndPushNamed(context, '/store/ticket');
+        } else {
+          Navigator.popAndPushNamed(context, '/map');
+        }
+      } else if (await isOperator()) {
+        Navigator.popAndPushNamed(context, '/operator_page');
+      }
     }
 
     setState(() {
@@ -293,7 +280,7 @@ class _LoginPageState extends State<LoginPage> {
     final googleButton = _button(context, 'Google', googleColor,
         icon: const FaIcon(FontAwesomeIcons.google, color: Colors.white),
         size: 16.0,
-        onPressed: () async => print(await getAccessToken()));
+        onPressed: () {});
 
     return Column(
       children: [
@@ -312,9 +299,13 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(width: 20),
           ],
         ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width - 100,
-          child: googleButton,
+        const SizedBox(height: 10.0),
+        Row(
+          children: [
+            const SizedBox(width: 20),
+            Expanded(child: googleButton),
+            const SizedBox(width: 20),
+          ],
         ),
       ],
     );

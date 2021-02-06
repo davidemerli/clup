@@ -1,38 +1,74 @@
 import 'dart:convert';
 
-import 'package:clup_application/api/authentication.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter/foundation.dart';
 
-final Dio dio = Dio();
-final FlutterSecureStorage storage = FlutterSecureStorage();
-
-const CLUP_URL = "http://192.168.1.66:5000";
+import '../main.dart';
 
 createTicket(storeID) async {
   var body = {'store_id': storeID};
 
   try {
-    dio.options.headers['content-type'] = 'application/json';
-    dio.options.headers["Authorization"] = "Bearer ${await getAccessToken()}";
+    var response = await connectToClup(route: "/create_ticket", data: body);
 
-    var response = await dio.post(CLUP_URL + "/create_ticket", data: body);
+    if (kDebugMode) print(response);
 
     if (response.statusCode == 200) {
-      Map ticket = response.data['ticket'];
-      storage.write(key: 'ticket', value: json.encode(ticket));
+      if (response.data['success']) {
+        Map ticket = response.data['ticket'];
+        write(key: 'ticket', value: json.encode(ticket));
 
-      return ticket;
+        return [true, ticket];
+      } else {
+        await updateTicketInfo();
+
+        return [false, response['errors']];
+      }
     }
-  } catch (e) {
-    return [];
-  }
+  } catch (e) {}
+
+  return [false, 'Could not connect to server'];
 }
 
 getTicket() async {
-  if (await storage.containsKey(key: 'ticket')) {
-    return json.decode(await storage.read(key: 'ticket'));
+  if (await containsKey(key: 'ticket')) {
+    return json.decode(await read(key: 'ticket'));
   } else {
     return Map();
   }
+}
+
+updateTicketInfo() async {
+  try {
+    var response = await connectToClup(route: "/active_ticket");
+
+    if (kDebugMode) print(response);
+
+    if (response.statusCode == 200 && response.data['success']) {
+      write(key: 'ticket', value: json.encode(response.data['ticket']));
+
+      return [true, response.data['ticket']];
+    }
+  } catch (e) {
+    if (kDebugMode) print(e);
+  }
+
+  return [false, null];
+}
+
+cancelTicket() async {
+  try {
+    var response = await connectToClup(route: "/cancel_ticket");
+
+    if (kDebugMode) print(response);
+
+    if (response.statusCode == 200 && response.data['success']) {
+      await delete(key: 'ticket');
+
+      return true;
+    }
+  } catch (e) {
+    return false;
+  }
+
+  return false;
 }
