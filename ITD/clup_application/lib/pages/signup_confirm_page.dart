@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-const clupRed = Color(0xFFF76C5E);
-const clupBlue1 = Color(0xFF586BA4);
-const clupBlue2 = Color(0xFF1E2848);
+import '../configs.dart';
 
 class SignupConfirmPage extends StatelessWidget {
   static const TextStyle textBoxTheme = TextStyle(
@@ -111,7 +108,8 @@ class SignupConfirmPage extends StatelessWidget {
   }
 
   SliverAppBar _buildAppbar(BuildContext context) {
-    var theme = Theme.of(context).textTheme.headline4.copyWith(color: Colors.black);
+    var theme =
+        Theme.of(context).textTheme.headline4.copyWith(color: Colors.black);
 
     return SliverAppBar(
       leading: IconButton(

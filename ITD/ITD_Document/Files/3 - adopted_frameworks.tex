@@ -1,4 +1,4 @@
-
+The implementation of the CLup prototype is divided in two parts: Frontend and Backend. 
 
 \subsection{Backend Frameworks and Languages}
 
@@ -37,3 +37,23 @@ For deploying the application in production it is not recommended the use of the
 \medskip
 
 \textbf{Nginx} is a broadly used load balancer. Due to the low usage of a prototype application, a load balancer is not strictly needed, but it is included for enhancing the stability of the gunicorn server and could be useful for having better performance when stress testing the system.
+
+\subsection{Frontend}
+\subsubsection{Flutter}
+
+For the application frontend we decided to use the Flutter framework considering its many advantages:
+\begin{itemize}
+    \item Flutter allows to natively compile applications for every major platform, including Android, IOs, Web and Desktop applications. By using a single code base it is possible to deliver the same experience to every platform, and without the need to define different teams for every version.
+    \item Natively compiling applications ensures good performances even if not writing native code for the specific target platforms.
+    \item Flutter provides lots of predefined Widgets\footnote{Every component in a Flutter application is a Widget, and every displayed page is a Tree of Widgets, one inside the other; working with Widgets allows to only rebuild the parts of the application that need to be updated, which improves performance.} for every kind of situation. This allows for faster developement since every common behavior in a classic application is already usable out of the box
+    \item There are lots of libraries (both official and third party libraries) that further populate the list of usable Widgets (i.e. libraries to draw graphs with statistics, map integration, HTTP requests, QR code scanning/generation)
+    \item Flutter allows for 'Hot Reloading', which instantly rebuilds the application while debugging, and without necessarly restarting the application, speeding up the developement processruns onruns on
+    \item Flutter is written with the Dart programming language, which is very flexible, has very powerful features (like Mixins and Extensions Methods, but also a very polished null safety implementation) and resembles Java in the general syntax (which is a known language to team members)
+    \item Team members already had some experience with the framework
+\end{itemize}
+
+On the other hand, Flutter has some downsides:
+\begin{itemize}
+    \item Flutter Web is still in beta developement, so it has not been tested enough to be considered 'stable', but the developement of the framework is very active, and behind the project there is Google.
+    \item Some low level features, for example the interaction with background tasks in the various operating systems running the application, are not yet supported natively (in Dart code) but may require small amounts of codes to be written in the respective native languages (i.e. Java/Kotlin for Android, Swift for IOs)
+\end{itemize}
