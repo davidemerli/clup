@@ -16,7 +16,7 @@ class DevConfig(Config):
     TESTING = True
     JWT_SECRET_KEY = 'random_for_testing'
     #SQLALCHEMY_ECHO = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@127.0.0.1:5432/clup_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@127.0.0.1:5432/clup'
 
 class ProdConfig(Config):
     FLASK_ENV = 'production'
