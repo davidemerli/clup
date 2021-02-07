@@ -1,25 +1,66 @@
 \subsection{Backend}
-The backend server has been deployed with Docker containers.
+The backend server has been deployed with Docker containers on AWS.
 
-An instance of the server has already been deployed online using AWS, and the API is available at https://clup.waifocus.com
 
-It is possible to start the server locally by calling the provided script
-\begin{lstlisting}[language=bash]
+
+\subsubsection{Starting the server}
+An instance of the server has already been deployed online using AWS, and the API is available at https://clup.waifocus.com so it's not needed to run it locally.
+If you want it is still possible to run the server locally on Linux or on Windows Subsystem of Linux (WSL)
+\textbf{Installation steps}
+\begin{enumerate}
+    \item Install \href{https://docs.docker.com/get-docker/}{Docker}
+    \item Install \href{https://docs.docker.com/compose/install/}{Docker Compose}
+    \item Check if Docker service is running. If not start it with the command
+    \begin{lstlisting}[language=bash]
+    sudo systemctl start docker
+    \end{lstlisting}
+    \item  Open build.sh and change the JWT\_SECRET\_KEY string to another value. When running the application in a production environment keep this value secret.
+    \item Run the script with 
+    \begin{lstlisting}[language=bash]
     ./build.sh
-\end{lstlisting}
-which builds the containers and calls
-\begin{lstlisting}[language=bash]
-    docker-compose up
-\end{lstlisting}
+    \end{lstlisting}
+    this script will create the containers invoking docker-compose. If you didn't add your user in the docker group 
+    you have to run the script with sudo
+    \item You can do requests the address localhost:8000 
+\end{enumerate}
+
+\subsubsection{Running tests}
+For running pytest a startup script that doesn't containerize the application is available.
+\textbf{Installation steps}
+\begin{enumerate}
+    \item Install \href{https://docs.docker.com/get-docker/}{Docker}
+    \item Install \href{https://docs.docker.com/compose/install/}{Docker Compose}
+    \item Check if Docker service is running. If not start it with the command
+    \begin{lstlisting}[language=bash]
+    sudo systemctl start docker
+    \end{lstlisting}
+    \item Install \href{https://python-poetry.org/}{Poetry}
+    \item Open a linux shell and go in CLupServer/clup-server 
+    \item Run the command 
+    \begin{lstlisting}[language=bash]
+    poetry install
+    \end{lstlisting}
+    \item Run the test script with 
+    \begin{lstlisting}[language=bash]
+    ./test.sh
+    \end{lstlisting}
+    The script sets up all the containers and the flask application in testing mode and the it runs the Pytest.
+    If you didn't add your user in the docker group 
+    you have to run the script with sudo
+    \item (Optional) If you want to start the application out of the container run the command
+    \begin{lstlisting}[language=bash]
+    poetry run python CLup.py
+    \end{lstlisting}
+\end{enumerate}
 
 \subsection{Frontend}
 
 \subsubsection{Flutter Mobile Application}
 The application has been developed and tested only on Android, due to limitation in the available hardware.
 
-To install the application we provide two .apk packages:
+To install the application we provide two~.apk packages:
 \begin{itemize}
-    \item RELEASE Version: A smaller package containing the prototype as it would be released in a production enviroenment, downloadable here
+    \item RELEASE Version: A smaller package containing the prototype as it would be released in a production environment, downloadable here
     \item DEBUG Version: A bigger package containing the debug version of the prototype, which is useful for checking potential error messages, full content of API calls, etc. Downloadable here
 \end{itemize}
 
@@ -28,7 +69,7 @@ A release version of the web application has been deployed using Github Pages, a
 
 We also provide a package containing all files to deploy the web application, downloadable here
 
-To test locally the web application it is possible to setup a simple webserver, for example by using python:
+To test locally the web application it is possible to setup a simple web server, for example by using python:
 \begin{lstlisting}[language=bash]
     python3 -m http.server
 \end{lstlisting}
