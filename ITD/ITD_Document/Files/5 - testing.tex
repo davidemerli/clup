@@ -46,3 +46,36 @@ The statement coverage is calculated using pytest-cov, a plugin for pytest. The 
     \includegraphics[width=\textwidth]{Images/coverage.jpeg}
     \caption{\label{fig:General Component}Statement Coverage}
 \end{figure}
+
+\subsection{Frontend}
+
+The flutter application is tested manually, integrating the app with the rest of the system. Automated unit tests were not performed due to the difficulty of testing an application with a Graphical User Interface with respected to the advantages given from doing those tests.
+
+\subsection{Sample Data used for testing}
+The database is populated with some testing Data. Here are provided all the account credentials to allow the tester to use all the features of the application.
+
+\textbf{Customer Accounts}
+\begin{itemize}
+    \item e-mail: customer<N>@CLup.com
+    \item password: customer<N>@CLup.com
+\end{itemize}
+
+N is a number from 1 to 100
+(example: customer1@CLup.com)
+
+It is always possible to create a new customer account using the Sign Up functions in the application.
+
+\bigskip
+
+\textbf{Operator Accounts}
+
+Each store has one store operator account linked to that store with this credentials.
+
+\begin{itemize}
+    \item e-mail: operator<ID>@CLup.com
+    \item password: operator<ID>@CLup.com
+\end{itemize}
+
+To find the store ID assigned to each store use the stores.txt file available in the ITD folder.
+
+For example to access to the operator account for the store located in Carnischio use the email operator1@CLup.com. For the store located in Ivrea use the email operator2@CLup.com\ldots
