@@ -9,26 +9,33 @@ class StoreViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
+      // Custom Pop Scope is needed to fix an unwanted behaviour in the rendering of the web application
+      // Sometimes the map was still getting gesture updates even with another screen in front, which also
+      // showed up with half opacity
       body: WillPopScope(
         onWillPop: () async {
           Navigator.popAndPushNamed(context, '/map');
           return true;
         },
         child: FutureBuilder(
-            future: getSelectedStore(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return Center(child: CircularProgressIndicator());
-              }
+          future: getSelectedStore(),
 
-              Map store = snapshot.data;
+          /// Await for store information, may be replaced with a Bloc pattern
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(child: CircularProgressIndicator());
+            }
 
-              return LayoutBuilder(builder: (context, constraints) {
+            Map store = snapshot.data;
+
+            return LayoutBuilder(
+              builder: (context, constraints) {
                 return Align(
                   alignment: Alignment.center,
                   child: Container(
                     padding: EdgeInsets.all(10),
-                    width: constraints.constrainWidth(600),
+                    width: constraints.constrainWidth(
+                        600), // Mantains correct dimensions on wide aspect ratio
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,12 +49,15 @@ class StoreViewPage extends StatelessWidget {
                     ),
                   ),
                 );
-              });
-            }),
+              },
+            );
+          },
+        ),
       ),
     );
   }
 
+  /// Creates the appbar for the Store View
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       title: Text('Store View'),
@@ -67,6 +77,7 @@ class StoreViewPage extends StatelessWidget {
     );
   }
 
+  /// Creates the Join Queue button
   Widget _buildQueueButton(BuildContext context) {
     return FlatButton(
       height: 100,
@@ -103,6 +114,7 @@ class StoreViewPage extends StatelessWidget {
     );
   }
 
+  /// Creates the Coming Soon widget
   Widget _buildComingSoon(context) {
     return Expanded(
       child: Opacity(
@@ -124,6 +136,7 @@ class StoreViewPage extends StatelessWidget {
     );
   }
 
+  /// Creates the Store Information at the top
   Widget _buildDescription(BuildContext context, Map store) {
     return RichText(
       text: TextSpan(
@@ -151,6 +164,8 @@ class StoreViewPage extends StatelessWidget {
   }
 }
 
+/// Custom alert before joining the queue, needs to be extended with the live
+/// status of the queue, to ask the user if he wants to join given the queue information
 class VirtualQueueAlert extends StatelessWidget {
   const VirtualQueueAlert({
     Key key,
@@ -160,36 +175,6 @@ class VirtualQueueAlert extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text("Do you want to join the Virtual Queue?"),
-      // content: SingleChildScrollView(
-      //   child: RichText(
-      //     text: TextSpan(
-      //       text: 'People in queue:\n',
-      //       style: Theme.of(context).textTheme.button,
-      //       children: [
-      //         TextSpan(
-      //           text: '23\n',
-      //           style: Theme.of(context)
-      //               .textTheme
-      //               .bodyText1
-      //               .copyWith(fontWeight: FontWeight.bold, color: Colors.blue),
-      //         ),
-      //         TextSpan(
-      //           text: 'Estimated waiting time:\n',
-      //         ),
-      //         TextSpan(
-      //           text: '35 minutes\n',
-      //           style: Theme.of(context)
-      //               .textTheme
-      //               .bodyText1
-      //               .copyWith(fontWeight: FontWeight.bold, color: Colors.red),
-      //         ),
-      //         TextSpan(
-      //           text: 'Do you want to join the virtual queue?',
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
       actions: [
         FlatButton(
           child: Text("CANCEL"),

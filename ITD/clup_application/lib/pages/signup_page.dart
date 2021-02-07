@@ -1,7 +1,8 @@
+import 'package:clup_application/main.dart';
 import 'package:flutter/material.dart';
 import '../configs.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   static const TextStyle textBoxTheme = TextStyle(
     fontFamily: 'Nunito',
     fontWeight: FontWeight.w500,
@@ -17,12 +18,49 @@ class SignupPage extends StatelessWidget {
   );
 
   @override
+  _SignupPageState createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _surnameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(10),
-        child: _customButton(context, 'Register', clupRed, onPressed: () {
+        child: _customButton(context, 'Register', clupRed, onPressed: () async {
+          if (_passwordController.text != _confirmPasswordController.text) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text('Passwords do not match'),
+                actions: [
+                  FlatButton(
+                    child: Text('OK'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+            );
+
+            return;
+          }
+
+          await write(key: 'register_email', value: _emailController.text);
+          await write(key: 'register_pwd', value: _passwordController.text);
+          await write(
+            key: 'register_fullname',
+            value: '${_nameController.text} ${_surnameController.text}',
+          );
+
           Navigator.pushNamed(context, '/signup/confirm');
         }),
       ),
@@ -32,8 +70,9 @@ class SignupPage extends StatelessWidget {
           slivers: [
             _buildAppbar(context),
             SliverList(
+              // Setup sliver list for correct scrolling
               delegate: SliverChildListDelegate(
-                [buildContent(context)],
+                [_buildContent(context)],
               ),
             )
           ],
@@ -42,7 +81,8 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  Widget buildContent(BuildContext context) {
+  /// Creates all the component of the inside of the page
+  Widget _buildContent(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -50,11 +90,14 @@ class SignupPage extends StatelessWidget {
           children: [
             Column(
               children: [
-                _customTextField('Email'),
+                _customTextField('Email', _emailController,
+                    autofillHints: AutofillHints.email),
                 SizedBox(height: 2),
-                _customTextField('Password'),
+                _customTextField('Password', _passwordController,
+                    autofillHints: AutofillHints.newPassword, isPassword: true),
                 SizedBox(height: 2),
-                _customTextField('Confirm Password'),
+                _customTextField('Confirm Password', _confirmPasswordController,
+                    autofillHints: AutofillHints.newPassword, isPassword: true),
               ],
             ),
           ],
@@ -62,9 +105,11 @@ class SignupPage extends StatelessWidget {
         SizedBox(height: 40),
         Column(
           children: [
-            _customTextField('Name', autofillHints: AutofillHints.name),
+            _customTextField('Name', _nameController,
+                autofillHints: AutofillHints.namePrefix),
             SizedBox(height: 2),
-            _customTextField('Surname', autofillHints: AutofillHints.birthday),
+            _customTextField('Surname', _surnameController,
+                autofillHints: AutofillHints.nameSuffix),
             SizedBox(height: 2),
           ],
         ),
@@ -72,6 +117,7 @@ class SignupPage extends StatelessWidget {
     );
   }
 
+  /// Creates the app bar
   SliverAppBar _buildAppbar(BuildContext context) {
     var theme =
         Theme.of(context).textTheme.headline4.copyWith(color: Colors.black);
@@ -87,7 +133,8 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  _customTextField(text, {isPassword = false, autofillHints}) {
+  Widget _customTextField(text, controller,
+      {isPassword = false, autofillHints}) {
     var border = UnderlineInputBorder(
       borderSide: BorderSide(color: clupBlue2, width: 0.5),
     );
@@ -95,24 +142,25 @@ class SignupPage extends StatelessWidget {
     return Material(
       child: AutofillGroup(
         child: TextField(
+          controller: controller,
           autofocus: false,
           obscureText: isPassword,
           autofillHints: [autofillHints],
-          style: textBoxTheme,
+          style: SignupPage.textBoxTheme,
           cursorColor: clupBlue1,
           decoration: InputDecoration(
             focusedBorder: border,
             enabledBorder: border,
-            labelStyle: labelTheme,
+            labelStyle: SignupPage.labelTheme,
             labelText: text,
-            //   focusColor: Colors.green,
           ),
         ),
       ),
     );
   }
 
-  _customButton(context, text, color, {onPressed, icon}) {
+  /// Creates a custom button widget
+  Widget _customButton(context, text, color, {onPressed, icon}) {
     var theme = Theme.of(context).textTheme.headline6.copyWith(
           fontSize: 20,
           color: Colors.white,

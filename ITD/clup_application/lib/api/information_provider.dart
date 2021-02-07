@@ -3,7 +3,7 @@ import 'dart:convert';
 import '../main.dart';
 
 loadNearbyStores(latitude, longitude) async {
-  var body = {'latitude': latitude, 'longitude': longitude, 'radius_km': 100};
+  var body = {'latitude': latitude, 'longitude': longitude, 'radius_km': 150};
 
   try {
     var response = await connectToClup(route: "/nearby_stores", data: body);

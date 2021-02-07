@@ -54,7 +54,7 @@ Future<void> logout() async {
 }
 
 Future<List> registerAccount(name, email, password) async {
-  var body = {'email': email, 'password': password};
+  var body = {'name': name, 'email': email, 'password': password};
 
   try {
     var response = await dio.post(CLUP_URL + "/register", data: body);
@@ -85,6 +85,8 @@ Future<List> refreshAuth() async {
   try {
     dio.options.headers['content-type'] = 'application/json';
     dio.options.headers['Authorization'] = "Bearer ${await getRefreshToken()}";
+
+    if (kDebugMode) print('API REQUEST - route:/refresh, data:{}');
 
     var response = await dio.post(CLUP_URL + "/refresh", data: {});
 

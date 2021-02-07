@@ -64,6 +64,7 @@ class MapSampleState extends State<MapSample> {
     );
   }
 
+  /// Generates the Map Widget
   Widget _buildMap(CameraPosition cameraPosition, lat, lng) {
     return GoogleMap(
       mapType: MapType.normal,
@@ -73,6 +74,7 @@ class MapSampleState extends State<MapSample> {
       myLocationButtonEnabled: true,
       myLocationEnabled: true,
       onTap: (pos) => setState(() => _currentStore = null),
+      // if a marker is selected, google maps buttons are moved upwards
       padding: _currentStore != null
           ? const EdgeInsets.only(bottom: 200)
           : const EdgeInsets.all(0),
@@ -86,6 +88,7 @@ class MapSampleState extends State<MapSample> {
 
         List stores = await loadNearbyStores(latitude, longitude);
 
+        // Get a list of markers from the list of stores
         Set<Marker> markers = {
           for (var s in stores)
             Marker(
@@ -100,6 +103,7 @@ class MapSampleState extends State<MapSample> {
         };
 
         try {
+          // Update markers
           setState(() => _markers = markers);
         } catch (e) {}
       },
@@ -107,6 +111,8 @@ class MapSampleState extends State<MapSample> {
   }
 }
 
+/// Generates a drawer with the logout button.
+/// Should be further extended in production
 class CLupDrawer extends StatelessWidget {
   const CLupDrawer({
     Key key,
@@ -136,6 +142,7 @@ class CLupDrawer extends StatelessWidget {
   }
 }
 
+/// Generates a popup with the selected store information
 class StorePopup extends StatelessWidget {
   const StorePopup({
     Key key,
