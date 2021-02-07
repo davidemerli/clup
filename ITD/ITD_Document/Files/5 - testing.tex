@@ -34,13 +34,13 @@ As shown a fixture could depend from other fixture. For example in the CLup prot
 Flask is really easy to test. A flask application in development mode offers a test client that could simulate the request sending to the client. In this prototype this client is used as fixture to test all the different API endpoints.
 
 \subsubsection{Unit tests}
-Unit tests aren't really useful for a simple application like this. Writing a unit test required to write a stub for the database component that is already tested by the postgreSQL team! This requires too much effort compared to the benefits, so it turned to be not so useful. Instead integration tests with the CLup Server component and the CLup database are performed for this implementation.
+Unit tests aren't really useful for a simple application like this. Writing a unit test requires to make a stub for the database component that is already tested by the postgreSQL team. This requires too much effort compared to the benefits, so it turned out not to be so useful. Instead, this implementation performs integration tests with the CLup Server component and the CLup database.
 
 \subsubsection{Integration Tests}
-The integration test is performed using the test client provided by flask and aims to test the integration between the CLup Server and the database. There are different small tests for the edge cases  for most of the APIs and a bigger test that simulated the complex evolution of the queue in a supermarket, performing all the possible operations in the queue. The test were performed in local on a test database different from the production database using test data stored in `data.json'.
+The integration test is performed using the test client provided by flask and aims to test the integration between the CLup Server and the database. There are different small tests for the edge cases  for most of the APIs and a bigger test that simulates the complex evolution of the queue in a supermarket, performing all the possible operations in the queue. The tests were performed locally on a test database different from the production database using test data stored in `data.json'.
 
 \subsubsection{Statement Coverage}
-The statement coverage is calculated using pytest-cov, a plugin for pytest. The coverage of the statement is about 85\%, that is an acceptable value considering that there are a some statements that are not accessible because they are executed only during the first setup of the system.
+The statement coverage is calculated using pytest-cov, a plugin for pytest. The coverage of the statements is about 85\%, which is an acceptable value considering that there are a some statements that are not accessible because they are executed only during the first setup of the system.
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=\textwidth]{Images/coverage.jpeg}
@@ -49,7 +49,8 @@ The statement coverage is calculated using pytest-cov, a plugin for pytest. The 
 
 \subsection{Frontend}
 
-The flutter application is tested manually, integrating the app with the rest of the system. Automated unit tests were not performed due to the difficulty of testing an application with a Graphical User Interface with respected to the advantages given from doing those tests.
+The flutter application was tested manually, integrating the app with the rest of the system. Automated unit tests were not performed due to the difficulty of testing an application with a Graphical User Interface, that in a prototype varies a lot during the course of the developement.
+Moreover, Flutter provides a lot of pre-tested small components as Widgets, and the application is built on top of those.
 
 \subsection{Sample Data used for testing}
 The database is populated with some testing Data. Here are provided all the account credentials to allow the tester to use all the features of the application.
@@ -61,9 +62,10 @@ The database is populated with some testing Data. Here are provided all the acco
 \end{itemize}
 
 N is a number from 1 to 100
-(example: customer1@CLup.com)
+(example: customer1@CLup.com, for both email and password)
 
 It is always possible to create a new customer account using the Sign Up functions in the application.
+
 
 \bigskip
 

@@ -14,7 +14,7 @@ class OperatorPage extends StatefulWidget {
 }
 
 class _OperatorPageState extends State<OperatorPage> {
-  Timer timer;
+  Timer _timer;
   Map _queueStatus;
   String _error;
 
@@ -23,7 +23,7 @@ class _OperatorPageState extends State<OperatorPage> {
     super.initState();
 
     _updateQueue();
-    timer = Timer.periodic(Duration(seconds: 10), (Timer t) => _updateQueue());
+    _timer = Timer.periodic(Duration(seconds: 10), (Timer t) => _updateQueue());
   }
 
   void _updateQueue() async {
@@ -43,7 +43,7 @@ class _OperatorPageState extends State<OperatorPage> {
 
   @override
   void dispose() {
-    timer?.cancel();
+    _timer?.cancel();
     super.dispose();
   }
 

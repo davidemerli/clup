@@ -15,10 +15,8 @@ class _LoginPageState extends State<LoginPage> {
   bool _loginFailed = false;
   String _errorMessage;
 
-  TextEditingController emailController =
-      TextEditingController(text: 'customer1@CLup.com');
-  TextEditingController passwordController =
-      TextEditingController(text: 'customer1@CLup.com');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +58,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  /// Creates the logo on the page
   Widget _buildLogo() {
     double logoWidth = MediaQuery.of(context).size.width * 0.5;
 
@@ -73,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  /// Creats the header Sign In text
   Widget _buildHeaderText() {
     return SizedBox(
       width: double.infinity,
@@ -92,6 +92,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  /// Creates the forgot password button (currently disabled)
   Widget _buildForgotPwdButton() {
     return Align(
       alignment: Alignment.centerLeft,
@@ -101,11 +102,12 @@ class _LoginPageState extends State<LoginPage> {
           style: TextStyle(fontSize: 14),
           textAlign: TextAlign.left,
         ),
-        onPressed: () {},
+        onPressed: null,
       ),
     );
   }
 
+  /// Creates login button
   Widget _buildLoginButton() {
     return SizedBox(
       width: double.infinity,
@@ -119,6 +121,8 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  /// Tries to login and changes the state of the page accordingly
+  /// TODO: write better error messages
   _tryLoggingIn() async {
     setState(() => _isLoading = true);
 
@@ -153,6 +157,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  /// Creates Email/Password textfields
   Widget _buildTextFields() {
     TextStyle labelTheme = TextStyle(
       fontFamily: 'Nunito',
@@ -212,7 +217,8 @@ class _LoginPageState extends State<LoginPage> {
     ]);
   }
 
-  Padding _buildBottombar() {
+  /// Creates the bottom bar with the sign in button
+  Widget _buildBottombar() {
     return Padding(
       padding: const EdgeInsets.all(2),
       child: FlatButton(
@@ -236,7 +242,8 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _button(context, text, color, {icon, size = 20.0, onPressed}) {
+  /// Creates a custom button
+  Widget _button(context, text, color, {icon, size = 20.0, onPressed}) {
     var border = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15),
     );
@@ -249,38 +256,45 @@ class _LoginPageState extends State<LoginPage> {
 
     if (icon != null) {
       return FlatButton.icon(
+        disabledColor: color.withAlpha(100),
         icon: icon,
         height: 40,
         label: Text(text, style: theme),
-        onPressed: onPressed ?? () {},
+        onPressed: onPressed,
         color: color,
         shape: border,
       );
     } else {
       return FlatButton(
         height: 40,
+        disabledColor: color.withAlpha(100),
         child: Text(text, style: theme),
-        onPressed: onPressed ?? () {},
+        onPressed: onPressed,
         color: color,
         shape: border,
       );
     }
   }
 
-  _buildAlternativeLogin() {
-    final twitterButton = _button(context, 'Twitter', twitterColor,
-        icon: const FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
-        size: 16.0);
+  /// Creates alternative login buttons, currently disabled
+  Widget _buildAlternativeLogin() {
+    final twitterButton = _button(
+      context,
+      'Twitter',
+      twitterColor,
+      icon: const FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
+      size: 16.0,
+    );
 
     final facebookButton = _button(context, 'Facebook', facebookColor,
         icon: const FaIcon(FontAwesomeIcons.facebook, color: Colors.white),
         size: 16.0,
-        onPressed: () => Navigator.pushNamed(context, '/store/ticket'));
+        onPressed: null);
 
     final googleButton = _button(context, 'Google', googleColor,
         icon: const FaIcon(FontAwesomeIcons.google, color: Colors.white),
         size: 16.0,
-        onPressed: () {});
+        onPressed: null);
 
     return Column(
       children: [

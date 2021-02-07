@@ -3,27 +3,31 @@ All the backend code is stored in the ITD/CLupServer folder.
 \begin{lstlisting}
     CLupServer\
 
+    |-- clup-server\
+    |-- data\
+    |-- db_config\
     |-- docker-compose.yml
     |-- docker-compose-testing.yml
     |-- build.sh
     |-- test.sh
-    |-- clup-server\
-    |-- data\
-    |-- db_config\
 \end{lstlisting}
 
 \begin{itemize}
+    \item \textbf{data}: Contains nginx configuration files.
+    \item \textbf{db-config} Contains a SQL script that runs when the PostgreSQL is created. This script creates the databases (clup, clup-testing)
     \item \textbf{docker-compose.yml}: docker-compose configuration file for setting up the production server. Docker-compose will read this file and build/set-up the containers accordingly.
     \item \textbf{docker-compose-testing.yml}: docker-compose configuration file for running the tests. Docker-compose will read this file and build/set-up the containers accordingly, containerizing all components but not the flask server.
     \item \textbf{build.sh}: A shell script that builds (if not already done) and starts the docker containers of the production server.
     \item \textbf{test.sh}: A shell script that starts the docker containers and runs pytest.
-    \item \textbf{data}: Contains nginx configuration files.
-    \item \textbf{db-config} Contains a SQL script that runs when the PostgreSQL is created. This script creates the databases (clup, clup-testing)
 \end{itemize}
+
+\clearpage
 
 \begin{lstlisting}
     CLupServer\clup-server\
 
+    |-- clup_server\
+    |-- tests\
     |-- CLup.py
     |-- wsgi.py
     |-- config.py
@@ -34,13 +38,13 @@ All the backend code is stored in the ITD/CLupServer folder.
     |-- pyproject.toml
     |-- README.rst
     |-- requirements.txt
-    |-- clup_server\
-    |-- tests\
 
 
 \end{lstlisting}
 
 \begin{itemize}
+    \item \textbf{clup-server/}: Contains the application python package
+    \item \textbf{tests/}: Contains the integration tests
     \item \textbf{CLup.py}: The startup script for the flask application. This script is used to run the project when flask is not containerized. Some optional flag could be passed to this script (preceded by two dashes):
           \begin{itemize}
               \item dev:  For setting up Flask in development mode
@@ -54,8 +58,6 @@ All the backend code is stored in the ITD/CLupServer folder.
     \item \textbf{Dockerfile}: Contains the instructions to allow Docker to build the application container.
     \item \textbf{pyproject.toml}: Configuration file for poetry. Contains the list of all the library dependencies needed to run the project.
     \item \textbf{requirements.txt}: Configuration file for pip. Used from the application container to retrieve all the project dependencies.
-    \item \textbf{clup-server}: Contains the application python package
-    \item \textbf{tests}: Contains the integration tests
 \end{itemize}
 
 \begin{lstlisting}
@@ -83,6 +85,7 @@ All the backend code is stored in the ITD/CLupServer folder.
     \item \textbf{ticket-manager.py} contains the APIs to create, view and cancel tickets.
 \end{itemize}
 
+\clearpage
 
 \subsection{Frontend Source Structure}
 
@@ -119,8 +122,6 @@ All the frontend code is stored in the ITD/clup\_application folder.
     \item \textbf{pubspec.yaml}: main configuration file for the dependencies of the Flutter project.
     \item \textbf{README.md}: text to be displayed in the git repo to provide info about the folder.
 \end{itemize}
-
-
 
 \begin{lstlisting}
     lib\

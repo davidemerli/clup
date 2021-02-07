@@ -13,15 +13,17 @@ class TicketPage extends StatefulWidget {
 }
 
 class _TicketPageState extends State<TicketPage> {
-  Timer timer;
   Map _ticket, store;
-
   String _error;
+  Timer timer;
 
   @override
   void initState() {
     super.initState();
 
+    // Instantiates a timer that calls every 10 seconds the updateTicketInfo function
+    // In case of an update, it displays an alert widget to notify the user
+    // Can be reimplemented with a Bloc Pattern
     timer = Timer.periodic(Duration(seconds: 10), (Timer t) async {
       var result = await updateTicketInfo();
 
@@ -85,6 +87,7 @@ class _TicketPageState extends State<TicketPage> {
       body: WillPopScope(
         onWillPop: () => Future.value(false),
         child: FutureBuilder(
+          // Awaits for the ticket information to display the page
           future: Future(() async {
             return [await getSelectedStore(), await getTicket()];
           }),
@@ -109,11 +112,13 @@ class _TicketPageState extends State<TicketPage> {
     );
   }
 
-  ClipShadow _buildTicket(DateTime expireDate) {
+  /// Returns a ticket widget, given the ticket expire date
+  Widget _buildTicket(DateTime expireDate) {
     return ClipShadow(
       boxShadow: _buildTicketShadow(),
       clipper: TicketClipper(),
       child: LayoutBuilder(builder: (context, constraints) {
+        //Used to keep the layout of the ticket and not display weird sizes on different aspect ratio screens
         Size ticketSize = constraints
             .constrainSizeAndAttemptToPreserveAspectRatio(Size(1000, 1600));
         return Container(
@@ -128,7 +133,7 @@ class _TicketPageState extends State<TicketPage> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   _buildTitle(context, store),
-                  _buildValidityDescription(context, store, _ticket),
+                  _buildQueueInformation(context, store, _ticket),
                 ],
               ),
               Positioned(
@@ -193,6 +198,7 @@ class _TicketPageState extends State<TicketPage> {
     );
   }
 
+  /// Creates the backgroud decoration of the ticket
   BoxDecoration _buildTicketDecoration() {
     return BoxDecoration(
       color: Colors.white,
@@ -208,6 +214,7 @@ class _TicketPageState extends State<TicketPage> {
     );
   }
 
+  /// Creates the background ticket shadow
   List<BoxShadow> _buildTicketShadow() {
     return [
       BoxShadow(
@@ -219,7 +226,8 @@ class _TicketPageState extends State<TicketPage> {
     ];
   }
 
-  Widget _buildValidityDescription(context, store, ticket) {
+  /// Shows information about the queue status and call number
+  Widget _buildQueueInformation(context, store, ticket) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
       child: Row(
@@ -252,6 +260,7 @@ class _TicketPageState extends State<TicketPage> {
     );
   }
 
+  /// Creates the title of the ticket, with the blue background
   Widget _buildTitle(context, store) {
     return Container(
       width: double.infinity,
@@ -303,11 +312,13 @@ class _TicketPageState extends State<TicketPage> {
     );
   }
 
+  /// Builds the ticket 'cut' decoration in the middle
   Widget _buildMiddleDecoration(context, width) {
     return Center(child: DotWidget(totalWidth: width));
   }
 }
 
+/// QR Code Widget
 class CustomQRViewer extends StatefulWidget {
   const CustomQRViewer({
     Key key,
@@ -320,6 +331,7 @@ class CustomQRViewer extends StatefulWidget {
   _CustomQRViewerState createState() => _CustomQRViewerState();
 }
 
+/// State with the information about the QR code dimension with respect to the button press
 class _CustomQRViewerState extends State<CustomQRViewer> {
   bool open = false;
 
@@ -367,6 +379,7 @@ class _CustomQRViewerState extends State<CustomQRViewer> {
   }
 }
 
+/// Custom clipper to achieve the ticket shape
 class TicketClipper extends CustomClipper<Path> {
   final cutPerc = 0.45;
 
@@ -408,6 +421,7 @@ class DashedLinePainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
+/// Widget for the middle decoration
 class DotWidget extends StatelessWidget {
   final double totalWidth, dashWidth, emptyWidth, dashHeight;
 
@@ -439,6 +453,7 @@ class DotWidget extends StatelessWidget {
   }
 }
 
+/// Widget to display the timer under the QR Code
 class TimerWidget extends StatefulWidget {
   final DateTime date;
 
@@ -491,6 +506,7 @@ class _TimerWidgetState extends State<TimerWidget> {
   }
 }
 
+/// Custom alert dialog
 class CancelTicketAlert extends StatelessWidget {
   const CancelTicketAlert({
     Key key,

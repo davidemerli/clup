@@ -105,6 +105,8 @@ Future<bool> containsKey({String key}) async {
 /// Connects to api given API route and a Map containing data
 Future connectToClup({String route, Map data}) async {
   try {
+    if (kDebugMode) print('API REQUEST - route:$route, data:$data');
+
     /// All API requests are POST requests
     var response = await dio.post(CLUP_URL + route, data: data ?? {});
 

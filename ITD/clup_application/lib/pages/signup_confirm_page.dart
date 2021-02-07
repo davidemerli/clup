@@ -1,3 +1,5 @@
+import 'package:clup_application/api/authentication.dart';
+import 'package:clup_application/main.dart';
 import 'package:flutter/material.dart';
 import '../configs.dart';
 
@@ -32,8 +34,16 @@ class SignupConfirmPage extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(15),
                     color: Colors.grey[300],
-                    // height: MediaQuery.of(context).size.height - 120,
-                    child: _buildContent(context),
+                    child: FutureBuilder(
+                      future: _buildContent(context),
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return Center(child: CircularProgressIndicator());
+                        }
+
+                        return snapshot.data;
+                      },
+                    ),
                   )
                 ],
               ),
@@ -44,26 +54,53 @@ class SignupConfirmPage extends StatelessWidget {
     );
   }
 
-  _buildBottombar(context) {
+  /// Creates the bottom bar
+  Widget _buildBottombar(context) {
     return Padding(
       padding: EdgeInsets.all(20),
-      child: _customButton(context, 'Confirm', clupRed, onPressed: () {
-        Navigator.pushNamed(context, '/');
+      child: _customButton(context, 'Confirm', clupRed, onPressed: () async {
+        String email = await read(key: 'register_email');
+        String pwd = await read(key: 'register_pwd');
+        String fullName = await read(key: 'register_fullname');
+
+        List result = await registerAccount(fullName, email, pwd);
+
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(result[0] ? 'Registration Successful' : 'Error'),
+            content: result[0] ? null : Text(result[1].toString()),
+            actions: [
+              FlatButton(
+                child: Text('OK'),
+                onPressed: () {
+                  if (result[0]) {
+                    Navigator.popUntil(context, ModalRoute.withName('/login'));
+                    Navigator.pushNamed(context, '/login');
+                  } else {
+                    Navigator.pop(context);
+                  }
+                },
+              ),
+            ],
+          ),
+        );
       }),
     );
   }
 
-  Column _buildContent(BuildContext context) {
+  // Creates all the fields inside the page
+  Future<Widget> _buildContent(BuildContext context) async {
     return Column(
       children: [
-        _customTextField('Email'),
-        _customTextField('Name'),
-        _customTextField('Surname'),
+        _customTextField('Email', await read(key: 'register_email')),
+        _customTextField('Full Name', await read(key: 'register_fullname')),
       ],
     );
   }
 
-  _customTextField(text, [isPassword = false]) {
+  /// Creates a custom textfield widget
+  Widget _customTextField(label, text, [isPassword = false]) {
     return TextFormField(
       initialValue: text,
       enabled: false,
@@ -77,12 +114,13 @@ class SignupConfirmPage extends StatelessWidget {
         errorBorder: InputBorder.none,
         disabledBorder: InputBorder.none,
         labelStyle: labelTheme,
-        labelText: text,
+        labelText: label,
       ),
     );
   }
 
-  _customButton(context, text, color, {onPressed, icon}) {
+  /// Creates a custom button widget
+  Widget _customButton(context, text, color, {onPressed, icon}) {
     var theme = Theme.of(context).textTheme.headline6.copyWith(
           fontSize: 20,
           color: Colors.white,

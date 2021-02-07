@@ -6,23 +6,26 @@ The backend server has been deployed with Docker containers on AWS.
 \subsubsection{Starting the server}
 An instance of the server has already been deployed online using AWS, and the API is available at https://clup.waifocus.com so it's not needed to run it locally.
 If you want it is still possible to run the server locally on Linux or on Windows Subsystem of Linux (WSL)
+
 \textbf{Installation steps}
 \begin{enumerate}
     \item Install \href{https://docs.docker.com/get-docker/}{Docker}
     \item Install \href{https://docs.docker.com/compose/install/}{Docker Compose}
     \item Check if Docker service is running. If not start it with the command
-    \begin{lstlisting}[language=bash]
+          \begin{lstlisting}[language=bash]
     sudo systemctl start docker
     \end{lstlisting}
     \item  Open build.sh and change the JWT\_SECRET\_KEY string to another value. When running the application in a production environment keep this value secret.
-    \item Run the script with 
-    \begin{lstlisting}[language=bash]
+    \item Run the script with
+          \begin{lstlisting}[language=bash]
     ./build.sh
     \end{lstlisting}
-    this script will create the containers invoking docker-compose. If you didn't add your user in the docker group 
-    you have to run the script with sudo
-    \item You can do requests the address localhost:8000 
+          this script will create the containers by invoking docker-compose. If you didn't add your user in the docker group
+          you have to run the script with sudo
+    \item You can do requests the address localhost:8000
 \end{enumerate}
+
+\clearpage
 
 \subsubsection{Running tests}
 For running pytest a startup script that doesn't containerize the application is available.
@@ -31,25 +34,25 @@ For running pytest a startup script that doesn't containerize the application is
     \item Install \href{https://docs.docker.com/get-docker/}{Docker}
     \item Install \href{https://docs.docker.com/compose/install/}{Docker Compose}
     \item Check if Docker service is running. If not start it with the command
-    \begin{lstlisting}[language=bash]
+          \begin{lstlisting}[language=bash]
     sudo systemctl start docker
     \end{lstlisting}
     \item Install \href{https://python-poetry.org/}{Poetry}
-    \item Open a linux shell and go in CLupServer/clup-server 
-    \item Run the command 
-    \begin{lstlisting}[language=bash]
+    \item Open a linux shell and go in CLupServer/clup-server
+    \item Run the command
+          \begin{lstlisting}[language=bash]
     poetry install
     \end{lstlisting}
-    \item Run the test script with 
-    \begin{lstlisting}[language=bash]
+    \item Run the test script with
+          \begin{lstlisting}[language=bash]
     ./test.sh
     \end{lstlisting}
-    The script sets up all the containers and the flask application in testing mode and the it runs the Pytest.
-    If you didn't add your user in the docker group 
-    you have to run the script with sudo
+          The script sets up all the containers and the flask application in testing mode and the it runs the Pytest.
+          If you didn't add your user in the docker group
+          you have to run the script with sudo
     \item (Optional) If you want to start the application out of the container run the command
-    \begin{lstlisting}[language=bash]
-    poetry run python CLup.py
+          \begin{lstlisting}[language=bash]
+    poetry run python3 CLup.py
     \end{lstlisting}
 \end{enumerate}
 
