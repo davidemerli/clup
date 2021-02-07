@@ -4,7 +4,7 @@ The backend server has been deployed with Docker containers on AWS.
 
 
 \subsubsection{Starting the server}
-An instance of the server has already been deployed online using AWS, and the API is available at https://clup.waifocus.com so it's not needed to run it locally.
+An instance of the server has already been deployed online using AWS, and the API is available at \href{https://clup.waifocus.com}{https://clup.waifocus.com} so it's not needed to run it locally.
 If you want it is still possible to run the server locally on Linux or on Windows Subsystem of Linux (WSL)
 
 \textbf{Installation steps}
@@ -22,7 +22,7 @@ If you want it is still possible to run the server locally on Linux or on Window
     \end{lstlisting}
           this script will create the containers by invoking docker-compose. If you didn't add your user in the docker group
           you have to run the script with sudo
-    \item You can do requests the address localhost:8000
+    \item You can do requests the address \href{http://localhost:8000}{http://localhost:8000}
 \end{enumerate}
 
 \clearpage
@@ -56,6 +56,8 @@ For running pytest a startup script that doesn't containerize the application is
     \end{lstlisting}
 \end{enumerate}
 
+\clearpage
+
 \subsection{Frontend}
 
 \subsubsection{Flutter Mobile Application}
@@ -63,9 +65,11 @@ The application has been developed and tested only on Android, due to limitation
 
 To install the application we provide two~.apk packages:
 \begin{itemize}
-    \item RELEASE Version: A smaller package containing the prototype as it would be released in a production environment, downloadable here
-    \item DEBUG Version: A bigger package containing the debug version of the prototype, which is useful for checking potential error messages, full content of API calls, etc. Downloadable here
+    \item RELEASE Version: A smaller package containing the prototype as it would be released in a production environment, downloadable \href{https://github.com/davidemerli/MerliPassarello/blob/master/DeliveryFolder/ITD/app-debug.apk?raw=true}{here}
+    \item DEBUG Version: A bigger package containing the debug version of the prototype, which is useful for checking potential error messages, full content of API calls, etc. Downloadable \href{https://github.com/davidemerli/MerliPassarello/blob/master/DeliveryFolder/ITD/app-release.apk?raw=true}{here}
 \end{itemize}
+
+To install the apk on an Android Phone there is the need to \href{https://developer.android.com/distribute/marketing-tools/alternative-distribution#unknown-sources}{accept installation from unknown sources}
 
 \subsubsection{Flutter Web Application}
 A release version of the web application has been deployed using Github Pages, and it is available at https://clup-mp.github.io, without the need to install anything.
@@ -76,5 +80,5 @@ To test locally the web application it is possible to setup a simple web server,
 \begin{lstlisting}[language=bash]
     python3 -m http.server
 \end{lstlisting}
-Then opening a browser on http://localhost:8000
+Then opening a browser on \href{http://localhost:8000}{http://localhost:8000}
 

@@ -22,7 +22,7 @@ services:
     depends_on: 
       - postgres
     ports:
-      - "80:80"
+      - "8001:80"
     environment: 
       - PGADMIN_DEFAULT_EMAIL=admin@clup.com
       - PGADMIN_DEFAULT_PASSWORD=admin
