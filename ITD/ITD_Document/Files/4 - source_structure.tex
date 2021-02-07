@@ -42,17 +42,17 @@ All the backend code is stored in the ITD/CLupServer folder.
 
 \begin{itemize}
     \item \textbf{CLup.py}: The startup script for the flask application. This script is used to run the project when flask is not containerized. Some optional flag could be passed to this script (preceded by two dashes):
-    \begin{itemize}
-        \item dev:  For setting up Flask in developement mode 
-        \item drop: For dropping the database content on startup
-        \item populate: For populating the CLupUser and Store tables from the sample data stored in data.json
-    \end{itemize}
+          \begin{itemize}
+              \item dev:  For setting up Flask in developement mode
+              \item drop: For dropping the database content on startup
+              \item populate: For populating the CLupUser and Store tables from the sample data stored in data.json
+          \end{itemize}
     \item \textbf{wsgi.py}: The startup script for the application when it is run from a production WSGI server (i.e. Gunicorn). This is startup script is used when the app is containerized.
     \item \textbf{config.py}: Stores the configuration variables for flask for Development mode and for Production mode. The JWT secret key for the Production server is taken from the environment variables to avoid publishing the secret in the repository. The secret should be set to a random string (using export) before starting the server (This is automatically done from the build.sh script).
-    \item \textbf{data.json}: Contains fake Store and User data to populate the database.
+    \item \textbf{data.json}: Contains fake Stores and Users data to populate the database.
     \item \textbf{docker-entrypoint.sh}: A shellscript executed from Docker when it starts the application container. This script starts gunicorn.
-    \item \textbf{Dockerfile}: Contains the instructions for allowing Docker to build the application container.
-    \item \textbf{pyproject.toml}: Configuration file for poetry. Contains the list of all the library dependencies to correctly run the project.
+    \item \textbf{Dockerfile}: Contains the instructions to allow Docker to build the application container.
+    \item \textbf{pyproject.toml}: Configuration file for poetry. Contains the list of all the library dependencies needed to run the project.
     \item \textbf{requirements.txt}: Configuration file for pip. Used from the application container to retrieve all the project dependencies.
     \item \textbf{clup-server}: Contains the application python package
     \item \textbf{tests}: Contains the integration tests
@@ -74,11 +74,11 @@ All the backend code is stored in the ITD/CLupServer folder.
 \end{lstlisting}
 
 \begin{itemize}
-    \item \textbf{init.py}: The package initialization file. Python runs code from this file when the clup-server package is imported from another file. In this file is implemented the application factory method createApp(). This method allows multiple instance with different configuration to be created. The createApp methods will import all the other modules in the package and then does some steps to inizialize all the resources needed. For example it will start the database connection, configures the API routes\ldots
-    \item \textbf{models.py} Contains all the models class declarations. Each model class is mapped to a database table, SQLAlchemy provides to translate to a SQL statement each operation made on a instance of one of the model classes. Each class contains also methods to decouple the data layer management code from the business code executed at each API call 
-    \item \textbf{routes.py} registers on start up all the API routes exposed from the application
-    \item \textbf{auth-manager.py} contains the APIs and the business logic for authenticating customer and operators.
+    \item \textbf{\_\_init\_\_.py} is the package initialization file, executed by Python when the clup-server package is imported from another source file. Here is implemented the application factory method createApp(). This method allows multiple instances with different configurations to be created. The createApp methods will import all the other modules in the package and then starts to inizialize all the needed resources. For example it will start the database connection, configure the API routes\ldots
+    \item \textbf{models.py} contains all the models class declarations. Each model class is mapped to a database table, and SQLAlchemy provides the translation to a SQL statement for every operation made on a instance of one of the model classes. Each class contains also methods to decouple the data layer management code from the business code executed at each API call
+    \item \textbf{routes.py} registers on start up all the API routes exposed to be accessed by the application
+    \item \textbf{auth-manager.py} contains the APIs and the business logic for authenticating customers and operators.
     \item \textbf{information-provider.py} contains the APIs that provide information about the stores.
-    \item \textbf{queue-manager.py} contains the APIs an the business logic used from the store operators to get the status of the queue and managing it 
+    \item \textbf{queue-manager.py} contains the APIs and the business logic used by the store operators(or automated control systems) to get the status of the queue and manage it
     \item \textbf{ticket-manager.py} contains the APIs to create, view and cancel tickets.
 \end{itemize}
