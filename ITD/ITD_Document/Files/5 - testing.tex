@@ -1,6 +1,6 @@
 \subsection{Backend}
 The testing in the backend is performed using pytest.
-Pytest is the official testing framework for python. 
+Pytest is the official testing framework for python.
 The testing metodology adopted for the backend is the AAAC pattern.
 AAAC stands for Arrange Act Assert Cleanup.
 \begin{itemize}
@@ -37,7 +37,7 @@ Flask is really easy to test. A flask application in development mode offers a t
 Unit tests aren't really useful for a simple application like this. Writing a unit test required to write a stub for the database component that is already tested by the postgreSQL team! This requires too much effort compared to the benefits, so it turned to be not so useful. Instead integration tests with the CLup Server component and the CLup database are performed for this implementation.
 
 \subsubsection{Integration Tests}
-The integration test is performed using the test client provided by flask and aims to test the integration between the CLup Server and the database. There are different small tests for the edge cases  for most of the APIs and a bigger test that simulated the complex evolution of the queue in a supermarket, performing all the possible operations in the queue. The test were performed in local on a test database different from the production database using test data stored in `data.json'. 
+The integration test is performed using the test client provided by flask and aims to test the integration between the CLup Server and the database. There are different small tests for the edge cases  for most of the APIs and a bigger test that simulated the complex evolution of the queue in a supermarket, performing all the possible operations in the queue. The test were performed in local on a test database different from the production database using test data stored in `data.json'.
 
 \subsubsection{Statement Coverage}
 The statement coverage is calculated using pytest-cov, a plugin for pytest. The coverage of the statement is about 85\%, that is an acceptable value considering that there are a some statements that are not accessible because they are executed only during the first setup of the system.
