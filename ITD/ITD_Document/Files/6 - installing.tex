@@ -1,0 +1,36 @@
+\subsection{Backend}
+The backend server has been deployed with Docker containers.
+
+An instance of the server has already been deployed online using AWS, and the API is available at https://clup.waifocus.com
+
+It is possible to start the server locally by calling the provided script
+\begin{lstlisting}[language=bash]
+    ./build.sh
+\end{lstlisting}
+which builds the containers and calls
+\begin{lstlisting}[language=bash]
+    docker-compose up
+\end{lstlisting}
+
+\subsection{Frontend}
+
+\subsubsection{Flutter Mobile Application}
+The application has been developed and tested only on Android, due to limitation in the available hardware.
+
+To install the application we provide two .apk packages:
+\begin{itemize}
+    \item RELEASE Version: A smaller package containing the prototype as it would be released in a production enviroenment, downloadable here
+    \item DEBUG Version: A bigger package containing the debug version of the prototype, which is useful for checking potential error messages, full content of API calls, etc. Downloadable here
+\end{itemize}
+
+\subsubsection{Flutter Web Application}
+A release version of the web application has been deployed using Github Pages, and it is available at https://clup-mp.github.io, without the need to install anything.
+
+We also provide a package containing all files to deploy the web application, downloadable here
+
+To test locally the web application it is possible to setup a simple webserver, for example by using python:
+\begin{lstlisting}[language=bash]
+    python3 -m http.server
+\end{lstlisting}
+Then opening a browser on http://localhost:8000
+
