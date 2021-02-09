@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-const CLUP_URL = 'https://clup.waifocus.com';
+var CLUP_URL = 'https://clup.waifocus.com';
 const IP_LOCATION_API_URL =
     'https://api.ipgeolocation.io/ipgeo?apiKey=eba6566c7e2447cdacc45bc9f60e2ee0';
 

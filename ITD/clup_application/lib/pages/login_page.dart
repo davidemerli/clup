@@ -18,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
 
+  TextEditingController ipController = TextEditingController(text: CLUP_URL);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,6 +126,8 @@ class _LoginPageState extends State<LoginPage> {
   /// Tries to login and changes the state of the page accordingly
   /// TODO: write better error messages
   _tryLoggingIn() async {
+    CLUP_URL = ipController.text;
+
     setState(() => _isLoading = true);
 
     List result = await attemptLogin(
@@ -200,9 +204,22 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    var ipField = TextField(
+      style: textBoxTheme,
+      controller: ipController,
+      decoration: InputDecoration(
+        focusedBorder: new UnderlineInputBorder(
+          borderSide: BorderSide(color: clupBlue1, width: 2),
+        ),
+        labelStyle: labelTheme,
+        labelText: "Server IP",
+      ),
+    );
+
     return Column(children: [
       emailField,
       passwordField,
+      ipField,
       if (_loginFailed)
         Padding(
           padding: const EdgeInsets.all(8.0),
