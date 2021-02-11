@@ -1,6 +1,7 @@
 \subsection{Test Batch 1: Registration and Authentication of an account}
-These test check if the various Registration and Authentication features work properly, without having noticeable security flaws.
-This test is repeated with this conditions:
+The following tests check if the various Registration and Authentication features work properly, without having noticeable security flaws.
+
+This test is repeated with these conditions:
 \begin{itemize}
     \item Register and login as a customer in the application
     \item Register and login as a customer in the webapp
@@ -10,21 +11,21 @@ This test is repeated with this conditions:
 \end{itemize}
 \subsubsection{Registration and Authentication}
 \begin{itemize}
-    \item \textbf{Test Goal}: Check if the various registration and authentication works properly
+    \item \textbf{Test Goal}: Check if the registration and authentication processes behave properly even with erroneous input
     \item \textbf{Prerequisites}: None
     \item \textbf{Steps}:
-        \begin{enumerate}
-            \item Open the Application
-            \item Tap `Create New account'
-            \item Tap `Register with Email'
-            \item Click `Signup' without filling the forms
-            \item Add invalid email address/Invalid password
-            \item Add a previously used email address
-            \item Fill the form correctly and click `Signup'
-            \item Logout pressing the icon and confirm
-            \item Log-in with the same e-mail but different password
-            \item Log-in with the same e-mail and password
-        \end{enumerate}
+          \begin{enumerate}
+              \item Open the Application
+              \item Tap `Create New account'
+              \item Tap `Register with Email'
+              \item Click `Signup' without filling the forms
+              \item Add invalid email address/Invalid password
+              \item Add a previously used email address
+              \item Fill the form correctly and click `Signup'
+              \item Logout pressing the icon and confirm
+              \item Log-in with the same e-mail but different password
+              \item Log-in with the same e-mail and password
+          \end{enumerate}
     \item \textbf{Outcome}: In all cases everything works as intended and there are no noticeable problems with the authentication features
 \end{itemize}
 
@@ -32,40 +33,40 @@ This test is repeated with this conditions:
 \subsection{Test Batch 2: Creating a ticket}
 \subsubsection{Customer Creates a Ticket}
 \begin{itemize}
-    \item \textbf{Test Goal}: Check if the creation of the ticket works properly
+    \item \textbf{Test Goal}: Check if the creation of a ticket works properly
     \item \textbf{Prerequisites}:
-        \begin{itemize}
-            \item Customer account
-            \item Store with a free timeslot
-        \end{itemize}
+          \begin{itemize}
+              \item Customer account credentials
+              \item A store with a free timeslot
+          \end{itemize}
     \item \textbf{Steps}:
-        \begin{enumerate}
-            \item Login with a customer account
-            \item Click `Select Store'
-            \item Browse the map
-            \item Select a store from the dropdown menu and confirm
-            \item Click `Line-Up' and confirm
-            \item Click the button to see the QR Code
-            \item Try to book another ticket
-            \item Check if the application notifies when the time to enter the store is near 
-        \end{enumerate}
+          \begin{enumerate}
+              \item Login with the customer account
+              \item Click `Select Store'
+              \item Browse the map
+              \item Select a store from the dropdown menu and confirm
+              \item Click `Line-Up' and confirm
+              \item Click the button to see the QR Code
+              \item Try to book another ticket
+              \item Check if the application notifies when the time to enter the store is approaching
+          \end{enumerate}
     \item \textbf{Outcome}: In all cases everything works as intended
 \end{itemize}
 \subsubsection{Attendant Creates a Ticket}
 \begin{itemize}
-    \item \textbf{Test Goal}: Check if the creation of the ticket works properly
+    \item \textbf{Test Goal}: Check if the creation of a ticket works properly
     \item \textbf{Prerequisites}:
-        \begin{itemize}
-            \item Store Attendant account
-            \item A free timeslot in the store
-        \end{itemize}
+          \begin{itemize}
+              \item Store Attendant account credentials
+              \item A free timeslot in the store he has been assigned to work in
+          \end{itemize}
     \item \textbf{Steps}:
-        \begin{enumerate}
-            \item Login with an attendant account
-            \item Click Generate Ticket
-            \item View The QR in the generated ticket
-            \item Check if the ticket appears in the webapp and in the `Delete Booking' section
-        \end{enumerate}
+          \begin{enumerate}
+              \item Login with the attendant account
+              \item Click Generate Ticket
+              \item View The QR code of the generated ticket
+              \item Check if the ticket appears in the webapp and in the `Delete Booking' section
+          \end{enumerate}
     \item \textbf{Outcome}: In all cases everything works as intended
 \end{itemize}
 
@@ -73,78 +74,79 @@ This test is repeated with this conditions:
 \subsection{Test Batch 3: Deleting a ticket}
 \subsubsection{Customer Deletes a Ticket}
 \begin{itemize}
-\item \textbf{Test Goal}: Check if the cancellation of a ticket works properly
-\item \textbf{Prerequisites}: 
-\begin{itemize}
-    \item Customer account
-    \item Valid Active Ticket
-\end{itemize}
-\item \textbf{Steps}:
-    \begin{enumerate}
-        \item Tap the `Info' icon on the ticket
-        \item Tap `Delete'
-    \end{enumerate}
-\item \textbf{Outcome}: A minor issue was found
-    \begin{itemize}
-        \item \textbf{Issue}: When deleting the ticket in the mobile application it does not disappear from the ticket list. The ticket is correctly voided in the 
-        system but simply it does not disappear from the ticket list viewed from the user. 
-        \item \textbf{Fix}: The user can fix this problem swiping down in order to refresh the application and the ticket will correctly disappear.
-        \item \textbf{Severity}: Very Low. It is a minor UX issue that does not create logical problems. 
-    \end{itemize}
+    \item \textbf{Test Goal}: Check if the cancellation of a ticket works properly
+    \item \textbf{Prerequisites}:
+          \begin{itemize}
+              \item Customer account credentials
+              \item A valid Active Ticket
+          \end{itemize}
+    \item \textbf{Steps}:
+          \begin{enumerate}
+              \item Tap the `Info' icon on the ticket
+              \item Tap `Delete'
+          \end{enumerate}
+    \item \textbf{Outcome}: A minor issue was found
+          \begin{itemize}
+              \item \textbf{Issue}: When deleting the ticket in the mobile application it does not always disappear from the ticket list. The ticket is correctly voided in the
+                    system but simply it does not disappear from the ticket list viewed from the user.
+              \item \textbf{Fix}: The user can fix this problem swiping down in order to refresh the application page and the ticket will correctly disappear.
+              \item \textbf{Severity}: Very Low. It is a minor UX issue that does not create logical problems.
+          \end{itemize}
 \end{itemize}
 \subsubsection{Attendant deletes a Ticket}
 \begin{itemize}
     \item \textbf{Test Goal}: Check if the cancellation of a ticket done by an attendant works properly
     \item \textbf{Prerequisites}:
-        \begin{itemize}
-            \item Customer account
-            \item Valid ticket for entering a store
-            \item Attendant account in the same store
-        \end{itemize} Have a customer account, having a valid ticket active, have an attendant account in the same store
+          \begin{itemize}
+              \item Customer account credentials
+              \item A valid ticket for entering a store
+              \item Attendant account credentials, working in the same store of the valid ticket
+          \end{itemize}
+          % Have a customer account, having a valid ticket active, have an attendant account in the same store
     \item \textbf{Steps}:
-        \begin{enumerate}
-            \item Login as an attendant
-            \item Tap the `Delete Booking' button
-            \item Select the ticket to cancel in the `Info' button and confirm action in the dialog
-            \item See if the ticket properly disappered
-        \end{enumerate}
+          \begin{enumerate}
+              \item Login as the attendant
+              \item Tap the `Delete Booking' button
+              \item Select the ticket to cancel in the `Info' button and confirm action in the dialog
+              \item See if the ticket properly disappered
+          \end{enumerate}
     \item \textbf{Outcome}: In all cases everything works as intended
-    \end{itemize}
+\end{itemize}
 
 
 \subsection{Test Batch 4: Admitting a ticket inside the store}
 \subsubsection{Admitting a valid ticket}
 \begin{itemize}
-    \item \textbf{Test Goal}: Check if a valid ticket is admitted in the store by the system
+    \item \textbf{Test Goal}: Check if a customer with a valid ticket is admitted in the store by the system
     \item \textbf{Prerequisites}:
-    \begin{itemize}
-        \item Customer account
-        \item QR of a ticket for a current timeslot
-        \item Attendant account in the same store of the ticket
-    \end{itemize}
+          \begin{itemize}
+              \item Customer account credentials
+              \item QR code of a ticket for the current timeslot
+              \item Attendant account credentials, working in the same store of the ticket
+          \end{itemize}
     \item \textbf{Steps}:
-        \begin{enumerate}
-            \item Login in the attendant account
-            \item Tap `Scan QR code' button
-            \item Scan the QR Code
-        \end{enumerate}
+          \begin{enumerate}
+              \item Login with the attendant account
+              \item Tap `Scan QR code' button
+              \item Scan the QR Code
+          \end{enumerate}
     \item \textbf{Outcome}: The ticket is accepted as expected
 \end{itemize}
 \subsubsection{Rejecting an invalid ticket}
 \begin{itemize}
     \item \textbf{Test Goal}: Check if a not yet valid ticket is rejected by the system
-    \item \textbf{Prerequisites}: 
-    \begin{itemize}
-        \item Customer account
-        \item QR of a ticket for a timeslot in the future
-        \item Attendant account in the same store of the ticket
-    \end{itemize}
+    \item \textbf{Prerequisites}:
+          \begin{itemize}
+              \item Customer account credentials
+              \item QR code of a ticket for a timeslot in the future
+              \item Attendant account credentials, working in the same store of the ticket
+          \end{itemize}
     \item \textbf{Steps}:
-        \begin{enumerate}
-            \item Login in the attendant account
-            \item Tap `Scan QR code' button
-            \item Scan the QR Code
-        \end{enumerate}
+          \begin{enumerate}
+              \item Login with the attendant account
+              \item Tap `Scan QR code' button
+              \item Scan the QR Code
+          \end{enumerate}
     \item \textbf{Outcome}: The ticket is rejected as expected
 \end{itemize}
 
@@ -153,61 +155,60 @@ This test is repeated with this conditions:
 \subsubsection{Creating a new store}
 \begin{itemize}
     \item \textbf{Test Goal}: Create a new store with the store manager account
-    \item \textbf{Prerequisites}: A store manager account
+    \item \textbf{Prerequisites}: Store Manager account credentials
     \item \textbf{Steps}:
-    \begin{itemize}
-        \item Login as Store Manager
-        \item Click Create new Store
-        \item Fill the form with incomplete information
-        \item Submit the form
-        \item Add all information correctly
-        \item Submit the form
-        \item Check in the Customer Application if the store is displayed
-    \end{itemize}
+          \begin{itemize}
+              \item Login as Store Manager
+              \item Click `Create new Store'
+              \item Fill the form with incomplete information
+              \item Submit the form
+              \item Add all information correctly
+              \item Submit the form
+              \item Check in the Customer Application if the store is displayed
+          \end{itemize}
     \item \textbf{Outcome}: The store is createad and displayed in all maps as expected
-\end{itemize} 
+\end{itemize}
 \subsubsection{Creating a new time slot}
 \begin{itemize}
     \item \textbf{Test Goal}: Create a new store with the store manager account
-    \item \textbf{Prerequisites}: A store manager account with a store bound to it
+    \item \textbf{Prerequisites}: Store manager account credentials with a store bound to this account
     \item \textbf{Steps}:
-    \begin{itemize}
-        \item Login as Store Manager
-        \item Click `Edit Store'
-        \item Fill the `Add Store' form
-        \item Click `Add'
-        \item Check if the slot is correctly created
-    \end{itemize}
+          \begin{itemize}
+              \item Login as Store Manager
+              \item Click `Edit Store'
+              \item Fill the `Add Store' form
+              \item Click `Add'
+              \item Check if the slot is correctly created
+          \end{itemize}
     \item \textbf{Outcome}:  A minor issue was found
-    \begin{itemize}
-        \item \textbf{Issue}: A slot without time is created if in the `Starting Hour' field is AM or PM is not specified. The page didn't raise any error. 
-            If a slot without time is present in the day the customer will not find any free slot in that day.
-        \item \textbf{Fix}: The manager can delete easily the bugged timeslot and create a new one. This will fix the issue.
-        \item \textbf{Severity}: Low. The issue is easily detectable and fixable from the user.
-    \end{itemize}
-\end{itemize} 
+          \begin{itemize}
+              \item \textbf{Issue}: A slot without time is created if in the `Starting Hour' field is AM or PM is not specified. The page didn't raise any error.
+                    If a slot without time is present in the day the customer will not find any free slot in that day.
+              \item \textbf{Fix}: The manager can delete easily the bugged timeslot and create a new one. This will fix the issue.
+              \item \textbf{Severity}: Low. The issue is easily detectable and fixable from the user.
+          \end{itemize}
+\end{itemize}
 \subsubsection{View and Fire store attendants}
 \begin{itemize}
     \item \textbf{Test Goal}: Create a new store with the store manager account
     \item \textbf{Prerequisites}:
-        \begin{itemize}
-            \item A store manager account
-            \item At least an attendant account in that store
-        \end{itemize}
+          \begin{itemize}
+              \item Store Manager account credentials
+              \item At least an attendant account in the store bound to the manager
+          \end{itemize}
     \item \textbf{Steps}:
-    \begin{itemize}
-        \item Login as Store Manager
-        \item Click the `Attendants' button
-        \item Click `Fire' in an attendant row
-        \item Confirm the action
-        \item Check if the attendant is correctly fired
-    \end{itemize}
+          \begin{itemize}
+              \item Login as Store Manager
+              \item Click the `Attendants' button
+              \item Click `Fire' in an attendant row
+              \item Confirm the action
+              \item Check if the attendant is correctly fired
+          \end{itemize}
     \item \textbf{Outcome}:  An issue was found
-    \begin{itemize}
-        \item \textbf{Issue}: The Attendant could login again in his account. They can scan valid ticket and admit them into the store, however they can't see and
-            delete active bookings.
-        \item \textbf{Fix}: The user can't fix this issue manually.
-        \item \textbf{Severity}: Medium. A fired attendant has the rights of admitting people on the store. This is not however a big issue because a valid qr code is 
-            needed, and it is not trivial forging a ticket.
-    \end{itemize}
-\end{itemize} 
+          \begin{itemize}
+              \item \textbf{Issue}: The Attendant could login again with his account credentials. They can scan valid tickets and admit them into the store, however they can't see and
+                    delete active bookings.
+              \item \textbf{Fix}: The user can't fix this issue manually.
+              \item \textbf{Severity}: Medium. A fired attendant has the rights of admitting people in the store. This is not however a big issue because a valid qr code is still needed, and it is not trivial forging a ticket.
+          \end{itemize}
+\end{itemize}
