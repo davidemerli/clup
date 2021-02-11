@@ -1,0 +1,122 @@
+\subsection{Scope}
+This document shows how the acceptance testing is performed on an implementation of CLup done by another group.
+
+The acceptance testing performed on prototype is driven by the specifications, the design decisions and the implementation provided from the team 
+in written form on the \textbf{RASD}, \textbf{DD}, and \textbf{ITD}.
+
+The implementation on which this acceptance this acceptance test is perfomerd is the one made by Nicolò Sonnino 
+and Luca Pirovano and could be found at \href{https://github.com/PiroX4256/SE2-Piemonti-Pirovano-Sonnino}{this Github repository}.
+
+\subsection{Document Structure}
+
+\textbf{Chapter 1} explains the purpose of this document.
+Acronyms and Definitions used through the whole document are listed and explained.
+It provides the history of the document revisions and this very description of all the chapters, together with the documents used as a reference.
+
+\medskip
+
+\textbf{Chapter 2} shows how the installation was performed, following the documentation provided in the \textbf{ITD}.
+
+\medskip
+
+\textbf{Chapter 3} shows all the acceptance test cases performed with their outcome. For each issue a complete bug report is provided.
+
+\medskip
+
+
+\textbf{Chapter 4} contains the conclusions of this Acceptance test.
+
+\medskip
+
+\textbf{Chapter 5} shows the time spent from each member of the team for writing this document.
+
+\clearpage
+\subsection{Definitions, Acronyms, Abbreviations}
+
+\subsubsection{Acronyms}
+
+\begin{itemize}
+    \item \textbf{S2B}: Software To Be
+    \item \textbf{RASD}: Requirement Analysis and Specifications Documents
+    \item \textbf{REST}: REpresentational State Transfer
+    \item \textbf{API}: Application Programming Interface
+    \item \textbf{UX}: User Experience
+    \item \textbf{UI}: User Interface
+    \item \textbf{SSO}: Single sign-on
+    \item \textbf{QR code}: Quick Response code
+    \item \textbf{OS}: Operating System
+    \item \textbf{RAM}: Random Access Memory
+    \item \textbf{LAN}: Local Area Network
+    \item \textbf{GPS}: Global Positioning System
+    \item \textbf{GB}: GigaByte
+    \item \textbf{TCP/IP}: Transmission Control Protocol/Internet Protocol
+    \item \textbf{HTTPS}: Hypertext Transfer Protocol Secure
+    \item \textbf{IoT}: Internet of Things
+    \item \textbf{MQTT}: Message Queuing Telemetry Transport
+    \item \textbf{RAID}: Redundant Array of Independent Disks
+    \item \textbf{UML}: Unified Modeling Language
+    \item \textbf{TDD}: Test-driven development
+    \item \textbf{WSGI}: Web Server Gateway Interface
+    \item \textbf{ATD}: Acceptance Testing Document
+\end{itemize}
+
+\vfill
+\pagebreak
+
+\subsubsection{Definitions}
+
+\begin{itemize}
+    \item \textbf{Access controller}: a subsystem that permits the entrance of customers into the store. It can be a device like a smart turnstile that reads customers tickets or just a person of the store staff manually scanning tickets.
+    \item \textbf{Business account}: a CLup account that is destined to store managers or operators and therefore the 'business' side of CLup
+    \item \textbf{In-Site ticket}: a ticket that is taken by a customer near the store. It can be both a virtual paperless ti an emitter near the store premises
+    \item \textbf{Virtual ticket}: a ticket issued through the CLup application
+    \item \textbf{Physical/Paper ticket}: a printed physical ticket, emitted by a printer near the store premises
+    \item \textbf{Valid Ticket} (at time X): a ticket that has a code recognized by the CLup system and valid for the specified time
+    \item \textbf{Time slot}: a time delta that is associated with a number of bookable tickets (which varies and is customizable from store to store)
+    \item \textbf{People-Counting System}: a subsystem that permits the counting of the number of people inside the store. It can comprehend a device like a proximity sensor or a smart turnstile, or it can be a person of the store staff manually counting people.
+    \item \textbf{Customer Application}: the CLup mobile application destined to customers that want to shop inside stores adopting CLup
+    \item \textbf{Operator Application}: the CLup mobile application destined to store staff to monitor entrances and statistics
+    \item \textbf{Store Main System}: the store main server that communicates directly with CLup servers. All store subsystems and smart devices should communicate with it through an Intranet
+    \item \textbf{Geocoding API}: Geocoding converts addresses into geographic coordinates to be placed on a map. A Geocoding API allows the use of their services to permit translation between textual addresses and Latitude/Longitude coordinates
+    \item \textbf{Map API}: An external services that provides operations of geographics maps and the download of map information, usually of the places in proximity of given geographics coordinates
+    \item \textbf{Hashed Password}: When a password has been “hashed” it means it has been turned into a scrambled representation of itself. A user's password is taken and – using a key known to the site – the hash value is derived from the combination of both the password and the key, using a set algorithm.
+    \item \textbf{Time to market}: is the length of time it takes from a product being conceived until its being available for sale.
+    \item \textbf{Alpha Test}: a trial of machinery, software, or other products carried out by a developer before a product is made available for beta testing.
+    \item \textbf{Beta Test}: a trial of machinery, software or other products in the final stages of development, carried out by a party unconnected with the development process.
+    \item \textbf{DevOps}: is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.
+    \item \textbf{Quality Assessment}: is the data collection and analysis through which the degree of conformity to predetermined standards and criteria are exemplified.
+\end{itemize}
+
+\subsection{Revision History}
+
+\begin{itemize}
+    \item 1.0: 14 January 2021 - First Release
+\end{itemize}
+
+\subsection{Reference Documents}
+
+\begin{itemize}
+    \item R\&DD Assignment A.Y. 2020-2021 - Elisabetta di Nitto, Matteo Giovanni Rossi
+    \item Software Engineering II slides and material - Elisabetta di Nitto, Matteo Giovanni Rossi
+    \item CLup RASD - Nicolò Sonnino, Luca Pirovano
+    \item CLup DD - Nicolò Sonnino, Luca Pirovano
+    \item CLup ITD - Nicolò Sonnino, Luca Pirovano
+    \item \href{https://material.io/design}{Material Design Guidelines}
+    \item \href{https://www.conventionalcommits.org/en/v1.0.0/}{Convetional Commits Guidelines}
+    \item \href{https://git-scm.com/}{Git - versioning system}
+\end{itemize}
+
+\subsection{Used Tools}
+\begin{itemize}
+    \item Github - for code hosting and version control
+    \item \LaTeX \space  - to write this entire document
+    \item Visual Studio Code + Latex Workshop - as a \LaTeX \space environment
+\end{itemize}
+
+\subsection{Team Contacts}
+\begin{itemize}
+    \item Dario Passarello: dario.passarello@mail.polimi.it
+    \item Davide Merli: davideluca.merli@mail.polimi.it
+\end{itemize}
+
+\clearpage
