@@ -11,10 +11,10 @@ We also installed succesfully the mobile application using the provided build fi
 Following the section 5 of the ITD, we installed the requirements Java JDK 15 (open-jdk) and Maven.
 
 After pulling the repository from Github we run the command
-\begin{lstlisting}
+\begin{lstlisting}[columns=fullflexible]
     $ mvn package -Dmaven.test.skip=true
 \end{lstlisting}
-on the folder IT/Implementation/Backend. The build was successful.
+in the folder IT/Implementation/Backend. The build was successful.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Images/package.jpg}
@@ -26,14 +26,15 @@ As stated in the chapter 6 of the ITD a mysql data source should be available to
 
 We hosted locally a mysql instance in a docker container and configured the application.yaml accordingly.
 
-
-In the same folder of the application jar file we run
-\begin{lstlisting}
+In the same folder of the application jar file we ran
+\begin{lstlisting}[columns=fullflexible]
     $ java -jar clupapplication-1.1.jar -spring.config.location=application.yaml
 \end{lstlisting}
 
-Connecting with a web browser at the address localhost:8084 (the port is configured in the application.yaml)
-the CLup home page is displayed correctly. We tried to register an account, that worked properly.
+Running this will start both the API service and the Web Application, on localhost.
+
+\clearpage
+By connecting with a web browser to the address localhost:8084 (the port is configurable in application.yaml), the CLup home page is displayed correctly. We tried to register an account, and that worked properly, testifing that the database was initialized succesfully.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Images/deploy.jpg}
@@ -41,24 +42,18 @@ the CLup home page is displayed correctly. We tried to register an account, that
 \end{figure}
 
 \subsection{Running tests}
-Using instruction in the chapter 5 we run the tests.
-The application.yaml was not found in the folder specified by the instruction. Copying the application.yaml
-file used in the deployment in the src/main/resources solves the issue (if the database used for testing is the
+Using instructions provided in chapter 5 we ran the tests.
+The application.yaml was not found in the folder specified in the instructions. Copying the application.yaml file used in the deployment in the src/main/resources directory solves the issue (if the database used for testing is the
 same used for the deployment).
 
 After doing these steps running
-\begin{lstlisting}
+\begin{lstlisting}[columns=fullflexible]
     $ mvn test
 \end{lstlisting}
 produces the following output
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Images/test.jpg}
     \caption{\label{fig:Booked_Ticket_State}All tests passing}
 \end{figure}
-This means that all the test pass, as we expected.
-
-%TODO: finish
-% \subsection{Building from Source}
-
-% Following the instructions to build the backend (using Java JDK 15) no issues were encountered,
+This means that all the test pass, as shown in the ITD.

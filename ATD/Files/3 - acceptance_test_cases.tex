@@ -29,6 +29,7 @@ This test is repeated with these conditions:
     \item \textbf{Outcome}: In all cases everything works as intended and there are no noticeable problems with the authentication features
 \end{itemize}
 
+\clearpage
 
 \subsection{Test Batch 2: Creating a ticket}
 \subsubsection{Customer Creates a Ticket}
@@ -70,6 +71,7 @@ This test is repeated with these conditions:
     \item \textbf{Outcome}: In all cases everything works as intended
 \end{itemize}
 
+\clearpage
 
 \subsection{Test Batch 3: Deleting a ticket}
 \subsubsection{Customer Deletes a Ticket}
@@ -113,6 +115,7 @@ This test is repeated with these conditions:
     \item \textbf{Outcome}: In all cases everything works as intended
 \end{itemize}
 
+\clearpage
 
 \subsection{Test Batch 4: Admitting a ticket inside the store}
 \subsubsection{Admitting a valid ticket}
@@ -150,6 +153,7 @@ This test is repeated with these conditions:
     \item \textbf{Outcome}: The ticket is rejected as expected
 \end{itemize}
 
+\clearpage
 
 \subsection{Test Batch 5: Managing the store}
 \subsubsection{Creating a new store}
@@ -176,16 +180,16 @@ This test is repeated with these conditions:
           \begin{itemize}
               \item Login as Store Manager
               \item Click `Edit Store'
-              \item Fill the `Add Store' form
+              \item Fill the `Add Slot' form
               \item Click `Add'
               \item Check if the slot is correctly created
           \end{itemize}
     \item \textbf{Outcome}:  A minor issue was found
           \begin{itemize}
-              \item \textbf{Issue}: A slot without time is created if in the `Starting Hour' field is AM or PM is not specified. The page didn't raise any error.
-                    If a slot without time is present in the day the customer will not find any free slot in that day.
+              \item \textbf{Issue}: A slot without a time field is created if AM or PM is not specified in the `Starting Hour' textbox. The page didn't raise any error.
+                    If a slot without a time field is present in the day, the customer will not find any free slots for that day.
               \item \textbf{Fix}: The manager can delete easily the bugged timeslot and create a new one. This will fix the issue.
-              \item \textbf{Severity}: Low. The issue is easily detectable and fixable from the user.
+              \item \textbf{Severity}: Low. The issue is easily detectable and fixable by the manager.
           \end{itemize}
 \end{itemize}
 \subsubsection{View and Fire store attendants}
@@ -211,4 +215,25 @@ This test is repeated with these conditions:
               \item \textbf{Fix}: The user can't fix this issue manually.
               \item \textbf{Severity}: Medium. A fired attendant has the rights of admitting people in the store. This is not however a big issue because a valid qr code is still needed, and it is not trivial forging a ticket.
           \end{itemize}
+\end{itemize}
+
+\clearpage
+
+\subsection{Stressing permissions}
+\begin{itemize}
+    \item \textbf{Test Goal}: Check if application permissions exceptions are handled correctly
+    \item \textbf{Prerequisites}:
+          \begin{itemize}
+              \item Store Attendant account credentials
+          \end{itemize}
+    \item \textbf{Steps}:
+          \begin{itemize}
+              \item Login as Store Attendant
+              \item Click the `Scan QR code' button
+              \item Click `No' when asked to allow camera permissions
+              \item Login as Store Attendant
+              \item Click again the `Scan QR code' button
+              \item Click `Deny and don't ask again' when asked to allow camera permissions
+          \end{itemize}
+    \item \textbf{Outcome}:  The app behaves correctly and does not halt/show uncorrect behavior if camera permissions are not allowed by the user. It simply responds with an 'Invalid' dialog, and returns to the previous screen.
 \end{itemize}
