@@ -1,5 +1,9 @@
 # CLup (Customers Line Up)
 
+## Demo as a Customer
+https://user-images.githubusercontent.com/53702616/138287448-85f6b08d-fd7c-4e25-9eb3-12dd14fba42c.mp4
+
+
 Customers Line Up is a system that helsp grocery stores to avoid long queues at their entrance caused by covid restrictions that limits their capacity.
 
 Main features:
